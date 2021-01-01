@@ -117,7 +117,7 @@
               <ul>
                 <li>Corporate Training</li>
                 <li>Online Training</li>
-                <li>Certifications</li>
+                <a href="http://localhost/hrs_backend/certificate.php"><li>Certifications</li></a>
               </ul>
             </div>
           </div>
