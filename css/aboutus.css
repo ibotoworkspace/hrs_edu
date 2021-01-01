@@ -103,13 +103,13 @@ span.thinword {
     color: #243439;
     font-weight: 400;
 }
-.fstbannerdata h1 {
+.fstbannerdatas h1 {
     font-size: 47px;
     color: #bfb28e;
     font-weight: 600;
     margin-top: 30px;
 }
-.fstbannerdata h2 {
+.fstbannerdatas h2 {
     font-size: 47px;
     color: #243439;
     font-weight: 600;
@@ -162,6 +162,10 @@ span.bannertext {
     color: #353535;
     font-weight: 500;
 }
+.pointsareas {
+    background: #243439;
+    padding: 40px 0px;
+}
 .pointboxdata {
     padding: 30px 20px;
 }
@@ -175,7 +179,7 @@ h3.double {
 h3.doubles {
     color: #666666;
 }
-.coursearea {
+.courseareaabout {
     background: #ececec;
     padding: 45px 0px;
 }
@@ -193,17 +197,17 @@ h3.doubles {
     color: #bfb28e;
     margin-bottom: 25px;
 }
-.courseboxsdata {
+.courseboxsdatas {
     padding: 15px 20px;
 }
-.courseboxsdata h4 {
+.courseboxsdatas h4 {
     text-align: center;
     font-size: 22px;
     font-weight: 600;
     color: #243439;
     margin-top: 20px;
 }
-.courseboxsdata p {
+.courseboxsdatas p {
     text-align: center;
     font-size: 19px;
     color: #243439;
