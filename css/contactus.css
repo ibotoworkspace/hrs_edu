@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
+body,html {
+	font-size: 15px;
+    line-height: 1.4666666667;
+    color: #000;
+    font-family: 'Manjari', sans-serif;
+}
+h1,h2,h3,h4{
+	font-family: 'Manjari', sans-serif;
+}
+/* .btn-primary {
+    color: #fff;
+    background-color: #ca0000;
+    border-color: #ca0000;
+} */
+.btn-primary:hover {
+    color: #fff;
+    background-color: #2d2c32;
+    border-color: #2d2c32;
+}
+.contactareadata h2 {
+    text-align: center;
+    color: white;
+    font-size: 35px;
+    font-weight: 600;
+}
+.contactareadata h3 {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+.contactareadata p {
+    text-align: center;
+    color: white;
+    font-size: 22px;
+    font-weight: 400;
+}
+.logosite h3 {
+    font-size: 26px;
+    color: white;
+    font-weight: 500;
+}
+.infobox {
+    display: flex;
+}
+.infoboxdata p {
+    color: white;
+    font-size: 17px;
+    font-weight: 400;
+    margin: 0px 10px;
+}
+.infoboximg img {
+    margin: 0 auto;
+    height: 40px;
+    width: auto;
+    margin: 8px 0px;
+}
+.infoboxdata p {
+    margin-top: 15px;
+}
+.logosite h3 {
+    font-size: 26px;
+    color: white;
+    font-weight: 500;
+    margin-top: 35px;
+    margin-bottom: 15px;
+}
+.logosite img {
+    margin: 0 auto;
+}
+.myform {
+    margin-top: 100px;
+}
+.paddown {
+    margin-bottom: 25px;
+}
+.myformdata {
+    background: transparent;
+    border: 3px solid;
+    border-color: white;
+    border-radius: 6px;
+    height: 50px;
+    width: 100%;
+    color: white;
+}
+.entersend {
+    background: #e2e2e2;
+    border-color: #e2e2e2;
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 2px 15px;
+    padding-top: 9px;
+    height: 45px;
+    width: 140px;
+    margin-top: 15px;
+}
+.entersend:hover {
+    background: #bfb28e;
+    border-color: #bfb28e;
+    color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width : 768px) {
+
+   
+}
