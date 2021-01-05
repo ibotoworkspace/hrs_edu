@@ -40,7 +40,7 @@ include 'index.php'
                         </p>
                     </div>
                     <div class="learningtwodataclick">
-                        <button type="button" class="btn btn-primary allcourses">VIEW ALL COURSES</button>
+                        <a href="http://localhost/hrs_backend/courses.php"><button type="button" class="btn btn-primary allcourses">VIEW ALL COURSES</button></a>
                     </div>
                 </div>
                 <div class="col-sm-6">

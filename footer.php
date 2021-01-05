@@ -2,13 +2,6 @@
 <html lang="en">
 
 <head>
-  <!-- <title>Index</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
   <link href="css/index.css" rel="stylesheet">
   <link href="css/home.css" rel="stylesheet">
 
@@ -117,7 +110,7 @@
               <ul>
                 <li>Corporate Training</li>
                 <li>Online Training</li>
-                <a href="http://localhost/hrs_backend/certificate.php"><li>Certifications</li></a>
+                <li>Certifications</li></a>
               </ul>
             </div>
           </div>
@@ -129,7 +122,7 @@
               <h4>HELP & SUPPORT</h4>
               <ul>
                 <li>Help Cente</li>
-                <li>Contact Us</li>
+                <li><a href="http://localhost/hrs_backend/contactus.php"></a>Contact Us</li>
               </ul>
               <a href=""><img src="images/googleplay.png" class="img-responsive"></a>              
             </div>
@@ -146,7 +139,7 @@
       <div class="row">
         <div class="col-sm-8">
           <div class="copydata">
-            <p>Copyright © 2020 HRS Academy | All Rights Reserved | Designed by HATINC.</p>
+            <p>Copyright © 2020 HRS Academy | All Rights Reserved | Designed by <a href="https://hatinco.com/" target="_blank" > HATINC.</a></p>
           </div>
         </div>
         <div class="col-sm-4">
