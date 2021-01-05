@@ -431,6 +431,9 @@ p.smallright {
     line-height: 26px;
     text-align: left;
 }
+.copydata a {
+    color: #bfb28e;
+}
 .companyarea img {
     margin: 0 auto;
     margin-top: 20px;
