@@ -102,7 +102,7 @@
                     <a href="http://localhost/hrs_backend/courses.php"><span class="headpad">Courses</span> </a>
                   </li>
                   <li id="6">
-                    <a href="#"><span class="headpad">Resource</span> </a>
+                    <a href="http://localhost/hrs_backend/resourse.php"><span class="headpad">Resource</span> </a>
                   </li>
                   <li id="7">
                     <a href="http://localhost/hrs_backend/contactus.php"><span class="headpad">Contact</span> </a>

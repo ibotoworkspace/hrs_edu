@@ -9,6 +9,9 @@ include 'index.php'
 
 
 <section>
+    <title>
+    LEARNING MANAGEMENT
+    </title>
     <div class="learningtop">
         <div class="container">
             <div class="row">

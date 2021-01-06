@@ -1,0 +1,50 @@
+.designerheading h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #bfb28e;
+    font-weight: 600;
+    margin-top: 25px;
+}
+.designerarea {
+    padding: 10px 0px;
+    background: white;
+}
+.designerbackdata h3 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #bfb28e;
+    border-bottom: 2px solid;
+    width: 100%;
+}
+.designerback {
+    background: #243439;
+    padding: 50px 0px;
+}
+.designerbackdata ul li:before {
+    content: "\f138";
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'FontAwesome';
+    padding-right: 10px;
+    line-height: 35px;
+    left: 0;
+}
+.designerbackdata li {
+    color: white;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 26px;
+    text-align: left;
+}
+.designerbackdata ul {
+    list-style: none;
+    padding: 0px;
+}
+.designerbackdata p {
+    font-size: 22px;
+    color: white;
+    line-height: 35px;
+    font-weight: 400;
+    margin-top: 20px;
+}
