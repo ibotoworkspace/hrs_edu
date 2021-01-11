@@ -2,6 +2,12 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link href="css/index.css" rel="stylesheet">
   <link href="css/home.css" rel="stylesheet">
 
@@ -23,7 +29,7 @@
 
 <section>
   <div class="newsarea">
-      <div class="container">
+      <div class="container">0
           <div class="row">
               <div class="col-sm-12">
                   <div class="newsdata">
@@ -133,7 +139,7 @@
   </div>
 </footer>
 
-<footer>
+<!-- <footer>
   <div class="leastfooter">
     <div class="container">
       <div class="row">
@@ -154,10 +160,14 @@
       </div>
     </div>
   </div>
-</footer>
+</footer> -->
 
 
 
 
 </body>
 </html>
+
+<?php
+include 'studentdashfooter.php'
+?>

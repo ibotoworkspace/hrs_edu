@@ -12,12 +12,12 @@ h1,h2,h3,h4{
     color: #fff;
     background-color: #ca0000;
     border-color: #ca0000;
-} */
+}
 .btn-primary:hover {
     color: #fff;
     background-color: #2d2c32;
     border-color: #2d2c32;
-}
+} */
 .topheaderdata{
     display: flex;
 }
@@ -48,39 +48,40 @@ h1,h2,h3,h4{
     cursor: pointer;
 }
 .leadrning {
-    background: #e2e2e2;
-    border-color: #e2e2e2;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 2px 15px;
-    padding-top: 9px;
+    background: #e2e2e2 !important;
+    border-color: #e2e2e2 !important;
+    color: black !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    padding: -2px 15px !important;
+    padding-top: 9px !important;
 }
 .leadrning:hover {
-    background: #bfb28e;
-    border-color: #bfb28e;
+    background: #bfb28e !important;
+    border-color: #bfb28e !important;
+    color: white !important;
 }
 .twoheader {
-    background: #bfb28e;
-    padding: 10px 0px;
+    background: #bfb28e !important;
+    padding: 10px 0px !important;
 }
 .logoArea img {
     margin: 0 auto;
 }
 .portal {
-    float: right;
-    background: #243439;
-    border-color: #243439;
-    color: white;
-    margin: 10px 5px;
-    font-size: 16px;
-    font-weight: 600;
-    padding-top: 7px;
+    float: right !important;
+    background: #243439 !important;
+    border-color: #243439 !important;
+    color: white !important;
+    margin: 10px 5px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding-top: 7px !important;
 }
 .portal:hover {
-    background: white;
-    border-color: white;
-    color: #000;
+    background: white !important;
+    border-color: white !important;
+    color: #000 !important;
 }
 span.headpad {
     font-size: 21px;
@@ -359,25 +360,25 @@ p.smallright {
     margin: 0px -10px;
 }
 .message {
-    font-size: 35px;
+    font-size: 35px !important;
     color: white;
     margin: 0px 5px;
 } 
 .newssign {
-    background: #e2e2e2;
-    border-color: #e2e2e2;
-    color: black;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 2px 15px;
-    padding-top: 9px;
-    width: 120px;
-    margin: 0px -10px;
+    background: #e2e2e2 !important;
+    border-color: #e2e2e2 !important;
+    color: #6d6d6d !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    padding: 2px 15px !important;
+    padding-top: 5px !important;
+    width: 120px !important;
+    margin: 0px -10px !important;
 }
 .newssign:hover {
-    background: #bfb28e;
-    border-color: #bfb28e;
-    color: white;
+    background: #bfb28e !important;
+    border-color: #bfb28e !important;
+    color: white !important;
 }
 .footerarea {
     background: #243439;
@@ -451,7 +452,9 @@ p.smallright {
     list-style: none;
     padding: 0px;
 }
-
+.newsdata {
+    margin-top: -50px;
+}
 
 
 
