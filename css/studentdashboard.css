@@ -1,8 +1,6 @@
-@media(min-width:768px) {
-    body {
-        margin-top: 50px;
-    }
-    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
+@media (min-width: 768px)
+body {
+    /* margin-top: 50px; */
 }
 
 #wrapper {
@@ -29,6 +27,10 @@
 
 .top-nav {
     padding: 0 15px;
+}
+.smaz {
+    background-color: transparent;
+    border-color: transparent;
 }
 
 .top-nav>li {
@@ -101,7 +103,7 @@
 }
 ul.nav.navbar-nav {
     margin-top: 5px;
-    margin-left: 0px;
+    margin-left: -1px;
 }
 .side-nav>li>ul {
     padding: 0;
