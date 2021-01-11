@@ -70,7 +70,7 @@
         </div>
         <div class="col-sm-3">
           <div class="topheaderclick">
-            <a href="http://localhost/hrs_backend/learning.php"><button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button></a>
+            <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button>
           </div>
         </div>
       </div>
