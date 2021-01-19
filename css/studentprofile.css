@@ -166,6 +166,7 @@ ul.nav.navbar-nav.side-nav.mysidemenu {
 
 
 
+
 .row.serchbox {
     background: #e2e2e2;
     height: 90px;
@@ -177,86 +178,54 @@ ul.nav.navbar-nav.side-nav.mysidemenu {
     width: 100%;
     height: 40px;
 }
-.infoboxdata {
+.row.studentarea {
     background: #243439;
+    padding: 15px 10px;
+    margin: 25px 10px;
+}
+.studentdboxdata.col-sm-10 {
     display: flex;
-    padding: 15px 20px;
-    min-height: 150px;
-    margin: 25px 5px;
 }
-.infoboxdatatext h4 {
-    font-size: 20px;
-    font-weight: 600;
-    color: #d0c7c7;
+.studentdboxdata.col-sm-2 img {
+    margin: 0 auto;
+    height: 150px;
 }
-.infoboxdatatext h3 {
+.studentboxdatathree.col-sm-8 h4 {
+    margin-top: 42px;
+    font-size: 22px;
+    color: white;
+}
+.studentboxdatathree.col-sm-8 h5 {
     font-size: 19px;
-    color: #d0c7c7;
-    font-weight: 200;
-    margin-top: 0px;
+    color: white;
 }
-.desk {
+.studentdboxdataimg.col-sm-2 img {
+    margin: 0 auto;
+    height: 145px;
+}
+.studentform {
+    margin-top: 10px;
+    margin: 0px 10px;
+}
+.stuform {
+    background: #f1f1f1;
+    border: none;
+    border-color: white;
+    border-bottom: 1px solid;
+    border-radius: 0px;
+    margin-bottom: 20px;
+    height: 40px;
+}
+.update {
     background: #bfb28e;
     border-color: #bfb28e;
-    height: 30px;
-    margin-top: 8px;
-}
-.desk:hover {
-    background: #e2e2e2;
-    border-color: #e2e2e2;
-    color: black;
-}
-.row.courseside {
-    background: #bfb28e;
-    padding: 10px 10px;
-    margin: 0px 5px;
-}
-thead.coursesidehead {
-    background: #243439;
-    color: #d0c7c7;
-}
-.coursesidedata h3 {
+    font-size: 17px;
+    padding: 5px 10px;
+    margin: 22px 10px;
     color: white;
-    margin-top: 7px;
 }
-thead.coursesidehead tr {
-    height: 44px;
-}
-tbody.mycolarea tr {
-    color: white;
-    font-size: 16px;
-}
-tr.mycolareadata td {
-    border-bottom: 1px solid;
-    border-bottom-color: #bfb28e;
-}
-.payment {
+.update:hover {
     background: #243439;
     border-color: #243439;
     color: white;
-    padding: 8px 19px;
-}
-.payment:hover {
-    background: #e2e2e2;
-    border-color: #e2e2e2;
-    color: black;
-}
-table.table.mytables {
-    margin-bottom: 0px;
-}
-.row.recentbox {
-    background: #bfb28e;
-    padding: 10px 10px;
-    margin: 25px 5px;
-    min-height: 245px;
-}
-.recentboxdata h3 {
-    color: white;
-    margin-top: 7px;
-}
-.recentboxdata h4 {
-    background: #243439;
-    color: white;
-    height: 40px;
-    padding: 13px 7px;
 }

@@ -3,6 +3,7 @@ include 'index.php'
 ?>
 
 <link href="css/studentdashboard.css" rel="stylesheet">
+<link href="css/myregstration.css" rel="stylesheet">
 
 
 
@@ -56,47 +57,22 @@ include 'index.php'
     </nav>
     <div id="page-wrapper">
 
-<section>
-    <title>
-        DASHBOARD
-    </title>
-        <div class="serchsite">
-            <div class="container-fluid">
-                <div class="row serchbox">
-                    <div class="col-sm-12">
-                        <div class="serchsitedata">
-                            <input type="text" class="form-control shdata" id="exampleFormControlInput1" placeholder="Serch here...">
+        <section>
+            <title>
+                MY REGISTERED
+            </title>
+            <div class="serchsite">
+                <div class="container-fluid">
+                    <div class="row serchbox">
+                        <div class="col-sm-12">
+                            <div class="serchsitedata">
+                                <input type="text" class="form-control shdata" id="exampleFormControlInput1"
+                                    placeholder="Serch here...">
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row infobox">
-                    <div class="col-sm-6">
-                        <div class="infoboxdata row">
-                            <div class="infoboxdatatext col-sm-8">                                
-                                <h4>MR. WALEED HUSSAIN</h4>
-                                <h3>Welcome to HRS Academy</h3>
-                            </div>
-                            <div class="infoboxdatatextimg col-sm-4">
-                                <img src="images/image-15.png" class="img-responsive">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="infoboxdata row">
-                            <div class="infoboxdatatext col-sm-8">
-                                <h4>HELP GUIDE</h4>
-                                <h3>Need help? Check out our help desk</h3>
-                                <button type="button" class="btn btn-primary desk">HELP DESK</button>
-                            </div>
-                            <div class="infoboxdatatextimg col-sm-4">
-                                <img src="images/image-16.png" class="img-responsive">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row courseside">
+                <div class="row coursesides">
                     <div class="col-sm-12">
                         <div class="coursesidedata">
                             <h3>MY REGISTERED COURSES</h3>
@@ -134,42 +110,25 @@ include 'index.php'
                     </div>
                 </div>
 
-                <div class="row recentbox">
-                    <div class="col-sm-12">
-                        <div class="recentboxdata">
-                            <h3>RECENT SUPPORT REQUESTS</h3>
-                            <h4>It appears you do not have any support request with us yet.</h4>
-                        </div>
-                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
-        </div>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </section>
 
 
     </div>
 </div>
-
-
-
 
 
 
