@@ -38,7 +38,7 @@
 
 <header>
   <div class="topheader">
-    <div class="container-fluid">
+    <div class="container-fluid " >
       <div class="row">
         <div class="col-sm-9">
           <div class="topheaderdata">            
@@ -73,11 +73,17 @@
         <div class="col-sm-3">
           <div class="topheaderclick">
             <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button>
+            <button data-target="#mNAV" data-toggle="collapse" id="mnav-button"
+                                    class="navbar-toggle fa fa-bars fa-2x collapsed" type="button">
+                                </button>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+
+  
 </header>
 
 <section>   
@@ -91,7 +97,7 @@
         </div>
         <div class="col-sm-10 col-xs-12">
           <nav>
-            <div class="jump">
+            <div class="jump" id="nmNAV">
               <div class="navbar-collapse nav-collapse collapse">               
                 <ul class="nav navbar-nav">
                   <li id="11">
