@@ -28,6 +28,9 @@ body {
 .top-nav {
     padding: 0 15px;
 }
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
+}
 .smaz {
     background-color: transparent;
     border-color: transparent;
@@ -37,6 +40,10 @@ body {
     display: inline-block;
     float: left;
 }
+
+/* button.btn.btn-primary.payment {
+    background-color: #bfb28e;
+} */
 
 .top-nav>li>a {
     padding-top: 20px;

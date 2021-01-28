@@ -21,6 +21,10 @@ h1,h2,h3,h4{
 .topheaderdata{
     display: flex;
 }
+
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
+}
 .topbox{
     display: flex;
 }

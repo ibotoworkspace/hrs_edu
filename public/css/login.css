@@ -25,6 +25,9 @@ h1,h2,h3,h4{
     color: #bfb28e;
     margin-top: 31px;
 }
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
+}
 .formarea {
     background: #243439;
     padding: 30px 0px;

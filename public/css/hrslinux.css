@@ -61,3 +61,8 @@
     border-bottom: 2px solid;
     width: 100%;
 }
+
+
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
+}

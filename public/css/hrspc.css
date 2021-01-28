@@ -18,6 +18,10 @@
     background: #bfb28e;
     border-color: #bfb28e;
 }
+ button.btn.btn-primary.hrsclicks {
+        background-color: #bfb28e;
+   }
+    
 .courseoverviewclick {
     margin-top: 20px;
     text-align: left;

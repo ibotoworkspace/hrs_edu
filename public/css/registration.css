@@ -23,12 +23,23 @@
     border-radius: 0px;
     height: 40px;
 }
+
+button.btn.btn-primary.applyhere{
+
+
+
+    background-color: #bfb28e;
+}
 .registrationform {
     padding: 40px 0px;
     background: #243439;
 }
 .registrationformimg img {
     margin: 0 auto;
+}
+
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
 }
 .applyhere {
     background: #bfb28e;

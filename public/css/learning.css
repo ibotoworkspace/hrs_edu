@@ -22,6 +22,14 @@
     font-weight: 400;
     margin-top: 10px;
 }
+
+button.btn.btn-primary.allcourses {
+    background-color: #bfb28e;
+}
+
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
+}
 .learningarea {
     background: #243439;
     padding: 50px 0px;
