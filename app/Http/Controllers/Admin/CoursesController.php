@@ -3,14 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use COM;
 use Illuminate\Http\Request;
+use App\models\Courses;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Config;
+
 
 class CoursesController extends Controller
 {
-    function list()
-    {
-        return view('admin.courses.index');
-    }
+    // function list()
+    // {
+    //     return view('admin.courses.index');
+    // }
 
     function ListofCourses()
     {
@@ -20,7 +25,7 @@ class CoursesController extends Controller
     {
         return view('admin.Listofquiz.index');
     }
-
+  
 
     function  addmaincourse()
     {
@@ -67,5 +72,137 @@ class CoursesController extends Controller
         {
             return view('admin.userperformance.index');
         }
+        
+
+///////////////crud course............................
+
+
+
+
+      public function index(Request $request)
+    {
+
+
+        $courses = Courses::paginate(10);
+     
+        return view('admin.courses.index', compact('courses'));
+
+    }
+
+    public function create()
+    {
+        $control = 'create';
+      
+
+        return \View::make(
+            'admin.courses.create',
+            compact('control')
+        );
+    }
+
+
+    public function save(Request $request)
+    {
+        $courses = new Courses();
+       
+        $this->add_or_update($request , $courses);
+
+        return redirect('admin/courses');
+        
+    }
+    public function edit($id)
+    {
+
+        $control = 'edit';
+        
+        return \View::make('admin.courses.create', compact(
+            'control',
+           
+        ));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $courses = Courses::find($id);
+      
+        $this->add_or_update($request, $courses);
+        return Redirect('admin/courses');
+    }
+
+
+    public function add_or_update($request, $courses)
+    {
+        $courses->title = $request->mytitle;
+        $courses->detail = $request->detail;
+        $courses->requirments = $request->requirments;
+        $courses->hours = $request->hours;
+        $courses->lectures = $request->lectures;
+
+      
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->avatar;
+            $root = $request->root();
+            $courses->avatar = $this->move_img_get_path($avatar, $root, 'image');
+        } else if (strcmp($request->avatar_visible, "")  !== 0) {
+            $courses->avatar = $request->avatar_visible;
+        }
+
+
+        if ($request->hasFile('images')) {
+            $images = $request->images;
+            $root = $request->root();
+            $courses->download_pdf = $this->move_img_get_path($images, $root, 'images');
+        } else if (strcmp($request->images_visible, "")  !== 0) {
+            $courses->download_pdf = $request->images_visible;
+        }
+        $courses->save();
+      
+        return redirect()->back();
+    }
+
+
+
+    public function search(Request $request)
+
+ {
+
+
+    
+
+        $name = $request->title ?? '';
+
+        $courses = Courses::where('title', function ($query) use ($name) {
+            $query->where('title', 'like', '%' . $name . '%');
+        
+        });     
+        return view('admin.courses.index', compact('courses','name'));
+ 
+    }
+
+    
+
+       public function destroy_undestroy($id)
+    {
+
+        $courses = Courses::find($id);
+        if ($courses) {
+            Courses::destroy($id);
+            $new_value = 'Activate';
+        } else {
+            Courses::withTrashed()->find($id)->restore();
+            $new_value = 'Delete';
+        }
+        $response = Response::json([
+            "status" => true,
+            'action' => Config::get('constants.ajax_action.delete'),
+            'new_value' => $new_value
+        ]);
+        return $response;
+    }
+
+   
+
+
+
 
 }

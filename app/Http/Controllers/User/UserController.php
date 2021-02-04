@@ -13,7 +13,7 @@ class UserController extends Controller
     }
 
     public function index(){
-        return view('user.layouts.index');
+        return view('user.users.index');
     }
 
  
@@ -37,9 +37,17 @@ class UserController extends Controller
 public function career(){
     return view('user.careerjobs.careerjobs');
 }
-    public function contactus(){
-        return view('user.contactus.index');
-    }
+// function userscore()
+// {
+//     return view('user.userscore.index');
+// }
+    // public function contactus(){
+    //     return view('user.contactus.index');
+
+
+
+        
+    // }
 
     public function contentwriter(){
         return view('user.contentwriter.index');

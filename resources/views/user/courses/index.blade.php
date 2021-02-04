@@ -46,7 +46,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrsnetwork.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrsnetwork')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -66,7 +66,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrsdesktop.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrsdesktop')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrslinux.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrslinux')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -111,7 +111,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrspc.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrspc')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrsoffice.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrsoffice')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrsserver.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrsserver')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -177,7 +177,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrsitclint.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrsitclient')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -197,7 +197,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrssecurity.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrssecurity')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -217,7 +217,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrshacking.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrshacking')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>
@@ -240,7 +240,7 @@
                         </p>
                     </div>
                     <div class="coursesboxclick">
-                        <a href="http://localhost/hrs_backend/hrslti.php"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                        <a href="{{asset('user/hrslti')}}"><button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                     </div>
                 </div>
             </div>

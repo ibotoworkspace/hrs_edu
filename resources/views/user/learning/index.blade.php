@@ -44,12 +44,12 @@
                         </p>
                     </div>
                     <div class="learningtwodataclick">
-                        <a href="http://localhost/hrs_backend/courses.php"><button type="button" class="btn btn-primary allcourses">VIEW ALL COURSES</button></a>
+                        <a href="{{asset('user/courses')}}"><button type="button" class="btn btn-primary allcourses">VIEW ALL COURSES</button></a>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="learningtwodataimg">
-                        <img src="images/learning.jpg" class="img-responsive">
+                        <img src="{{asset('images/learning.jpg')}}" class="img-responsive">
                     </div>
                 </div>
             </div>

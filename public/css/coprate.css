@@ -40,6 +40,9 @@
     line-height: 26px;
     text-align: left;
 }
+button.btn.btn-primary.viewal {
+    background-color: #bfb28e;
+}
 .careerjobboxdata ul {
     list-style: none;
     padding: 0px;

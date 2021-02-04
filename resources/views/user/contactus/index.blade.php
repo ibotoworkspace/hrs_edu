@@ -5,10 +5,13 @@
   @section('default')
 
 <section>
+
+
+    
 <head>
   <title>Contact-US</title>
 </head>
-    <div class="contactarea">
+    <div class="contactarea" >
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -76,23 +79,26 @@
                         </div>
                     </div>
                 </div>
+                @foreach ($contactus as $ct)
                 <div class="col-sm-8">
                     <div class="contactform">
                       <div class="myform">
                         <div class="form-group paddown">
-                          <input type="text" class="form-control myformdata" id="GnTName" placeholder="Enter Name" name="Name">
+                          <input type="text" class="form-control myformdata" value={{ $ct->name}} id="GnTName" placeholder="Enter Name" name="Name">
                         </div>
                         <div class="form-group paddown">
-                          <input type="email" class="form-control myformdata" id="GnTemail" placeholder="Enter email" name="email">
+                          <input type="email" class="form-control myformdata"  value={{ $ct->email}} id="GnTemail" placeholder="Enter email" name="email">
                         </div>
                         <div class="form-group paddown">
-                          <input type="tel" class="form-control myformdata" id="GnTPhone" placeholder="Enter Phone" name="Phone">
+                          <input type="phoneno." class="form-control myformdata" value={{ $ct->phone_no}}  placeholder="Enter Phone" name="Phone">
                         </div>
                         <div class="form-group paddown">
-                          <input type="text" class="form-control myformdata" id="GnTName" placeholder="Enter Subject" name="Subject">
+                          <input type="text" class="form-control myformdata" value={{ $ct->subject}} id="GnTName" placeholder="Enter Subject" name="Subject">
                         </div>
                         <div class="form-group paddown">
-                          <textarea class="form-control myformdata" rows="6" id="GnTcomment" placeholder="Enter Comment"></textarea>
+                          <textarea class="form-control myformdata" rows="6"  id="GnTcomment" placeholder="Enter Comment">
+                            {{ $ct->comment}}
+                          </textarea>
                         </div>
                         <div class="myformclick">
                           <button type="button" class="btn btn-primary entersend">SEND NOW</button>
@@ -100,6 +106,7 @@
                       </div>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>
