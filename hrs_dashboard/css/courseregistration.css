@@ -1,0 +1,42 @@
+.row.serchbox {
+    background: #e2e2e2;
+    height: 90px;
+    padding: 24px 5px;
+    margin-top: 0px;
+}
+.shdata {
+    border-color: #bfb28e;
+    width: 100%;
+    height: 40px;
+}
+.row.courseregarea {
+    background: #243439;
+    color: white;
+    margin: 25px 5px;
+}
+.courseregareadata h3 {
+    margin-top: 15px;
+}
+.applynow {
+    background: #bfb28e;
+    border-color: #bfb28e;
+    padding: 8px 22px;
+    font-size: 16px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.applynow:hover {
+    background: white;
+    border-color: black;
+    color: black;
+}
+.courselectareadata.row label {
+    font-size: 24px;
+    font-weight: 400;
+    color: #565656;
+}
+.nowpoint {
+    height: 45px;
+    margin: 0px -5px;
+}
