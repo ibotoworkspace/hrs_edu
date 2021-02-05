@@ -158,6 +158,12 @@ li.mysrch.row.justify-content-center {
 	background-color: #172022;
     
 }
+/* h3.myheading {
+    margin-left: 307px;
+    font-size: 52px;
+    font-family: cursive;
+    font-weight: normal;
+} */
 
 nav.main-navigation {
     background-color:#243439;
@@ -492,7 +498,8 @@ button#myquizes {
     text-align: center;
 }
 
-button#myvide {
+a#myvide {
+
     background-color: #bfb18e;
     border-color: #bfb18e;
     width: 165%;

@@ -29,15 +29,17 @@ trait Common
         $remove_index = str_replace("index.php", "", $root);
         return $remove_index . '/images/' . $type . '/' . $name;
     }
-    // public function export_excel($report_name,$users){
+    function get_embeddedyoutube_url($url) {
+        return preg_replace(
+            "/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/watch\?v=|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",
+            "//www.youtube.com/embed/$2",
+            $url
+        );
 
-    //     Excel::create($report_name, function ($excel) use ($users) {
-    //         $excel->sheet('Sheet 1', function ($sheet) use ($users) {
-    //             $sheet->fromArray($users);
-    //         });
-    //     })->export('xls');
-
-    // }
+    //  "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>",
+       
+    }
+    
 
         public function sort_asc_array($arr,$column){
             usort($arr, function ($a, $b) use ($column) {

@@ -13,6 +13,13 @@ h1,h2,h3,h4{
     background-color: #ca0000;
     border-color: #ca0000;
 } */
+
+h3.myheading {
+    margin-left: 307px;
+    font-size: 52px;
+    font-family: cursive;
+    font-weight: normal;
+}
 .btn-primary:hover {
     color: #fff;
     background-color: #2d2c32;
@@ -100,13 +107,23 @@ h1,h2,h3,h4{
     border-color: #bfb28e;
     color: white;
 }
+.contactarea {
+    background-image:{{asset('images/contactbg.jpg')}};
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 30px 10px;
+  }
 
 
 
+/* 
+  {{asset('images/secondlogo.png')}}" class="img-responsive"> */
 
-
-
-
+  .contactarea {
+    /* background-color: black; */
+    /* background-color: #bfb28e; */
+}
 
 
 

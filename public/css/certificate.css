@@ -26,6 +26,9 @@
     background: #243439;
     padding: 50px 0px;
 }
+button.btn.btn-primary.viewall {
+    background-color: #bfb28e;
+}
 .certificateimg img {
     margin: 0 auto;
 }

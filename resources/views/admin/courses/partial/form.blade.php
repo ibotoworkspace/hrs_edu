@@ -1,72 +1,80 @@
 <div class="form-group">
-    {{-- {!! dd($doctor->user->name) !!} --}}
-    {!! Form::label('name','Name') !!}
+  
+    {!! Form::label('title','Title') !!}
     <div>
-        {!! Form::text('name', $doctor->user->name ?? null, ['class' => 'form-control',
+        {!! Form::text('title', null, ['class' => 'form-control',
         'data-parsley-required'=>'true',
         'data-parsley-trigger'=>'change',
-        'placeholder'=>'Name','required',
+        'placeholder'=>'Title','required',
         'maxlength'=>"100"]) !!}
     </div>
 
+
+
     <div class="form-group">
-        {!! Form::label('email','Email') !!}
+  
+        {!! Form::label('hours','Hours') !!}
         <div>
-            {!! Form::text('email',$doctor->user->email ?? null, ['class' => 'form-control',
+            {!! Form::number('hours', null, ['class' => 'form-control',
             'data-parsley-required'=>'true',
             'data-parsley-trigger'=>'change',
-            'placeholder'=>'Email','required',
+            'placeholder'=>'Hours','required',
             'maxlength'=>"100"]) !!}
         </div>
-        <div class="form-group">
-            {!! Form::label('age','Age') !!}
-            <div>
-                {!! Form::number('age',null, ['class' => 'form-control',
-                'data-parsley-required'=>'true',
-                'data-parsley-trigger'=>'change',
-                'placeholder'=>'Age','required',
-                'maxlength'=>"100"]) !!}
+
+    </div>
+
+
+    <div class="form-group">
+  
+        {!! Form::label('lectures','Lectures') !!}
+        <div>
+            {!! Form::number('lectures', null, ['class' => 'form-control',
+            'data-parsley-required'=>'true',
+            'data-parsley-trigger'=>'change',
+            'placeholder'=>'Lectures','required',
+            'maxlength'=>"100"]) !!}
+        </div>
+
+    </div>
+
+
+
+    {{-- <div class="form-group">
+        {!! Form::label('detail','Detail') !!}
+        <div>
+            {!! Form::textarea('detail', null, ['class' => 'ckeditor form-control',
+             'id'=>'summary-ckeditor'
+            // 'data-parsley-required'=>'true',
+            // 'data-parsley-trigger'=>'change',
+             'name'=>'summary-ckeditor',
+            'placeholder'=>'Detail','required',
+            'maxlength'=>"100"]) !!}
+
+        </div>
+        </div> --}}
+    
+
+          <div class="form-group">
+        {!! Form::label('detail','Detail') !!}
+        <div>
+            <textarea class="ckeditor form-control"  id="summary-ckeditor" name="detail" ></textarea> 
             </div>
-
-        </div>
-        <div class="form-group">
-            {!! Form::label('qualification','Qualification') !!}
-            <div>
-                {!! Form::text('qualification',null, ['class' => 'form-control',
-                'data-parsley-required'=>'true',
-                'data-parsley-trigger'=>'change',
-                'placeholder'=>'Qualification','required']) !!}
-            </div>
-
-        </div>
-
-        <div class="form-group">
-            {!! Form::label('doctor_type','Doctor Type',) !!}
-            {!! Form::select('doctor_type_id',$types,null,["placeholder"=>"Select
-            Type","class"=>"form-control","required"]) !!}
-            </select>
-        </div>
+          </div>
+        
+            
 
 
-        <div class="form-group">
-            {!! Form::label('total_duties','Total Duties') !!}
-            <div>
-                {!! Form::number('total_duties',null, ['class' => 'form-control',
-                'data-parsley-required'=>'true',
-                'data-parsley-trigger'=>'change',
-                'placeholder'=>'Total Duties','required']) !!}
-            </div>
 
-        </div>
 
         <?php
 
-$avatar =  asset('images/medicallogo.png');
+$avatar =  asset('images/courses1.png');
 
-if(isset($user)){
+if(isset($courses)){
 
-    if($user->avatar){
-        $avatar = $user->avatar;
+    if($courses->avatar){
+        $avatar = $courses->avatar;
     }
 }
 ?>
@@ -84,14 +92,72 @@ if(isset($user)){
             </div>
 
         </div>
-        @include('admin.doctor.partial.image_modal')
+        @include('admin.courses.partial.image_modal')
 
         <span id="err" class="error-product"></span>
 
 
         <div class="form-group col-md-12">
         </div>
+  
 
+        <div class="form-group">
+            {!! Form::label('requirments','Requirments') !!}
+            <div>
+                <textarea class="ckeditor form-control"  id="summary-ckeditor" name="requirments" ></textarea> 
+                </div>
+              </div>
+{{--      
+              <div class="form-group">
+                {!! Form::label('downloadurl','Downloadurl') !!}
+                <div>
+  
+           <input type="file" class="form-control-file" id="exampleFormControlFile1" name="downloadurl">
+         </div> 
+              </div> --}}
+
+<?php
+
+$images =  asset('images/courses2.png');
+
+if(isset($courses)){
+
+    if($courses->download_pdf){
+        $images = $courses->download_pdf;
+    }
+}
+?>
+            
+                    <div class="form-group">
+            
+                        <div class="form-group pull-right">
+                            <img width="100px" src="{!! $images !!}"class="show-product-img imgshow">
+                        </div>
+            
+                        <div class="form-group">
+                            {!! Form::label('images','Image') !!}
+                            {!! Form::file('images', ['class' => 'choose-image', 'id'=>'images'] ) !!}
+                            <p class="help-block" id="error">Limit 2MB</p>
+                        </div>
+            
+                    </div>
+        <!-- <div class="form-group">
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div> -->
+
+  {{-- <div class="form-group">
+        {!! Form::label('download url','Download Url') !!}
+        <div>
+            {!! Form::file('downloadurl', null, ['class' => 'form-control-file',
+             'id'=>'exampleFormControlFile1'
+            'data-parsley-required'=>'true',
+            'data-parsley-trigger'=>'change',
+            'placeholder'=>'download Url','required',
+            'maxlength'=>"100"]) !!}
+
+        </div>
+        </div> --}}
 
 
 
@@ -111,6 +177,10 @@ if(isset($user)){
         return true;
     }
 
+    
+
         </script>
+
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
         @endsection

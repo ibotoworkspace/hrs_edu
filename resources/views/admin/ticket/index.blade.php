@@ -50,22 +50,23 @@ List of Order
                 </thead>
 
                 <tbody>
+                    @foreach ($ticket as $tc)
                     <tr class="myarrow">
                         <td class="mynbr">
                             <div class="bestnbr"> 1</div>
                         </td>
                         <td class="hrs">
-                            <div class="besthrs">Waleed Hussain</div>
+                            <div class="besthrs">{!! $tc->name!!}
                         </td>
                         <td class="mynbr">
-                            <div class="bestnbr">Payment</div>
+                            <div class="bestnbr">{!! $tc->issue!!}</div>
                      </td>
                      <td class="mynbr">
-                            <div class="bestnbr">Payment</div>
+                            <div class="bestnbr">{!! $tc->subject!!}</div>
                         </td>
                     
                         <td class="mypara">
-                            <div class="bestpara">Lorem Ipsum is simply dummy text of the printingand typesetting industry</div>
+                            <div class="bestpara">{!! $tc->message!!}</div>
                         </td>
                        
                   
@@ -75,54 +76,9 @@ List of Order
                     </tr>
 
 
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">Waleed Hussain</div>
-                        </td>
-                        <td class="mynbr">
-                            <div class="bestnbr">Payment</div>
-                     </td>
-                     <td class="mynbr">
-                            <div class="bestnbr">Payment</div>
-                        </td>
-                    
-                        <td class="mypara">
-                            <div class="bestpara">Lorem Ipsum is simply dummy text of the printingand typesetting industry</div>
-                        </td>
-                       
-                  
+                   
 
-
-						   
-                    </tr>
-
-
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">Waleed Hussain</div>
-                        </td>
-                        <td class="mynbr">
-                            <div class="bestnbr">Payment</div>
-                     </td>
-                     <td class="mynbr">
-                            <div class="bestnbr">Payment</div>
-                        </td>
-                    
-                        <td class="mypara">
-                            <div class="bestpara">Lorem Ipsum is simply dummy text of the printingand typesetting industry</div>
-                        </td>
-                       
-                  
-
-
-						   
-                    </tr>
+               @endforeach
 
     
 

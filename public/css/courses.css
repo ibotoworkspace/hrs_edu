@@ -48,11 +48,11 @@
     text-align: center;
 }
 .readarea {
-    font-size: 17px;
-    font-weight: 500;
-    background: #bfb28e;
-    border-color: #bfb28e;
-    height: 40px;
-    padding: 10px 15px;
-    border-radius: 6px;
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    background: #bfb28e !important;
+    border-color: #bfb28e !important;
+    height: 40px !important;
+    padding: 10px 15px !important;
+    border-radius: 6px !important;
 }
