@@ -1,0 +1,68 @@
+.row.procedrow {
+    background: #243439;
+    color: white;
+    margin: 25px 5px;
+}
+.row.serchbox {
+    background: #e2e2e2;
+    height: 90px;
+    padding: 24px 5px;
+    margin-top: 90px;
+}
+.shdata {
+    border-color: #bfb28e;
+    width: 100%;
+    height: 40px;
+}
+.form-group.row {
+    display: flex;
+}
+.mycard {
+    background: #bfb28e;
+    color: white;
+    font-size: 30px;
+    padding: 8px 8px;
+}
+.mycards {
+    background: #bfb28e;
+    color: white;
+    font-size: 30px;
+    padding: 8px 15px;
+}
+.mycardss {
+    background: #bfb28e;
+    color: white;
+    font-size: 30px;
+    padding: 8px 10px;
+}
+.mycarddata {
+    background: white;
+    height: 45px;
+}
+.row.procedform {
+    padding: 20px 20px;
+}
+.pformdata p {
+    color: #4e4d4d;
+    font-size: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.foum {
+    float: right;
+}
+.pformpress {
+    background: #bfb28e  !important;
+    border-color: #bfb28e !important;
+    color: white !important;
+    font-size: 19px !important;
+    padding: 8px 12px !important;
+    height: 40px !important;
+    width: 15% !important;
+    margin-bottom: 20px !important;
+}
+.pformpress:hover {
+    background: #243439;
+    border-color: #243439;
+    color: white;   
+}

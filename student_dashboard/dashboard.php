@@ -102,3 +102,23 @@
 
 <?php include 'footer.php' ?>
 
+
+
+
+
+
+
+
+
+
+.infoboxdata {
+    background: #243439;
+    display: flex;
+    padding: 15px 20px;
+    min-height: 155px;
+    width: 710px !important;
+}
+
+.row.infobox {
+    margin-left: 0px;
+}

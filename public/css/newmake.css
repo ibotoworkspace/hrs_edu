@@ -1,0 +1,96 @@
+.row.serchbox {
+    background: #e2e2e2;
+    height: 90px;
+    padding: 24px 5px;
+    margin-top: 0px;
+}
+.shdata {
+    border-color: #bfb28e;
+    width: 100%;
+    height: 40px;
+}
+.row.paymentarea {
+    background: #243439;
+    color: white;
+    margin: 25px 5px;
+}
+.row.mypayment {
+    padding: 0px 40px;
+}
+.ngncode p {
+    font-size: 19px;
+    color: #243439;
+}
+.form-group.row.mypayment label {
+    font-size: 20px;
+    color: #243439;
+    font-weight: 400;
+    margin-top: 5px;
+}
+.paymentul {
+    display: flex;
+}
+.paymentformdata {
+    background: white;
+    border-color: #e0e0e0;
+    height: 40px;
+    width: 100%;
+}
+.proced {
+    background: #bfb28e !important;
+    color: white  !important;
+    border-color: #bfb28e !important;
+    height: 42px !important;
+    font-size: 18px !important;
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    padding: 10px 15px !important;
+}
+.proced:hover {
+    background: #243439;
+    color: white;
+    border-color: #243439;
+}
+.paymentul img {
+    margin: 15px 35px;
+}
+.paymentul p {
+    margin: 15px 6px;
+    font-size: 18px;
+}
+.paymentul label {
+    margin: 15px 0px;
+    font-size: 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width : 768px) {
+
+   
+}
