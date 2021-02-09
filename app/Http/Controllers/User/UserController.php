@@ -28,9 +28,10 @@ class UserController extends Controller
         return view('user.certificate.certificate');
     }
 
-// button.btn.btn-primary.hrsclicks {
-//     background-color: #bfb28e;
-// }
+    public function login(){
+        return view('user.login.index');
+    }
+
 
 
 

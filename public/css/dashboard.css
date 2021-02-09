@@ -1,0 +1,112 @@
+.row.serchbox {
+    background: #e2e2e2;
+    height: 90px;
+    padding: 24px 5px;
+    margin-top: 0px;
+}
+.shdata {
+    border-color: #bfb28e;
+    width: 100%;
+    height: 40px;
+}
+.infoboxdata {
+    background: #243439;
+    display: flex;
+    padding: 15px 20px;
+    min-height: 150px;
+    margin: 25px 5px;
+}
+.infoboxdatatext h4 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d0c7c7;
+}
+.infoboxdatatext h3 {
+    font-size: 19px;
+    color: #d0c7c7;
+    font-weight: 200;
+    margin-top: 0px;
+}
+.desk {
+    background: #bfb28e !important;
+    border-color: #bfb28e !important;
+    height: 30px !important;
+    margin-top: 8px !important;
+}
+.desk:hover {
+    background: #e2e2e2;
+    border-color: #e2e2e2;
+    color: black;
+}
+.row.courseside {
+    background: #bfb28e;
+    padding: 10px 10px;
+    margin: 0px 5px;
+}
+thead.coursesidehead {
+    background: #243439;
+    color: #d0c7c7;
+}
+.coursesidedata h3 {
+    color: white;
+    margin-top: 7px;
+}
+thead.coursesidehead tr {
+    height: 44px;
+}
+tbody.mycolarea tr {
+    color: white;
+    font-size: 16px;
+}
+tr.mycolareadata td {
+    border-bottom: 1px solid;
+    border-bottom-color: #bfb28e;
+}
+.payment {
+    background: #243439 !important;
+    border-color: #243439 !important;
+    color: white !important;
+    padding: 8px 19px !important;
+}
+.payment:hover {
+    background: #e2e2e2;
+    border-color: #e2e2e2;
+    color: black;
+}
+table.table.mytables {
+    margin-bottom: 0px;
+}
+.row.recentbox {
+    background: #bfb28e;
+    padding: 10px 10px;
+    margin: 25px 5px;
+    min-height: 245px;
+}
+.recentboxdata h3 {
+    color: white;
+    margin-top: 7px;
+}
+.recentboxdata h4 {
+    background: #243439;
+    color: white;
+    height: 40px;
+    padding: 13px 7px;
+}
+.infoboxdata.row {
+    margin-right: -5px !important;
+    margin-left: -10px !important;
+}
+
+
+
+.infoboxdata {
+    background: #243439;
+    display: flex;
+    padding: 15px 20px;
+    min-height: 155px;
+    width: 705px !important;
+}
+
+.row.infobox {
+    margin-left: 0px;
+}

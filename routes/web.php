@@ -76,6 +76,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('user/hrssecurity', 'User\UserController@hrssecurity')->name('user/hrssecurity');
     Route::get('user/hrsserver', 'User\UserController@hrsserver')->name('user/hrsserver');
     Route::get('user/userscore', 'User\UserScoreController@userscore')->name('user/userscore');
+    Route::get('user/login', 'User\UserController@login')->name('user/userlogin');
     
 
 
@@ -91,7 +92,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
 
     Route::get('user/studentprofile', 'User\UserController@studentprofile')->name('user/studentprofile');
   
-    //////crud and view
+    //////crud and view 
 
     Route::get('user/index', 'User\UserController@index')->name('user/index');
 
@@ -109,7 +110,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     /////////// Video button clicking in course page
     Route::get('courses/videos/{id}', 'Admin\CourseVideosController@index')->name('courses.videos');
   
-    // Route::get('coursesvideos/index', 'Admin\CourseVideosController@index')->name('coursesvideos.index');
+ 
 
 /////////coursesvideos
     Route::get('admin/coursesvideos/index', 'Admin\CourseVideosController@index')->name('coursesvideos.index'); 
@@ -124,7 +125,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     
 
     
-////////QUIZ crud
+////////QUIZ crud  
 
 
 
@@ -137,4 +138,21 @@ Route::get('admin/quiz/edit/{id}', 'Admin\QuizController@edit')->name('quiz.edit
 Route::post('admin/quiz/update/{id}', 'Admin\QuizController@update')->name('quiz.update');
 Route::post('admin/quiz/delete/{id}', 'Admin\QuizController@destroy_undestroy')->name('quiz.delete');
 
+ //////student dashboard 
+
  
+ Route::get('student/layouts', 'Student\BlogPageController@layouts')->name('student/layouts');
+ Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
+ Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
+ Route::get('student/courseregistration', 'Student\CourseRegistrationController@index')->name('student/courseregistration');
+ Route::get('student/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
+ Route::get('student/invoice', 'Student\InvoiceController@index')->name('student/invoice');
+ Route::get('student/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');
+ Route::get('student/myregstration', 'Student\MyRegstrationController@index')->name('student/myregstration');
+ Route::get('student/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
+ Route::get('student/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
+ Route::get('student/profile', 'Student\ProfileControlle@index')->name('student/profile');
+ Route::get('student/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
+ Route::get('student/viewticket', 'Student\ViewTicketController@index')->name('student/viewticket');
+ 
+ Route::get('student/dashboard', 'Student\DashboardController@dashboard')->name('student/dashboard');
