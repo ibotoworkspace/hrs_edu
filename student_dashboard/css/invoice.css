@@ -1,0 +1,58 @@
+.row.procedrow {
+    background: #243439;
+    color: white;
+    margin: 25px 5px;
+}
+.row.serchbox {
+    background: #e2e2e2;
+    height: 90px;
+    padding: 24px 5px;
+    margin-top: 0px;
+}
+.shdata {
+    border-color: #bfb28e;
+    width: 100%;
+    height: 40px;
+}
+.row.invoicrow {
+    background: #243439;
+    color: white;
+    margin: 25px 5px;
+}
+.inclick {
+    background: #bfb28e;
+    border-color: #bfb28e;
+    color: white;
+    margin: 15px 35px;
+    font-size: 19px;
+    font-weight: 600;
+    padding: 13px 25px;
+    height: 50px;
+}
+.invoicpoint ul li:before {    
+    color: #fff;
+    font-size: 17px;
+    font-weight: 500;
+    padding-right: 10px;
+    left: 0;
+}
+.invoicpoint ul {
+    list-style: none;
+    padding: 0px;
+}
+.row.invoicpoint {
+    padding: 0px 40px;
+}
+.row.invoicpoint ul li {
+    font-size: 17px;
+    color: black;
+    line-height: 35px;
+}
+li.unpiadyellow {
+    color: #bfb28e !important;
+    font-size: 20px !important;
+}
+.inclick:hover {
+    background: #243439;
+    border-color: #243439;
+}

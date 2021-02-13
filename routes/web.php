@@ -19,7 +19,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
 //      return 'Hello World';
 //  });
  
-///////////admin/dashboard
+
 
      Route::get('admin/login', 'Admin\AdminController@index');
      Route::post('admin/checklogin', 'Admin\AdminController@checklogin');
@@ -30,12 +30,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
 
     Route::get('admin/listofcourses', 'Admin\CoursesController@listofcourses')->name('admin/listofcourses');
 
-   /////listofquiz.index
-    Route::get('admin/listofquiz', 'Admin\ListofQuizController@index')->name('admin/listofquiz');
-    /////listofquiz.create
-    Route::get('admin/listofquiz.create', 'Admin\ListofQuizController@create')->name('listofquiz.create');
-    /////listofquiz.save
-    Route::post('admin/listofquiz.save', 'Admin\ListofQuizController@save')->name('listofquiz.save');
+    Route::get('admin/listofquiz', 'Admin\CoursesController@listofquiz')->name('admin/listofquiz');
 
     Route::get('admin/addmaincourse', 'Admin\CoursesController@addmaincourse')->name('admin/addmaincourse');
 
@@ -53,11 +48,9 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('admin/userperformance', 'Admin\CoursesController@userperformance')->name('admin/userperformance');
 
 
-   ////////USER web
+   ////////USER
 
     Route::get('user/index', 'User\UserController@index')->name('user/index');
-
-
 
     Route::get('user/aboutus', 'User\UserController@about')->name('user/about');
 
@@ -83,31 +76,27 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('user/hrssecurity', 'User\UserController@hrssecurity')->name('user/hrssecurity');
     Route::get('user/hrsserver', 'User\UserController@hrsserver')->name('user/hrsserver');
     Route::get('user/userscore', 'User\UserScoreController@userscore')->name('user/userscore');
-    ////////user login
-    Route::get('user/login', 'User\UserController@login')->name('user/user/login');
-
-    Route::post('user/checklogin', 'User\UserController@checklogin');
-    Route::get('user/logout', 'User\UserController@logout')->name('logout');
+    Route::get('user/login', 'User\UserController@login')->name('user/userlogin');
     
 
 
     Route::get('user/learning', 'User\UserController@learning')->name('user/learning');
-    // Route::get('user/makepayment', 'User\UserController@makepayment')->name('user/makepayment');
-    // Route::get('user/myregstration', 'User\UserController@myregstration')->name('user/myregstration');
+    Route::get('user/makepayment', 'User\UserController@makepayment')->name('user/makepayment');
+    Route::get('user/myregstration', 'User\UserController@myregstration')->name('user/myregstration');
     Route::get('user/phpdeveloper', 'User\UserController@phpdeveloper')->name('user/phpdeveloper');
-    // Route::get('user/registration', 'User\UserController@registration')->name('user/registration');
-    // Route::get('user/regstration', 'User\UserController@regstration')->name('user/regstration');
-    Route::get('user/resource', 'User\UserController@resourse')->name('user/resourse');
+    Route::get('user/registration', 'User\UserController@registration')->name('user/registration');
+    Route::get('user/regstration', 'User\UserController@regstration')->name('user/regstration');
+    Route::get('user/resourse', 'User\UserController@resourse')->name('user/resourse');
     Route::get('user/skilladvisor', 'User\UserController@skilladvisor')->name('user/skilladvisor');
-    // Route::get('user/studentdashboard', 'User\UserController@studentdashboard')->name('user/studentdashboard');
+    Route::get('user/studentdashboard', 'User\UserController@studentdashboard')->name('user/studentdashboard');
 
-    // Route::get('user/studentprofile', 'User\UserController@studentprofile')->name('user/studentprofile');
+    Route::get('user/studentprofile', 'User\UserController@studentprofile')->name('user/studentprofile');
   
     //////crud and view 
 
     Route::get('user/index', 'User\UserController@index')->name('user/index');
 
-    /////courses crud////////////admin crud pages
+    /////
 
     Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.index');
     Route::get('admin/courses/create', 'Admin\CoursesController@create')->name('courses.create');
@@ -118,31 +107,10 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
     Route::get('courses/search', 'Admin\CoursesController@search')->name('courses.search');
 
-
- 
-
-
- ////////// lectures button clicking in course page
- Route::get('admin/chapter/{id}', 'Admin\ChapterController@index')->name('chapters.index');
-
- 
-
- ////{chapter crud}
- Route::get('admin/chapter', 'Admin\ChapterController@index')->name('chapter.index');
-
-
- Route::get('admin/chapter/create/{id}', 'Admin\ChapterController@create')->name('chapter.create');
- Route::post('admin/chapter/save', 'Admin\ChapterController@save')->name('chapter.save');
-
- Route::get('admin/chapter/edit/{id}', 'Admin\ChapterController@edit')->name('chapter.edit');
- Route::post('admin/chapter/update/{id}', 'Admin\ChapterController@update')->name('chapter.update');
- Route::post('admin/chapter/delete/{id}', 'Admin\ChapterController@destroy_undestroy')->name('chapter.delete');
- Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.search');
-
-
- ////////// Video button clicking in course page
- Route::get('courses/videos/{id}', 'Admin\CourseVideosController@index')->name('courses.videos');
+    /////////// Video button clicking in course page
+    Route::get('courses/videos/{id}', 'Admin\CourseVideosController@index')->name('courses.videos');
   
+ 
 
 /////////coursesvideos
     Route::get('admin/coursesvideos/index', 'Admin\CourseVideosController@index')->name('coursesvideos.index'); 

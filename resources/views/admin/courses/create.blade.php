@@ -12,7 +12,7 @@ else{
 @endsection
 @section('leftsideform')
     @if($control == 'edit')
-    {{-- {{dd($courses)}} --}}
+    {{dd($courses)}}
         {!! Form::model($courses,['id'=>'my_form', 'method' => 'POST', 'route' =>
                   ['courses.update', $courses->id],'files'=>true]) !!}
     @else

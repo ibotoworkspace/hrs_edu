@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Config;
 use App\models\Courses;
 use App\Models\Quiz;
 
-
 class QuizController extends Controller
 {
     
@@ -19,9 +18,8 @@ class QuizController extends Controller
 
 
         $quiz = Quiz::paginate(10);
-        $courses = Courses::paginate(10);
      
-        return view('admin.Quiz.index', compact('quiz','courses'));
+        return view('admin.Quiz.index', compact('quiz'));
 
     }
 

@@ -5,57 +5,9 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
-use validator;
-
-use Illuminate\Support\Facades\Auth;
-
-
-
 
 class UserController extends Controller
 {
-
-
-    function login()
-    {
-        return view('user.users.index');
-    }
-
-
-    function checklogin(Request $request)
-    {
-        $this->validate($request, [
-            'email'   => 'required|email',
-            'password'  => 'required|alphaNum|min:3'
-        ]);
-
-        $user_data = array(
-            'email'  => $request->get('email'),
-            'password' => $request->get('password'),
-            'role_id' => 1
-        );
-
-        if(Auth::attempt($user_data))
-        {
-            return redirect('user/home');
-        }
-        else
-        {
-            return back()->with('error', 'Wrong Login Details');
-        }
-
-    }
-
-
-
-    function logout()
-    {
-        Auth::logout();
-        return redirect('user.users.index');
-    }
-
-
-
     public function aboutUs(){
         return view('user.aboutus.index');
     }
@@ -76,9 +28,9 @@ class UserController extends Controller
         return view('user.certificate.certificate');
     }
 
-    // public function login(){
-    //     return view('user.login.index');
-    // }
+    public function login(){
+        return view('user.login.index');
+    }
 
 
 

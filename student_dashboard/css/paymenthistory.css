@@ -1,0 +1,41 @@
+.row.procedrow {
+    background: #243439;
+    color: white;
+    margin: 25px 5px;
+}
+.row.serchbox {
+    background: #e2e2e2;
+    height: 90px;
+    padding: 24px 5px;
+    margin-top: 0px;
+}
+.shdata {
+    border-color: #bfb28e;
+    width: 100%;
+    height: 40px;
+}
+.coursesidedata {
+    background: #bfb28e;
+    min-height: 240px;
+    margin-bottom: 50px;
+}
+.coursesidedata h3 {
+    color: white;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+thead.coursesidehead {
+    background: #243439;
+    color: white;
+}
+thead.coursesidehead tr th {
+    font-size: 17px;
+    padding: 10px 0px;
+    padding-top: 17px;
+    text-align: center;
+}
+tr.mycolareadata td {
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}

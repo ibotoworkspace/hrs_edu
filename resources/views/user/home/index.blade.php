@@ -177,7 +177,7 @@
          <div class="row">
           <div class="col-sm-12">
             <div class="courseclick">
-              <a href="{{asset('admin/courses')}}" type="button" class="btn btn-primary courses">VIEW ALL COURSES</a>
+              <button type="button" class="btn btn-primary courses">VIEW ALL COURSES</button>
             </div>
           </div>
         </div>

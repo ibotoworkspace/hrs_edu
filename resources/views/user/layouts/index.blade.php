@@ -101,22 +101,22 @@
               <div class="navbar-collapse nav-collapse collapse">               
                 <ul class="nav navbar-nav">
                   <li id="11">
-                    <a href="{{asset('user/home')}}"><span class="headpad">Home</span> </a>
+                    <a href="http://localhost/hrs_backend/home.php"><span class="headpad">Home</span> </a>
                   </li>
                   <li id="4">
-                    <a href="{{asset('user/aboutus')}}"><span class="headpad">About us</span> </a>
+                    <a href="http://localhost/hrs_backend/about.php"><span class="headpad">About us</span> </a>
                   </li>
                   <li id="5">
-                    <a href="{{asset('user/courses')}}"><span class="headpad">Courses</span> </a>
+                    <a href="http://localhost/hrs_backend/courses.php"><span class="headpad">Courses</span> </a>
                   </li>
                   <li id="6">
-                    <a href="{{asset('user/resource')}}"><span class="headpad">Resource</span> </a>
+                    <a href="http://localhost/hrs_backend/resourse.php"><span class="headpad">Resource</span> </a>
                   </li>
                   <li id="7">
-                    <a href="{{asset('user/contactus')}}"><span class="headpad">Contact</span> </a>
+                    <a href="http://localhost/hrs_backend/contactus.php"><span class="headpad">Contact</span> </a>
                   </li>
                 </ul>
-                <a href="{{asset('user/login')}}"><button type="button" class="btn btn-primary portal">Login Account</button></a>
+                <a href="http://localhost/hrs_backend/login.php"><button type="button" class="btn btn-primary portal">Login Account</button></a>
                 <button type="button" class="btn btn-primary portal">Join us as SDA</button>
               </div> 
             </div>             
@@ -190,7 +190,7 @@
               <h4>HELP & SUPPORT</h4>
               <ul>
                 <li>Help Cente</li>
-                <li>Contact Us</li></a>
+                <li><a href="http://localhost/hrs_backend/contactus.php"></a>Contact Us</li>
               </ul>
               <a href=""><img src="{{asset('images/googleplay.png')}}" class="img-responsive"></a>              
             </div>
