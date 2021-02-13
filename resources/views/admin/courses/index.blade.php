@@ -11,9 +11,11 @@ Courses
 {!! Form::close() !!}
 @stop
 
+
+
 @section('table-properties')
 width="400px" style="table-layout:fixed;"
-@endsection
+{{-- @endsection --}}
 
 
 
@@ -98,7 +100,10 @@ width="400px" style="table-layout:fixed;"
                             </div>
                         </td>
                         <td class="mylectures">
-                            <div class="lectur"><button type="button" class="btn btn-primary onlecture" id="mylectur">{!! $crs->lectures !!}</button></div>
+                         
+                            <div class="lectur">
+                                <a href="{{ url('/admin/chapter/' . $crs->id ) }}"   type="button" class="btn btn-primary onlecture" id="mylectur">Lectures</a>
+                            </div>
                         </td>
 						<td class="optionss">
                             <div class="myoptionss">

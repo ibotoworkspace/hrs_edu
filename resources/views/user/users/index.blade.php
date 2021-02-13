@@ -16,25 +16,36 @@ User Login
             
             <div class="row">
               
-                <div class="col-sm-8">
-                    <div class="contactform">
-                      <div class="myform">
-                        <div class="form-group paddown">
-                          <input type="text" class="form-control myformdata" id="GnTName" placeholder="Enter Name" name="Name">
-                        </div>
-                        <div class="form-group paddown">
-                          <input type="email" class="form-control myformdata" id="GnTemail" placeholder="Enter email" name="email">
-                        </div>
-                        <div class="form-group paddown">
-                          <input type="tel" class="form-control myformdata" id="GnTPhone" placeholder="Enter Phone" name="Phone">
-                        </div>
-                        <div class="form-group paddown">
-                          <input type="text" class="form-control myformdata" id="GnTName" placeholder="Enter Password" name="Password">
-                        </div>
-                      
-                      </div>
-                    </div>
-                </div>
+              @if ($message = Session::get('error'))
+              <div class="alert alert-danger alert-block">
+                  <button type="button" class="close" data-dismiss="alert">×</button>
+                  <strong>{{ $message }}</strong>
+              </div>
+          @endif
+      
+          @if (count($errors) > 0)
+              <div class="alert alert-danger">
+                  <ul>
+                      @foreach($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+             <form method="post" action="{{ url('/user/checklogin') }}">
+              {{ csrf_field() }}
+              <div class="form-group">
+                <label>Enter Email</label>
+                <input type="email" name="email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label>Enter Password</label>
+                <input type="password" name="password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" name="login" class="btn btn-primary" value="Login" />
+            </div>
+             </form>
             </div>
         </div>
     </div>
