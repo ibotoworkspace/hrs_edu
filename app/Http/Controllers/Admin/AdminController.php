@@ -114,7 +114,7 @@ class AdminController extends Controller
 
         $modules[] = [
 
-            'url' => 'admin/hrs',
+            'url' => 'student/myregstration',
             'title' => 'Total User',
             'total' => '9',
             'active' => '2',
@@ -124,7 +124,7 @@ class AdminController extends Controller
         ];
         $modules[] = [
 
-            'url' => 'admin/hrs',
+            'url' => 'admin/quiz',
             'title' => 'Total Quizes',
             'total' => '6',
             'active' => '1',
@@ -134,7 +134,7 @@ class AdminController extends Controller
         ];
         $modules[] = [
 
-            'url' => 'admin/hrs',
+            'url' => 'courses/videos/',
             'title' => 'Total Videos',
             'total' => '2',
             'active' => '6',
@@ -144,7 +144,7 @@ class AdminController extends Controller
         ];
         $modules[] = [
 
-            'url' => 'admin/hrs',
+            'url' => 'admin/newpromocode',
             'title' => 'Promo code',
             'total' => '1',
             'active' => '2',
@@ -154,7 +154,7 @@ class AdminController extends Controller
         ];
         $modules[] = [
 
-            'url' => 'admin/hrs',
+            'url' => 'admin/listoforder',
             'title' => 'Order',
             'total' => '3',
             'active' => '5',
@@ -164,7 +164,7 @@ class AdminController extends Controller
         ];
         $modules[] = [
 
-            'url' => 'admin/hrs',
+            'url' => 'user/registration',
             'title' => 'Total Register user',
             'total' => '3',
             'active' => '5',
@@ -174,7 +174,7 @@ class AdminController extends Controller
         ];
         $modules[] = [
 
-            'url' => 'admin/hrs',
+            'url' => 'admin/listofmembership',
             'title' => 'Member Ship',
             'total' => '5',
             'active' => '6',

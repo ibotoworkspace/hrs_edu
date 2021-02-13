@@ -163,37 +163,38 @@ $admin_common = session()->get('admin_common');
                     </li> -->
 
                     <li>
-                        <a href="{{asset('admin/dashboard')}}">
+                        <a href="{{asset('admin/listofcourses')}}">
                         <img src="{{ asset('images/icon-14.png') }}" alt="">
                             <span>All Courses</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('admin/dashboard')}}">
+                        <a href="{{asset('admin/userperformance')}}">
                         <img src="{{ asset('images/icon-15.png') }}" alt="">
                             <span>User Performance</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('admin/dashboard')}}">
+                        <a href="{{asset('admin/newpromocode')}}">
                         <img src="{{ asset('images/icon-16.png') }}" alt="">
                             <span>Promo Code</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('admin/dashboard')}}">
+                        <a href="{{asset('admin/listoforder')}}">
                         <img src="{{ asset('images/icon-17.png') }}" alt="">
                             <span>Orders</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('admin/dashboard')}}">
-                        <img src="{{ asset('images/icon-18.png') }}" alt="">      <span>Membership</span>
+                        <a href="{{asset('admin/listofmembership')}}">
+                        <img src="{{ asset('images/icon-18.png') }}" alt="">      
+                        <span>Membership</span>
                         </a>
                     </li>
 
                     <li>
-                        <a href="{{asset('admin/dashboard')}}">
+                        <a href="{{asset('admin/ticket')}}">
                         <img src="{{ asset('images/icon-19.png') }}" alt="">
                             <span>  Ticket</span>
                         </a>

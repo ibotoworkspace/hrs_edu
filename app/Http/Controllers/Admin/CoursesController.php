@@ -21,10 +21,10 @@ class CoursesController extends Controller
     {
         return view('admin.ListofCourses.index');
     }
-    function Listofquiz()
-    {
-        return view('admin.Listofquiz.index');
-    }
+    // function Listofquiz()
+    // {
+    //     return view('admin.Listofquiz.index');
+    // }
   
 
     function  addmaincourse()
@@ -132,7 +132,7 @@ class CoursesController extends Controller
 
     public function add_or_update($request, $courses)
     {
-        $courses->title = $request->mytitle;
+        $courses->title = $request->title;
         $courses->detail = $request->detail;
         $courses->requirments = $request->requirments;
         $courses->hours = $request->hours;
@@ -168,13 +168,10 @@ class CoursesController extends Controller
 
 
     
-
-        $name = $request->title ?? '';
-
-        $courses = Courses::where('title', function ($query) use ($name) {
-            $query->where('title', 'like', '%' . $name . '%');
-        
-        });     
+// dd($request->all());
+        $name = $request->name ?? '';
+        // dd($name);
+        $courses = Courses::where('title', 'like', '%' . $name . '%')->paginate(10);     
         return view('admin.courses.index', compact('courses','name'));
  
     }

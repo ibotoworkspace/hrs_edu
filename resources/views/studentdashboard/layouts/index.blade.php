@@ -86,22 +86,22 @@
               <div class="navbar-collapse nav-collapse collapse">               
                 <ul class="nav navbar-nav">
                   <li id="11">
-                    <a href="{{asset('dashboard.php')}}"><span class="headpad">Home</span> </a>
+                    <a href="{{asset('user/home')}}"><span class="headpad">Home</span> </a>
                   </li>
                   <li id="4">
-                    <a href="{{asset('about.php')}}"><span class="headpad">About us</span> </a>
+                    <a href="{{asset('user/aboutus')}}"><span class="headpad">About us</span> </a>
                   </li>
                   <li id="5">
-                    <a href="{{asset('courses.php')}}"><span class="headpad">Courses</span> </a>
+                    <a href="{{asset('user/courses')}}"><span class="headpad">Courses</span> </a>
                   </li>
                   <li id="6">
-                    <a href="{{asset('resource.php')}}"><span class="headpad">Resource</span> </a>
+                    <a href="{{asset('user/resource')}}"><span class="headpad">Resource</span> </a>
                   </li>
                   <li id="7">
-                    <a href="{{asset('contactus.php')}}"><span class="headpad">Contact</span> </a>
+                    <a href="{{asset('user/contactus')}}"><span class="headpad">Contact</span> </a>
                   </li>
                 </ul>
-                <a href="{{asset('login.php')}}"><button type="button" class="btn btn-primary portal">Login Account</button></a>
+                <a href="{{asset('user/login')}}"><button type="button" class="btn btn-primary portal">Login Account</button></a>
                 <button type="button" class="btn btn-primary portal">Join us as SDA</button>
               </div> 
             </div>             
@@ -132,36 +132,36 @@
 
 <ul class="nav navbar-nav side-nav mysidemenu">
                 <li>
-                    <a href="{{asset('dashboard.php')}}"> Dashboard</a>
+                    <a href="{{asset('student/dashboard')}}"> Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{asset('profile.php')}}"> Profile</a>
+                    <a href="{{asset('student/profile')}}"> Profile</a>
                 </li>
                 <li>
-                    <a href="{{asset('courseregistration.php')}}"> Apply for Course</a>
+                    <a href="{{asset('student/courseregistration')}}"> Apply for Course</a>
                 </li>
                 <li>
-                    <a href="{{asset('myregstration.php.php')}}"> My Courses</a>
+                    <a href="{{asset('student/myregstration')}}"> My Courses</a>
                 </li>
                 <li>
-                    <a href="{{asset('paymenthistory.php.php')}}"> Payments</a>
+                    <a href="{{asset('student/paymenthistory')}}"> Payments</a>
                 </li>
                 <li>
-                    <a href="{{asset('blogpage.php')}}" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
+                    <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
                     <ul id="submenu-1" class="collapse">
                         <li><a href="#"> Library</a></li>
-                        <li><a href="#"> Blog</a></li>
+                        <li><a href="{{asset('student/blogpage')}}"> Blog</a></li>
                     </ul>
                 </li>
                 <li>
                     <a href="#" data-toggle="collapse" data-target="#submenu-2"> Enquiry &amp; Support</a>
                     <ul id="submenu-2" class="collapse">
-                        <li><a href="#"> Submit a request</a></li>
-                        <li><a href="#"> View Tickets</a></li>
+                      <li><a href="{{asset('student/submitrequest')}}"> Submit a request</a> </li>           
+                    <li><a href="{{asset('admin/ticket')}}">View Tickets</a> </li> 
                     </ul>
                 </li>
                 <li>
-                    <a href="{{asset('changepassword.php')}}"> Change Password</a>
+                    <a href="{{asset('student/changepassword')}}"> Change Password</a>
                 </li>
                 <li>
                     <a href="#"> Logout</a>
