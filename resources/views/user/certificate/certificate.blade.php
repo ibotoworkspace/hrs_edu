@@ -45,7 +45,8 @@
                         </p>
                     </div>
                     <div class="certificatedataclick">
-                        <button type="button" class="btn btn-primary viewall">VIEW ALL COURSES</button>
+              <a href="{{asset('user/courses')}}"   type="button"  class="btn btn-primary viewall">VIEW ALL COURSES</a>
+                        {{-- <button type="button" class="btn btn-primary viewall">VIEW ALL COURSES</button> --}}
                     </div>
                 </div>
                 <div class="col-sm-6">

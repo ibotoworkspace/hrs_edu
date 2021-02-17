@@ -24,7 +24,8 @@
               <h1>PROCESS <span class="bannertext">IMPROVEMENT</span> <br> AND PROFESSIONAL <br> <span class="bannertext">ACQUISITIONS</span></h1>
             </div>
             <div class="bannerclick">
-              <button type="button" class="btn btn-primary enroll">ENROLL NOW</button>
+              {{-- <button type="button" class="btn btn-primary enroll">ENROLL NOW</button> --}}
+              <a href="{{asset('user/registration')}}"><button type="button" class="btn btn-primary enroll">ENROLL NOW</button></a>
             </div>
           </div>
           <div class="col-sm-6">
@@ -177,7 +178,7 @@
          <div class="row">
           <div class="col-sm-12">
             <div class="courseclick">
-              <a href="{{asset('admin/courses')}}" type="button" class="btn btn-primary courses">VIEW ALL COURSES</a>
+              <a href="{{asset('user/courses')}}" type="button" class="btn btn-primary courses">VIEW ALL COURSES</a>
             </div>
           </div>
         </div>

@@ -50,7 +50,7 @@
                         </p>
                     </div>
                     <div class="copratebackclick">
-                        <button type="button" class="btn btn-primary viewal">VIEW ALL COURSES</button>
+                        <a href="{{asset('user/courses')}}"   type="button"  class="btn btn-primary viewall">VIEW ALL COURSES</a>
                     </div>
                 </div>
                 <div class="col-sm-6">
