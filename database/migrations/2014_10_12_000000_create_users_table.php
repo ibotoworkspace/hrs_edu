@@ -18,12 +18,13 @@ class CreateUsersTable extends Migration
             $table->string('name', 50);
             $table->string('email', 50)->unique();
             $table->string('password', 255)->nullable()->default(null);
+            $table->string('mobileno', 20)->nullable()->default(null);
+            $table->string('access_token', 50)->nullable()->default(null);
             $table->integer('role_id')->default(2);
             $table->boolean('get_notification')->default(1);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();
-
         });
     }
 

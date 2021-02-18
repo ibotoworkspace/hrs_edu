@@ -17,7 +17,7 @@ class CreateQuizTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('course_id')->nullable()->default(0);
             $table->string('question')->nullable()->default(null);
-            $table->bigInteger('choice_id')->default(0);
+            $table->bigInteger('correct_id')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });

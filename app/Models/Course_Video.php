@@ -9,4 +9,5 @@ class Course_Video extends Model
 {
     use SoftDeletes;
     protected $table='course_video';
+    
 }

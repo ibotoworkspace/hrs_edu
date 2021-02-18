@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Choices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
@@ -39,9 +40,10 @@ class QuizController extends Controller
 
     public function save(Request $request)
     {
+        
         $quiz = new Quiz();
         $courses = new Courses();
-      
+        $choice = new Choices;
         $this->add_or_update($request, $quiz,$courses);
 
         return redirect('admin/quiz');
@@ -71,23 +73,21 @@ class QuizController extends Controller
 
     public function add_or_update(Request $request,$quiz,$courses)
     {
-
+         
          $quiz->question = $request->question;
          $quiz->course_id =  $courses->id;
-       
-        
-      
-      
-        $quiz->save();
-      
-        return redirect()->back();
+         
+         if($quiz){
+            dd("ok");
+            
+            $choice->choice=$request->nextdivnum;
+            return $choice;
+            $quiz->save();
+         }
+         return redirect()->back();
     }
-
-    
-
-       public function destroy_undestroy($id)
+    public function destroy_undestroy($id)
     {
-
         $quiz = Quiz::find($id);
         if ($quiz) {
             Quiz::destroy($id);

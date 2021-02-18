@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Choices extends Model
 {
     use SoftDeletes;
-    protected $table='choices';
+    protected $table='choice';
+   
 }
