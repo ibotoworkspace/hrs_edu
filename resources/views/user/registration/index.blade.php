@@ -29,29 +29,35 @@
                         <img src="{{asset('images/loginbg.png')}}" class="img-responsive">
                     </div>
                 </div>
+                <form action="{{ url('userregistered/save') }}" method="POST">
+                    @csrf
+                    
                 <div class="col-sm-6">
                     <div class="reform">
                         <h3>HRS NETWORK PRO ENROLLMENT FORM <br> WELCOME TO THE HRS ACADEMY</h3>
                         <div>
                             <div class="form-group">
-                                <input type="text" class="form-control reformbox" id="GnTName" placeholder="FULL NAME " name="Name">
+                                <input type="text" class="form-control reformbox" id="GnTName" placeholder="FULL NAME " name="name">
                             </div>
                             <div class="form-group">
                                 <input type="email" class="form-control reformbox" id="GnTemail" placeholder="Enter email" name="email">
                             </div>
                             <div class="form-group">
-                                <input type="tel" class="form-control reformbox" id="GnTPhone" placeholder="Enter Phone" name="Phone">
+                                <input type="tel" class="form-control reformbox" id="GnTPhone" placeholder="Enter Phone" name="phone">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control reformbox" id="pwd" placeholder="Enter password">                                   
+                                <input type="password" class="form-control reformbox" id="pwd" placeholder="Enter password" name="password">                                   
                             </div> 
-                            <div class="form-group">
-                            <input type="password" class="form-control reformbox" id="pwd" placeholder="Confirm password">                            
-                            </div>                           
+                            {{-- <div class="form-group">
+                            <input type="password" class="form-control reformbox" id="pwd" placeholder="Confirm password" name="confirm">                            
+                            </div>                            --}}
                         </div>
+                        <input  type="hidden" value="roleid">
                         <div class="reformclick">
-                            <button type="button" class="btn btn-primary applyhere">APPLY NOW</button>
+                            <input type="submit" class="btn btn-primary applyhere" value="save">
                         </div>
+                    </form>
+
                     </div>
                 </div>
             </div>

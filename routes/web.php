@@ -70,7 +70,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('user/courses', 'User\UserController@courses')->name('user/courses');
     Route::get('user/designer', 'User\UserController@designer')->name('user/designer');
     Route::get('user/home', 'User\UserController@home')->name('user/home');
-    Route::get('user/hrsbackend', 'User\UserController@hrsbackend')->name('user/hrsbackend');
+    // Route::get('user/hrsbackend', 'User\UserController@hrsbackend')->name('user/hrsbackend');
     Route::get('user/hrsdesktop', 'User\UserController@hrsdesktop')->name('user/hrsdesktop');
     
     Route::get('user/hrshacking', 'User\UserController@hrshacking')->name('user/hrshacking');
@@ -95,10 +95,24 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     // Route::get('user/makepayment', 'User\UserController@makepayment')->name('user/makepayment');
     // Route::get('user/myregstration', 'User\UserController@myregstration')->name('user/myregstration');
     Route::get('user/phpdeveloper', 'User\UserController@phpdeveloper')->name('user/phpdeveloper');
-    // Route::get('user/registration', 'User\UserController@registration')->name('user/registration');
+
+    /////user/registration
+    Route::get('user/registration', 'User\StudentRegistrationController@index')->name('user.registration');
+    Route::post('userregistered/save', 'User\StudentRegistrationController@save')->name('userregistered.save');
+    Route::get('user/list', 'User\StudentRegistrationController@list')->name('user.list');
+
+
+
     // Route::get('user/regstration', 'User\UserController@regstration')->name('user/regstration');
     Route::get('user/resource', 'User\UserController@resourse')->name('user/resourse');
-    Route::get('user/skilladvisor', 'User\UserController@skilladvisor')->name('user/skilladvisor');
+    Route::get('user/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
+    Route::get('user/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
+
+    //////userskill.save
+
+    // Route::get('userskill/create', 'User\SkillAdvisorController@create')->name('userskill.create');
+    Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
+
     // Route::get('user/studentdashboard', 'User\UserController@studentdashboard')->name('user/studentdashboard');
 
     // Route::get('user/studentprofile', 'User\UserController@studentprofile')->name('user/studentprofile');

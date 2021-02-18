@@ -117,7 +117,8 @@
                   </li>
                 </ul>
                 <a href="{{asset('user/login')}}"><button type="button" class="btn btn-primary portal">Login Account</button></a>
-                <button type="button" class="btn btn-primary portal">Join us as SDA</button>
+                <a href="{{asset('user/skilladvisor')}}"><button type="button" class="btn btn-primary portal">Join us as SDA</button></a>
+                {{-- <button type="button" class="btn btn-primary portal">Join us as SDA</button> --}}
               </div> 
             </div>             
           </nav>

@@ -114,7 +114,7 @@ class AdminController extends Controller
 
         $modules[] = [
 
-            'url' => 'student/myregstration',
+            'url' => 'user/list',
             'title' => 'Total User',
             'total' => '9',
             'active' => '2',
@@ -164,8 +164,8 @@ class AdminController extends Controller
         ];
         $modules[] = [
 
-            'url' => 'user/registration',
-            'title' => 'Total Register user',
+            'url' => 'user/advisorlist',
+            'title' => 'Total Advisor',
             'total' => '3',
             'active' => '5',
             'image' => 'images/icon-26.png',

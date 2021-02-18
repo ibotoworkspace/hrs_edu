@@ -79,7 +79,7 @@
                         </ul>
                     </div>
                     <div class="courseoverviewclick">
-                        <a href="http://localhost/hrs_backend/registration.php"><button type="button"
+                        <a href="{{asset('user/registration')}}"><button type="button"
                                 class="btn btn-primary hrsclicks">ENROLL NOW</button></a>
                     </div>
                 </div>

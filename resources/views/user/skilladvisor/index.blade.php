@@ -1,10 +1,30 @@
 @extends('user.layouts.index')
 
 <link href="{{asset('css/skilladvisor.css')}}" rel="stylesheet">
+
+{{-- @section('add_btn')
+{!! Form::open(['method' => 'get', 'url' => ['userskill/create], 'files'=>true]) !!}  
+
+<span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
+{!! Form::close() !!}
+@stop --}}
+
+{{-- @section('add_btn')
+{!! Form::open(['method' => 'get', 'url' => ['userskill/create'], 'files'=>true]) !!}  
+
+<span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
+{!! Form::close() !!}
+@stop --}}
+
 @section('default')
 
 
+{{-- @section('add_btn')
+{!! Form::open(['method' => 'get', 'url' => ['userskill/create'], 'files'=>true]) !!}  
 
+<span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
+{!! Form::close() !!}
+@stop --}}
 
 
 
@@ -37,16 +57,34 @@
                     </div>
                 </div>
             </div>
+            <form action="{{ url('userskill/save') }}" method="POST">
+            @csrf
+            
             <div class="row">
                 <div class="col-sm-6 modalform">
-                <input type="text" class="form-control mpdalpad" placeholder="First Name">
-                <input type="email" class="form-control mpdalpad" placeholder="Email Address">
-                <input type="password" class="form-control mpdalpad" placeholder="Password">
+                <input type="text" class="form-control mpdalpad" name="firstname" placeholder="First Name" required>
+                <input type="email" class="form-control mpdalpad"  name="email" placeholder="Email Address" required>
+                <input type="password" class="form-control mpdalpad" name="password" id="password" placeholder="Password" required>
+              
                 </div>
                 <div class="col-sm-6 modalform">
-                <input type="text" class="form-control mpdalpad" placeholder="Last Name">
-                <input type="tel" class="form-control mpdalpad" placeholder="Phone No">
-                <input type="password" class="form-control mpdalpad" placeholder="Confirm Password">
+                <input type="text" class="form-control mpdalpad"  name="last" placeholder="Last Name" required>
+                <input type="tel" class="form-control mpdalpad"  name="phone" placeholder="Phone No" required>
+                <input type="password" class="form-control mpdalpad"  name="confirm_password" id="confirm_password" placeholder="Confirm Password" required>
+              
+                <div id='message'>asd</div>
+                </div>
+                <input type="submit" value="">
+            </form>
+                <div class="col-md-5 pull-left">
+                    <div class="form-group text-center">
+                        <input type="submit" value="save">
+                        <div>
+                            {{-- {!!Form::submit('Save',
+                            ['class'=>'btn btn-primary btn-block btn-lg btn-parsley','onblur'=>'return validateForm();'])!!} --}}
+                              {!! Form::open(['id'=>'my_form','method' => 'POST', 'route' => ['userskill.save' ], 'files'=>true]) !!}
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row">
@@ -90,6 +128,46 @@
             </div>
         </div>
     </div>
+
+    {{-- <div class="col-md-5 pull-left">
+        <div class="form-group text-center">
+            <div>
+                {!!Form::submit('Save',
+                ['class'=>'btn btn-primary btn-block btn-lg btn-parsley','onblur'=>'return validateForm();'])!!}
+                {!! Form::open(['id'=>'my_form','method' => 'POST', 'route' => ['userskill.save' ], 'files'=>true]) !!}
+
+
+
+
+            </div>
+        </div>
+    </div> --}}
+    
+
+    @section('app_jquery')
+    <script>
+       
+       
+
+        function validateForm(){
+    return true;
+}
+
+$(function(){
+
+    $('#confirm_password').on('keyup', function () {
+        console.log('asd');
+  if ($('#password').val() == $('#confirm_password').val()) {
+    $('#message').html('same password');
+  } else 
+    $('#message').html('incorect password');
+});
+})
+
+
+    </script>
+
+    @endsection
 </section>
 
 

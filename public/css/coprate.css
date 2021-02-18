@@ -16,6 +16,7 @@
     border-bottom: 2px solid;
     width: 100%;
 }
+
 .copratebackdata p {
     font-size: 22px;
     color: white;
@@ -83,6 +84,12 @@ ul.jobtop {
     height: 55px;
     background: #bfb28e;
     border-color: #bfb28e;
+}
+a.btn.btn-primary.viewall {
+   
+    background-color: #bfb28e;
+     /* padding-top: 15px; */
+    font-size: 17px;
 }
 .copratebackclick {
     margin-top: 40px;
