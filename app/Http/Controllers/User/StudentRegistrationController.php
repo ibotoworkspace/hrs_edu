@@ -57,5 +57,20 @@ class StudentRegistrationController extends Controller
 
     }
 
+    public function search(Request $request)
+
+    {
+   
+   
+       
+   // dd($request->all());
+           $name = $request->name ?? '';
+           // dd($name);
+           $userlist = User::where('name', 'like', '%' . $name . '%')->paginate(10);     
+           return view('user.userlist.index', compact('userlist','name'));
+    
+       }
+   
+
 
 }

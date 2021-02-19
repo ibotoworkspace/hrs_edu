@@ -23,8 +23,10 @@ width="400px" style="table-layout:fixed;"
 
 
 
-
 @section('table')
+{!! Form::open(['method' => 'get', 'route' => ['userlist.search'], 'files'=>true]) !!}
+@include('user.userlist.partial.searchfilters')
+{!!Form::close() !!}
 
 
 
@@ -38,7 +40,9 @@ width="400px" style="table-layout:fixed;"
                             <div class="bestcourse">Name</div>
                         </th>
                       
-
+                        <th class="mycourse">
+                            <div class="bestcourse">Email</div>
+                        </th>
 					
 						
 
@@ -54,6 +58,10 @@ width="400px" style="table-layout:fixed;"
                        
                         <td class="hrs">
                             <div class="besthrs"  name="mytitle">{!! $lp->name !!}</div>
+                        </td>
+
+                        <td class="hrs">
+                            <div class="besthrs"  name="mytitle">{!! $lp->email !!}</div>
                         </td>
                        
                     </tr>
