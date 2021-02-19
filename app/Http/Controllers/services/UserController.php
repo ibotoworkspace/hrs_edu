@@ -43,9 +43,9 @@ class UserController extends Controller
             
             if (true) {
              
-                $users = User::find(2, [
-                    'id','name', 'email',  'access_token',
-                ]);
+                $users = User::find($users->id, 
+                    // ['id','name', 'email',  'access_token',]
+                );
                 $users->get_notification = ($users->get_notification ? true : false);
                 return $this->sendResponse(200, $users);
             }
