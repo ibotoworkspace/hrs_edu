@@ -20,9 +20,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => 'auth.client_token'], function () {
     
-    Route::post('video', 'Services\UserController@video');
+    // Route::post('video', 'Services\UserController@video');
 
-    Route::post('user/signup', 'Services\UserController@signUp');
+    Route::post('user/signup', 'services\UserController@signUp');
     Route::post('user/login', 'Services\UserController@login');
     Route::post('user/forgetpassword', 'Services\UserController@forgetpassword');
     Route::get('user/logout', 'Services\UserController@logout');
