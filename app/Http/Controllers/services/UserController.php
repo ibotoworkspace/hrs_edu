@@ -47,7 +47,7 @@ class UserController extends Controller
                     'id','name', 'email',  'access_token',
                 ]);
                 $users->get_notification = ($users->get_notification ? true : false);
-                return $this->sendResponse(200, 'User registered successfully');
+                return $this->sendResponse(200, $users);
             }
         } catch (\Exception $e) {
             return $this->sendResponse(
