@@ -34,6 +34,14 @@ return [
         'night'=>'Night',
         // 'general'=>'General',
     ],
+
+    'order_status'=>[
+        'all'=>'all',
+        'pending'=>'pending',
+        'inprogress'=>'inprogress',
+        'completed'=>'completed',
+        'rejected'=>'rejected',
+    ],
     'weekdays'=>[
         'monday'=>'Monday',
         'tuesday'=>'Tuesday',

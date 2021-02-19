@@ -23,7 +23,11 @@
     border-radius: 0px;
     height: 40px;
 }
-
+input.btn.btn-primary.applyhere {
+    background-color: #bfb28e;
+    width: 88px;
+    font-size: 19px;
+}
 button.btn.btn-primary.applyhere{
 
 

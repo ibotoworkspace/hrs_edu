@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SkillAdvisor;
+use App\User;
 
 class SkillAdvisorController extends Controller
 {
@@ -48,7 +49,22 @@ public function save(Request $request)
     return redirect('user/skilladvisor/');
 }
 
+public function list(){
 
+
+    $advisor = SkillAdvisor::paginate(10);
+
+    return view('user.advisor.index',compact('advisor'));
+}
+
+
+// public function Request(){
+
+
+//     // $advisor = User::where('role_id',3)->paginate(10);
+
+//     return view('user.advisor_request.index');
+// }
 
 
 

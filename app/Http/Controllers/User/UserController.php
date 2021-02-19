@@ -24,19 +24,19 @@ class UserController extends Controller
 
     function checklogin(Request $request)
     {
+        
         $this->validate($request, [
             'email'   => 'required|email',
             'password'  => 'required|alphaNum|min:3'
         ]);
-
+        ;
         $user_data = array(
             'email'  => $request->get('email'),
             'password' => $request->get('password'),
-            'role_id' => 1
+            'role_id' => 2
         );
-
         if(Auth::attempt($user_data))
-        {
+        { 
             return redirect('user/home');
         }
         else
@@ -60,9 +60,9 @@ class UserController extends Controller
         return view('user.aboutus.index');
     }
 
-    public function index(){
-        return view('user.users.index');
-    }
+    // public function index(){
+    //     return view('user.users.index');
+    // }
 
  
     public function about(){
@@ -179,9 +179,9 @@ public function career(){
         return view('user.phpdeveloper.index');
     }
 
-    public function registration(){
-        return view('user.registration.index');
-    }
+    // public function registration(){
+    //     return view('user.registration.index');
+    // }
 
     public function regstration(){
         return view('user.regstration.index');
