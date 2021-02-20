@@ -6,18 +6,44 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SkillAdvisor;
 use App\User;
+use Illuminate\Support\Facades\Config;
+use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Response;
 
 class SkillAdvisorController extends Controller
 {
+
+
+
+
+
+
+    ///////////
     function index()
     {
       
  
     $userskill = SkillAdvisor::paginate(10);
    
-    return view('user.skilladvisor.index', compact('userskill'));
+    return view('user.advisor.index', compact('userskill'));
 
 }
+
+public function status_update(Request $request, $id)
+    {
+        // dd($request);
+        // $userskill = SkillAdvisor::paginate(10);
+        $userskill = SkillAdvisor::find($id);
+        $userskill->status = $request->status;
+        $userskill->save();
+
+        $response = Response::json([
+            "status" => true,
+            'action' => Config::get('constants.ajax_action.update'),
+            'new_value' => ucwords($request->status)
+        ]);
+        return $response;
+    }
 
 // public function create()
 // {
@@ -51,11 +77,18 @@ public function save(Request $request)
 
 public function list(){
 
+    // $all = Config::get('constants.order_status.all');
+        $pending = Config::get('constants.order_status.pending');
+        // $inprogress = Config::get('constants.order_status.inprogress');
+        // $completed = Config::get('constants.order_status.completed');
+        $rejected = Config::get('constants.order_status.rejected');
+
 
     $advisor = SkillAdvisor::paginate(10);
 
     return view('user.advisor.index',compact('advisor'));
 }
+
 
 
 // public function Request(){
@@ -90,6 +123,19 @@ public function add_or_update($request, $userskill)
 }
 
 
+public function search(Request $request)
+
+{
+
+
+   
+// dd($request->all());
+       $name = $request->name ?? '';
+       // dd($name);
+       $advisor = SkillAdvisor::where('name', 'like', '%' . $name . '%')->paginate(10);     
+       return view('user.advisor.index', compact('advisor','name'));
+
+   }
 
 
 

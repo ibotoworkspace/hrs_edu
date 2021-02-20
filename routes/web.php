@@ -100,6 +100,8 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('user/registration', 'User\StudentRegistrationController@index')->name('user.registration');
     Route::post('userregistered/save', 'User\StudentRegistrationController@save')->name('userregistered.save');
     Route::get('user/list', 'User\StudentRegistrationController@list')->name('user.list');
+    ////////userlist.search
+    Route::get('user/list/search', 'User\StudentRegistrationController@search')->name('userlist.search');
 
 
 
@@ -107,6 +109,10 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('user/resource', 'User\UserController@resourse')->name('user/resourse');
     Route::get('user/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
     Route::get('user/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
+    Route::get('user/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
+    Route::get('user/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
+    Route::get('advisor.search', 'User\SkillAdvisorController@search')->name('advisor.search');
+//////advisor.search
 
     //////userskill.save
 
