@@ -12,7 +12,7 @@ class CoursesController extends Controller
 {
     public function registeredcourses(Request $request)
     {
-        return $courses=Courses::orderBy('created_at','desc')->get();
+        return $courses=Courses::with('chapters')->orderBy('created_at','desc')->get();
     }
     public function chapters(Request $request)
     {
