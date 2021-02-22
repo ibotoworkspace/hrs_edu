@@ -17,5 +17,7 @@ class TicketControlller extends Controller
         $tick->subject=$request->subject;
         $tick->message=$request->message;
         $tick->Save();
+        
+        return $this->sendResponse(200, "Your ticket has been submitted successfully.");
     }
 }
