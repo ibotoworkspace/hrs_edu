@@ -9,8 +9,9 @@ use Illuminate\Http\Request;
 
 class VideoController extends Controller
 {
-    public function videolist(Request $request)
+    public function coursevideos(Request $request)
     {
-        // $request->course_id 
+       
+       return $video=Course_Video::where('course_id',$request->course_id)->get();
     }
 }

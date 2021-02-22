@@ -28,6 +28,7 @@ Route::group(['middleware' => 'auth.client_token'], function () {
     Route::get('user/logout', 'services\UserController@logout');
     Route::get('user/home', 'services\HomeController@home');
     Route::get('user/registeredcourses', 'services\CoursesController@registeredcourses');
+    Route::post('user/coursevideos', 'services\VideoController@coursevideos');
     Route::post('user/course', 'services\CoursesController@course');
     Route::post('user/quiz', 'services\QuizControlller@quiz');
     Route::post('user/chapters', 'services\CoursesController@chapters');

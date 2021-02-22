@@ -4,6 +4,7 @@ namespace App\Http\Controllers\services;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
+use App\Models\Course_Video;
 use App\Models\Courses;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
@@ -12,7 +13,7 @@ class CoursesController extends Controller
 {
     public function registeredcourses(Request $request)
     {
-        return $courses=Courses::with('chapters')->orderBy('created_at','desc')->get();
+        return $courses=Courses::with(['chapters','videos'])->orderBy('created_at','desc')->get();
     }
     public function chapters(Request $request)
     {
@@ -24,7 +25,7 @@ class CoursesController extends Controller
     }
     public function Videos(Request $request)
     {
-        return $videos=Courses::with('videos')->where('id',$request->course_id)->get();
+        return $videos=Course_Video::with('videos')->where('id',1)->get();
     }
     public function quiz(Request $request)
     {
