@@ -42,7 +42,7 @@
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
                     <h4 class="modal-title" id="modal-heading">
-                        Delete
+                        Alert
                     </h4>
                 </div>
                 <div class="modal-body">
@@ -50,7 +50,7 @@
                     <div class="row">
                         <div class="col-xs-12">
                             <label id="modal_msg">
-                                Do You Want to Delete?
+                                Do You Want to Proceed?
                             </label>
                         </div>
                     </div>
@@ -64,14 +64,15 @@
     </div>
 
     <!-- build:js({.tmp,app}) scripts/app.min.js -->
-    <script src="{{ asset('theme/vendor/jquery/dist/jquery.js') }}"></script>
+    {{-- <script src="{{ asset('theme/vendor/jquery/dist/jquery.js') }}"></script> --}}
     <!-- endbuild -->
 
     <!-- page level scripts -->
-    <script src="{{ asset('theme/vendor/chosen_v1.4.0/chosen.jquery.min.js') }}"></script>
+    {{-- <script src="{{ asset('theme/vendor/chosen_v1.4.0/chosen.jquery.min.js') }}"></script> --}}
     <script src="{{ asset('theme/vendor/datatables/media/js/jquery.dataTables.js') }}"></script>
     <!-- /page level scripts -->
 
+    
     <!-- page level scripts -->
     <script src="{{ asset('theme/vendor/moment/moment.js') }}"></script>
     <script src="{{ asset('theme/vendor/bootstrap-daterangepicker/daterangepicker.js') }}"></script>

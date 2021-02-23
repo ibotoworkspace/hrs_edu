@@ -56,39 +56,10 @@
                     $final_status_display = 'display:block';
                     }
                     ?>
+                    <a href="" hit_url="{!!asset('user/advisor/status_update/'.$a->id).'?status=accepted'!!}" hit_method="POST">accepted</a>
+                    <a href="" hit_url="{!!asset('user/advisor/status_update/'.$a->id).'?status=rejected'!!}" hit_method="POST">rejected</a>
 
-                    <div id="pending_btn_{!!  $a->id !!}" style="{!!  $pending_display !!}">
-                        <a href="" data-toggle="modal" name="" data-target=".accept_request_{!!  $a->id !!}">
-                            <span class=" badge bg-info btn-success ">
-                               Accept
-                            </span>
-                              {{-- {{dd($a->id)}} --}}
-                        </a>
-                        @include('user.advisor.partial.confirmation_msg',
-                        [
-
-                        'cell_id'=>$a->id,
-                        'req_status'=>'accept_request_'.$a->id,
-                        'url'=>asset('user/advisor/status_update/'.$a->id),
-                        'status'=>'accepted',
-                        'msg_status'=>'accept',
-                        'btn_class'=>'btn-primary'
-                        ])
-                        <a href="" data-toggle="modal" name="" data-target=".reject_request_{!!  $a->id !!}">
-                            <span class=" badge bg-info btn-danger">
-                                Reject
-                            </span>
-                        </a>
-                        @include('user.advisor.partial.confirmation_msg',
-                        [
-
-                        'cell_id'=>$a->id,
-                        'req_status'=>'reject_request_'.$a->id,
-                        'url'=>asset('user/advisor/status_update/'.$a->id),
-                        'status'=>'rejected',
-                        'msg_status'=>'reject',
-                        'btn_class'=>'btn-danger' ])
-                    </div>
+                    
                    
                 </td>
     </tbody>
@@ -97,48 +68,6 @@
 
 @section('app_jquery')
 <script>
-	function change_modal_warning(url,status,cell_id) {
-            console.log('url',url);
-            console.log('status',status);
-            $.ajax({
-                url:url,
-                method:'POST',
-                data: {'_token' :'{!! csrf_token() !!}',
-                       'status' : status
-                      },
-                success: function(data){
-					// if(data.new_value=='Inprogress'){
-					// 	$('#pending_btn_').css('display','none');
-					// 	$('#inprogress_btn_').css('display','block');
-					// }
-					 // completed , rejected
-						$('#pending_btn_'+advisor_id).css('display','none');
-						// $('#inprogress_btn_').css('display','none');
-						// $('#finalstatus_btn_').html(data.new_value);
-						// $('#finalstatus_btn_').css('display','block');
-					}
-                    $('#'+cell_id).html(data.new_value);
-                    console.log("response",data);
-                },
-                error: function(errordata){
-                    console.log(errordata)
-                }
-            }
-            )}
-        function payment_excel(event){
-            $('#user_excel').val( $('#user').val());
-            $('#req_num_excel').val( $('#req_num').val());
-            $('#date_excel').val( $('#reservationtime').val());
-            $('#status_excel').val( $('#status').val());
-        }
-        // function set_lat_long(lat , long , location){
-		// 	alert('st');
-        //     $('#lat').val('24.8607');
-        //     $('#long').val('67.0011');
-        //     $('#map-title').html('<b>Address: 	&nbsp;	&nbsp;</b>'+location);
-        // }
-        function show_note(msg){
-            $('#msg_div').html(msg);
-		}
+	
 </script>
 @endsection

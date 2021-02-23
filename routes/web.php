@@ -109,8 +109,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('user/resource', 'User\UserController@resourse')->name('user/resourse');
     Route::get('user/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
     Route::get('user/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
-    Route::get('user/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
-    Route::get('user/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
+    Route::post('user/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
     Route::get('advisor.search', 'User\SkillAdvisorController@search')->name('advisor.search');
 //////advisor.search
 
@@ -197,6 +196,12 @@ Route::post('admin/quiz/delete/{id}', 'Admin\QuizController@destroy_undestroy')-
  Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
  Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
  Route::get('student/courseregistration', 'Student\CourseRegistrationController@index')->name('student/courseregistration');
+ ///user/courseregistered
+ //////student//courselist
+ Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
+
+
+ Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
  Route::get('student/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
  Route::get('student/invoice', 'Student\InvoiceController@index')->name('student/invoice');
  Route::get('student/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');

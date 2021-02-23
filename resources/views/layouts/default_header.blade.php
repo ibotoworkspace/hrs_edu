@@ -28,6 +28,7 @@ $admin_common = session()->get('admin_common');
     <link rel="stylesheet" href="{{ asset('theme/styles/sublime.css') }}">
     <link rel="stylesheet" href="{{ asset('cssjs/myapp.css') }}">
     <link rel="stylesheet" href="{{ asset('cssjs/jquery.timeentry.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 @yield('css')
 @yield('extra_css')
 <!-- endbuild -->
@@ -305,7 +306,6 @@ $admin_common = session()->get('admin_common');
 <script src="{{ asset('theme/vendor/jquery_appear/jquery.appear.js') }}"></script>
 <script src="{{ asset('theme/vendor/jquery.placeholder.js') }}"></script>
 <script src="{{ asset('theme/vendor/fastclick/lib/fastclick.js') }}"></script>
-<script src="{{ asset('cssjs/jquery.timeentry.js')}}"></script>
 <!-- endbuild -->
 
 <!-- page level scripts -->
@@ -316,8 +316,6 @@ $admin_common = session()->get('admin_common');
 <!-- /template scripts -->
 <script src="{{ asset('cssjs/map.js') }}"></script>
 {
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMwD9jQSMyeJhuZfpMtlD6idB499MbMNI&libraries=places&callback=initAutocomplete"
-async defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/3.2.6/jquery.inputmask.bundle.min.js"></script>
 
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>

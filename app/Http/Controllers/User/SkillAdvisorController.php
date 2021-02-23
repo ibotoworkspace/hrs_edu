@@ -31,7 +31,7 @@ class SkillAdvisorController extends Controller
 
 public function status_update(Request $request, $id)
     {
-        // dd($request);
+        dd($request->all());
         // $userskill = SkillAdvisor::paginate(10);
         $userskill = SkillAdvisor::find($id);
         $userskill->status = $request->status;

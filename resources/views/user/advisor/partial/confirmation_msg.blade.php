@@ -8,18 +8,19 @@
                 <h4 class="modal-title">Are you sure. You want to {!! $msg_status !!} ?</h4>
             </div>
             <div class="modal-body">
+
+                <form action="{!! $url !!}" method="POST">
                     {!! csrf_field() !!}
                     
-                    <input type="hidden" value="{!! $status !!}">
+                    <input type="hidden" name="status" value="{!! $status !!}">
                     {{-- {!!echo $status ;!!} --}}
-                    <button  name="status" class="btn {!! $btn_class!!}"
-                             data-dismiss="modal"
-                            onclick="change_modal_warning('{!! $url !!}',
-                                    '{!! $status !!}',
-                                    '{!! $cell_id !!}')">
+                    <button type="submit"  name="status" class="btn {!! $btn_class!!}"
+                             {{-- data-dismiss="modal" --}}
+                             >
                         {!! ucwords($msg_status) !!}
                     </button>
                     {{-- {!!dd($status);!!} --}}
+                </form>
 
             </div>
             {{--<div class="modal-footer">--}}
