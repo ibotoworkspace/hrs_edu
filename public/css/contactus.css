@@ -20,6 +20,9 @@ h3.myheading {
     font-family: cursive;
     font-weight: normal;
 }
+button.btn.btn-primary.applynow {
+    background-color: #bfb18e;
+}
 .btn-primary:hover {
     color: #fff;
     background-color: #2d2c32;

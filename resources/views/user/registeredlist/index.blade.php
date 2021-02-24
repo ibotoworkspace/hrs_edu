@@ -2,7 +2,7 @@
 
 <link href="{{asset('css/contactus.css')}}" rel="stylesheet">
 @section('module_name')
-User List
+Courses List
 @stop
   
 {{-- @section('add_btn')
@@ -23,10 +23,10 @@ width="400px" style="table-layout:fixed;"
 
 
 
-@section('table')
-{!! Form::open(['method' => 'get', 'route' => ['userlist.search'], 'files'=>true]) !!}
+ @section('table')
+{{-- {!! Form::open(['method' => 'get', 'route' => ['userlist.search'], 'files'=>true]) !!}
 @include('user.userlist.partial.searchfilters')
-{!!Form::close() !!}
+{!!Form::close() !!} --}} 
 
 
 
@@ -40,12 +40,12 @@ width="400px" style="table-layout:fixed;"
                             <div class="bestcourse">Name</div>
                         </th>
                       
-                        <th class="mycourse">
+                        {{-- <th class="mycourse">
                             <div class="bestcourse">Email</div>
                         </th>
                         <th class="mycourse">
                             <div class="bestcourse">Course Registered</div>
-                        </th>
+                        </th> --}}
 						
 
 
@@ -54,22 +54,22 @@ width="400px" style="table-layout:fixed;"
                 </thead>
                 <tbody>
 
-                    @foreach($userlist as $lp)
+                    @foreach($registered as $ru)
 
                     <tr class="myarrow">
                        
                         <td class="hrs">
-                            <div class="besthrs"  name="mytitle">{!! $lp->name !!}</div>
+                            <div class="besthrs"  name="mytitle">{!! $ru->name !!}</div>
                         </td>
 
-                        <td class="hrs">
+                        {{-- <td class="hrs">
                             <div class="besthrs"  name="mytitle">{!! $lp->email !!}</div>
                         </td>
                         <td class="hrs">
 <div class="besthrs"  name="mytitle">
- <a href={{asset('student/courselist/'.$lp->id)}}><button type="submit" class="btn btn-primary applynow">Course Registered NOW</button>
+ <a href={{asset('student/courselist')}}><button type="submit" class="btn btn-primary applynow">Course Registered NOW</button>
  </a>
-</div>
+</div> --}}
 
                         </td>
                     </tr>
