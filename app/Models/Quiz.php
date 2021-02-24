@@ -9,4 +9,7 @@ class Quiz extends Model
 {
     use SoftDeletes;
     protected $table='quiz';
+    public function choice(){
+        return $this->hasMany('App\Models\Choices','quiz_id','id');
+    }
 }
