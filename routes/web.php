@@ -31,11 +31,11 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('admin/listofcourses', 'Admin\CoursesController@listofcourses')->name('admin/listofcourses');
 
    /////listofquiz.index
-    Route::get('admin/listofquiz', 'Admin\ListofQuizController@index')->name('admin/listofquiz');
+    Route::get('admin/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin/listofquiz');
     /////listofquiz.create
-    Route::get('admin/listofquiz.create', 'Admin\ListofQuizController@create')->name('listofquiz.create');
+    Route::get('admin/quiz/create/{id}', 'Admin\ListofQuizController@create')->name('quiz.create');
     /////listofquiz.save
-    Route::post('admin/listofquiz.save', 'Admin\ListofQuizController@save')->name('listofquiz.save');
+    Route::post('admin/quiz/save', 'Admin\ListofQuizController@save')->name('listofquiz.save');
 
     Route::get('admin/addmaincourse', 'Admin\CoursesController@addmaincourse')->name('admin/addmaincourse');
 

@@ -5,8 +5,9 @@ List of Quiz Question in HRS Network PRO
 @stop
 
 @section('add_btn')
-
-{!! Form::open(['method' => 'get', 'route' => ['listofquiz.create'], 'files'=>true]) !!}
+{{-- {{dd($listofquiz)}} --}}
+{!! Form::open(['method' => 'get', 'url' => ['admin/quiz/create/'.$couse_id], 'files'=>true]) !!}
+{{-- <input type="hidden" name="course_id" value="{!!$listofquiz->course_id!!}"> --}}
 <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
 {!! Form::close() !!}
 @stop
@@ -37,6 +38,10 @@ List of Quiz Question in HRS Network PRO
                             <div class="bestoption">IS PAID</div>
 
 						</th>
+                        <th class="option">
+                            <div class="bestoption">CHOICE</div>
+
+						</th>
                       
 						{{-- <th class="option">
                             <div class="bestoption">Option</div>
@@ -61,7 +66,9 @@ List of Quiz Question in HRS Network PRO
                         <td class="unpaidquiz">
                             <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
                         </td>
-                
+                        <td class="myquiz">
+                       <a href="{{ url('/admin/choices/' . $q->question) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>
+                        </td>
                      
 						{{-- <td class="optionss">
                             <div class="myoptionss">
@@ -342,9 +349,9 @@ List of Quiz Question in HRS Network PRO
 
 
 
-                @section('pagination')
+                {{-- @section('pagination')
                 <span class="pagination pagination-md pull-right">{!! $listofquiz->render() !!}</span>
               
-            @endsection
+            @endsection --}}
 
 			@stop

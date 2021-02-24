@@ -75,6 +75,8 @@ width="400px" style="table-layout:fixed;"
                     </tr>
                 </thead>
                 <tbody>
+                    {{-- admin/listofquiz --}}
+
 
                     @foreach($courses as $crs)
 
@@ -89,7 +91,8 @@ width="400px" style="table-layout:fixed;"
                             <div class="bestnbr"  name="hours">{!! $crs->hours !!}</div>
 						</td>
                         <td class="myquiz">
-                            <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div>
+                            {{-- <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div> --}}
+                            <a href="{{ url('/admin/listofquiz/' . $crs->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">quizes</a>
                         </td>
                         <td class="myvideos">
                             <div class="vide"> 

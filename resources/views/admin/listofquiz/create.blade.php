@@ -21,15 +21,15 @@ else{
     {!!Form::close()!!}
 
 
-    <div class="col-md-5 pull-left">
+    {{-- <div class="col-md-5 pull-left">
         <div class="form-group text-center">
             <div>
-                {!! Form::open(['method' => 'get', 'route' => ['admin/listofquiz']]) !!}
+                {!! Form::open(['method' => 'get', 'route' => ['admin/listofquiz/'.$course_id]]) !!}
                 {!! Form::submit('Cancel', ['class' => 'btn btn-default btn-block btn-lg btn-parsley']) !!}
                 {!! Form::close() !!}
             </div>
         </div>
-    </div>
+    </div> --}}
 
 @endsection
 {!!Form::close()!!}

@@ -164,7 +164,7 @@ $admin_common = session()->get('admin_common');
                     </li> -->
 
                     <li>
-                        <a href="{{asset('admin/listofcourses')}}">
+                        <a href="{{asset('admin/courses')}}">
                         <img src="{{ asset('images/icon-14.png') }}" alt="">
                             <span>All Courses</span>
                         </a>
