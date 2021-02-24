@@ -1,5 +1,4 @@
 <div class="form-group">
-  
     {!! Form::label('question','Question') !!}
     <div>
         {!! Form::text('question', null, ['class' => 'form-control',
@@ -8,7 +7,8 @@
         'placeholder'=>'Question','required',
         'maxlength'=>"100"]) !!}
     </div>
-
+    <input type="hidden" name="course_id" value="{!!$course_id!!}">
+{{-- {{dd($quizes)}} --}}
     <div class="col-md-5 pull-left">
         <div class="form-group text-center">
             <div>

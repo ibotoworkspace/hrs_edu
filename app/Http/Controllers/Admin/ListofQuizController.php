@@ -14,36 +14,37 @@ class ListofQuizController extends Controller
 {
     
 
-    public function index(Request $request)
+    public function index($id)
     {
 
 //  dd($request->all());
-        $listofquiz = Quiz::paginate(10);
-     
-        return view('admin.listofquiz.index', compact('listofquiz'));
+        // $listofquiz = Quiz::paginate(10);
+        $couse_id = $id;
+        $listofquiz = Quiz::where('course_id',$id)->get();
+        return view('admin.listofquiz.index', compact('listofquiz','couse_id'));
 
     }
 
-    public function create()
+    public function create($course_id)
     {
         $control = 'create';
-      
-
         return \View::make(
             'admin.listofquiz.create',
-            compact('control')
+            compact('control','course_id')
         );
     }
 
 
     public function save(Request $request)
     {
+
+        dd('hy');
         $quiz = new Quiz();
       
       
         $this->add_or_update($request, $quiz);
 
-        return redirect('admin/listofquiz');
+        return $this->index($request->course_id);
     }
     // public function edit($id)
     // {
