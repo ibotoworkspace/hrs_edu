@@ -74,9 +74,11 @@ class ChapterController extends Controller
     {
         $chapter->title = $request->title;
         $chapter->description = $request->description;
+        $chapter->is_paid = $request->unpaid;
+        $chapter->course_level = $request->level;
         $chapter->course_id = $request->course_id;
         
-        $chapter->lecture = $request->lectures;
+        // $chapter->lecture = $request->lectures;
 
      
 

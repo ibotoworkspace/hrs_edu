@@ -38,8 +38,9 @@ class ListofQuizController extends Controller
     public function save(Request $request)
     {
 
-        dd('hy');
+    //    dd($request->all());
         $quiz = new Quiz();
+        // $course = new Courses();
       
       
         $this->add_or_update($request, $quiz);
@@ -73,7 +74,7 @@ class ListofQuizController extends Controller
     {
 
          $quiz->question = $request->question;
-        //  $quiz->course_id =  $courses->id;
+         $quiz->course_id =   $request->course_id;
        
         
       
