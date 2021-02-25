@@ -37,7 +37,7 @@ public function create($question_id){
 
 
 public function save(Request $request){
-
+dd($request->all());
     $choices = new choices();
     $this->add_or_update($request, $choices);
 
@@ -49,7 +49,7 @@ public function save(Request $request){
 
 public function add_or_update($request , $choices){
 
-   dd('hy');
+//    dd('hy');
     $choices->title = $request->title;
     $choices->save();
 

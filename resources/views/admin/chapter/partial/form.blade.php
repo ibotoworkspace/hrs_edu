@@ -34,17 +34,17 @@
         <div>
     <select id="select-example" class="form-control"  name="paid"  placeholder="Select paid...">
 
-        <option value="paid">0</option>
-        <option value="unpaid">1</option>
+        <option  value="0">0</option>
+        <option  value="1">1</option>
         </select>
         <div class="form-group">
             {!! Form::label('level','Level') !!}
             <div>
         <select id="select-example" class="form-control"  name="level"  placeholder="Select level...">
 
-            <option value="beginner">beginner</option>
-            <option value="intermediate">intermediate</option>
-            <option value="expert">expert</option>
+            <option   value="beginner">beginner</option>
+            <option  value="intermediate">intermediate</option>
+            <option   value="expert">expert</option>
             </select>
 
     <input type="hidden" name="course_id" value="{!! $courses->id !!}">
