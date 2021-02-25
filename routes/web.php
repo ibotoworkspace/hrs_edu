@@ -32,10 +32,12 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
 
    /////listofquiz.index
     Route::get('admin/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin/listofquiz');
+
+    Route::get('admin/quizes', 'Admin\ListofQuizController@index')->name('admin.quizes');
     /////listofquiz.create
     Route::get('admin/quiz/create/{id}', 'Admin\ListofQuizController@create')->name('quiz.create');
     /////listofquiz.save
-    Route::post('admin/quiz/save', 'Admin\ListofQuizController@save')->name('listofquiz.save');
+    Route::post('quizlist/save', 'Admin\ListofQuizController@save')->name('quizlist.save');
 
     Route::get('admin/addmaincourse', 'Admin\CoursesController@addmaincourse')->name('admin/addmaincourse');
 
@@ -51,7 +53,18 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
     Route::get('admin/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
 
     Route::get('admin/userperformance', 'Admin\CoursesController@userperformance')->name('admin/userperformance');
+    // admin/choices
+    Route::get('admin/choices/{id}', 'Admin\ChoiceController@index')->name('admin.choices');
+    // admin.choices
+    Route::get('admin/choices', 'Admin\ChoiceController@index')->name('admin.choices');
 
+
+
+    // admin/choices/create
+    Route::get('admin/choices/create/{id}', 'Admin\ChoiceController@create')->name('admin.choices.create');
+
+    // choices.save
+    Route::post('admin/choices/save', 'Admin\ChoiceController@save')->name('choices.save');
 
    ////////USER web
 

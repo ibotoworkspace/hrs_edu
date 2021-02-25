@@ -50,9 +50,14 @@ width="400px" style="table-layout:fixed;"
 				
 						</th>
 						<th class="option">
-                            <div class="bestoption">Lectures</div>
+                            <div class="bestoption">IS Paid</div>
 
 						</th>
+                        <th class="option">
+                            <div class="bestoption">Level</div>
+
+						</th>
+                        
 						{{-- <th class="option">
                             <div class="bestoption">Course</div>
 
@@ -79,7 +84,13 @@ width="400px" style="table-layout:fixed;"
                   
                         
                         <td class="mylectures">
-                            <div class="lectur"><button type="button" class="btn btn-primary onlecture" id="mylectur">{!! $ch->lecture !!}</button></div>
+                            <div class="quizes" class="onquizes" id="myquizes">{!! $ch->is_paid !!}</div>
+                         
+                        </td>
+
+                        <td class="mylectures">
+                            <div class="quizes" class="onquizes" id="myquizes">{!! $ch->course_level !!}</div>
+                           
                         </td>
 					
                     </tr>

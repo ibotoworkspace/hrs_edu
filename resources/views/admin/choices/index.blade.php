@@ -1,17 +1,19 @@
 
 @extends('layouts.default_module')
 @section('module_name')
-List of Quiz Question in HRS Network PRO
+List of Choices
 @stop
 
-@section('add_btn')
-{{-- {{dd($listofquiz)}} --}}
-{!! Form::open(['method' => 'get', 'url' => ['admin/quiz/create/'.$couse_id], 'files'=>true]) !!}
+@section('add_btn') 
+
+{!! Form::open(['method' => 'get', 'url' => ['admin/choices/create/'.$question_id], 'files'=>true]) !!}
 {{-- <input type="hidden" name="course_id" value="{!!$listofquiz->course_id!!}"> --}}
-<span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
+ <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
 {!! Form::close() !!}
 @stop
 
+
+{{-- {{dd($choice)}} --}}
 @section('table')
 <div class="ableclick">
                 <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
@@ -29,15 +31,20 @@ List of Quiz Question in HRS Network PRO
                             <div class="bestcso">S. No.</div>
                         </th> --}}
                         <th class="mycourse">
-                            <div class="bestcourse">Question</div>
+                            <div class="bestcourse">Question NO.</div>
                         </th>
-                      
+                        <th class="mycourse">
+                            <div class="bestcourse">Choice</div>
+                        </th> 
+                        <th class="mycourse">
+                            <div class="bestcourse">Choice text</div>
+                        </th>
+                        <th class="mycourse">
+                            <div class="bestcourse">Is Correct</div>
+                        </th>
 
 					
-						<th class="option">
-                            <div class="bestoption">IS PAID</div>
-
-						</th>
+						
                       
                       
 						{{-- <th class="option">
@@ -52,20 +59,32 @@ List of Quiz Question in HRS Network PRO
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($listofquiz as $q)
+                    @foreach($choice as $c)
                     <tr class="myarrow">
                         {{-- <td class="mynbr">
                             <div class="bestnbr"> 1</div>
                         </td> --}}
                         <td class="hrs">
-                            <div class="besthrs">{{ $q->question }}</div>
-                            <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>   
+                            <div class="besthrs">{{ $c->quiz_id }}</div>
+                            {{-- <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>    --}}
 
                         </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
+                        <td class="hrs">
+                            <div class="besthrs">{{ $c->id }}</div>
+                            {{-- <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>    --}}
+
                         </td>
-                       
+
+                        <td class="hrs">
+                            <div class="besthrs">{{ $c->choice }}</div>
+                            {{-- <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>    --}}
+
+                        </td>
+                        <td class="hrs">
+                            <div class="besthrs">{{ $c->is_correct }}</div>
+                            {{-- <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>    --}}
+
+                        </td>
                      
 						{{-- <td class="optionss">
                             <div class="myoptionss">

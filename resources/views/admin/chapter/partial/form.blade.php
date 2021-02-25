@@ -17,18 +17,36 @@
             <textarea class="ckeditor form-control"  id="summary-ckeditor" name="description" ></textarea> 
             </div>
           </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
   
-        {!! Form::label('lectures','Lectures') !!}
+        {!! Form::label('paid','Paid') !!}
         <div>
-            {!! Form::number('lectures', null, ['class' => 'form-control',
+            {!! Form::select('paid', null, ['class' => 'form-control',
             'data-parsley-required'=>'true',
             'data-parsley-trigger'=>'change',
-            'placeholder'=>'Lectures','required',
+            'placeholder'=>'paid','required',
             'maxlength'=>"100"]) !!}
         </div>
 
-    </div>
+    </div> --}}
+    <div class="form-group">
+        {!! Form::label('paid','Paid') !!}
+        <div>
+    <select id="select-example" class="form-control"  name="paid"  placeholder="Select paid...">
+
+        <option value="paid">0</option>
+        <option value="unpaid">1</option>
+        </select>
+        <div class="form-group">
+            {!! Form::label('level','Level') !!}
+            <div>
+        <select id="select-example" class="form-control"  name="level"  placeholder="Select level...">
+
+            <option value="beginner">beginner</option>
+            <option value="intermediate">intermediate</option>
+            <option value="expert">expert</option>
+            </select>
+
     <input type="hidden" name="course_id" value="{!! $courses->id !!}">
 
 
