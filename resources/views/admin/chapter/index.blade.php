@@ -104,7 +104,12 @@ width="400px" style="table-layout:fixed;"
 
 
 
+  @section('pagination')
+                <span class="pagination pagination-md pull-right">{!! $chapter->render() !!}</span>
+              
+            @endsection
 
+		
 
 
 @endforeach

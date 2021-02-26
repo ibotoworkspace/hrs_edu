@@ -23,7 +23,7 @@ Route::get('admin/login', 'Admin\AdminController@index');
 Route::post('admin/checklogin', 'Admin\AdminController@checklogin');
 Route::get('admin/logout', 'Admin\AdminController@logout')->name('logout');
 
-Route::group(['middleware' => 'admin_auth','prefix' => 'admin'], function () { //'middleware' => 'admin_auth',
+Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
 
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
@@ -66,7 +66,32 @@ Route::group(['middleware' => 'admin_auth','prefix' => 'admin'], function () { /
 
     // choices.save
     Route::post('choices/save', 'Admin\ChoiceController@save')->name('choices.save');
+
+    // list of promo code
+    Route::get('/promocode', 'Admin\PromoCodeController@index')->name('admin.promocode');
+    Route::get('/promocode/create', 'Admin\PromoCodeController@create')->name('promocode.create');
+    Route::post('/promocode/save', 'Admin\PromoCodeController@save')->name('promocode.save');
+    Route::get('/promocode/edit/{id}', 'Admin\PromoCodeController@edit')->name('promocode.edit');
+    Route::post('/promocode/update/{id}', 'Admin\PromoCodeController@update')->name('promocode.update');
+
+    // admin/courses/delete' .$crs->id
+    Route::post('/promocode/delete/{id}', 'Admin\PromoCodeController@destroy_undestroy')->name('promocode.delete');
+
+
+    /////////coursesvideos
+
+    Route::get('/coursesvideos/index', 'Admin\CourseVideosController@index')->name('coursesvideos.index');
+    Route::get('courses/videos/{id}', 'Admin\CourseVideosController@index')->name('courses.videos');
+    Route::get('/coursesvideos/create/{id}', 'Admin\CourseVideosController@create')->name('coursesvideos.create');
+    Route::post('/coursesvideos/save', 'Admin\CourseVideosController@save')->name('coursesvideos.save');
+    Route::get('/coursesvideos/edit/{id}', 'Admin\CourseVideosController@edit')->name('coursesvideos.edit');
+    Route::post('/coursesvideos/update/{id}', 'Admin\CourseVideosController@update')->name('coursesvideos.update');
+    Route::post('/coursesvideos/delete/{id}', 'Admin\CourseVideosController@destroy_undestroy')->name('coursesvideos.delete');
+    Route::get('coursesvideos/search', 'Admin\CourseVideosController@search')->name('coursesvideos.search');
 });
+
+
+
 
 //                              *********************** ADMIN ROUTE END ****************************
 
@@ -150,19 +175,21 @@ Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.inde
 Route::get('admin/courses/create', 'Admin\CoursesController@create')->name('courses.create');
 Route::post('admin/courses/save', 'Admin\CoursesController@save')->name('courses.save');
 
+// Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('courses.edit');
+// Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
+// Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
+Route::get('courses/search', 'Admin\CoursesController@search')->name('courses.search');
+// admin/courses/edit' .$crs->id
 Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('courses.edit');
 Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
+
+// admin/courses/delete' .$crs->id
 Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
-Route::get('courses/search', 'Admin\CoursesController@search')->name('courses.search');
-
-
 
 
 
 ////////// lectures button clicking in course page
 Route::get('admin/chapter/{id}', 'Admin\ChapterController@index')->name('chapters.index');
-
-
 
 ////{chapter crud}
 Route::get('admin/chapter', 'Admin\ChapterController@index')->name('chapter.index');
@@ -178,18 +205,9 @@ Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.se
 
 
 ////////// Video button clicking in course page
-Route::get('courses/videos/{id}', 'Admin\CourseVideosController@index')->name('courses.videos');
 
 
-/////////coursesvideos
-Route::get('admin/coursesvideos/index', 'Admin\CourseVideosController@index')->name('coursesvideos.index');
 
-Route::get('admin/coursesvideos/create/{id}', 'Admin\CourseVideosController@create')->name('coursesvideos.create');
-Route::post('admin/coursesvideos/save', 'Admin\CourseVideosController@save')->name('coursesvideos.save');
-Route::get('admin/coursesvideos/edit/{id}', 'Admin\CourseVideosController@edit')->name('coursesvideos.edit');
-Route::post('admin/coursesvideos/update/{id}', 'Admin\CourseVideosController@update')->name('coursesvideos.update');
-Route::post('admin/coursesvideos/delete/{id}', 'Admin\CourseVideosController@destroy_undestroy')->name('coursesvideos.delete');
-Route::get('coursesvideos/search', 'Admin\CourseVideosController@search')->name('coursesvideos.search');
 
 
 

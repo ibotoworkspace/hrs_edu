@@ -169,14 +169,9 @@ $admin_common = session()->get('admin_common');
                             <span>All Courses</span>
                         </a>
                     </li>
+                 
                     <li>
-                        <a href="{{asset('admin/userperformance')}}">
-                        <img src="{{ asset('images/icon-15.png') }}" alt="">
-                            <span>User Performance</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{asset('admin/newpromocode')}}">
+                        <a href="{{asset('admin/promocode')}}">
                         <img src="{{ asset('images/icon-16.png') }}" alt="">
                             <span>Promo Code</span>
                         </a>
