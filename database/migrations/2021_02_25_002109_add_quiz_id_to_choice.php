@@ -14,7 +14,7 @@ class AddQuizIdToChoice extends Migration
     public function up()
     {
         Schema::table('choice', function (Blueprint $table) {
-            $table->bigInteger('quiz_id')->nullable()->default(0);
+            // $table->bigInteger('quiz_id')->nullable()->default(0);
             $table->bigInteger('is_correct')->nullable()->default(0);
         });
     }
