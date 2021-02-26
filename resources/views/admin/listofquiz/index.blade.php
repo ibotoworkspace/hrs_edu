@@ -25,26 +25,26 @@ List of Quiz Question in HRS Network PRO
 
 			<thead>
                     <tr>
-                        {{-- <th class="myso">
+                        <th class="myso">
                             <div class="bestcso">S. No.</div>
-                        </th> --}}
+                        </th>
                         <th class="mycourse">
                             <div class="bestcourse">Question</div>
                         </th>
                       
 
 					
-						<th class="option">
+						{{-- <th class="option">
                             <div class="bestoption">IS PAID</div>
 
-						</th>
+						</th> --}}
                       
                       
-						{{-- <th class="option">
+						<th class="option">
                             <div class="bestoption">Option</div>
 
 						</th>
-					 --}}
+					
 						
 
 
@@ -52,291 +52,53 @@ List of Quiz Question in HRS Network PRO
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($listofquiz as $q)
+                    @foreach($listofquiz as $key=>$q)
                     <tr class="myarrow">
-                        {{-- <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td> --}}
+                        <td class="mynbr">
+                            <div class="bestnbr"> {!! $key +1 !!}</div>
+                        </td>
                         <td class="hrs">
                             <div class="besthrs">{{ $q->question }}</div>
                             <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>   
 
                         </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                       
-                     
-						{{-- <td class="optionss">
+                        <td class="optionss">
                             <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
+        
+                                <div class="dropdown">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span
+                                            class="caret"></span></button>
+
+                                            <ul class="dropdown-menu caret" aria-labelledby="dropdownMenu1">
+                                                <li><a href="{{ url('/admin/courses/edit/' . $q->id) }}">Edit</a></li>
+                                            </ul>
+                                    {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                        <li><a href="{{ url('/admin/courses/edit/' . $crs->id) }}">Edit</a></li>
+        
+        
+                                        <li>
+        
+                                            {!! Form::open(['method' => 'POST', 'route' => ['courses.delete', $crs->id]]) !!}
+                                            <a href="" data-toggle="modal" name="activate_delete" data-target=".delete">
+                                                <span class="badge bg-info btn-danger ">
+                                                    {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
+                                            {!! Form::close() !!}
+                                        </li>
+                                    </ul> --}}
+        
+                                </div>
+                                <i class="fa fa-cog settings" aria-hidden="true"></i>
+        
                             </div>
+                        </td>
+                        {{-- <td class="unpaidquiz">
+                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
                         </td> --}}
+                      
                     </tr>
 
-                    {{-- <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-
-
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-
-
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-
-
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-
-
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr class="myarrow">
-                        <td class="mynbr">
-                            <div class="bestnbr"> 1</div>
-                        </td>
-                        <td class="hrs">
-                            <div class="besthrs">What are the types of mode available in Network?</div>
-                        </td>
-                        <td class="unpaidquiz">
-                            <div class="myunpaidquiz"><button type="button" class="btn btn-primary onunpaidquiz" id="myunpaiidquiz">unpaid</button></div>
-                        </td>
-                
-                     
-						<td class="optionss">
-                            <div class="myoptionss">
-                            <i class="fa fa-cog settings" aria-hidden="true"></i>
-                            </div>
-                        </td>
-                    </tr>
- --}}
+               
 
              @endforeach
 
@@ -346,9 +108,9 @@ List of Quiz Question in HRS Network PRO
 
 
 
-                {{-- @section('pagination')
+                @section('pagination')
                 <span class="pagination pagination-md pull-right">{!! $listofquiz->render() !!}</span>
               
-            @endsection --}}
+            @endsection
 
 			@stop
