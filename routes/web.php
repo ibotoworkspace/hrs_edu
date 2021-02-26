@@ -23,7 +23,7 @@ Route::get('admin/login', 'Admin\AdminController@index');
 Route::post('admin/checklogin', 'Admin\AdminController@checklogin');
 Route::get('admin/logout', 'Admin\AdminController@logout')->name('logout');
 
-Route::group(['middleware' => 'admin_auth','prefix' => 'admin'], function () { //'middleware' => 'admin_auth',
+Route::group(['middleware' => 'admin_auth','prefix' => 'admin'], function () { 
 
 
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
@@ -66,7 +66,23 @@ Route::group(['middleware' => 'admin_auth','prefix' => 'admin'], function () { /
 
     // choices.save
     Route::post('choices/save', 'Admin\ChoiceController@save')->name('choices.save');
+
+    // list of promo code
+Route::get('/promocode', 'Admin\PromoCodeController@index')->name('admin.promocode');
+Route::get('/promocode/create', 'Admin\PromoCodeController@create')->name('promocode.create');
+Route::post('/promocode/save', 'Admin\PromoCodeController@save')->name('promocode.save');
+Route::get('/promocode/edit/{id}', 'Admin\PromoCodeController@edit')->name('promocode.edit');
+Route::post('/promocode/update/{id}', 'Admin\PromoCodeController@update')->name('promocode.update');
+
+// admin/courses/delete' .$crs->id
+Route::post('/promocode/delete/{id}', 'Admin\PromoCodeController@destroy_undestroy')->name('promocode.delete');
+
+
+
 });
+
+
+
 
 //                              *********************** ADMIN ROUTE END ****************************
 
@@ -150,10 +166,16 @@ Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.inde
 Route::get('admin/courses/create', 'Admin\CoursesController@create')->name('courses.create');
 Route::post('admin/courses/save', 'Admin\CoursesController@save')->name('courses.save');
 
+// Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('courses.edit');
+// Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
+// Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
+Route::get('courses/search', 'Admin\CoursesController@search')->name('courses.search');
+// admin/courses/edit' .$crs->id
 Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('courses.edit');
 Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
+
+// admin/courses/delete' .$crs->id
 Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
-Route::get('courses/search', 'Admin\CoursesController@search')->name('courses.search');
 
 
 

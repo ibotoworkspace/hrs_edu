@@ -18,6 +18,9 @@ else{
         {!! Form::open(['id'=>'my_form','method' => 'POST', 'route' => ['choices.save' ], 'files'=>true]) !!}
     @endif
     @include('admin.choices.partial.form')
+    
+
+    
     {!!Form::close()!!}
 
 
@@ -31,8 +34,10 @@ else{
         </div>
     </div>
 
+
 @endsection
 {!!Form::close()!!}
+
 
 
 

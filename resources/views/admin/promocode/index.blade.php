@@ -1,11 +1,11 @@
 @extends('layouts.default_module')
 @section('module_name')
-    Courses
+    List of Promo Code
 @stop
 
 @section('add_btn')
 
-    {!! Form::open(['method' => 'get', 'route' => ['courses.create'], 'files' => true]) !!}
+    {!! Form::open(['method' => 'get', 'route' => ['promocode.create'], 'files' => true]) !!}
     <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
     {!! Form::close() !!}
 @stop
@@ -23,9 +23,9 @@
 
 
 @section('table')
-    {!! Form::open(['method' => 'get', 'route' => ['courses.search'], 'files' => true]) !!}
+    {{-- {!! Form::open(['method' => 'get', 'route' => ['courses.search'], 'files' => true]) !!}
     @include('admin.courses.partial.searchfilters')
-    {!! Form::close() !!}
+    {!! Form::close() !!} --}}
 
     <div class="ableclick">
         <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
@@ -43,29 +43,26 @@
                 <div class="bestcso">S. No.</div>
             </th>
             <th class="mycourse">
-                <div class="bestcourse">Courses</div>
+                <div class="bestcourse">Title</div>
             </th>
             <th class="option">
-                <div class="bestoption">Image</div>
+                <div class="bestoption">Percentage</div>
 
             </th>
 
             <th class="option">
-                <div class="bestoption">Hours</div>
-
-            </th>
-            <th class="option">
-                <div class="bestoption">Quizes</div>
+                <div class="bestoption">Code</div>
 
             </th>
             <th class="option">
-                <div class="bestoption">Videos</div>
+                <div class="bestoption">Validity</div>
 
             </th>
             <th class="option">
-                <div class="bestoption">Lectures</div>
+                <div class="bestoption">Used Times</div>
 
             </th>
+           
             <th class="option">
                 <div class="bestoption">Option</div>
 
@@ -80,48 +77,36 @@
         {{-- admin/listofquiz --}}
 
 
-        @foreach ($courses as $key => $crs)
+        @foreach ($promocode as $key => $p)
 
             <tr class="myarrow">
                 <td class="mynbr">
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! $crs->title !!}</div>
+                    <div class="besthrs" name="mytitle">{!! $p->title !!}</div>
                 </td>
-                <?php
-                if(!$crs->avatar){
-                    $crs->avatar = asset('images/mediallogo.png');
-                }
-            ?>
-
-		<td><img width="100px" src="{!! $crs->avatar!!}" class="show-product-img imgshow"></td>
-
+             
+           
+	
+                <td class="hrs">
+                    <div class="besthrs" name="mytitle">{!! $p->percentage !!}</div>
+                </td>
 
                 <td class="mynbr">
-                    <div class="bestnbr" name="hours">{!! $crs->hours !!}</div>
+                    <div class="bestnbr" name="hours">{!! $p->code !!}</div>
                 </td>
-                <td class="myquiz">
-                    {{-- <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div> --}}
-                    <a href="{{ url('/admin/listofquiz/' . $crs->id) }}" type="button" class="btn btn-primary onquizes"
-                        id="myvide">quizes</a>
+                <td class="mynbr">
+                    <div class="bestnbr" name="hours">{!! $p->validity !!}</div>
                 </td>
-                <td class="myvideos">
-                    <div class="vide">
 
-                        <a href="{{ url('/courses/videos/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
-                            id="myvide">1830</a>
-                        {{-- <button href="{{ route('courses.videos') }}" type="button" class="btn btn-primary onvideos" id="myvide">1830 --}}
-
-                    </div>
+                <td class="mynbr">
+                    <div class="bestnbr" name="hours">{!! $p->used_times !!}</div>
                 </td>
-                <td class="myvideos">
 
-                    <div class="vide">
-                        <a href="{{ url('/admin/chapter/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
-                            id="myvide">Lectures</a>
-                    </div>
-                </td>
+         
+            
+            
                 <td class="optionss">
                     <div class="myoptionss">
 
@@ -130,15 +115,15 @@
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span
                                     class="caret"></span></button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                                <li><a href="{{ url('/admin/courses/edit/' . $crs->id) }}">Edit</a></li>
+                                <li><a href="{{ url('/admin/promocode/edit/' . $p->id) }}">Edit</a></li>
 
 
                                 <li>
 
-                                    {!! Form::open(['method' => 'POST', 'route' => ['courses.delete', $crs->id]]) !!}
+                                    {!! Form::open(['method' => 'POST', 'route' => ['promocode.delete', $p->id]]) !!}
                                     <a href="" data-toggle="modal" name="activate_delete" data-target=".delete">
                                         <span class="badge bg-info btn-danger ">
-                                            {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
+                                            {!! $p->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
                                     {!! Form::close() !!}
                                 </li>
                             </ul>
@@ -165,7 +150,7 @@
         @endforeach
     </tbody>
 @section('pagination')
-    <span class="pagination pagination-md pull-right">{!! $courses->render() !!}</span>
+    <span class="pagination pagination-md pull-right">{!! $promocode->render() !!}</span>
 @endsection
 {{-- modal open --}}
 

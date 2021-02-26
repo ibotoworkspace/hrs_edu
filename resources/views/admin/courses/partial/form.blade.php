@@ -24,7 +24,7 @@
 
     </div>
 
-
+{{-- 
     <div class="form-group">
   
         {!! Form::label('lectures','Lectures') !!}
@@ -36,7 +36,7 @@
             'maxlength'=>"100"]) !!}
         </div>
 
-    </div>
+    </div> --}}
 
 
 
@@ -55,12 +55,12 @@
         </div> --}}
     
 
-          <div class="form-group">
+          {{-- <div class="form-group">
         {!! Form::label('detail','Detail') !!}
         <div>
             <textarea class="ckeditor form-control"  id="summary-ckeditor" name="detail" ></textarea> 
             </div>
-          </div>
+          </div> --}}
         
             
 
@@ -101,12 +101,12 @@ if(isset($courses)){
         </div>
   
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             {!! Form::label('requirments','Requirments') !!}
             <div>
                 <textarea class="ckeditor form-control"  id="summary-ckeditor" name="requirments" ></textarea> 
                 </div>
-              </div>
+              </div> --}}
 {{--      
               <div class="form-group">
                 {!! Form::label('downloadurl','Downloadurl') !!}
@@ -116,19 +116,12 @@ if(isset($courses)){
          </div> 
               </div> --}}
 
-<?php
 
-$images =  asset('images/courses2.png');
 
-if(isset($courses)){
 
-    if($courses->download_pdf){
-        $images = $courses->download_pdf;
-    }
-}
-?>
+
             
-                    <div class="form-group">
+                    {{-- <div class="form-group">
             
                         <div class="form-group pull-right">
                             <img width="100px" src="{!! $images !!}"class="show-product-img imgshow">
@@ -140,7 +133,7 @@ if(isset($courses)){
                             <p class="help-block" id="error">Limit 2MB</p>
                         </div>
             
-                    </div>
+                    </div> --}}
         <!-- <div class="form-group">
     <label for="exampleFormControlFile1">Example file input</label>
     <input type="file" class="form-control-file" id="exampleFormControlFile1">

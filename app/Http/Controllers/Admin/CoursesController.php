@@ -113,10 +113,13 @@ class CoursesController extends Controller
     public function edit($id)
     {
 
+        // dd($id);
+
         $control = 'edit';
-        
+       $courses = Courses::find($id);
         return \View::make('admin.courses.create', compact(
             'control',
+            'courses'
            
         ));
     }
@@ -133,10 +136,10 @@ class CoursesController extends Controller
     public function add_or_update($request, $courses)
     {
         $courses->title = $request->title;
-        $courses->detail = $request->detail;
-        $courses->requirments = $request->requirments;
+        // $courses->detail = $request->detail;
+        // $courses->requirments = $request->requirments;
         $courses->hours = $request->hours;
-        $courses->lectures = $request->lectures;
+        // $courses->lectures = $request->lectures;
 
       
         if ($request->hasFile('avatar')) {
@@ -148,13 +151,7 @@ class CoursesController extends Controller
         }
 
 
-        if ($request->hasFile('images')) {
-            $images = $request->images;
-            $root = $request->root();
-            $courses->download_pdf = $this->move_img_get_path($images, $root, 'images');
-        } else if (strcmp($request->images_visible, "")  !== 0) {
-            $courses->download_pdf = $request->images_visible;
-        }
+    
         $courses->save();
       
         return redirect()->back();
