@@ -106,7 +106,7 @@ class UserController extends Controller
                     // $user->device_type = $device;
                     
                     $user->save();
-                    return $user;
+                    
                     $user->get_notification = ($user->get_notification ? true : false);
                     
                     unset($user->device_type);
