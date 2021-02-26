@@ -40,6 +40,9 @@ width="400px" style="table-layout:fixed;"
 			<thead>
                     <tr>
                         <th class="myso">
+                            <div class="bestcso">S.No.</div>
+                        </th>
+                        <th class="myso">
                             <div class="bestcso">Title</div>
                         </th>
                         <th class="mycourse">
@@ -70,10 +73,13 @@ width="400px" style="table-layout:fixed;"
                 </thead>
                 <tbody>
 
-                    @foreach($chapter as $ch)
+                    @foreach($chapter as $key=>$ch)
 
                     <tr class="myarrow">
                      
+                        <td class="hrs">
+                            <div class="besthrs"  name="title">{!! $key +1!!}</div>
+                        </td>
                         <td class="hrs">
                             <div class="besthrs"  name="title">{!! $ch->title !!}</div>
                         </td>
@@ -81,10 +87,9 @@ width="400px" style="table-layout:fixed;"
                         <td class="myquiz">
                             <div class="quizes" class="onquizes" id="myquizes">{!! $ch->description !!}</div>
                         </td>
-                  
                         
                         <td class="mylectures">
-                            <div class="quizes" class="onquizes" id="myquizes">{!! $ch->is_paid !!}</div>
+                            <div class="quizes" class="onquizes" id="myquizes">{!! ($ch->is_paid == 0 )?'No': 'Yes' !!}</div>
                          
                         </td>
 
