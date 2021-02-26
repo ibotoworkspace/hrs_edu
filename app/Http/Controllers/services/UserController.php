@@ -171,4 +171,50 @@ class UserController extends Controller
         }
     }
 
+    public function profile_update(Request $request)
+    {
+
+        try {
+            $user = $request->attributes->get('user');
+            if ($request->name) {
+                $user->name = $request->name;
+            }
+            if ($request->email) {
+                $user->email = $request->email;
+            }
+            if ($request->address) {
+                $user->address = $request->address;
+            }
+            if ($request->mobileno) {
+                $user->mobileno = $request->mobileno;
+            }
+            if ($request->password) {
+                $user->password = $request->password;
+            }
+            if ($request->avatar) {
+                $user->avatar = $request->avatar;
+            }
+            $user->save();
+
+            $response = new \stdClass();
+            $response->access_token = $user->access_token;
+            $response->id = $user->id;
+            $response->name = $user->name;
+            $response->email = $user->email;
+            $response->address = $user->address;
+            $response->mobileno = $user->mobileno;
+            $response->avatar = $user->avatar;
+            $response->get_notification = ($user->get_notification ? true : false);
+
+            return $this->sendResponse(Config::get('constants.status.OK'), $response);
+        } catch (\Exception $e) {
+            return $this->sendResponse(
+                Config::get('error.code.INTERNAL_SERVER_ERROR'),
+                null,
+                [$e->getMessage()],
+                Config::get('error.code.INTERNAL_SERVER_ERROR')
+            );
+        }
+    }
+
 }
