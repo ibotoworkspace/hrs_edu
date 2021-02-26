@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth.client_token'], function () {
 
     Route::post('user/signup', 'services\UserController@signUp');
     Route::post('user/login', 'services\UserController@login');
+    Route::post('user/logout', 'services\UserController@logout');
     Route::post('user/forgetpassword', 'services\UserController@forgetpassword');
     Route::get('user/logout', 'services\UserController@logout');
     Route::get('user/home', 'services\HomeController@home');
@@ -35,5 +36,6 @@ Route::group(['middleware' => 'auth.client_token'], function () {
     Route::post('user/chapter', 'services\CoursesController@chapter');
     Route::post('user/contactus', 'services\ContactusController@contactus');
     Route::post('user/ticketsubmit', 'services\TicketControlller@ticketsubmit');
+    
     
 });

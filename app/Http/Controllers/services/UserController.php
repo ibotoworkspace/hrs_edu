@@ -60,8 +60,9 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
+        
         try {
-         
+            
             //Request input Validation
             
             $validation = Validator::make($request->all(), User::$rules);
@@ -75,17 +76,20 @@ class UserController extends Controller
                     $validation->getMessageBag()->all(),
                     Config::get('error.code.BAD_REQUEST')
                 );
+                
             } else {
                 
                 $authUser = Auth::attempt([
                     'email' => $request->email,
                     'password' => $request->password
                 ]);
-                
+               
 
                 //Get record if user has authenticated
                 if ($authUser) {
+                   
                     $device = $request->header('client-id');
+                    
                     $user = User::where([
                         'email' => $request->email
                     ])->get([
@@ -93,15 +97,18 @@ class UserController extends Controller
                         'id',
                         'name',
                         'email',
-                        'mobileno'
-                    ])
-                        ->first();
-
+                        'mobileno',
+                        'address',
+                        'avatar'
+                    ])->first();
+                    
                     $user->access_token = uniqid();
                     // $user->device_type = $device;
+                    
                     $user->save();
+                    return $user;
                     $user->get_notification = ($user->get_notification ? true : false);
-
+                    
                     unset($user->device_type);
                     $responseArray =  [
                         'status' => Config::get('constants.status.OK'),
@@ -143,11 +150,25 @@ class UserController extends Controller
         return $request;
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        # code...
-        Auth::logout(); 
-        return $this->sendResponse(200, 'logout successfully!');
+        try {
+            //Log the user out by assigning access_token as null
+            $user = $request->attributes->get('user');
+            $user->access_token = null;
+            // $user->gcm_token = null;
+            $user->save();
+
+            $response = $this->sendResponse(Config::get('constants.status.OK'));
+            return $response;
+        } catch (\Exception $e) {
+            return $this->sendResponse(
+                Config::get('error.code.INTERNAL_SERVER_ERROR'),
+                null,
+                [$e->getMessage()],
+                $e->getCode()
+            );
+        }
     }
 
 }
