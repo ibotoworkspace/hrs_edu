@@ -101,12 +101,14 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 });
 
 
-
-
 //                              *********************** ADMIN ROUTE END ****************************
 
 
+
+
 //                              *********************** USER ROUTE START ****************************
+
+
 
 Route::get('user/index', 'User\UserController@index')->name('user/index');
 
@@ -199,28 +201,35 @@ Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undest
 
 
 
+Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
 
 
-////////// Video button clicking in course page
-
-
-
-
-
-
-
-////////QUIZ crud  
-
-// Route::get('admin/quiz', 'Admin\QuizController@index')->name('quiz.index');
-// Route::get('admin/quiz/create', 'Admin\QuizController@create')->name('quiz.create');
-// Route::post('admin/quiz/save', 'Admin\QuizController@save')->name('quiz.save');
-
-// Route::get('admin/quiz/edit/{id}', 'Admin\QuizController@edit')->name('quiz.edit');
-// Route::post('admin/quiz/update/{id}', 'Admin\QuizController@update')->name('quiz.update');
-// Route::post('admin/quiz/delete/{id}', 'Admin\QuizController@destroy_undestroy')->name('quiz.delete');
 
 //////student dashboard 
 
+Route::group(['prefix' => 'student'], function () {
+
+    //'middleware' => 'student_auth',
+
+    Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
+    Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');
+    Route::get('/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');
+    Route::post('/myregstration', 'Student\MyRegstrationController@index')->name('student/myregstration');
+    Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
+    Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
+    Route::get('/profile', 'Student\ProfileControlle@index')->name('student/profile');
+    Route::get('/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
+    Route::get('/viewticket', 'Student\ViewTicketController@index')->name('student/viewticket');
+
+    Route::get('/dashboard', 'Student\DashboardController@dashboard')->name('student/dashboard');
+});
+
+
+
+
+Route::get('student/login', 'Student\StudentController@index');
+Route::post('student/checklogin', 'Student\StudentController@checklogin');
+Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
 Route::get('student/layouts', 'Student\BlogPageController@layouts')->name('student/layouts');
 Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
@@ -229,17 +238,3 @@ Route::get('student/courseregistration', 'Student\CourseRegistrationController@i
 ///user/courseregistered
 //////student//courselist
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
-
-
-Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
-Route::get('student/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
-Route::get('student/invoice', 'Student\InvoiceController@index')->name('student/invoice');
-Route::get('student/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');
-Route::post('student/myregstration', 'Student\MyRegstrationController@index')->name('student/myregstration');
-Route::get('student/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
-Route::get('student/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
-Route::get('student/profile', 'Student\ProfileControlle@index')->name('student/profile');
-Route::get('student/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
-Route::get('student/viewticket', 'Student\ViewTicketController@index')->name('student/viewticket');
-
-Route::get('student/dashboard', 'Student\DashboardController@dashboard')->name('student/dashboard');
