@@ -4,16 +4,18 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\models\Courses;
+// use App\models\Courses;
 
 class MyRegstrationController extends Controller
 {
-    function index()
+    function index(Request $request)
     {
-      
+    //   dd($request->all());
  
-        // $blogpage = BlogPage::paginate(10);
-       
-        return view('studentdashboard.myregstration.index');
+        $courses = Courses::paginate(10);
+    //    dd($courses);
+         return view('studentdashboard.myregstration.index',compact('courses'));
     
 }
 

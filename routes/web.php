@@ -241,7 +241,7 @@ Route::post('user/courseregistered', 'Student\CourseRegistrationController@regis
 Route::get('student/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
 Route::get('student/invoice', 'Student\InvoiceController@index')->name('student/invoice');
 Route::get('student/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');
-Route::get('student/myregstration', 'Student\MyRegstrationController@index')->name('student/myregstration');
+Route::post('student/myregstration', 'Student\MyRegstrationController@index')->name('student/myregstration');
 Route::get('student/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
 Route::get('student/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
 Route::get('student/profile', 'Student\ProfileControlle@index')->name('student/profile');

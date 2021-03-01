@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\models\Course_Registered;
 use App\models\user_registered;
+use App\models\Courses;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -14,10 +15,10 @@ class CourseRegistrationController extends Controller
     function index()
     {
       
- 
+        $courses = Courses::paginate(10);
         $userlist = User::where('role_id',2)->get();
-        // dd($userlist);
-        return view('studentdashboard.courseregistration.index');
+        // dd($courses);
+        return view('studentdashboard.courseregistration.index',compact('courses'));
     
 }
 
