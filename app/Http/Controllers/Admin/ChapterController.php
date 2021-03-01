@@ -13,14 +13,13 @@ use Illuminate\Support\Facades\Config;
 
 class ChapterController extends Controller
 {
-  
-
-
-
-   public function index($id)
+   public function index(Request $request ,$id)
     {
-        $chapter = Chapter::where('course_id',$id)->paginate(10);
+        $name = $request->name ?? '';
+
+        $chapter = Chapter::where('title', 'like', '%' . $name . '%')->where('course_id',$id)->paginate(10);
         $courses = Courses::find($id);
+        
         return view('admin.chapter.index', compact('chapter','courses'));
 
     }
@@ -38,14 +37,12 @@ class ChapterController extends Controller
     }
 
 
-    public function save(Request $request) ////----->FORM
+    public function save(Request $request)
     {
-        // dd($request->all());
-        $chapter = new Chapter();        ///----->DATABASE
-       
+        $chapter = new Chapter();    
         $this->add_or_update($request , $chapter);
 
-        return $this->index($request->course_id);
+        return $this->index($request,$request->course_id);
         
     }
     public function edit($id)
@@ -77,33 +74,10 @@ class ChapterController extends Controller
         $chapter->course_id = $request->course_id;
         
         // $chapter->lecture = $request->lectures;
-
-     
-
-      
         $chapter->save();
       
         return redirect()->back();
     }
-
-
-
-    public function search(Request $request)
-
- {
-
-
-    
-        $name = $request->name ?? '';
-        // dd($name);
-        $chapter = Chapter::where('title', 'like', '%' . $name . '%')->paginate(10);   
-
-        return view('admin.chapter.index', compact('chapter','name'));
- 
-    }
-
-    
-
        public function destroy_undestroy($id)
     {
 

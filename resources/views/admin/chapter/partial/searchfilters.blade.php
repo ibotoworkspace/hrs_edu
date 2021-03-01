@@ -1,6 +1,6 @@
  <div class="col-xs-4">
      <div class="form-group">
-         <label>Search Name</label>
+         <label>Search Name</label>f
          <div class="mb15">
              <fieldset>
                  <div class="control-group">

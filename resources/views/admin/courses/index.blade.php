@@ -82,7 +82,7 @@
 
         @foreach ($courses as $key => $crs)
 
-            <tr class="myarrow">
+            <tr class="myarrow myarrow_{{$crs->id}}">
                 <td class="mynbr">
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
@@ -133,11 +133,9 @@
 
                                 <li>
 
-                                    {!! Form::open(['method' => 'POST', 'route' => ['courses.delete', $crs->id]]) !!}
-                                    <a href="" data-toggle="modal" name="activate_delete" data-target=".delete">
+                                    <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$crs->id}}" hit_url="{{ url('/admin/coursesvideos/delete/' . $crs->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                                         <span class="badge bg-info btn-danger ">
                                             {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
-                                    {!! Form::close() !!}
                                 </li>
                             </ul>
 

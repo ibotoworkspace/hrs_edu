@@ -79,7 +79,7 @@
 
         @foreach ($promocode as $key => $p)
 
-            <tr class="myarrow">
+            <tr class="myarrow myarrow_{{$p->id}}">
                 <td class="mynbr">
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
@@ -119,12 +119,9 @@
 
 
                                 <li>
-
-                                    {!! Form::open(['method' => 'POST', 'route' => ['promocode.delete', $p->id]]) !!}
-                                    <a href="" data-toggle="modal" name="activate_delete" data-target=".delete">
-                                        <span class="badge bg-info btn-danger ">
-                                            {!! $p->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
-                                    {!! Form::close() !!}
+                                     <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$p->id}}" hit_url="{{ url('/admin/promocode/delete/' . $p->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                                <span class="badge bg-info btn-danger ">
+                                                    {!! $p->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
                                 </li>
                             </ul>
 
