@@ -46,13 +46,17 @@
                                 </tr>
                             </thead>
                             <tbody class="mycolarea">
+                                @foreach($courses as $c)
                                 <tr class="mycolareadata">
                                     <td>HRS4697</td>
-                                    <td>HRS Network Pro</td>
-                                    <td>15, December 2020</td>
-                                    <td><button type="button" class="btn btn-primary payment">Make Payment</button></td>
+                                    <td>{!! $c->title !!}</td>
+                                    <td>{!! $c->created_at !!}</td>
+                                    <td>
+                                        <a href="{{ url('/student/makepayment/') }}"   type="button" class="btn btn-primary payment" id="myvide">Make Payment</a>   
+                                        {{-- <button type="button" class="btn btn-primary payment">Make Payment</button> --}}
+                                    </td>
                                 </tr>
-                                <tr class="mycolareadata">
+                                {{-- <tr class="mycolareadata">
                                     <td>HRS1018</td>
                                     <td>Routing and Switching Pro</td>
                                     <td>16, December 2020</td>
@@ -63,7 +67,8 @@
                                     <td>Server Pro 2016 (Identity 4.0)</td>
                                     <td>17, December 2020</td>
                                     <td><button type="button" class="btn btn-primary payment">Make Payment</button></td>
-                                </tr>                                
+                                </tr>  --}}
+                                @endforeach                               
                             </tbody>
                         </table>
                         </div>
