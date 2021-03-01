@@ -12,8 +12,8 @@ else{
 @endsection
 @section('leftsideform')
     @if($control == 'edit')
-        {!! Form::model($doctor,['id'=>'my_form', 'method' => 'POST', 'route' =>
-                  ['doctor.update', $doctor->id],'files'=>true]) !!}
+        {!! Form::model($quiz,['id'=>'my_form', 'method' => 'POST', 'route' =>
+                  ['quizlist.update', $quiz->id],'files'=>true]) !!}
     @else
         {!! Form::open(['id'=>'my_form','method' => 'POST', 'route' => ['quizlist.save' ], 'files'=>true]) !!}
     @endif

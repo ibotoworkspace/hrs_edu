@@ -38,41 +38,36 @@ class ListofQuizController extends Controller
     public function save(Request $request)
     {
 
-        //    dd($request->all());
-        $quiz = new Quiz();
-
-        // $course = new Courses();
-        $this->add_or_update($request, $quiz);
-        return redirect('admin/listofquiz/'.$request->course_id);
+        $this->add_or_update($request);
+        return redirect('admin/listofquiz/' . $request->course_id);
         // return $this->index($request->course_id);
     }
-    // public function edit($id)
-    // {
+    public function edit($id)
+    {
+        $control = 'edit';
+        $quiz = Quiz::with('choice')->find($id);
+        $course_id  =  $quiz->course_id;
+        return \View::make('admin.listofquiz.create', compact(
+            'control',
+            'quiz',
+            'course_id'
+        ));
+    }
 
-    //     $control = 'edit';
-    //     $courses = Courses::find($id);
-
-    //     return \View::make('admin.quiz.create', compact(
-    //         'control',
-    //         'courses'
-
-    //     ));
-    // }
-
-    // public function update(Request $request, $id)
-    // {
-    //     $quiz = Quiz::find($id);
-    //     $courses = Courses::find($id);
-
-    //     $this->add_or_update($request, $quiz,$courses);
-    //     return Redirect('admin/quiz');
-    // }
+    public function update(Request $request, $id)
+    {
+        // dd($request->all());
+        Quiz::find($id)->delete();
+        // $courses = Courses::find($id);
+        $this->add_or_update($request);
+        return redirect('admin/listofquiz/' . $request->course_id);
+    }
 
 
-    public function add_or_update(Request $request, $quiz)
+    public function add_or_update($request)
     {
 
-
+        $quiz = new Quiz();
         $quiz->question = $request->question;
         $quiz->course_id = $request->course_id;
         $quiz->save();
@@ -81,38 +76,28 @@ class ListofQuizController extends Controller
             $choice = new Choices();
             $choice->choice = $ch;
             $choice->quiz_id = $quiz->id;
-            $choice->is_correct = $key == $ch[$request->correct_choice - 1] ?1:0;
+            $choice->is_correct = $key == $ch[$request->correct_choice - 1] ? 1 : 0;
             $choice->save();
         }
-
-
-
-        // return redirect()->back();
-        // return $this->index($request->course_id);
     }
 
 
 
-    //    public function destroy_undestroy($id)
-    // {
-
-    //     $quiz = Quiz::find($id);
-    //     if ($quiz) {
-    //         Quiz::destroy($id);
-    //         $new_value = 'Activate';
-    //     } else {
-    //         Quiz::withTrashed()->find($id)->restore();
-    //         $new_value = 'Delete';
-    //     }
-    //     $response = Response::json([
-    //         "status" => true,
-    //         'action' => Config::get('constants.ajax_action.delete'),
-    //         'new_value' => $new_value
-    //     ]);
-    //     return $response;
-    // }
-
-
-
-
+    public function destroy_undestroy($id)
+    {
+        $quiz = Quiz::find($id);
+        if ($quiz) {
+            Quiz::destroy($id);
+            $new_value = 'Activate';
+        } else {
+            Quiz::withTrashed()->find($id)->restore();
+            $new_value = 'Delete';
+        }
+        $response = Response::json([
+            "status" => true,
+            'action' => Config::get('constants.ajax_action.delete'),
+            'new_value' => $new_value
+        ]);
+        return $response;
+    }
 }

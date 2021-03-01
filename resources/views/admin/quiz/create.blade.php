@@ -13,7 +13,7 @@ else{
 @section('leftsideform')
     @if($control == 'edit')
         {!! Form::model($quiz,['id'=>'my_form', 'method' => 'POST', 'route' =>
-                  ['quiz.update', $quiz->id],'files'=>true]) !!}
+                  ['quizlist.update', $quiz->id],'files'=>true]) !!}
     @else
         {!! Form::open(['id'=>'my_form','method' => 'POST', 'route' => ['quiz.save' ], 'files'=>true]) !!}
     @endif

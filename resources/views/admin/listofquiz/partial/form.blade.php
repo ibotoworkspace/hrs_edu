@@ -1,7 +1,7 @@
 <div class="form-group">
     {!! Form::label('question', 'Question') !!}
     <div>
-        {!! Form::text('question', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Question', 'required', 'maxlength' => '100']) !!}
+        {!! Form::text('question', $quiz->question, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Question', 'required', 'maxlength' => '100']) !!}
     </div>
     <input type="hidden" name="course_id" value="{!! $course_id !!}">
 </div>
@@ -10,11 +10,14 @@
     <div class="form-group">
         <label for="correct-choice">Select Correct Choice</label>
         <select class="form-control" id="correct-choice" name="correct_choice">
-
+            @if ($quiz->choice)
+                @foreach ($quiz->choice as $key => $ch)
+                    <option class="option-file" value="{{ $key + 1 }}">Choice # {{ $key + 1 }}</option>
+                @endforeach
+            @endif
         </select>
     </div>
 </div>
-
 <div class="form-group">
 
     <div class="form-group">
@@ -25,17 +28,20 @@
     </div>
 </div>
 <div>
-    {{-- <span class="input-group-btn">
-        <button type="button" class="btn btn-primary" onclick="addcoice()">Add Choice</button>
-        <button type="button" class="btn btn-danger" onclick="removeChoice()">Remove Choice</button>
-    </span> --}}
+
     <div class="choice-file">
         <div class="choice-input">
-            {{-- <label for="">Choice</label>
-                <input type="text" class="add form-control" name="1" style="margin-top: 10px; margin-bottom: 5px;"> --}}
+            @if ($quiz->choice)
+                @foreach ($quiz->choice as $key => $ch)
+                    <lable>Choice # {{ $key + 1 }}</lable>
+                    <input type="text" class="add form-control" name="choices[]" value="{{ $ch->choice }}"
+                        style="margin-top: 10px; margin-bottom: 5px;">
+                @endforeach
+            @endif
         </div>
     </div>
 </div>
+
 
 <div class="col-md-5 pull-left">
     <div class="form-group text-center">
@@ -66,10 +72,10 @@
 
         function radioBtnHtml(nextdivnum) {
             return `<div class="choice-input">
-                <lable>Choice # ` + nextdivnum + `</lable>
-                <input type="text" class="add form-control" name="choices[]" style="margin-top: 10px; margin-bottom: 5px;">
-                </div>
-            `
+                                <lable>Choice # ` + nextdivnum + `</lable>
+                                <input type="text" class="add form-control" name="choices[]" style="margin-top: 10px; margin-bottom: 5px;">
+                                </div>
+                            `
         }
 
         function removeChoice() {
@@ -81,10 +87,10 @@
             $('.option-file:last').remove();
         }
 
-        function optionHtml(no){
+        function optionHtml(no) {
             return `
-            <option class ="option-file" value="`+no+`">Choice # `+no+`</option>
-            `
+                            <option class ="option-file" value="` + no + `">Choice # ` + no + `</option>
+                            `
         }
 
     </script>

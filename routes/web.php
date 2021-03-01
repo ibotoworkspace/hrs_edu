@@ -31,23 +31,20 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
     Route::get('/listofcourses', 'Admin\CoursesController@listofcourses')->name('admin/listofcourses');
 
-    /////listofquiz.index
-    Route::get('/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin/listofquiz');
-
+    /////listofquiz
+    Route::get('/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin.listofquiz');
+    Route::get('/edit/quiz/{id}', 'Admin\ListofQuizController@edit')->name('edit.quiz');
     Route::get('/quizes', 'Admin\ListofQuizController@index')->name('admin.quizes');
-    /////listofquiz.create
     Route::get('/quiz/create/{id}', 'Admin\ListofQuizController@create')->name('quiz.create');
-    /////listofquiz.save
     Route::post('quizlist/save', 'Admin\ListofQuizController@save')->name('quizlist.save');
+    Route::post('quizlist/update/{id}', 'Admin\ListofQuizController@update')->name('quizlist.update');
+    Route::get('quizlist/delete/{id}', 'Admin\ListofQuizController@destroy_undestroy')->name('quizlist.delete');
 
     Route::get('/addmaincourse', 'Admin\CoursesController@addmaincourse')->name('admin/addmaincourse');
-
     Route::get('/newquizquestion', 'Admin\CoursesController@newquizquestion')->name('admin/newquizquestion');
-
     Route::get('/listofpromocode', 'Admin\CoursesController@listofpromocode')->name('admin/listofpromocode');
 
     Route::get('/listoforder', 'Admin\CoursesController@listoforder')->name('admin/listofpromocode');
-
     Route::get('/listofmembership', 'Admin\CoursesController@listofmembership')->name('admin/listofpromocode');
 
     Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket');
@@ -56,7 +53,6 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/userperformance', 'Admin\CoursesController@userperformance')->name('admin/userperformance');
     // admin/choices
     Route::get('/choices/{id}', 'Admin\ChoiceController@index')->name('admin.choices');
-    // admin.choices
     Route::get('/choices', 'Admin\ChoiceController@index')->name('admin.choices');
 
 
@@ -75,7 +71,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::post('/promocode/update/{id}', 'Admin\PromoCodeController@update')->name('promocode.update');
 
     // admin/courses/delete' .$crs->id
-    Route::post('/promocode/delete/{id}', 'Admin\PromoCodeController@destroy_undestroy')->name('promocode.delete');
+    Route::get('/promocode/delete/{id}', 'Admin\PromoCodeController@destroy_undestroy')->name('promocode.delete');
 
 
     /////////coursesvideos
@@ -86,8 +82,22 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::post('/coursesvideos/save', 'Admin\CourseVideosController@save')->name('coursesvideos.save');
     Route::get('/coursesvideos/edit/{id}', 'Admin\CourseVideosController@edit')->name('coursesvideos.edit');
     Route::post('/coursesvideos/update/{id}', 'Admin\CourseVideosController@update')->name('coursesvideos.update');
-    Route::post('/coursesvideos/delete/{id}', 'Admin\CourseVideosController@destroy_undestroy')->name('coursesvideos.delete');
+    Route::get('/coursesvideos/delete/{id}', 'Admin\CourseVideosController@destroy_undestroy')->name('coursesvideos.delete');
     Route::get('coursesvideos/search', 'Admin\CourseVideosController@search')->name('coursesvideos.search');
+
+
+    // lectures button clicking in course page
+    Route::get('/chapter/{id}', 'Admin\ChapterController@index')->name('chapters.index');
+    Route::get('/chapter', 'Admin\ChapterController@index')->name('chapter.index');
+
+
+    Route::get('/chapter/create/{id}', 'Admin\ChapterController@create')->name('chapter.create');
+    Route::post('/chapter/save', 'Admin\ChapterController@save')->name('chapter.save');
+
+    Route::get('/chapter/edit/{id}', 'Admin\ChapterController@edit')->name('chapter.edit');
+    Route::post('/chapter/update/{id}', 'Admin\ChapterController@update')->name('chapter.update');
+    Route::post('/chapter/delete/{id}', 'Admin\ChapterController@destroy_undestroy')->name('chapter.delete');
+    Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.search');
 });
 
 
@@ -188,20 +198,7 @@ Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undest
 
 
 
-////////// lectures button clicking in course page
-Route::get('admin/chapter/{id}', 'Admin\ChapterController@index')->name('chapters.index');
 
-////{chapter crud}
-Route::get('admin/chapter', 'Admin\ChapterController@index')->name('chapter.index');
-
-
-Route::get('admin/chapter/create/{id}', 'Admin\ChapterController@create')->name('chapter.create');
-Route::post('admin/chapter/save', 'Admin\ChapterController@save')->name('chapter.save');
-
-Route::get('admin/chapter/edit/{id}', 'Admin\ChapterController@edit')->name('chapter.edit');
-Route::post('admin/chapter/update/{id}', 'Admin\ChapterController@update')->name('chapter.update');
-Route::post('admin/chapter/delete/{id}', 'Admin\ChapterController@destroy_undestroy')->name('chapter.delete');
-Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.search');
 
 
 ////////// Video button clicking in course page
@@ -214,16 +211,13 @@ Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.se
 
 ////////QUIZ crud  
 
+// Route::get('admin/quiz', 'Admin\QuizController@index')->name('quiz.index');
+// Route::get('admin/quiz/create', 'Admin\QuizController@create')->name('quiz.create');
+// Route::post('admin/quiz/save', 'Admin\QuizController@save')->name('quiz.save');
 
-
-
-Route::get('admin/quiz', 'Admin\QuizController@index')->name('quiz.index');
-Route::get('admin/quiz/create', 'Admin\QuizController@create')->name('quiz.create');
-Route::post('admin/quiz/save', 'Admin\QuizController@save')->name('quiz.save');
-
-Route::get('admin/quiz/edit/{id}', 'Admin\QuizController@edit')->name('quiz.edit');
-Route::post('admin/quiz/update/{id}', 'Admin\QuizController@update')->name('quiz.update');
-Route::post('admin/quiz/delete/{id}', 'Admin\QuizController@destroy_undestroy')->name('quiz.delete');
+// Route::get('admin/quiz/edit/{id}', 'Admin\QuizController@edit')->name('quiz.edit');
+// Route::post('admin/quiz/update/{id}', 'Admin\QuizController@update')->name('quiz.update');
+// Route::post('admin/quiz/delete/{id}', 'Admin\QuizController@destroy_undestroy')->name('quiz.delete');
 
 //////student dashboard 
 

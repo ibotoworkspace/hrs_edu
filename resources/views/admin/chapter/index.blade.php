@@ -1,9 +1,8 @@
 
 @extends('layouts.default_module')
 @section('module_name')
-Chapter
+List of Chapter of {{$courses->title}}
 @stop
-{{-- $chapter[0]->course_id) --}}
 @section('add_btn')
 {!! Form::open(['method' => 'get', 'url' => ['admin/chapter/create/'.($courses->id ?? $chapter[0]->course_id) ], 'files'=>true]) !!}
 <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
@@ -18,12 +17,8 @@ width="400px" style="table-layout:fixed;"
 
 
 
-
-
-
-
 @section('table')
-{!! Form::open(['method' => 'get', 'route' => ['chapter.search'], 'files'=>true]) !!}
+{!! Form::open(['method' => 'get', 'url' => ['admin/chapter/'.$courses->id ?? ''], 'files'=>true]) !!}
 @include('admin.chapter.partial.searchfilters')
 {!!Form::close() !!}
 
@@ -61,10 +56,10 @@ width="400px" style="table-layout:fixed;"
 
 						</th>
                         
-						{{-- <th class="option">
-                            <div class="bestoption">Course</div>
+						<th class="option">
+                            <div class="bestoption">Option</div>
 
-						</th> --}}
+						</th>
 						
 
 
@@ -96,6 +91,11 @@ width="400px" style="table-layout:fixed;"
                         <td class="mylectures">
                             <div class="quizes" class="onquizes" id="myquizes">{!! $ch->course_level !!}</div>
                            
+                        </td>
+                        <td class="optionss">
+                            <div class="myoptionss">
+                            <i class="fa fa-cog settings" aria-hidden="true"></i>
+                            </div>
                         </td>
 					
                     </tr>
