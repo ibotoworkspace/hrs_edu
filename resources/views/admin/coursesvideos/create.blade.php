@@ -15,9 +15,7 @@ else{
     @if($control == 'edit')
         {!! Form::model($coursesvideos,['id'=>'my_form', 'method' => 'POST', 'route' =>
                   ['coursesvideos.update', $coursesvideos->id],'files'=>true]) !!}
-                
-
-                  {{-- add form hit --}}
+              
     @else
         {!! Form::open(['id'=>'my_form','method' => 'POST', 'route' => ['coursesvideos.save'], 'files'=>true]) !!}
     @endif
@@ -30,7 +28,7 @@ else{
     <div class="col-md-5 pull-left">
         <div class="form-group text-center">
             <div>
-                {!! Form::open(['method' => 'get', 'route' => ['coursesvideos.index']]) !!}
+                {!! Form::open(['method' => 'get', 'url' => ['admin/courses/videos/'.$courses->id]]) !!}
                 {!! Form::submit('Cancel', ['class' => 'btn btn-default btn-block btn-lg btn-parsley']) !!}
                 {!! Form::close() !!}
             </div>

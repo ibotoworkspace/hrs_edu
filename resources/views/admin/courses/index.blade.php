@@ -89,13 +89,11 @@
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! $crs->title !!}</div>
                 </td>
-                <?php
-                if(!$crs->avatar){
-                    $crs->avatar = asset('images/mediallogo.png');
-                }
-            ?>
+                <?php if (!$crs->avatar) {
+                $crs->avatar = asset('images/mediallogo.png');
+                } ?>
 
-		<td><img width="100px" src="{!! $crs->avatar!!}" class="show-product-img imgshow"></td>
+                <td><img width="100px" src="{!! $crs->avatar !!}" class="show-product-img imgshow"></td>
 
 
                 <td class="mynbr">
@@ -109,7 +107,7 @@
                 <td class="myvideos">
                     <div class="vide">
 
-                        <a href="{{ url('/courses/videos/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
+                        <a href="{{ url('admin/courses/videos/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
                             id="myvide">1830</a>
                         {{-- <button href="{{ route('courses.videos') }}" type="button" class="btn btn-primary onvideos" id="myvide">1830 --}}
 

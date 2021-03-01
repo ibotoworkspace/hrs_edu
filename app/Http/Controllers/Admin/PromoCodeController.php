@@ -13,12 +13,8 @@ class PromoCodeController extends Controller
     public function index()
     {
 
-//  dd($request->all());
-      
-        // $promocode = $id;
         $promocode = PromoCode::paginate(10);
         return view('admin.promocode.index', compact('promocode'));
-
     }
 
     public function create()
@@ -34,11 +30,11 @@ class PromoCodeController extends Controller
     public function save(Request $request)
     {
 
-    //    dd($request->all());
+        //    dd($request->all());
         $promocode = new PromoCode();
         // $course = new Courses();
-      
-      
+
+
         $this->add_or_update($request, $promocode);
 
         return Redirect('admin/promocode');
@@ -48,11 +44,11 @@ class PromoCodeController extends Controller
 
         $control = 'edit';
         $promocode = PromoCode::find($id);
-        
+
         return \View::make('admin.promoCode.create', compact(
             'control',
             'promocode'
-           
+
         ));
     }
 
@@ -60,35 +56,29 @@ class PromoCodeController extends Controller
     {
         $promocode = PromoCode::find($id);
         // $courses = Courses::find($id);
-      
+
         $this->add_or_update($request, $promocode);
         return Redirect('admin/promocode');
     }
 
 
-    public function add_or_update(Request $request,$promocode)
+    public function add_or_update(Request $request, $promocode)
     {
 
-         $promocode->title = $request->title;
-     
-         $promocode->percentage =   $request->percentage;
-         $promocode->code =   $request->code;
-      
-         $promocode->validity =   $request->validity;
+        $promocode->title = $request->title;
+        $promocode->percentage =   $request->percentage;
+        $promocode->code =   $request->code;
+        $promocode->validity =   strtotime($request->validity);
         $promocode->used_times =   $request->usedtimes;
-      
-       
-        
-      
-      
+        $promocode->is_active =   $request->is_active;
         $promocode->save();
-      
+
         return redirect()->back();
     }
 
-    
 
-       public function destroy_undestroy($id)
+
+    public function destroy_undestroy($id)
     {
 
         $promocode = PromoCode::find($id);
@@ -106,6 +96,4 @@ class PromoCodeController extends Controller
         ]);
         return $response;
     }
-
-
 }

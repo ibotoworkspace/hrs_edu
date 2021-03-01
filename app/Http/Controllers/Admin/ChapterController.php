@@ -19,10 +19,8 @@ class ChapterController extends Controller
 
    public function index($id)
     {
-    // dd('asd');
         $chapter = Chapter::where('course_id',$id)->paginate(10);
         $courses = Courses::find($id);
-      // dd('asd');
         return view('admin.chapter.index', compact('chapter','courses'));
 
     }

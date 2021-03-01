@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Choices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
@@ -12,17 +13,16 @@ use App\Models\Quiz;
 
 class ListofQuizController extends Controller
 {
-    
+
 
     public function index($id)
     {
 
-//  dd($request->all());
+        //  dd($request->all());
         // $listofquiz = Quiz::paginate(10);
         $couse_id = $id;
-        $listofquiz = Quiz::where('course_id',$id)->get();
-        return view('admin.listofquiz.index', compact('listofquiz','couse_id'));
-
+        $listofquiz = Quiz::where('course_id', $id)->paginate(10);
+        return view('admin.listofquiz.index', compact('listofquiz', 'couse_id'));
     }
 
     public function create($course_id)
@@ -30,7 +30,7 @@ class ListofQuizController extends Controller
         $control = 'create';
         return \View::make(
             'admin.listofquiz.create',
-            compact('control','course_id')
+            compact('control', 'course_id')
         );
     }
 
@@ -38,25 +38,24 @@ class ListofQuizController extends Controller
     public function save(Request $request)
     {
 
-    //    dd($request->all());
+        //    dd($request->all());
         $quiz = new Quiz();
-        // $course = new Courses();
-      
-      
-        $this->add_or_update($request, $quiz);
 
-        return $this->index($request->course_id);
+        // $course = new Courses();
+        $this->add_or_update($request, $quiz);
+        return redirect('admin/listofquiz/'.$request->course_id);
+        // return $this->index($request->course_id);
     }
     // public function edit($id)
     // {
 
     //     $control = 'edit';
     //     $courses = Courses::find($id);
-        
+
     //     return \View::make('admin.quiz.create', compact(
     //         'control',
     //         'courses'
-           
+
     //     ));
     // }
 
@@ -64,27 +63,35 @@ class ListofQuizController extends Controller
     // {
     //     $quiz = Quiz::find($id);
     //     $courses = Courses::find($id);
-      
+
     //     $this->add_or_update($request, $quiz,$courses);
     //     return Redirect('admin/quiz');
     // }
 
 
-    public function add_or_update(Request $request,$quiz)
+    public function add_or_update(Request $request, $quiz)
     {
 
-         $quiz->question = $request->question;
-         $quiz->course_id =   $request->course_id;
-       
-        
-      
-      
+
+        $quiz->question = $request->question;
+        $quiz->course_id = $request->course_id;
         $quiz->save();
-      
-        return redirect()->back();
+        //    dd($request->all());
+        foreach ($request->choices as $key => $ch) {
+            $choice = new Choices();
+            $choice->choice = $ch;
+            $choice->quiz_id = $quiz->id;
+            $choice->is_correct = $key == $ch[$request->correct_choice - 1] ?1:0;
+            $choice->save();
+        }
+
+
+
+        // return redirect()->back();
+        // return $this->index($request->course_id);
     }
 
-    
+
 
     //    public function destroy_undestroy($id)
     // {

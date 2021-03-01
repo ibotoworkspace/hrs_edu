@@ -4,13 +4,7 @@
 List of Choices
 @stop
 
-@section('add_btn') 
 
-{!! Form::open(['method' => 'get', 'url' => ['admin/choices/create/'.$question_id], 'files'=>true]) !!}
-{{-- <input type="hidden" name="course_id" value="{!!$listofquiz->course_id!!}"> --}}
- <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
-{!! Form::close() !!}
-@stop
 
 
 {{-- {{dd($choice)}} --}}

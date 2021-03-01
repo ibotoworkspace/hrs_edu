@@ -1,22 +1,18 @@
 <div class="form-group">
-  
-    {!! Form::label('title','Title') !!}
+
+    {!! Form::label('title', 'Title') !!}
     <div>
-        {!! Form::text('title', null, ['class' => 'form-control',
-        'data-parsley-required'=>'true',
-        'data-parsley-trigger'=>'change',
-        'placeholder'=>'Title','required',
-        'maxlength'=>"100"]) !!}
+        {!! Form::text('title', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
     </div>
 
 
 
     <div class="form-group">
-        {!! Form::label('description','Description') !!}
+        {!! Form::label('description', 'Description') !!}
         <div>
-            <textarea class="ckeditor form-control"  id="summary-ckeditor" name="description" ></textarea> 
-            </div>
-          </div>
+            <textarea class="ckeditor form-control" id="summary-ckeditor" name="description"></textarea>
+        </div>
+    </div>
     {{-- <div class="form-group">
   
         {!! Form::label('paid','Paid') !!}
@@ -30,27 +26,27 @@
 
     </div> --}}
     <div class="form-group">
-        {!! Form::label('paid','Paid') !!}
+        {!! Form::label('paid', 'Is Paid') !!}
         <div>
-    <select id="select-example" class="form-control"  name="paid"  placeholder="Select paid...">
+            <select id="select-example" class="form-control" name="paid" placeholder="Select paid...">
 
-        <option  value="0">0</option>
-        <option  value="1">1</option>
-        </select>
-        <div class="form-group">
-            {!! Form::label('level','Level') !!}
-            <div>
-        <select id="select-example" class="form-control"  name="level"  placeholder="Select level...">
-
-            <option   value="beginner">beginner</option>
-            <option  value="intermediate">intermediate</option>
-            <option   value="expert">expert</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
             </select>
+            <div class="form-group">
+                {!! Form::label('level', 'Level') !!}
+                <div>
+                    <select id="select-example" class="form-control" name="level" placeholder="Select level...">
 
-    <input type="hidden" name="course_id" value="{!! $courses->id !!}">
+                        <option value="beginner">beginner</option>
+                        <option value="intermediate">intermediate</option>
+                        <option value="expert">expert</option>
+                    </select>
+
+                    <input type="hidden" name="course_id" value="{!! $courses->id !!}">
 
 
-    {{-- <div class="form-group">
+                    {{-- <div class="form-group">
         {!! Form::label('detail','Detail') !!}
         <div>
             {!! Form::textarea('detail', null, ['class' => 'ckeditor form-control',
@@ -63,19 +59,18 @@
 
         </div>
         </div> --}}
-    
-
-        
-            
 
 
 
 
 
 
- 
-{{--      
-              <div class="form-group">
+
+
+
+
+
+                    {{-- <div class="form-group">
                 {!! Form::label('downloadurl','Downloadurl') !!}
                 <div>
   
@@ -117,25 +112,22 @@
 
 
 
-        <div class="col-md-5 pull-left">
-            <div class="form-group text-center">
-                <div>
-                    {!!Form::submit('Save',
-                    ['class'=>'btn btn-primary btn-block btn-lg btn-parsley','onblur'=>'return validateForm();'])!!}
-                </div>
-            </div>
-        </div>
+                    <div class="col-md-5 pull-left">
+                        <div class="form-group text-center">
+                            <div>
+                                {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block btn-lg btn-parsley', 'onblur' => 'return validateForm();']) !!}
+                            </div>
+                        </div>
+                    </div>
 
-        @section('app_jquery')
-        <script>
-            function validateForm(){
-        return true;
-    }
+                    @section('app_jquery')
+                        <script>
+                            function validateForm() {
+                                return true;
+                            }
 
-    
+                        </script>
 
-        </script>
+                        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
-<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-
-        @endsection
+                    @endsection

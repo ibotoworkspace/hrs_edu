@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddQuizIdToChoice extends Migration
+class AlterPromocodeTableAddIsactive extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class AddQuizIdToChoice extends Migration
      */
     public function up()
     {
-        Schema::table('choice', function (Blueprint $table) {
-            // $table->bigInteger('quiz_id')->nullable()->default(0);
-            $table->bigInteger('is_correct')->nullable()->default(0);
+        Schema::table('promo_code', function (Blueprint $table) {
+            $table->tinyInteger('is_active')->nullable()->default(0);
         });
     }
 
@@ -26,8 +25,6 @@ class AddQuizIdToChoice extends Migration
      */
     public function down()
     {
-        Schema::table('choice', function (Blueprint $table) {
-            //
-        });
+        //
     }
 }
