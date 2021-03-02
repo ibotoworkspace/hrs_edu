@@ -30,32 +30,6 @@ class StudentRegistrationController extends Controller
 
 
 
-    public function save(Request $request){
- 
-        $useregistered = new User();
-
-     $this->add_or_update($useregistered , $request);
-     return redirect('user/registration');
-    
-    }
-
-
-    public function add_or_update($useregistered , $request){
-        // dd($request);
-
-        $useregistered->name=$request->name;
-        $useregistered->email=$request->email;
-        // $useregistered->phone no=$request->phone;
-        $useregistered->password= Hash::make($request->password);
-        // $useregistered->confirm_pass=$request->confirm;
-        // $useregistered->role_id=$request->roleid;
-        
-
-
-        $useregistered->save();
-
-
-    }
 
     public function search(Request $request)
 

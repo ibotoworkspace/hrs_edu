@@ -139,7 +139,7 @@ Route::get('user/hrssecurity', 'User\UserController@hrssecurity')->name('user/hr
 Route::get('user/hrsserver', 'User\UserController@hrsserver')->name('user/hrsserver');
 Route::get('user/userscore', 'User\UserScoreController@userscore')->name('user/userscore');
 ////////user login
-Route::get('user/login', 'User\UserController@login')->name('user/user/login');
+// Route::get('user/login', 'User\UserController@login')->name('user/user/login');
 
 Route::post('user/checklogin', 'User\UserController@checklogin');
 Route::get('user/logout', 'User\UserController@logout')->name('logout');
@@ -152,8 +152,7 @@ Route::get('user/learning', 'User\UserController@learning')->name('user/learning
 Route::get('user/phpdeveloper', 'User\UserController@phpdeveloper')->name('user/phpdeveloper');
 
 /////user/registration
-Route::get('user/registration', 'User\StudentRegistrationController@index')->name('user.registration');
-Route::post('userregistered/save', 'User\StudentRegistrationController@save')->name('userregistered.save');
+
 Route::get('user/list', 'User\StudentRegistrationController@list')->name('user.list');
 ////////userlist.search
 Route::get('user/list/search', 'User\StudentRegistrationController@search')->name('userlist.search');
@@ -203,38 +202,44 @@ Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undest
 
 Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
 
+//                              *********************** USER ROUTE END ****************************
 
 
-//////student dashboard 
 
-Route::group(['prefix' => 'student'], function () {
+//                              *********************** STUDENT ROUTE START ****************************
 
-    //'middleware' => 'student_auth',
+Route::get('student/registration', 'Student\StudentController@index')->name('student.registration');
+Route::post('student/registration/save', 'Student\StudentController@save')->name('student.save');
+Route::get('student/login', 'Student\StudentController@login');
+Route::post('student/checklogin', 'Student\StudentController@checklogin');
+Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
+Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
+
+    Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
     Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
     Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');
     Route::get('/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');
-    Route::post('/myregstration', 'Student\MyRegstrationController@index')->name('student/myregstration');
+    Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
     Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
     Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
-    Route::get('/profile', 'Student\ProfileControlle@index')->name('student/profile');
-    Route::get('/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
-    Route::get('/viewticket', 'Student\ViewTicketController@index')->name('student/viewticket');
+    Route::get('/profile', 'Student\StudentController@profile')->name('student/profile');
+    // Route::get('/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
+    Route::get('/viewticket', 'Student\ViewTicketController@index')->name('student.viewticket');
 
-    Route::get('/dashboard', 'Student\DashboardController@dashboard')->name('student/dashboard');
+    Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
+    
+    Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
+
+    Route::match(['get', 'post'],'/ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
+
+    Route::match(['get', 'post'], '/courseregistration', 'Student\CourseController@registerCourse')->name('course.registration');
 });
 
-
-
-
-Route::get('student/login', 'Student\StudentController@index');
-Route::post('student/checklogin', 'Student\StudentController@checklogin');
-Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
 Route::get('student/layouts', 'Student\BlogPageController@layouts')->name('student/layouts');
 Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
 Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
-Route::get('student/courseregistration', 'Student\CourseRegistrationController@index')->name('student/courseregistration');
 ///user/courseregistered
 //////student//courselist
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
