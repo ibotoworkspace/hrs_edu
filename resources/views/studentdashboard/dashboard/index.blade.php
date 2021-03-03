@@ -1,7 +1,12 @@
 @extends('studentdashboard.layouts.index')
 
-<link href="{{asset('css/dashboard.css')}}" rel="stylesheet">
-<link href="{{asset('css/mainstudentdash.css')}}" rel="stylesheet">
+<?php
+$student_common = session()->get('student_common');
+$student = $student_common->student;
+$courses = $student_common->courses;
+?>
+<link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+<link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
 
 
 
@@ -14,104 +19,110 @@
 
 
 
+    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+    <div class="w3-main mainContent" style="margin-left:250px">
 
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="w3-main mainContent" style="margin-left:250px">
-
-  <section>
-    <title>
-        DASHBOARD
-    </title>
-        <div class="serchsite">
-            <div class="container-fluid">
-                <div class="row serchbox">
-                    <div class="col-sm-12">
-                        <div class="serchsitedata">
-                            <input type="text" class="form-control shdata" id="exampleFormControlInput1" placeholder="Serch here...">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row infobox">
-                    <div class="col-sm-6">
-                        <div class="infoboxdata row">
-                            <div class="infoboxdatatext col-sm-8">                                
-                                <h4>MR. WALEED HUSSAIN</h4>
-                                <h3>Welcome to HRS Academy</h3>
-                            </div>
-                            <div class="infoboxdatatextimg col-sm-4">
-                                <img src="{{asset('images/image-15.png')}}" class="img-responsive">
+        <section>
+            <title>
+                DASHBOARD
+            </title>
+            <div class="serchsite">
+                <div class="container-fluid">
+                    <div class="row serchbox">
+                        <div class="col-sm-12">
+                            <div class="serchsitedata">
+                                <input type="text" class="form-control shdata" id="exampleFormControlInput1"
+                                    placeholder="Serch here...">
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="infoboxdata row">
-                            <div class="infoboxdatatext col-sm-8">
-                                <h4>HELP GUIDE</h4>
-                                <h3>Need help? Check out our help desk</h3>
-                                <button type="button" class="btn btn-primary desk">HELP DESK</button>
+
+                    <div class="row infobox">
+                        <div class="col-sm-6">
+                            <div class="infoboxdata row">
+                                <div class="infoboxdatatext col-sm-8">
+                                    <h4 style="text-transform: uppercase;">{{ $student->name }}</h4>
+                                    <h3>Welcome to HRS Academy</h3>
+                                </div>
+                                <div class="infoboxdatatextimg col-sm-4">
+                                    <img src="{{ asset('images/image-15.png') }}" class="img-responsive">
+                                </div>
                             </div>
-                            <div class="infoboxdatatextimg col-sm-4">
-                                <img src="{{asset('images/image-16.png')}}" class="img-responsive">
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="infoboxdata row">
+                                <div class="infoboxdatatext col-sm-8">
+                                    <h4>HELP GUIDE</h4>
+                                    <h3>Need help? Check out our help desk</h3>
+                                    <button type="button" class="btn btn-primary desk">HELP DESK</button>
+                                </div>
+                                <div class="infoboxdatatextimg col-sm-4">
+                                    <img src="{{ asset('images/image-16.png') }}" class="img-responsive">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row courseside">
-                    <div class="col-sm-12">
-                        <div class="coursesidedata">
-                            <h3>MY REGISTERED COURSES</h3>
-                        <table class="table mytables">
-                            <thead class="coursesidehead">
-                                <tr>
-                                    <th>Course Code </th>
-                                    <th>Course Title</th>
-                                    <th>Date of Registration</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody class="mycolarea">
-                                <tr class="mycolareadata">
-                                    <td>HRS4697</td>
-                                    <td>HRS Network Pro</td>
-                                    <td>15, December 2020</td>
-                                    <td><button type="button" class="btn btn-primary payment">Make Payment</button></td>
-                                </tr>
-                                <tr class="mycolareadata">
-                                    <td>HRS1018</td>
-                                    <td>Routing and Switching Pro</td>
-                                    <td>16, December 2020</td>
-                                    <td><button type="button" class="btn btn-primary payment">Make Payment</button></td>
-                                </tr>
-                                <tr class="mycolareadata">
-                                    <td>HRS1222</td>
-                                    <td>Server Pro 2016 (Identity 4.0)</td>
-                                    <td>17, December 2020</td>
-                                    <td><button type="button" class="btn btn-primary payment">Make Payment</button></td>
-                                </tr>                                
-                            </tbody>
-                        </table>
+                    <div class="row courseside">
+                        <div class="col-sm-12">
+                            <div class="coursesidedata">
+                                <h3>MY REGISTERED COURSES</h3>
+                                <table class="table mytables">
+                                    <thead class="coursesidehead">
+                                        <tr>
+                                            <th>Course Code </th>
+                                            <th>Course Title</th>
+                                            <th>Date of Registration</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="mycolarea">
+
+                                        @foreach ($courses as $key => $r_course)
+                                            <tr class="mycolareadata">
+                                                <td>HRS0{{ $r_course->id }}</td>
+                                                <td>{{ $r_course->name }}</td>
+                                                <td>{{ $r_course->created_at->format('j-m-Y') }}</td>
+                                                @if (!$r_course->is_paid)
+                                                <?php 
+                                                       $course_id =   Crypt::encrypt($r_course->id)
+                                                ?>
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary payment" onclick="window.location.href='{{asset('student/makepayment?course_id='.$course_id)}}';">
+                                                            Make Payment</button>
+                                                    </td>
+                                                @else
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary payment">View
+                                                            Course</button>
+                                                    </td>
+
+                                                @endif
+                                            </tr>
+                                        @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="row recentbox">
-                    <div class="col-sm-12">
-                        <div class="recentboxdata">
-                            <h3>RECENT SUPPORT REQUESTS</h3>
-                            <h4>It appears you do not have any support request with us yet.</h4>
+                    <div class="row recentbox">
+                        <div class="col-sm-12">
+                            <div class="recentboxdata">
+                                <h3>RECENT SUPPORT REQUESTS</h3>
+                                <h4>It appears you do not have any support request with us yet.</h4>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-</section>
+        </section>
 
-</div>
-
+    </div>
 
 
 
 
-    @endsection
+
+@endsection

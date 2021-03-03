@@ -101,12 +101,14 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 });
 
 
-
-
 //                              *********************** ADMIN ROUTE END ****************************
 
 
+
+
 //                              *********************** USER ROUTE START ****************************
+
+
 
 Route::get('user/index', 'User\UserController@index')->name('user/index');
 
@@ -137,7 +139,7 @@ Route::get('user/hrssecurity', 'User\UserController@hrssecurity')->name('user/hr
 Route::get('user/hrsserver', 'User\UserController@hrsserver')->name('user/hrsserver');
 Route::get('user/userscore', 'User\UserScoreController@userscore')->name('user/userscore');
 ////////user login
-Route::get('user/login', 'User\UserController@login')->name('user/user/login');
+// Route::get('user/login', 'User\UserController@login')->name('user/user/login');
 
 Route::post('user/checklogin', 'User\UserController@checklogin');
 Route::get('user/logout', 'User\UserController@logout')->name('logout');
@@ -150,8 +152,7 @@ Route::get('user/learning', 'User\UserController@learning')->name('user/learning
 Route::get('user/phpdeveloper', 'User\UserController@phpdeveloper')->name('user/phpdeveloper');
 
 /////user/registration
-Route::get('user/registration', 'User\StudentRegistrationController@index')->name('user.registration');
-Route::post('userregistered/save', 'User\StudentRegistrationController@save')->name('userregistered.save');
+
 Route::get('user/list', 'User\StudentRegistrationController@list')->name('user.list');
 ////////userlist.search
 Route::get('user/list/search', 'User\StudentRegistrationController@search')->name('userlist.search');
@@ -199,47 +200,60 @@ Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undest
 
 
 
+Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
 
-
-////////// Video button clicking in course page
-
-
-
+//                              *********************** USER ROUTE END ****************************
 
 
 
+//                              *********************** STUDENT ROUTE START ****************************
 
-////////QUIZ crud  
+Route::get('student/registration', 'Student\StudentController@index')->name('student.registration');
+Route::post('student/registration/save', 'Student\StudentController@save')->name('student.save');
+Route::get('student/login', 'Student\StudentController@login');
+Route::post('student/checklogin', 'Student\StudentController@checklogin');
+Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
-// Route::get('admin/quiz', 'Admin\QuizController@index')->name('quiz.index');
-// Route::get('admin/quiz/create', 'Admin\QuizController@create')->name('quiz.create');
-// Route::post('admin/quiz/save', 'Admin\QuizController@save')->name('quiz.save');
+Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
-// Route::get('admin/quiz/edit/{id}', 'Admin\QuizController@edit')->name('quiz.edit');
-// Route::post('admin/quiz/update/{id}', 'Admin\QuizController@update')->name('quiz.update');
-// Route::post('admin/quiz/delete/{id}', 'Admin\QuizController@destroy_undestroy')->name('quiz.delete');
+    // payment route 
+    Route::get('stripe', 'Student\PaymentController@stripe');
+    Route::post('stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
 
-//////student dashboard 
+    Route::post('/paymentmethood', 'Student\PaymentController@paymentMethod')->name('profile.update');
+
+    Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
+    Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
+    Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');
+    Route::get('/makepayment', 'Student\PaymentController@make_payment')->name('student/makepayment');
+    Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
+    Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
+    // Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
+
+    Route::get('/stripepayment', 'Student\PaymentController@stripePayment')->name('stripepayment');
+    Route::get('/paypalpayment', 'Student\PaymentController@payPal')->name('paypalpayment');
+    Route::get('/profile', 'Student\StudentController@profile')->name('student/profile');
+    // Route::get('/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
+    Route::get('/viewticket', 'Student\ViewTicketController@index')->name('student.viewticket');
+
+    Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
+
+    Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
+
+    Route::match(['get', 'post'], '/ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
+
+    Route::match(['get', 'post'], '/courseregistration', 'Student\CourseController@registerCourse')->name('course.registration');
+
+    // paypal route
+    Route::get('payment', 'Student\PayPalController@payment')->name('payment');
+    Route::get('cancel', 'Student\PayPalController@cancel')->name('payment.cancel');
+    Route::get('payment/success', 'Student\PayPalController@success')->name('payment.success');
+});
 
 
 Route::get('student/layouts', 'Student\BlogPageController@layouts')->name('student/layouts');
 Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
 Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
-Route::get('student/courseregistration', 'Student\CourseRegistrationController@index')->name('student/courseregistration');
 ///user/courseregistered
 //////student//courselist
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
-
-
-Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
-Route::get('student/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
-Route::get('student/invoice', 'Student\InvoiceController@index')->name('student/invoice');
-Route::get('student/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');
-Route::post('student/myregstration', 'Student\MyRegstrationController@index')->name('student/myregstration');
-Route::get('student/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
-Route::get('student/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
-Route::get('student/profile', 'Student\ProfileControlle@index')->name('student/profile');
-Route::get('student/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
-Route::get('student/viewticket', 'Student\ViewTicketController@index')->name('student/viewticket');
-
-Route::get('student/dashboard', 'Student\DashboardController@dashboard')->name('student/dashboard');

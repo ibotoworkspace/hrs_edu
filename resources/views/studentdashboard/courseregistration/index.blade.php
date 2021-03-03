@@ -1,21 +1,21 @@
 @extends('studentdashboard.layouts.index')
 
-<link href="{{asset('css/courseregistration.css')}}" rel="stylesheet">
-<link href="{{asset('css/mainstudentdash.css')}}" rel="stylesheet">
+<link href="{{ asset('css/courseregistration.css') }}" rel="stylesheet">
+<link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
 
 
 
 @section('default')
 
 
-     {{-- {{ dd($courses)}} --}}
+    {{-- {{ dd($courses)}} --}}
 
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="w3-main mainContent" style="margin-left:250px">
+    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+    <div class="w3-main mainContent" style="margin-left:250px">
 
 
 
-<section>
+        <section>
             <title>
                 REGISTRATION
             </title>
@@ -37,47 +37,42 @@
                             </div>
                         </div>
                     </div>
- 
+
                     <div class="row courselectarea">
                         <div class="col-sm-12">
 
-                            <form method="post" action="{{ url('/student/myregstration') }}">
+                            <form method="post" action="{{ url('/student/courseregistration') }}">
                                 {{ csrf_field() }}
-                            <div class="courselectareadata row">
-                                <label for="inputEmail3" class="col-sm-2 col-form-label">Courses*</label>
-                                <div class="col-sm-10">
-                                    <select class="form-control nowpoint" id="exampleFormControlSelect1" name="coursedropper">
-                                        <option>Choose..</option>
-                                        @foreach($courses as $c)
-                                        <option name="coursedrop">{{ $c->title }}</option>
-                                        @endforeach
-                                       
-                                        {{-- {{ dd('userlist->name')}} --}}
-                                        {{-- <input type="hidden" name="user_id" value="{!!$userlist->id!!}}"> --}}
+                                <div class="courselectareadata row">
+                                    <label for="inputEmail3" class="col-sm-2 col-form-label">Courses*</label>
+                                    <div class="col-sm-10">
+                                        <select class="form-control nowpoint" id="exampleFormControlSelect1"
+                                            name="course_id" required>
+                                            <option disabled>--- Select Courses ---</option>
+                                            @foreach ($courses as $c)
+                                                <option value="{{ $c->id }}">{{ $c->title }}
+                                                </option>
+                                            @endforeach
 
-                                       {{-- {{ dd($userlist->name)}} --}}
-                                    </select>
-                                    {{-- <div class="form-group">
-                                        <input type="submit" name="login" class="btn btn-primary" value="save" />
-                                    </div> --}}
-                                    
+                                        </select>
+
+                                    </div>
                                 </div>
-                            </div>
-                            
-                            <div class="courselectclick">
-                               <button type="submit" class="btn btn-primary applynow">APPLY NOW</button>
-                            </div>
-                        </form>
+
+                                <div class="courselectclick">
+                                    <button type="submit" class="btn btn-primary applynow">APPLY NOW</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
-</section>
+        </section>
 
 
 
 
-</div>
+    </div>
 
-    @endsection
+@endsection

@@ -55,3 +55,15 @@ input.inputclick {
     background: #bfb28e;
     color: white;
 }
+.bluebadge {
+    color: white !important;
+    background: #58d7ff !important;
+    padding: 7px 8px !important;
+    height: 23px !important;
+}
+.greenbadge{
+    color: white !important;
+    background: rgb(160, 2, 15) !important;
+    padding: 7px 8px !important;
+    height: 23px !important;
+}

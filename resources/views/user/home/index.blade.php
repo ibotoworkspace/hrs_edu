@@ -25,7 +25,7 @@
             </div>
             <div class="bannerclick">
               {{-- <button type="button" class="btn btn-primary enroll">ENROLL NOW</button> --}}
-              <a href="{{asset('user/registration')}}"><button type="button" class="btn btn-primary enroll">ENROLL NOW</button></a>
+              <a href="{{asset('student/registration')}}"><button type="button" class="btn btn-primary enroll">ENROLL NOW</button></a>
             </div>
           </div>
           <div class="col-sm-6">

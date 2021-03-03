@@ -29,11 +29,11 @@ class StudentAuth
             }
             
             else{
-                return redirect('admin/login')->with('error', 'Wrong Login Details');
+                return redirect('student/login')->with('error', 'Wrong Login Details');
             }    
         }
         else{
-            return redirect('admin/login')->with('error', 'Wrong Login Details');
+            return redirect('student/login')->with('error', 'Wrong Login Details');
         }   
     }
 }
