@@ -16,7 +16,7 @@ class CourseController extends Controller
         $method = $request->method();
 
         if ($method == 'POST') {
-            $course= Courses::find($request->course_id);
+            $course = Courses::find($request->course_id);
             $user_id = Auth::id();
             $register_course = new Course_Registered();
             $register_course->course_id = $request->course_id;
@@ -25,18 +25,17 @@ class CourseController extends Controller
             $register_course->save();
             // return redirect('student/courseregistration');
             return Redirect('student/makepayment');
-
         } else {
             $courses = Courses::get();
             return view('studentdashboard.courseregistration.index', compact('courses'));
         }
     }
 
-    public function index(){
+    public function index(Request $request)
+    {
 
         $user_id = Auth::id();
-        $register_courses = Course_Registered::with('course')->where('user_id', $user_id)->get();
+        $register_courses = Course_Registered::with('course')->where('user_id', $user_id)->where('is_paid', 1)->get();
         return view('studentdashboard.course.index', compact('register_courses'));
-
     }
 }

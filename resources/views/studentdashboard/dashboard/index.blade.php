@@ -78,16 +78,18 @@ $courses = $student_common->courses;
                                     </thead>
                                     <tbody class="mycolarea">
 
-                                        @foreach ($courses as $key => $course)
-
+                                        @foreach ($courses as $key => $r_course)
                                             <tr class="mycolareadata">
-                                                <td>HRS0{{ $course->id }}</td>
-                                                <td>{{ $course->name }}</td>
-                                                <td>{{ $course->created_at->format('j-m-Y') }}</td>
-                                                @if (!$course->is_paid)
+                                                <td>HRS0{{ $r_course->id }}</td>
+                                                <td>{{ $r_course->name }}</td>
+                                                <td>{{ $r_course->created_at->format('j-m-Y') }}</td>
+                                                @if (!$r_course->is_paid)
+                                                <?php 
+                                                       $course_id =   Crypt::encrypt($r_course->id)
+                                                ?>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary payment">Make
-                                                            Payment</button>
+                                                        <button type="button" class="btn btn-primary payment" onclick="window.location.href='{{asset('student/makepayment?course_id='.$course_id)}}';">
+                                                            Make Payment</button>
                                                     </td>
                                                 @else
                                                     <td>

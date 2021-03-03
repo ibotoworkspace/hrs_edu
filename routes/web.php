@@ -216,24 +216,38 @@ Route::get('student/logout', 'Student\StudentController@logout')->name('logout')
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
+    // payment route 
+    Route::get('stripe', 'Student\PaymentController@stripe');
+    Route::post('stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
+
+    Route::post('/paymentmethood', 'Student\PaymentController@paymentMethod')->name('profile.update');
+
     Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
     Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
     Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');
-    Route::get('/makepayment', 'Student\MakePaymentController@index')->name('student/makepayment');
+    Route::get('/makepayment', 'Student\PaymentController@make_payment')->name('student/makepayment');
     Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
     Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
-    Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
+    // Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
+
+    Route::get('/stripepayment', 'Student\PaymentController@stripePayment')->name('stripepayment');
+    Route::get('/paypalpayment', 'Student\PaymentController@payPal')->name('paypalpayment');
     Route::get('/profile', 'Student\StudentController@profile')->name('student/profile');
     // Route::get('/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
     Route::get('/viewticket', 'Student\ViewTicketController@index')->name('student.viewticket');
 
     Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
-    
+
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
 
-    Route::match(['get', 'post'],'/ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
+    Route::match(['get', 'post'], '/ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 
     Route::match(['get', 'post'], '/courseregistration', 'Student\CourseController@registerCourse')->name('course.registration');
+
+    // paypal route
+    Route::get('payment', 'Student\PayPalController@payment')->name('payment');
+    Route::get('cancel', 'Student\PayPalController@cancel')->name('payment.cancel');
+    Route::get('payment/success', 'Student\PayPalController@success')->name('payment.success');
 });
 
 

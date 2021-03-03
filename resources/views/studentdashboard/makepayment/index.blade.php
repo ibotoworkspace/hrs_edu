@@ -1,7 +1,7 @@
 @extends('studentdashboard.layouts.index')
 
-<link href="{{asset('css/newmake.css')}}" rel="stylesheet">
-<link href="{{asset('css/mainstudentdash.css')}}" rel="stylesheet">
+<link href="{{ asset('css/newmake.css') }}" rel="stylesheet">
+<link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
 
 
 
@@ -12,13 +12,13 @@
 
 
 
-<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
-<div class="w3-main mainContent" style="margin-left:250px">
+    <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+    <div class="w3-main mainContent" style="margin-left:250px">
 
 
 
 
-	<section>
+        <section>
             <title>
                 MAKE PAYMENT
             </title>
@@ -40,41 +40,62 @@
                             </div>
                         </div>
                     </div>
+                    <form method="post" action="{{ url('/student/paymentmethood') }}">
+                        {{ csrf_field() }}
 
-                    <div class="row mypayment">
-                        <div class="col-sm-12">
-                            <div class="ngncode">
-                                <p>NGN 120,000</p>
+                        <div class="row mypayment">
+                            <div class="col-sm-12">
+                                <div class="ngncode">
+                                    <p name="ammount">NGN {{ $register_course->course->price }}</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
+                        <input name="course_id" value="{{ $register_course->id }}" hidden>
+                        {{-- <div class="form-group row mypayment">
+                            <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control paymentformdata" id="formGroupExampleInput"
+                                    placeholder="Example input">
+                            </div>
+                        </div> --}}
 
-                    <div class="form-group row mypayment">
-                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control paymentformdata" id="formGroupExampleInput"
-                                placeholder="Example input">
+                        <div class="row mypayment">
+                            <div class="paymentul">
+                                <p class="col-sm-1">Pay Via *</p>
+                                {{-- <label class="radio-inline" class="col-sm-1"><input type="radio" name="optradio">Credit
+                                Card</label>
+                            <label class="radio-inline" class="col-sm-1"><input type="checkbox"
+                                    name="optradio">paypal</label> --}}
+                                {{-- <img src="{{ asset('images/Icon-37.png') }}" class="img-responsive" class="col-sm-1"> --}}
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="payment_type" value="stripe" checked>
+                                <label class="radio-inline" for="exampleRadios1">
+                                    Credit Card
+                                </label>
+
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="payment_type" value="paypal">
+                                <label class="radio-inline" for="exampleRadios2">
+                                    Pay Pal
+                                </label>
+                            </div>
                         </div>
-                    </div>                   
 
-                    <div class="row mypayment">
-                        <div class="paymentul">
-                            <p class="col-sm-1">Pay Via *</p>
-                            <label class="radio-inline" class="col-sm-1"><input type="radio" name="optradio" checked>Option 1</label>
-                            <img src="{{asset('images/Icon-37.png')}}" class="img-responsive" class="col-sm-1">     
+                        <div class="row mypayment">
+                            <div class="pamentclick">
+                                <button type="submit" class="btn btn-primary proced">Proceed to
+                                    Payment</button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="row mypayment">
-                        <div class="pamentclick">
-                           <a href="proceedpayment.php"><button type="button" class="btn btn-primary proced">Proceed to Payment</button></a>
-                        </div>
-                    </div>
+                    </form>
 
                 </div>
             </div>
-	</section>
+        </section>
 
 
 
@@ -83,8 +104,8 @@
 
 
 
-</div>
+    </div>
 
 
 
-    @endsection
+@endsection

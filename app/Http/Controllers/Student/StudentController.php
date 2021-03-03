@@ -82,7 +82,7 @@ class StudentController extends Controller
     function dashboard()
     {
         $student = Auth::user();
-        $student_courses = Course_Registered::where('user_id',$student->id)->get();
+        $student_courses = Course_Registered::where('user_id',$student->id)->with('course')->get();
         $student_common = new \stdClass();
         $student_common->student = $student;
         $student_common->courses = $student_courses;

@@ -7,15 +7,7 @@ use Illuminate\Http\Request;
 
 class MakePaymentController extends Controller
 {
-    function index()
-    {
-      
- 
-        // $blogpage = BlogPage::paginate(10);
-       
-        return view('studentdashboard.makepayment.index');
-    
-}
+  
 
 
 }

@@ -90,7 +90,8 @@
                                         <div class="navbar-collapse nav-collapse collapse">
                                             <ul class="nav navbar-nav">
                                                 <li id="11">
-                                                    <a href="{{ asset('user/home') }}"><span class="headpad">Home</span>
+                                                    <a href="{{ asset('user/home') }}"><span
+                                                            class="headpad">Home</span>
                                                     </a>
                                                 </li>
                                                 <li id="4">
@@ -156,7 +157,7 @@
                 <a href="{{ asset('student/courseregistration') }}"> Apply for Course</a>
             </li>
             <li>
-                <a href="{{ asset('student/myregstration') }}"> My Courses</a>
+                <a href="{{ asset('student/mycourse') }}"> My Courses</a>
             </li>
             <li>
                 <a href="{{ asset('student/paymenthistory') }}"> Payments</a>
