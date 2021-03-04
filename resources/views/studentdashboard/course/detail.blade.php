@@ -18,9 +18,7 @@
 
 
         <section>
-            <title>
-                SUBMIT A REQUEST
-            </title>
+
             <div class="serchsite">
                 <div class="container-fluid">
                     <div class="row serchbox">
@@ -34,10 +32,18 @@
 
                     <div class="row subrow">
                         <div class="col-sm-12">
-                            <h3>My Courses</h3>
+                            <h3>HRS {{ $course_detail->title }}</h3>
                         </div>
                     </div>
+                    <div>
+                        <div class="col-sm-12">
+                            <a href="{{ asset($course_detail->download_pdf) }}" class="btn btn-primary down">
+                                <i class="fa fa-long-arrow-down arrow" aria-hidden="true">
 
+                                </i>Download</a><br>
+                            </a>
+                        </div>
+                    </div>
                     <div class="row courseside">
                         <div class="col-sm-12">
                             <div class="coursesidedata">
@@ -46,26 +52,18 @@
                                         <tr>
                                             <th>Course No</th>
                                             <th>Title</th>
-                                            <th>Image</th>
                                             <th>Action </th>
                                         </tr>
                                     </thead>
                                     <tbody class="mycolarea">
-                                        @foreach ($register_courses as $key => $r_course)
+                                        @foreach ($course_detail->chapters as $key => $chap)
                                             <tr class="mycolareadata">
-                                                <td>HRS-{{ $r_course->id }}</td>
-                                                <td>{{ $r_course->course->title }}</td>
+                                                <td>HRS-{{ $chap->id }}</td>
+                                                <td>{{ $chap->title }}</td>
                                                 <td>
-                                                    <img width="100px" src="{!! $r_course->course->avatar !!}" class="show-product-img imgshow">
-
-                                                </td>
-                                                <?php 
-                                                $course_id = Crypt::encrypt($r_course->course->id);
-                                                ?>
-                                                <td><a href="{{asset('student/course/detail?course_id='.$course_id)}}" target="_blank">
-                                                        <span class="badge badge-success">View</span>
-                                                    </a></td>
-
+                                                    <a href="{{asset('student/read/chapter?chap_id=' . $chap->id )}}" target="_blank">
+                                                        <span class="badge badge-success">Read </span>
+                                                    </a>
                                             </tr>
                                         @endforeach
 

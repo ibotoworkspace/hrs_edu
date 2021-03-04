@@ -13,7 +13,7 @@ class PaymentHistoryController extends Controller
  
         // $blogpage = BlogPage::paginate(10);
        
-        return view('studentdashboard.paymenthistory.index');
+       
     
 }
 

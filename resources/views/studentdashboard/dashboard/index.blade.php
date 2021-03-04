@@ -85,15 +85,16 @@ $courses = $student_common->courses;
                                                 <td>{{ $r_course->created_at->format('j-m-Y') }}</td>
                                                 @if (!$r_course->is_paid)
                                                 <?php 
-                                                       $course_id =   Crypt::encrypt($r_course->id)
+                                                       $register_course_id =   Crypt::encrypt($r_course->id);
+                                                       $course_id =   Crypt::encrypt($r_course->course->id);
                                                 ?>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary payment" onclick="window.location.href='{{asset('student/makepayment?course_id='.$course_id)}}';">
+                                                        <button type="button" class="btn btn-primary payment" onclick="window.location.href='{{asset('student/makepayment?course_id='.$register_course_id)}}';">
                                                             Make Payment</button>
                                                     </td>
                                                 @else
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary payment">View
+                                                    <td> 
+                                                        <button type="button" class="btn btn-primary payment" onclick="window.location.href='{{asset('student/course/detail?course_id='.$course_id)}}';">View
                                                             Course</button>
                                                     </td>
 

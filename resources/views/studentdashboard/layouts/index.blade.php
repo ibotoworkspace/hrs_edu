@@ -115,8 +115,15 @@
                                                             class="headpad">Course Registration</span> </a>
                                                 </li>
                                             </ul>
-                                            <a href="{{ asset('user/login') }}"><button type="button"
-                                                    class="btn btn-primary portal">Login Account</button></a>
+                                            @if (Auth::check())
+                                                <a href="{{ asset('student/logout') }}"><button type="button"
+                                                        class="btn btn-primary portal">Logout</button></a>
+                                            @else
+                                                <a href="{{ asset('student/login') }}"><button type="button"
+                                                        class="btn btn-primary portal">Login Account</button></a>
+                                            @endif
+
+
                                             <button type="button" class="btn btn-primary portal">Join us as SDA</button>
                                         </div>
                                     </div>
@@ -160,7 +167,7 @@
                 <a href="{{ asset('student/mycourse') }}"> My Courses</a>
             </li>
             <li>
-                <a href="{{ asset('student/paymenthistory') }}"> Payments</a>
+                <a href="{{ asset('student/payment/detail') }}"> Payments</a>
             </li>
             <li>
                 <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>

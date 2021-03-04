@@ -41,7 +41,7 @@ $register_course = $payment_common->register_course;
                             <h3>PROCEED TO PAYMENT</h3>
                         </div>
                     </div>
-                    <div class="row procedform">
+                    {{-- <div class="row procedform">
                         <div class="col-sm-12">
                             <div class="pform">
                                 <div class="form-group row">
@@ -77,7 +77,7 @@ $register_course = $payment_common->register_course;
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="vc">
                         <!-- Virtual Card Starts Here -->
@@ -170,8 +170,9 @@ $register_course = $payment_common->register_course;
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-xs-12">
-                                            <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now</button>
+                                        <div class="pformclick">
+                                            <button class="btn btn-primary btn-lg pformpress" type="submit">Place Order</button>
+                                        
                                         </div>
                                     </div>
 
