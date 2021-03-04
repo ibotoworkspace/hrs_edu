@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
+use App\Models\Chapter;
 use App\Models\Course_Registered;
 use App\Models\Courses;
 use Illuminate\Http\Request;
@@ -37,5 +38,24 @@ class CourseController extends Controller
         $user_id = Auth::id();
         $register_courses = Course_Registered::with('course')->where('user_id', $user_id)->where('is_paid', 1)->get();
         return view('studentdashboard.course.index', compact('register_courses'));
+    }
+
+    public function courseDetail (Request $request){
+
+        $course_id = decrypt($request->course_id);
+
+        $course_detail = Courses::with('chapters','videos')->find($course_id);
+
+
+        return view('studentdashboard.course.detail', compact('course_detail')); 
+    }
+
+
+    public function readChapter(Request $request){
+
+        $chapter = Chapter::find($request->chap_id);
+
+        return view('studentdashboard.course.readchapter', compact('chapter'));
+
     }
 }

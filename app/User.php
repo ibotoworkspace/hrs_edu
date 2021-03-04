@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -42,4 +44,32 @@ class User extends Authenticatable
         'email' => 'required|email|unique:users',
         'password' => 'required'
     ];
+
+
+    public function resetPassword($email) {
+        $user = User::where(['email' => $email])->first([
+    			'id',
+    			'email',
+    			'password'
+    	]);
+    
+    	if(!empty($user)) {
+    		$random_password =Str::random(8);
+    		
+            $details = [
+                'from' => "greetings@mail.com",
+                'subject' => 'Your Password For Web | Greetings',
+                'pass' => $random_password,
+                "body"  => "Yor password is change ."
+            ];
+            $user->password = Hash::make($random_password);
+    		if($user->save()) {
+                // Mail::to($user->email)->send(new ForgotPass($details));
+
+    		
+    			
+    		}
+    	}
+    	
+    }
 }

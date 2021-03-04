@@ -221,12 +221,14 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::post('stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
 
     Route::post('/paymentmethood', 'Student\PaymentController@paymentMethod')->name('profile.update');
+    Route::post('/forgetpassword','Student\StudentController@forgetPassword')->name('forgetpassword');
 
     Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
     Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
     Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');
     Route::get('/makepayment', 'Student\PaymentController@make_payment')->name('student/makepayment');
-    Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
+    Route::get('/payment/detail', 'Student\PaymentController@details')->name('payment.detail');
+
     Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
     // Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
 
@@ -242,6 +244,9 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
 
     Route::match(['get', 'post'], '/ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 
+    Route::get('/read/chapter', 'Student\CourseController@readChapter')->name('read.chapter');
+    Route::get('/course/detail', 'Student\CourseController@courseDetail')->name('course.detail');
+    Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
     Route::match(['get', 'post'], '/courseregistration', 'Student\CourseController@registerCourse')->name('course.registration');
 
     // paypal route

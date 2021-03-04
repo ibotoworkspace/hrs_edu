@@ -111,7 +111,6 @@ class StudentController extends Controller
             return back()->with('error', 'Wrong Login Details');
         }
     }
-
     function logout()
     {
 
@@ -136,5 +135,17 @@ class StudentController extends Controller
         session(['student_common' => $student_common]);
 
         return view('studentdashboard.profile.index');
+    }
+
+    public function forgetPassword(Request $request){
+
+        
+        $user_detail= Auth::user();
+        $user = User::find($user_detail->id);
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->back()->with('success','your password has been reset');
+
     }
 }

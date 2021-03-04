@@ -9,4 +9,9 @@ class Payment extends Model
 {
     use SoftDeletes;
     protected $table = 'payment';
+
+
+    public function registerCourse(){
+        return $this->hasOne('App\Models\Course_Registered','id','course_register_id');
+    }
 }
