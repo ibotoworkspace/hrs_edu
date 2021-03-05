@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\models\Course_Registered;
-use App\models\user_registered;
-use App\models\Courses;
+use App\Models\Course_Registered;
+use App\Models\user_registered;
+use App\Models\Courses;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 

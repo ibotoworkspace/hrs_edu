@@ -7,7 +7,7 @@ use App\Models\Choices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
-use App\models\Courses;
+use App\Models\Courses;
 use App\Models\Quiz;
 
 

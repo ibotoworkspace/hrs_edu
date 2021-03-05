@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\models\Choices;
-use App\models\Quiz;
+use App\Models\Choices;
+use App\Models\Quiz;
 
 class ChoiceController extends Controller
 {
