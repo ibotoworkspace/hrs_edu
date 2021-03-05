@@ -42,5 +42,6 @@ Route::group(['middleware' => 'auth.client_token'], function () {
     //payment 
     // Route::get('/makepayment', 'Student\PaymentController@make_payment')
     //
-    Route::get('user/makepayment', 'Student\PaymentController@make_payment_app');
+    
 });
+Route::get('user/makepayment', 'Student\PaymentController@make_payment_app');
