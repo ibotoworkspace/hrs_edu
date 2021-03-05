@@ -1,10 +1,8 @@
 @extends('studentdashboard.layouts.index')
 
-<?php 
-
+<?php
 $payment_common = session()->get('payment_common');
 $register_course = $payment_common->register_course;
-
 ?>
 
 <link href="{{ asset('css/proceedpayment.css') }}" rel="stylesheet">
@@ -41,43 +39,7 @@ $register_course = $payment_common->register_course;
                             <h3>PROCEED TO PAYMENT</h3>
                         </div>
                     </div>
-                    {{-- <div class="row procedform">
-                        <div class="col-sm-12">
-                            <div class="pform">
-                                <div class="form-group row">
-                                    <i class="fa fa-credit-card mycard" aria-hidden="true"></i><input type="text"
-                                        class="form-control mycarddata" id="inputAddress" placeholder="Credit Card Number*">
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-6 form-group row">
-                                        <i class="fa fa-calendar mycardss" aria-hidden="true"></i><input type="text"
-                                            class="form-control mycarddata" placeholder="Expiration (MM/YY)*">
-                                    </div>
-                                    <div class="col-sm-6 form-group row foum">
-                                        <i class="fa fa-lock mycards" aria-hidden="true"></i><input type="text"
-                                            class="form-control mycarddata" placeholder="Card Security Code">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <i class="fa fa-map-marker mycards" aria-hidden="true"></i><input type="text"
-                                        class="form-control mycarddata" id="inputAddress" placeholder="Postal Code*">
-                                </div>
-                                <div class="row">
-                                    <div class="pformdata">
-                                        <p>Your personal data will be used to process your order, support your
-                                            experience throughout this website, and for <br>
-                                            other purposes described in our privacy policy.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="pformclick">
-                                        <button type="button" class="btn btn-primary pformpress">Place Order</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> --}}
+
 
                     <div class="vc">
                         <!-- Virtual Card Starts Here -->
@@ -95,7 +57,7 @@ $register_course = $payment_common->register_course;
                                         <div class="account-holder-name"></div>
                                         <div class="expiry">
                                             <div class="month"></div>
-                                            
+
                                             <div class="year"></div>
                                         </div>
                                     </div>
@@ -160,7 +122,7 @@ $register_course = $payment_common->register_course;
                                                 type='text'>
                                         </div>
                                     </div>
-                                    
+
 
                                     <div class='form-row row'>
                                         <div class='col-md-12 error form-group hide'>
@@ -171,8 +133,9 @@ $register_course = $payment_common->register_course;
 
                                     <div class="row">
                                         <div class="pformclick">
-                                            <button class="btn btn-primary btn-lg pformpress" type="submit">Place Order</button>
-                                        
+                                            <button class="btn btn-primary btn-lg pformpress" type="submit">Place
+                                                Order</button>
+
                                         </div>
                                     </div>
 
