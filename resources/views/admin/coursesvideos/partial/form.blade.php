@@ -46,7 +46,7 @@ if(isset($coursesvideos)){
 
     </div> 
 
-@include('Admin.coursesvideos.partial.image_modal')
+@include('admin.coursesvideos.partial.image_modal')
 
 
 

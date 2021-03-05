@@ -33,10 +33,10 @@
 
 
 
-            {{-- <th class="option">
-                            <div class="bestoption">IS PAID</div>
+            <th class="option">
+                <div class="bestoption">Choices</div>
 
-						</th> --}}
+            </th>
 
 
             <th class="option">
@@ -52,15 +52,17 @@
     </thead>
     <tbody>
         @foreach ($listofquiz as $key => $q)
-            <tr class="myarrow myarrow_{{$q->id}}" >
+            <tr class="myarrow myarrow_{{ $q->id }}">
                 <td class="mynbr">
                     <div class="bestnbr"> {!! $key + 1 !!}</div>
                 </td>
                 <td class="hrs">
                     <div class="besthrs">{{ $q->question }}</div>
+
+                </td>
+                <td>
                     <a href="{{ url('/admin/choices/' . $q->id) }}" type="button" class="btn btn-primary onquizes"
                         id="myvide">choices</a>
-
                 </td>
                 <td class="optionss">
                     <div class="myoptionss">
@@ -72,16 +74,18 @@
 
                             <ul class="dropdown-menu caret" aria-labelledby="dropdownMenu1">
                                 <li class=""><a href="{{ url('/admin/edit/quiz/' . $q->id) }}">Edit</a></li>
-                                
+
                                 {{-- {!! Form::open(['method' => 'POST', 'route' => ['quizlist.delete', $q->id]]) !!} --}}
-                                <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$q->id}}" hit_url="{{ url('/admin/quizlist/delete/' . $q->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{ $q->id }}"
+                                    hit_url="{{ url('/admin/quizlist/delete/' . $q->id) }}" name="activate_delete_link"
+                                    data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                                     <span class="badge bg-info btn-danger ">
                                         {!! $q->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
                                 {{-- {!! Form::close() !!} --}}
                             </ul>
 
-                            
-                            
+
+
                             {{-- <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                         <li><a href="{{ url('/admin/courses/edit/' . $crs->id) }}">Edit</a></li>
         
