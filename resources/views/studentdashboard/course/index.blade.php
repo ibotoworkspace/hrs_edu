@@ -41,9 +41,11 @@
                     <div class="row courseside">
                         <div class="col-sm-12">
                             <div class="coursesidedata">
+                                <div class="coursesidedata">
+                                
                                 <table class="table mytables">
                                     <thead class="coursesidehead">
-                                        <tr>
+                                    <tr>
                                             <th>Course No</th>
                                             <th>Title</th>
                                             <th>Image</th>
@@ -53,16 +55,16 @@
                                     <tbody class="mycolarea">
                                         @foreach ($register_courses as $key => $r_course)
                                             <tr class="mycolareadata">
-                                                <td>HRS-{{ $r_course->id }}</td>
-                                                <td>{{ $r_course->course->title }}</td>
-                                                <td>
+                                                <td class="tdcenter">HRS-{{ $r_course->id }}</td>
+                                                <td class="tdcenter">{{ $r_course->course->title }}</td>
+                                                <td class="tdcenter"> 
                                                     <img width="100px" src="{!! $r_course->course->avatar !!}" class="show-product-img imgshow">
 
-                                                </td>
+                                                </td class="tdcenter">
                                                 <?php 
                                                 $course_id = Crypt::encrypt($r_course->course->id);
                                                 ?>
-                                                <td><a href="{{asset('student/course/detail?course_id='.$course_id)}}" target="_blank">
+                                                <td class="tdcenter"><a href="{{asset('student/course/detail?course_id='.$course_id)}}" target="_blank">
                                                         <span class="badge badge-success">View</span>
                                                     </a></td>
 
@@ -71,6 +73,7 @@
 
                                     </tbody>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>
