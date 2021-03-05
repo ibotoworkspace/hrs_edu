@@ -71,7 +71,7 @@ $student = $student_common->student;
                             <div class="row ">
 
                                 <div class="col-sm-12">
-                                    <div class="studentform">
+                                    <div class="studentform inputstyle">
                                         <input type="email" class="form-control stuform" id="email" name="email"
                                             value="{{ $student->email }}" placeholder="Email" readonly>
                                         <input type="text" class="form-control stuform" id="name" name="name"

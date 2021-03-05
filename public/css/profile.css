@@ -60,3 +60,33 @@
     border-color: #243439;
     color: white;
 }
+.inputstyle::placeholder {
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid;
+}
+input#email {
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid;
+}
+input#name{
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid;
+}
+input#ph_no{
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid;
+}
+input#address{
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid;
+}
+input#region{
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid;
+}
