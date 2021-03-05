@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth.client_token'], function () {
     Route::post('user/chapter', 'services\CoursesController@chapter');
     Route::post('user/contactus', 'services\ContactusController@contactus');
     Route::post('user/ticketsubmit', 'services\TicketControlller@ticketsubmit');
+    Route::get('user/getChapter', 'services\ChapterController@getChapter');
     
     
 });
