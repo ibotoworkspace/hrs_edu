@@ -15,7 +15,13 @@ class CoursesController extends Controller
     public function registeredcourses(Request $request)
     {
         try {
-            $courses = Courses::with(['chapters', 'videos'])->orderBy('created_at', 'desc')->get();
+            $items_count = $request->items_count ?? '20';
+            $courses = Courses::with(['chapters', 'videos'])->orderBy('created_at', 'desc')->paginate($items_count);
+
+            // $courses->transform(function ($course) {
+            //     $course->chapters = count($course->chapters);
+            //     // return $course;
+            // })->paginate(10);
 
             return $this->sendResponse(200, $courses);
         } catch (\Exception $e) {
