@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\models\Courses;
-use App\models\Course_Video;
+
+use App\Models\Course_Video;
+use App\Models\Courses;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 

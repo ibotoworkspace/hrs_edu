@@ -44,7 +44,8 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/newquizquestion', 'Admin\CoursesController@newquizquestion')->name('admin/newquizquestion');
     Route::get('/listofpromocode', 'Admin\CoursesController@listofpromocode')->name('admin/listofpromocode');
 
-    Route::get('/listoforder', 'Admin\CoursesController@listoforder')->name('admin/listofpromocode');
+    // Route::get('/listoforder', 'Admin\CoursesController@listoforder')->name('admin/listofpromocode');
+    Route::get('/listoforder', 'Admin\OrderController@index')->name('admin/listofpromocode');
     Route::get('/listofmembership', 'Admin\CoursesController@listofmembership')->name('admin/listofpromocode');
 
     Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket');
