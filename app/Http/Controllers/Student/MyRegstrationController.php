@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\models\Courses;
-// use App\models\Courses;
+use App\Models\Courses;
 
 class MyRegstrationController extends Controller
 {

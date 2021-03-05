@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use COM;
 use Illuminate\Http\Request;
-use App\models\Courses;
+use App\Models\Courses;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 
