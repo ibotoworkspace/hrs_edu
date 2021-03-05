@@ -468,3 +468,8 @@ p.smallright {
 .newsdata {
     margin-top: -50px;
 }
+.inputstyle::placeholder {
+    border: none;
+    background: #fff;
+    border-bottom: 1px solid;
+}

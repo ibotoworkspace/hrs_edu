@@ -2,7 +2,7 @@
     {{-- {!! dd($doctor->user->name) !!} --}}
     {!! Form::label('name','Name') !!}
     <div>
-        {!! Form::text('name', $doctor->user->name ?? null, ['class' => 'form-control',
+        {!! Form::text('name', $doctor->user->name ?? null, ['class' => 'form-control inputstyle',
         'data-parsley-required'=>'true',
         'data-parsley-trigger'=>'change',
         'placeholder'=>'Name','required',

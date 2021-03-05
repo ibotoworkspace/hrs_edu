@@ -37,8 +37,8 @@
                     </div>
                     <div>
                         <div class="col-sm-12">
-                            <a href="{{ asset($course_detail->download_pdf) }}" class="btn btn-primary down">
-                                <i class="fa fa-long-arrow-down arrow" aria-hidden="true">
+                            <a href="{{ asset($course_detail->download_pdf) }}" style="margin-bottom: 10px;" class="btn btn-primary down">
+                                <i class="fa fa-long-arrow-down arrow" style="margin-right: 10px;" aria-hidden="true">
 
                                 </i>Download</a><br>
                             </a>

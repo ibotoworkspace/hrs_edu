@@ -62,11 +62,11 @@
 
                                                 @if ($ut->status == 'pending')
                                                     <td>
-                                                        <span class="badge badge-info bluebadge">Pending</span>
+                                                        <span class="badge badge-dark bluebadge">Pending</span>
                                                     </td>
                                                 @else
                                                     <td>
-                                                        <span class="badge badge-secondary greenbadge">CLosed</span>
+                                                        <span class="badge badge-secondary greenbadge bluebadge">CLosed</span>
                                                     </td>
                                                 @endif
 
