@@ -13,9 +13,12 @@ class HomeController extends Controller
     {
 
         try {
-            $courses=Courses::orderBy('created_at','desc')->get();
+            $items_count = $request->items_count ?? '10';
+            $search = $request->course_name ?? '';
+            $courses=Courses::where('title', 'like', '%' . $search . '%')->orderBy('created_at','desc')->paginate($items_count);
 
             return $this->sendResponse(200, $courses);
+            
         } catch (\Exception $e) {
             return [
                 'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
