@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use COM;
 
-use App\models\Chapter;
-use App\models\Courses;
+use App\Models\Chapter;
+use App\Models\Courses;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 

@@ -45,7 +45,7 @@ class PromoCodeController extends Controller
         $control = 'edit';
         $promocode = PromoCode::find($id);
 
-        return \View::make('admin.promoCode.create', compact(
+        return \View::make('admin.promocode.create', compact(
             'control',
             'promocode'
 
