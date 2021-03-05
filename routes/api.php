@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::group(['middleware' => 'auth.client_token'], function () {
-    
+
     // Route::post('video', 'Services\UserController@video');
 
     Route::post('user/signup', 'services\UserController@signUp');
@@ -39,5 +39,8 @@ Route::group(['middleware' => 'auth.client_token'], function () {
     Route::post('user/ticketsubmit', 'services\TicketControlller@ticketsubmit');
     Route::get('user/getChapter', 'services\ChapterController@getChapter');
     
-    
+    //payment 
+    // Route::get('/makepayment', 'Student\PaymentController@make_payment')
+    //
+    Route::get('user/makepayment', 'Student\PaymentController@make_payment_app');
 });

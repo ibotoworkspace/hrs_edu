@@ -23,6 +23,13 @@ class PaymentController extends Controller
 
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
+    public function make_payment_app(Request $request)
+    {
+
+        $register_course = Course_Registered::with('course')->find($request->course_id);
+
+        return view('studentdashboard.makepayment.index', compact('register_course'));
+    }
 
     public function paymentMethod(Request $request)
     {
@@ -64,9 +71,9 @@ class PaymentController extends Controller
             $payment->card_type = $stripe->payment_method_details->card->brand;
             $payment->save();
 
-            
+
             $course_register = Course_Registered::find($request->course_register_id);
-            $course_register->is_paid = 1 ;
+            $course_register->is_paid = 1;
             $course_register->save();
 
             Session::flash('success', 'Payment successful!');
@@ -82,13 +89,13 @@ class PaymentController extends Controller
     }
 
 
-    public function details(Request $request){
+    public function details(Request $request)
+    {
 
         $user_id = Auth::id();
-        $payment_details = Payment::with('registerCourse.course')->where('user_id',$user_id)->get();
+        $payment_details = Payment::with('registerCourse.course')->where('user_id', $user_id)->get();
 
-        return view('studentdashboard.paymenthistory.index',compact('payment_details'));
-
+        return view('studentdashboard.paymenthistory.index', compact('payment_details'));
     }
 
 
