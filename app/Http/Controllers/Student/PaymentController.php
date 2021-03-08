@@ -59,7 +59,7 @@ class PaymentController extends Controller
 
     public function stripePost(Request $request)
     {
-
+        Log::info('in payment');
         $user = Auth::user();
         if (!$user) {
             $page_layout = session()->get('page_layout');
@@ -69,10 +69,11 @@ class PaymentController extends Controller
             return back()->with('error', 'Unauthorized request');
         }
         $course_register = Course_Registered::with('course')->find($request->course_register_id);
+        // dd(ceil($course_register->course->price));
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
             $stripe =  Stripe\Charge::create([
-                "amount" => 15, //ceil($course_register->course->price)
+                "amount" => 120.0, //ceil($course_register->course->price)
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from HRS Acedmey."
@@ -100,6 +101,8 @@ class PaymentController extends Controller
             // Session::flash('error', "Error! Please Try again.");
             // return redirect('user/payment')->with('success','Payment successful!');
             // return back()->with('error', "Error!" . $e); 
+            Log::info('Error');
+            Log::info($e);
             return $e ;
             return view('studentdashboard.proceedpayment.index')->with('error', $e);
         }
