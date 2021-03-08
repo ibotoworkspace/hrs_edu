@@ -15,7 +15,7 @@ class HomeController extends Controller
         try {
             $items_count = $request->items_count ?? '10';
             $search = $request->course_name ?? '';
-            $courses=Courses::where('title', 'like', '%' . $search . '%')->orderBy('created_at','desc')->paginate($items_count);
+            $courses=Courses::where('title', 'like', '%' . $search . '%')->with('registerCourse')->orderBy('created_at','desc')->paginate($items_count);
 
             return $this->sendResponse(200, $courses);
             
