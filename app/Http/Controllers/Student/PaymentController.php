@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Course_Registered;
 use App\Models\Payment;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
@@ -15,6 +16,9 @@ class PaymentController extends Controller
 {
     public function make_payment(Request $request)
     {
+        $page_layout = new \stdClass();
+        $page_layout->header = true;
+        session(['page_layout' => $page_layout]);
 
         $course_id = decrypt($request->course_id);
 
@@ -25,15 +29,17 @@ class PaymentController extends Controller
     }
     public function make_payment_app(Request $request)
     {
-        // dd($request->all());
-        $register_course = Course_Registered::with('course')->find($request->course_id);
+        $page_layout = new \stdClass();
+        $page_layout->header = false;
+        $page_layout->token = $request->_token;
+        session(['page_layout' => $page_layout]);
 
+        $register_course = Course_Registered::with('course')->find($request->course_id);
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
 
     public function paymentMethod(Request $request)
     {
-        
         $register_course = Course_Registered::with('course')->find($request->course_id);
 
         $payment_common = new \stdClass();
@@ -52,8 +58,15 @@ class PaymentController extends Controller
 
     public function stripePost(Request $request)
     {
+        
         $user = Auth::user();
-
+        if (!$user) {
+            $page_layout = session()->get('page_layout');
+            $user = User::where('access_token', $page_layout->token)->first();
+        }
+        if (!$user) {
+            return back()->with('error', 'Unauthorized request');
+        }
 
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
@@ -83,7 +96,7 @@ class PaymentController extends Controller
         } catch (\Exception $e) {
             // Session::flash('error', "Error! Please Try again.");
             // return redirect('user/payment')->with('success','Payment successful!');
-            // return back()->with('error', "Error!" . $e);
+            // return back()->with('error', "Error!" . $e); 
             return view('studentdashboard.proceedpayment.index')->with('error', $e);
         }
     }

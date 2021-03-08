@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('student/paymentmethood', 'Student\PaymentController@paymentMethod');
 Route::get('user/aboutus', 'User\UserController@aboutUs');
 
 
@@ -217,11 +218,9 @@ Route::get('student/logout', 'Student\StudentController@logout')->name('logout')
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
-    // payment route 
-    Route::get('stripe', 'Student\PaymentController@stripe');
-    Route::post('stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
+   
 
-    Route::post('/paymentmethood', 'Student\PaymentController@paymentMethod')->name('profile.update');
+   
     Route::post('/forgetpassword','Student\StudentController@forgetPassword')->name('forgetpassword');
 
     Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
@@ -263,3 +262,8 @@ Route::get('student/changepassword', 'Student\ChangePasswordController@index')->
 ///user/courseregistered
 //////student//courselist
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
+
+ // student payment route 
+//  Route::get('student/stripe', 'Student\PaymentController@stripe');
+ Route::post('student/stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
+Route::get('/makepayment', 'Student\PaymentController@make_payment_app');

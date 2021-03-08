@@ -1,5 +1,18 @@
-@extends('studentdashboard.layouts.index')
+<?php
+$page_layout = session()->get('page_layout');
+$header = $page_layout->header;
+$layout = '';
 
+if (!$header) {
+//footer and header hide here
+$layout = 'studentdashboard.layouts.appindex';
+} else {
+$layout = 'studentdashboard.layouts.index';
+}
+?>
+@if ($header)
+    @extends($layout)
+@endif
 <link href="{{ asset('css/newmake.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
 
