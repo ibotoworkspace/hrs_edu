@@ -22,26 +22,28 @@ Route::group(['middleware' => 'auth.client_token'], function () {
 
     // Route::post('video', 'Services\UserController@video');
 
-    Route::post('user/signup', 'services\UserController@signUp');
-    Route::post('user/login', 'services\UserController@login');
-    Route::post('user/logout', 'services\UserController@logout');
-    Route::post('user/profile_update', 'services\UserController@profile_update');
-    Route::post('user/forgetpassword', 'services\UserController@forgetpassword');
-    Route::get('user/logout', 'services\UserController@logout');
-    Route::get('user/home', 'services\HomeController@home');
-    Route::get('user/registeredcourses', 'services\CoursesController@registeredcourses');
-    Route::post('user/coursevideos', 'services\VideoController@coursevideos');
-    Route::post('user/course', 'services\CoursesController@course');
-    Route::post('user/quiz', 'services\QuizControlller@quiz');
-    Route::post('user/chapters', 'services\CoursesController@chapters');
-    Route::post('user/chapter', 'services\CoursesController@chapter');
-    Route::post('user/contactus', 'services\ContactusController@contactus');
-    Route::post('user/ticketsubmit', 'services\TicketControlller@ticketsubmit');
-    Route::get('user/getChapter', 'services\ChapterController@getChapter');
+    Route::post('/signup', 'services\UserController@signUp');
+    Route::post('/login', 'services\UserController@login');
+    Route::post('/logout', 'services\UserController@logout');
+    Route::post('/profile_update', 'services\UserController@profile_update');
+    Route::post('/forgetpassword', 'services\UserController@forgetpassword');
+    // Route::get('user/logout', 'services\UserController@logout');
+    Route::get('/home', 'services\HomeController@home');
+    Route::get('/registeredcourses', 'services\CoursesController@registeredcourses');
+    Route::post('/register', 'services\CoursesController@register');
+    Route::get('/mycourse', 'services\CoursesController@myCourse');
+    Route::post('/coursevideos', 'services\VideoController@coursevideos');
+    Route::post('/course', 'services\CoursesController@course');
+    Route::post('/quiz', 'services\QuizControlller@quiz');
+    Route::post('/chapters', 'services\CoursesController@chapters');
+    Route::post('/chapter', 'services\CoursesController@chapter');
+    Route::post('/contactus', 'services\ContactusController@contactus');
+    Route::post('/ticketsubmit', 'services\TicketControlller@ticketsubmit');
+    Route::get('/getChapter', 'services\ChapterController@getChapter');
     
     //payment 
     // Route::get('/makepayment', 'Student\PaymentController@make_payment')
     //
     
 });
-Route::get('user/makepayment', 'Student\PaymentController@make_payment_app');
+Route::get('/makepayment', 'Student\PaymentController@make_payment_app');

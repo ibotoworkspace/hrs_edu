@@ -84,17 +84,24 @@ $courses = $student_common->courses;
                                                 <td>{{ $r_course->name }}</td>
                                                 <td>{{ $r_course->created_at->format('j-m-Y') }}</td>
                                                 @if (!$r_course->is_paid)
-                                                <?php 
-                                                       $register_course_id =   Crypt::encrypt($r_course->id);
-                                                       $course_id =   Crypt::encrypt($r_course->course->id);
-                                                ?>
-                                                    <td>
-                                                        <button type="button" class="btn btn-primary payment" onclick="window.location.href='{{asset('student/makepayment?course_id='.$register_course_id)}}';">
-                                                            Make Payment</button>
-                                                    </td>
+                                                    <?php
+                                                    $register_course_id = Crypt::encrypt($r_course->id);
+                                                    $course_id = Crypt::encrypt($r_course->course->id);
+                                                    ?>
+                                                    <form action="{{ url('/student/makepayment') }}" method="post" hidden>
+                                                        {{ csrf_field() }}
+                                                        <td>
+                                                            <input name="course_id" value="{{ $register_course_id }}"
+                                                                hidden>
+                                                            <button type="submit" class="btn btn-primary payment"
+                                                                onclick="window.location.href='{{ asset('student/makepayment?course_id=' . $register_course_id) }}';">
+                                                                Make Payment</button>
+                                                        </td>
+                                                    </form>
                                                 @else
-                                                    <td> 
-                                                        <button type="button" class="btn btn-primary payment" onclick="window.location.href='{{asset('student/course/detail?course_id='.$course_id)}}';">View
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary payment"
+                                                            onclick="window.location.href='{{ asset('student/course/detail?course_id=' . $course_id) }}';">View
                                                             Course</button>
                                                     </td>
 
