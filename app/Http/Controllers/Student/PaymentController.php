@@ -73,7 +73,7 @@ class PaymentController extends Controller
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
             $stripe =  Stripe\Charge::create([
-                "amount" => 120.0, //ceil($course_register->course->price)
+                "amount" => ceil($course_register->course->price)*100, // value pass in cent 
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from HRS Acedmey."
@@ -92,7 +92,6 @@ class PaymentController extends Controller
             
             $course_register->is_paid = 1;
             $course_register->save();
-                return  $stripe ;
             Session::flash('success', 'Payment successful!');
             // return \View('user.payment.index', compact('user_request'));
             return view('studentdashboard.proceedpayment.index')->with('success', 'Payment successful!');
@@ -103,7 +102,6 @@ class PaymentController extends Controller
             // return back()->with('error', "Error!" . $e); 
             Log::info('Error');
             Log::info($e);
-            return $e ;
             return view('studentdashboard.proceedpayment.index')->with('error', $e);
         }
     }
