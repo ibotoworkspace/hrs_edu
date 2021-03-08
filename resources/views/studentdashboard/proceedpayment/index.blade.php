@@ -18,6 +18,7 @@ if(!$header){ //footer and header hide here
 
 <link href="{{ asset('css/proceedpayment.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
+<script src="js/checkout/virtualcard.js"></script>
 
 
 
@@ -166,7 +167,6 @@ if(!$header){ //footer and header hide here
 
 
 
-    <script src="js/checkout/virtualcard.js"></script>
 
 
     <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
