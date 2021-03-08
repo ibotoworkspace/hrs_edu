@@ -69,6 +69,8 @@ class StudentController extends Controller
         // if ($request->region) {
         //     $student->password = $request->region;
         // }
+        $student->access_token = uniqid();
+
         $student->role_id = $student_role_id;
 
         if ($request->hasFile('upload_image')) {
@@ -82,7 +84,7 @@ class StudentController extends Controller
     function dashboard()
     {
         $student = Auth::user();
-        $student_courses = Course_Registered::where('user_id',$student->id)->with('course')->get();
+        $student_courses = Course_Registered::where('user_id', $student->id)->with('course')->get();
         $student_common = new \stdClass();
         $student_common->student = $student;
         $student_common->courses = $student_courses;
@@ -124,7 +126,7 @@ class StudentController extends Controller
         $student = User::find($user_id);
         $this->add_or_update($student, $request);
 
-        return redirect('student/profile')->with('success','Profile update successfully');
+        return redirect('student/profile')->with('success', 'Profile update successfully');
     }
     function profile()
     {
@@ -137,15 +139,15 @@ class StudentController extends Controller
         return view('studentdashboard.profile.index');
     }
 
-    public function forgetPassword(Request $request){
+    public function forgetPassword(Request $request)
+    {
 
-        
-        $user_detail= Auth::user();
+
+        $user_detail = Auth::user();
         $user = User::find($user_detail->id);
         $user->password = Hash::make($request->password);
         $user->save();
 
-        return redirect()->back()->with('success','your password has been reset');
-
+        return redirect()->back()->with('success', 'your password has been reset');
     }
 }

@@ -4,9 +4,11 @@ namespace App\Http\Controllers\services;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
+use App\Models\Course_Registered;
 use App\Models\Course_Video;
 use App\Models\Courses;
 use App\Models\Quiz;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 
@@ -15,15 +17,29 @@ class CoursesController extends Controller
     public function registeredcourses(Request $request)
     {
         try {
+            $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
+            $user = User::where('access_token', $header)->first();
             $items_count = $request->items_count ?? '20';
-            $courses = Courses::with(['chapters', 'videos'])->orderBy('created_at', 'desc')->paginate($items_count);
+            $registred_courses = Course_Registered::with('course.chapters', 'course.videos')->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate($items_count);
 
-            // $courses->transform(function ($course) {
-            //     $course->chapters = count($course->chapters);
-            //     // return $course;
-            // })->paginate(10);
+            return $this->sendResponse(200, $registred_courses);
+        } catch (\Exception $e) {
+            return [
+                'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
+                'response' => null,
+                'error' => $e->getMessage()
+            ];
+        }
+    }
+    public function myCourse(Request $request)
+    {
+        try {
+            $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
+            $user = User::where('access_token', $header)->first();
+            $items_count = $request->items_count ?? '20';
+            $registred_courses = Course_Registered::with('course.chapters', 'course.videos')->where('user_id', $user->id)->where('is_paid', 1)->orderBy('created_at', 'desc')->paginate($items_count);
 
-            return $this->sendResponse(200, $courses);
+            return $this->sendResponse(200, $registred_courses);
         } catch (\Exception $e) {
             return [
                 'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
@@ -81,6 +97,30 @@ class CoursesController extends Controller
             $quiz = Quiz::with('quizes')->where('course_id', $request->course_id)->get();
 
             return $this->sendResponse(200, $quiz);
+        } catch (\Exception $e) {
+            return [
+                'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
+                'response' => null,
+                'error' => $e->getMessage()
+            ];
+        }
+    }
+
+    public function register(Request $request)
+    {
+
+        try {
+            $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
+            $user = User::where('access_token', $header)->first();
+            $request->course_id;
+
+            $registration = new Course_Registered();
+            $registration->course_id =  $request->course_id;
+            $registration->user_id =  $user->id;
+            $registration->name = $request->course_name;
+            $registration->save();
+
+            return $this->sendResponse(200, 'Course Registered Successfully ');
         } catch (\Exception $e) {
             return [
                 'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),

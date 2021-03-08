@@ -25,7 +25,7 @@ class PaymentController extends Controller
     }
     public function make_payment_app(Request $request)
     {
-
+        // dd($request->all());
         $register_course = Course_Registered::with('course')->find($request->course_id);
 
         return view('studentdashboard.makepayment.index', compact('register_course'));
@@ -33,7 +33,7 @@ class PaymentController extends Controller
 
     public function paymentMethod(Request $request)
     {
-
+        
         $register_course = Course_Registered::with('course')->find($request->course_id);
 
         $payment_common = new \stdClass();

@@ -156,7 +156,7 @@ class UserController extends Controller
             //Log the user out by assigning access_token as null
             $user = $request->attributes->get('user');
             $user->access_token = null;
-            // $user->gcm_token = null;
+            // $user->gcm_token = null; 
             $user->save();
 
             $response = $this->sendResponse(Config::get('constants.status.OK'));

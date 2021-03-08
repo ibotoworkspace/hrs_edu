@@ -227,7 +227,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
     Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
     Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');
-    Route::get('/makepayment', 'Student\PaymentController@make_payment')->name('student/makepayment');
+    Route::post('/makepayment', 'Student\PaymentController@make_payment')->name('student/makepayment');
     Route::get('/payment/detail', 'Student\PaymentController@details')->name('payment.detail');
 
     Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
