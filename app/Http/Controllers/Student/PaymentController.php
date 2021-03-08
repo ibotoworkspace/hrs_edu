@@ -71,7 +71,7 @@ class PaymentController extends Controller
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
             $stripe =  Stripe\Charge::create([
-                "amount" => ceil($course_register->course->price),
+                "amount" => '20', //ceil($course_register->course->price)
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from HRS Acedmey."
