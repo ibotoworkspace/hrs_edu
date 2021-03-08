@@ -1,24 +1,23 @@
-
 <?php
 $payment_common = session()->get('payment_common');
 $register_course = $payment_common->register_course;
 $page_layout = session()->get('page_layout');
 $header = $page_layout->header;
-$layout= '' ;
+$layout = '';
 
-if(!$header){ //footer and header hide here 
-    $layout = 'studentdashboard.layouts.appindex' ;
-    
-}else{
-    $layout = 'studentdashboard.layouts.index' ;
-    
+if (!$header) {
+//footer and header hide here
+$layout = 'studentdashboard.layouts.appindex';
+} else {
+$layout = 'studentdashboard.layouts.index';
 }
 ?>
 @extends($layout)
 
 <link href="{{ asset('css/proceedpayment.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
-<script src="js/checkout/virtualcard.js"></script>
+
+<script src="{{asset('js/checkout/virtualcard.js')}}"></script>
 
 
 
@@ -98,7 +97,8 @@ if(!$header){ //footer and header hide here
                                 <!-- {{ env('STRIPE_KEY') }} -->
                                 <form role="form" action="{{ url('student/stripe') }}" method="post"
                                     class="require-validation" data-cc-on-file="false"
-                                    data-stripe-publishable-key="pk_test_51HWGI7AEX4dqjMHKVkWjzWAQ4v683p4iWGRlw9wPEn0IfoUCjoxpoC00cYE04fzVzwBOASt5GxvqujhTLX4pN5oB00qC6qLvx1" id="payment-form">
+                                    data-stripe-publishable-key="pk_test_51HWGI7AEX4dqjMHKVkWjzWAQ4v683p4iWGRlw9wPEn0IfoUCjoxpoC00cYE04fzVzwBOASt5GxvqujhTLX4pN5oB00qC6qLvx1"
+                                    id="payment-form">
                                     @csrf
 
                                     <input name="amount" value="{{ $register_course->course->price }}" hidden>
