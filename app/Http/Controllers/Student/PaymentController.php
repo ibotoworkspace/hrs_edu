@@ -9,6 +9,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 use Stripe;
 
@@ -71,11 +72,13 @@ class PaymentController extends Controller
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
             $stripe =  Stripe\Charge::create([
-                "amount" => '20', //ceil($course_register->course->price)
+                "amount" => 15, //ceil($course_register->course->price)
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from HRS Acedmey."
             ]);
+            Log::info('stripe toekn');
+            Log::info($request->stripeToken);
             $payment = new Payment();
             $payment->user_id = $user->id;
             $payment->payment_id = $stripe->id;
