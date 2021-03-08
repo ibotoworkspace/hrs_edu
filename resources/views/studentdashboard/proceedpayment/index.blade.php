@@ -97,7 +97,7 @@ if(!$header){ //footer and header hide here
                                 <!-- {{ env('STRIPE_KEY') }} -->
                                 <form role="form" action="{{ url('student/stripe') }}" method="post"
                                     class="require-validation" data-cc-on-file="false"
-                                    data-stripe-publishable-key="{{ env('STRIPE_KEY') }}" id="payment-form">
+                                    data-stripe-publishable-key="pk_test_51HWGI7AEX4dqjMHKVkWjzWAQ4v683p4iWGRlw9wPEn0IfoUCjoxpoC00cYE04fzVzwBOASt5GxvqujhTLX4pN5oB00qC6qLvx1" id="payment-form">
                                     @csrf
 
                                     <input name="amount" value="{{ $register_course->course->price }}" hidden>
