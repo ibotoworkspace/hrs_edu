@@ -1,4 +1,16 @@
-@extends('studentdashboard.layouts.index')
+<?php
+$page_layout = session()->get('page_layout');
+$header = $page_layout->header;
+$layout = '';
+
+if (!$header) {
+//footer and header hide here
+$layout = 'studentdashboard.layouts.appindex';
+} else {
+$layout = 'studentdashboard.layouts.index';
+}
+?>
+@extends($layout)
 
 
 
@@ -27,7 +39,7 @@
                     </div>
 
                     <div class="row procedform">
-                    <div  id="paypal-button-container"></div>
+                        <div id="paypal-button-container"></div>
                     </div>
 
 
@@ -68,6 +80,7 @@
 
 
         }).render('#paypal-button-container');
+
     </script>
 
 

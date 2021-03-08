@@ -58,7 +58,7 @@ class PaymentController extends Controller
 
     public function stripePost(Request $request)
     {
-        
+
         $user = Auth::user();
         if (!$user) {
             $page_layout = session()->get('page_layout');
@@ -88,7 +88,7 @@ class PaymentController extends Controller
             $course_register = Course_Registered::find($request->course_register_id);
             $course_register->is_paid = 1;
             $course_register->save();
-
+                return  $stripe ;
             Session::flash('success', 'Payment successful!');
             // return \View('user.payment.index', compact('user_request'));
             return view('studentdashboard.proceedpayment.index')->with('success', 'Payment successful!');
@@ -97,6 +97,7 @@ class PaymentController extends Controller
             // Session::flash('error', "Error! Please Try again.");
             // return redirect('user/payment')->with('success','Payment successful!');
             // return back()->with('error', "Error!" . $e); 
+            return $e ;
             return view('studentdashboard.proceedpayment.index')->with('error', $e);
         }
     }
