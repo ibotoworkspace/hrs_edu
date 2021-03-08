@@ -67,11 +67,11 @@ class PaymentController extends Controller
         if (!$user) {
             return back()->with('error', 'Unauthorized request');
         }
-
+        $course_register = Course_Registered::with('course')->find($request->course_register_id);
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
             $stripe =  Stripe\Charge::create([
-                "amount" => ceil($request->amount),
+                "amount" => ceil($course_register->course->price),
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from HRS Acedmey."
@@ -85,7 +85,7 @@ class PaymentController extends Controller
             $payment->save();
 
 
-            $course_register = Course_Registered::find($request->course_register_id);
+            
             $course_register->is_paid = 1;
             $course_register->save();
                 return  $stripe ;
