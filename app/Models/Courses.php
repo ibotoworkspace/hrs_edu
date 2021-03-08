@@ -18,4 +18,7 @@ class Courses extends Model
     public function quizes(){
         return $this->hasMany('App\Models\Choices','course_id','id');
     }
+    public function registerCourse(){
+        return $this->hasOne('App\Models\Course_Registered','course_id','id');
+    }
 }
