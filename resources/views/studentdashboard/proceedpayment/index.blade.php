@@ -16,8 +16,7 @@ $layout = 'studentdashboard.layouts.index';
 
 <link href="{{ asset('css/proceedpayment.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
-
-<script src="{{asset('js/checkout/virtualcard.js')}}"></script>
+{{-- <script src="{{asset('js/checkout/virtualcard.js')}}"></script> --}}
 
 
 
