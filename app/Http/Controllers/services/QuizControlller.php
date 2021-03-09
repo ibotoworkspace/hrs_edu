@@ -16,6 +16,7 @@ class QuizControlller extends Controller
 
             return $this->sendResponse(200, $quiz);
         } catch (\Exception $e) {
+            return $e ;
             return [
                 'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
                 'response' => null,
