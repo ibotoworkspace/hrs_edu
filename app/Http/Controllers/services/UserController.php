@@ -9,30 +9,31 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator; 
+use Illuminate\Support\Facades\Validator;
+
 class UserController extends Controller
 {
     public function signUp(Request $request)
     {
         try {
-            
+
             $validator = Validator::make($request->all(), User::$rules);
-         
+
             if (!$validator->fails()) {
-                
+
                 $users = new User();
-                $users->name= $request->name;
+                $users->name = $request->name;
                 $users->email       = $request->email;
                 $users->role_id       = 2;
                 $users->password    = Hash::make($request->password);
                 $users->mobileno = $request->mobileno;
                 $users->access_token = uniqid();
                 // $users->device_type = $request->header('client-id');
-               
-                
+
+
                 $users->Save();
             } else {
-                
+
                 return $this->sendResponse(
                     Config::get('error.code.INTERNAL_SERVER_ERROR'),
                     null,
@@ -40,10 +41,11 @@ class UserController extends Controller
                     Config::get('error.code.INTERNAL_SERVER_ERROR')
                 );
             }
-            
+
             if (true) {
-             
-                $users = User::find($users->id, 
+
+                $users = User::find(
+                    $users->id,
                     // ['id','name', 'email',  'access_token',]
                 );
                 $users->get_notification = ($users->get_notification ? true : false);
@@ -60,36 +62,35 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        
+
         try {
-            
+
             //Request input Validation
-            
+
             $validation = Validator::make($request->all(), User::$rules);
-           
+
             // dd($validation);
             if (!$validation->fails()) {
-                
+
                 return $this->sendResponse(
                     Config::get('error.code.BAD_REQUEST'),
                     null,
                     $validation->getMessageBag()->all(),
                     Config::get('error.code.BAD_REQUEST')
                 );
-                
             } else {
-                
+
                 $authUser = Auth::attempt([
                     'email' => $request->email,
                     'password' => $request->password
                 ]);
-               
+
 
                 //Get record if user has authenticated
                 if ($authUser) {
-                   
+
                     $device = $request->header('client-id');
-                    
+
                     $user = User::where([
                         'email' => $request->email
                     ])->get([
@@ -101,14 +102,14 @@ class UserController extends Controller
                         'address',
                         'avatar'
                     ])->first();
-                    
+
                     $user->access_token = uniqid();
                     // $user->device_type = $device;
-                    
+
                     $user->save();
-                    
+
                     $user->get_notification = ($user->get_notification ? true : false);
-                    
+
                     unset($user->device_type);
                     $responseArray =  [
                         'status' => Config::get('constants.status.OK'),
@@ -217,4 +218,19 @@ class UserController extends Controller
         }
     }
 
+    public function getUser(Request $request)
+    {
+        try {
+            $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
+            $user = User::where('access_token', $header)->first();
+
+            return $this->sendResponse(200, $user);
+        } catch (\Exception $e) {
+            return [
+                'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
+                'response' => null,
+                'error' => $e->getMessage()
+            ];
+        }
+    }
 }

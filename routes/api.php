@@ -40,6 +40,7 @@ Route::group(['middleware' => 'auth.client_token'], function () {
     Route::post('/contactus', 'services\ContactusController@contactus');
     Route::post('/ticketsubmit', 'services\TicketControlller@ticketsubmit');
     Route::get('/getChapter', 'services\ChapterController@getChapter');
+    Route::get('/profile', 'services\UserController@getUser');
 
     //payment 
     // Route::get('/makepayment', 'Student\PaymentController@make_payment')
