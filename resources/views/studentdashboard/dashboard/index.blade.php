@@ -80,14 +80,21 @@ $courses = $student_common->courses;
 
                                         @foreach ($courses as $key => $r_course)
                                             <tr class="mycolareadata">
-                                                <td>HRS0{{ $r_course->id }}</td>
+                                                <td>HRS0{{ $r_course->id }}
+                                                    @if ($r_course->is_completed == 1)
+
+                                                        <span><img src="{{ asset('images/monograme.png') }}" width="25"
+                                                                height="30"></span>
+                                                    @endif
+                                                </td>
                                                 <td>{{ $r_course->name }}</td>
                                                 <td>{{ $r_course->created_at->format('j-m-Y') }}</td>
+                                                <?php
+                                                $register_course_id = Crypt::encrypt($r_course->id);
+                                                $course_id = Crypt::encrypt($r_course->course->id);
+                                                ?>
                                                 @if (!$r_course->is_paid)
-                                                    <?php
-                                                    $register_course_id = Crypt::encrypt($r_course->id);
-                                                    $course_id = Crypt::encrypt($r_course->course->id);
-                                                    ?>
+
                                                     <form action="{{ url('/student/makepayment') }}" method="post" hidden>
                                                         {{ csrf_field() }}
                                                         <td>
