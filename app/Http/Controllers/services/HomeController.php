@@ -14,13 +14,12 @@ class HomeController extends Controller
     {
 
         try {
-            $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
-            $user = User::where('access_token', $header)->first();
+            $user = $request->get('user');
             $items_count = $request->items_count ?? '10';
             $search = $request->course_name ?? '';
-            $courses=Courses::where('title', 'like', '%' . $search . '%')->with('registerCourse',function($q) use($user){
+            $courses=Courses::where('title', 'like', '%' . $search . '%')->with(['registerCourse'=> function($q) use($user){
                 $q->where('user_id',$user->id);
-            })->orderBy('created_at','desc')->paginate($items_count);
+            }])->orderBy('created_at','desc')->paginate($items_count);
 
             return $this->sendResponse(200, $courses);
             
