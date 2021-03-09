@@ -2,7 +2,7 @@
 
 <link href="{{ asset('css/submitrequest.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
-
+<meta name="csrf-token" content="{{ csrf_field() }}" />
 
 
 @section('default')
@@ -29,15 +29,17 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row subrow">
                         <div class="col-sm-12">
                             <h3>HRS {{ $course_detail->title }}</h3>
                         </div>
                     </div>
                     <div>
+                        {{-- {{ asset($course_detail->download_pdf) }} --}}
                         <div class="col-sm-12">
-                            <a href="{{ asset($course_detail->download_pdf) }}" style="margin-bottom: 10px;" class="btn btn-primary down">
+                            <a href="{{ asset($course_detail->download_pdf) }}"
+                                onclick="badgeFun({{ $course_detail }});" style="margin-bottom: 10px;"
+                                class="btn btn-primary down" target="_blank">
                                 <i class="fa fa-long-arrow-down arrow" style="margin-right: 10px;" aria-hidden="true">
 
                                 </i>Download</a><br>
@@ -61,7 +63,8 @@
                                                 <td>HRS-{{ $chap->id }}</td>
                                                 <td>{{ $chap->title }}</td>
                                                 <td>
-                                                    <a href="{{asset('student/read/chapter?chap_id=' . $chap->id )}}" target="_blank">
+                                                    <a href="{{ asset('student/read/chapter?chap_id=' . $chap->id) }}"
+                                                        target="_blank">
                                                         <span class="badge badge-success">Read </span>
                                                     </a>
                                             </tr>
@@ -82,6 +85,29 @@
 
     </div>
 
+    <script>
+        function badgeFun(course_detail) {
+
+            console.log('sadf sadf sdfs f', course_detail.register_course);
+
+            let _token = "{{ csrf_token() }}";
+            $.ajax({
+                url: "{{ asset('student/coursebadge') }}",
+                type: "POST",
+                data: {
+                    course_id: course_detail.register_course.id,
+                    _token: _token
+                },
+                success: function(response) {
+                    console.log(response);
+                    if (response) {
+                        $('.success').text(response.success);
+                    }
+                },
+            });
+        }
+
+    </script>
 
 
 @endsection

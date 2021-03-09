@@ -247,6 +247,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::get('/read/chapter', 'Student\CourseController@readChapter')->name('read.chapter');
     Route::get('/course/detail', 'Student\CourseController@courseDetail')->name('course.detail');
     Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
+    Route::post('/coursebadge', 'Student\CourseController@courseBadge')->name('student.mycourse');
     Route::match(['get', 'post'], '/courseregistration', 'Student\CourseController@registerCourse')->name('course.registration');
 
     // paypal route

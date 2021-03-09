@@ -44,7 +44,7 @@ class CourseController extends Controller
 
         $course_id = decrypt($request->course_id);
 
-        $course_detail = Courses::with('chapters','videos')->find($course_id);
+        $course_detail = Courses::with('chapters','videos','registerCourse')->find($course_id);
 
 
         return view('studentdashboard.course.detail', compact('course_detail')); 
@@ -57,5 +57,19 @@ class CourseController extends Controller
 
         return view('studentdashboard.course.readchapter', compact('chapter'));
 
+    }
+
+    public function courseBadge(Request $request){
+
+        $course_reg = Course_Registered::find($request->course_id);
+        $course_reg->is_completed= 1 ;
+        $course_reg->save();
+
+        $response = array(
+            'status' => 'success',
+            'msg' => $course_reg,
+        );
+
+        return $response ;
     }
 }
