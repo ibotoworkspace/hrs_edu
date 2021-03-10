@@ -59,7 +59,7 @@ $layout = 'studentdashboard.layouts.index';
                         <div class="row mypayment">
                             <div class="col-sm-12">
                                 <div class="ngncode">
-                                    <p name="ammount">NGN {{ $register_course->course->price }}</p>
+                                    <p id="ammount" name="ammount">USD {{ $register_course->course->price }}</p>
                                 </div>
                             </div>
                         </div>
@@ -95,6 +95,13 @@ $layout = 'studentdashboard.layouts.index';
                                     Pay Pal
                                 </label>
                             </div>
+                            <div class="form-check">
+                                <label class="radio-inline" for="exampleRadios2">
+                                    Promo Code
+                                </label>
+                                <input class="form-check-input" type="text" onchange="promoCode()" placeholder="Enter promo code" name="promocode" id="promocode">
+
+                            </div>
                         </div>
 
                         <div class="row mypayment">
@@ -119,6 +126,13 @@ $layout = 'studentdashboard.layouts.index';
 
     </div>
 
+    <script>
+        function promoCode(){
+            var bla = $('#promocode').val();
+            console.log('value !!!!!!', bla);
+
+        }
+    </script>
 
 
 @endsection
