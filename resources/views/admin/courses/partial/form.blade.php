@@ -15,6 +15,14 @@
         </div>
 
     </div>
+    <div class="form-group">
+
+        {!! Form::label('price', 'Price') !!}
+        <div>
+            {!! Form::number('price', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Price', 'required']) !!}
+        </div>
+
+    </div>
 
     {{-- <div class="form-group">
   
@@ -86,22 +94,29 @@
     </div>
 
 
-    {{-- <div class="form-group">
-            {!! Form::label('requirments','Requirments') !!}
-            <div>
-                <textarea class="ckeditor form-control"  id="summary-ckeditor" name="requirments" ></textarea> 
-                </div>
-              </div> --}}
-    {{-- <div class="form-group">
-                {!! Form::label('downloadurl','Downloadurl') !!}
-                <div>
-  
-           <input type="file" class="form-control-file" id="exampleFormControlFile1" name="downloadurl">
-         </div> 
-              </div> --}}
+    <div class="form-group">
+        {!! Form::label('overview', 'Overview') !!}
+        <div>
+            <textarea class="ckeditor form-control" id="overview" name="overview"></textarea>
+        </div>
+    </div>
+    <div class="form-group">
+        {!! Form::label('PDF File', 'PDF File') !!}
+        <div>
+
+            <input type="file" class="form-control-file" id="downloadpdf" name="downloadpdf">
+        </div>
+    </div>
 
 
+    <div class="form-group">
 
+        {!! Form::label('pdf url', 'PDF Url') !!}
+        <div>
+            {!! Form::text('pdf_url', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'PDF Url']) !!}
+        </div>
+
+    </div>
 
 
 

@@ -8,22 +8,13 @@ use App\Models\ContactUs;
 
 class ContactUsController extends Controller
 {
-    
-    public function contactus(){
 
-    $contactus = ContactUs::paginate(10);
+    public function contactus()
+    {
 
-// dd($contactus);
+        $contactus = ContactUs::paginate(10);
 
-             return view('user.contactus.index', compact('contactus'));
-    
-    
-    
-            
-         }
-    
-    
-    
-    
-    
+
+        return view('user.contactus.index', compact('contactus'));
+    }
 }

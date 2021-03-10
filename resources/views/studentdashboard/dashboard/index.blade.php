@@ -95,13 +95,12 @@ $courses = $student_common->courses;
                                                 ?>
                                                 @if (!$r_course->is_paid)
 
-                                                    <form action="{{ url('/student/makepayment') }}" method="post" hidden>
+                                                    <form action="{{ url('/student/makepayment') }}" method="post">
                                                         {{ csrf_field() }}
                                                         <td>
                                                             <input name="course_id" value="{{ $register_course_id }}"
                                                                 hidden>
-                                                            <button type="submit" class="btn btn-primary payment"
-                                                                onclick="window.location.href='{{ asset('student/makepayment?course_id=' . $register_course_id) }}';">
+                                                            <button type="submit" class="btn btn-primary payment">
                                                                 Make Payment</button>
                                                         </td>
                                                     </form>

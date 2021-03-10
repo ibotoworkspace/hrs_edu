@@ -18,13 +18,13 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logosite">
-                        <img src="images/secondlogo.png" class="img-responsive">
+                        <img src="{{asset('images/secondlogo.png')}}" class="img-responsive">
                         <h3>CORPORATE HEAD OFFICE</h3>
                     </div>
                     <div class="secondlogopoints">
                         <div class="infobox">
                             <div class="infoboximg">
-                                <img src="images/location.png" class="img-responsive">
+                                <img src="{{asset('images/location.png')}}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
                                 <p>416 N.H. Street Suites 5 San,<br>Bernardino CA 92410 USA.</p>
@@ -32,7 +32,7 @@
                         </div>
                         <div class="infobox">
                             <div class="infoboximg">
-                                <img src="images/call.png" class="img-responsive">
+                                <img src="{{asset('images/call.png')}}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
                                 <p>+1(909) 031-9921</p>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="infobox">
                             <div class="infoboximg">
-                                <img src="images/call.png" class="img-responsive">
+                                <img src="{{asset('images/call.png')}}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
                                 <p>+234(702) 559-9031</p>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="infobox">
                             <div class="infoboximg">
-                                <img src="images/email.png" class="img-responsive">
+                                <img src="{{asset('images/email.png')}}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
                                 <p>contactus@hrsedu.com</p>
@@ -56,7 +56,7 @@
                         </div>
                         <div class="infobox">
                             <div class="infoboximg">
-                                <img src="images/email.png" class="img-responsive">
+                                <img src="{{asset('images/email.png')}}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
                                 <p>payment@hrsedu.com</p>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="infobox">
                             <div class="infoboximg">
-                                <img src="images/email.png" class="img-responsive">
+                                <img src="{{asset('images/email.png')}}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
                                 <p>sda@hrsedu.com</p>
