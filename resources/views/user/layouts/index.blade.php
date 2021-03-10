@@ -95,7 +95,7 @@
                 <div class="row">
                     <div class="col-sm-2 col-xs-12">
                         <div class="logoArea">
-                            <a href="{{ asset('student/login') }}">
+                            <a href="{{ asset('user/home') }}">
                                 <img src="{{ asset('images/logo.png') }}" class="img-responsive">
                             </a>
                         </div>
