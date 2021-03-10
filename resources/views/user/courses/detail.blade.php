@@ -50,7 +50,7 @@
                             $register_course = App\Models\Course_Registered::where('user_id', $user_id)
                             ->where('course_id', $course_detail->id)
                             ->first();
-                            $is_paid = $register_course->is_paid;
+                            $is_paid = $register_course->is_paid ?? '';
                             ?>
 
                             @if (!$register_course)

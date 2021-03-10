@@ -115,21 +115,15 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/coursedetail', 'User\CourseController@courseDetail')->name('user.detail');
 
     Route::get('/courseregister', 'User\CourseController@registerCourse')->name('user.courseregister');
-
-
-
-
     Route::get('user/index', 'User\UserController@index')->name('user/index');
-
-
-
     Route::get('/aboutus', 'User\UserController@about')->name('user/about');
 
     Route::get('/career', 'User\UserController@career')->name('user/career');
 
-    Route::get('/certificate', 'User\UserController@certificate')->name('user/certificate');
-    Route::get('/contactus', 'User\ContactUsController@contactus')->name('user/contactus');
-    Route::get('/contentwriter', 'User\UserController@contentwriter')->name('user/contentwriter');
+    Route::get('/certificate', 'User\UserController@certificate')->name('user.certificate');
+    Route::get('/contactus', 'User\ContactUsController@contactus')->name('user.contactus');
+    Route::post('/contactform', 'User\ContactUsController@submitForm')->name('user.contactform');
+    Route::get('/contentwriter', 'User\UserController@contentwriter')->name('user.contentwriter');
     Route::get('/coprate', 'User\UserController@coprate')->name('user/coprate');
     // Route::get('/courses', 'User\UserController@courses')->name('user/courses');
     Route::get('/designer', 'User\UserController@designer')->name('user/designer');
@@ -181,9 +175,6 @@ Route::get('advisor.search', 'User\SkillAdvisorController@search')->name('adviso
 // Route::get('userskill/create', 'User\SkillAdvisorController@create')->name('userskill.create');
 Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
 
-// Route::get('user/studentdashboard', 'User\UserController@studentdashboard')->name('user/studentdashboard');
-
-// Route::get('user/studentprofile', 'User\UserController@studentprofile')->name('user/studentprofile');
 
 //////crud and view 
 
@@ -195,15 +186,10 @@ Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.inde
 Route::get('admin/courses/create', 'Admin\CoursesController@create')->name('courses.create');
 Route::post('admin/courses/save', 'Admin\CoursesController@save')->name('courses.save');
 
-// Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('courses.edit');
-// Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
-// Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
 Route::get('courses/search', 'Admin\CoursesController@search')->name('courses.search');
-// admin/courses/edit' .$crs->id
 Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('courses.edit');
 Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
 
-// admin/courses/delete' .$crs->id
 Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
 
 
@@ -246,7 +232,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
 
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
 
-    Route::match(['get', 'post'], '/ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
+    Route::match(['get', 'post'], 'ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 
     Route::get('/read/chapter', 'Student\CourseController@readChapter')->name('read.chapter');
     Route::get('/course/detail', 'Student\CourseController@courseDetail')->name('course.detail');
@@ -264,11 +250,8 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
 Route::get('student/layouts', 'Student\BlogPageController@layouts')->name('student/layouts');
 Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
 Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
-///user/courseregistered
-//////student//courselist
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
 
 // student payment route 
-//  Route::get('student/stripe', 'Student\PaymentController@stripe');
 Route::post('student/stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
 Route::get('/makepayment', 'Student\PaymentController@make_payment_app');

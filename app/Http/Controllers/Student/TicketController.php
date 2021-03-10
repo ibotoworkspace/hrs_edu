@@ -14,9 +14,6 @@ class TicketController extends Controller
         $student_id = Auth::id();
 
         $user_ticket = Ticket::where('user_id',$student_id)->paginate(10);
-
-
-
         return view('studentdashboard.ticket.index',compact('user_ticket'));
     }
 
@@ -41,7 +38,7 @@ class TicketController extends Controller
                 $ticket->avatar = $this->move_img_get_path($avatar, $root, 'ticket');
             }
             $ticket->save();
-            return view('studentdashboard.ticket.index');
+            return redirect('student/viewticket');
         } else {
             return view('studentdashboard.ticket.add');
         }
