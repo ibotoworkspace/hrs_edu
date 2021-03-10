@@ -125,29 +125,13 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/contactform', 'User\ContactUsController@submitForm')->name('user.contactform');
     Route::get('/contentwriter', 'User\UserController@contentwriter')->name('user.contentwriter');
     Route::get('/coprate', 'User\UserController@coprate')->name('user/coprate');
-    // Route::get('/courses', 'User\UserController@courses')->name('user/courses');
     Route::get('/designer', 'User\UserController@designer')->name('user/designer');
     Route::get('/home', 'User\UserController@home')->name('user.home');
-    // Route::get('user/hrsbackend', 'User\UserController@hrsbackend')->name('user/hrsbackend');
-    Route::get('/hrsdesktop', 'User\UserController@hrsdesktop')->name('user/hrsdesktop');
-
-    Route::get('/hrshacking', 'User\UserController@hrshacking')->name('user/hrshacking');
-    Route::get('/hrsitclient', 'User\UserController@hrsitclient')->name('user/hrsitclient');
-    Route::get('/hrslinux', 'User\UserController@hrslinux')->name('user/hrslinux');
-    Route::get('/hrslti', 'User\UserController@hrslti')->name('user/hrslti');
-    // Route::get('/hrsnetwork', 'User\UserController@hrsnetwork')->name('user/hrsnetwork');
-    Route::get('/hrsoffice', 'User\UserController@hrsoffice')->name('user/hrsoffice');
-    Route::get('/hrspc', 'User\UserController@hrspc')->name('user/hrspc');
-    Route::get('/hrssecurity', 'User\UserController@hrssecurity')->name('user/hrssecurity');
-    Route::get('/hrsserver', 'User\UserController@hrsserver')->name('user/hrsserver');
     Route::get('/userscore', 'User\UserScoreController@userscore')->name('user/userscore');
     ////////user login
 
     Route::post('/checklogin', 'User\UserController@checklogin');
     Route::get('/logout', 'User\UserController@logout')->name('logout');
-
-
-
     Route::get('/learning', 'User\UserController@learning')->name('user/learning');
     // Route::get('user/makepayment', 'User\UserController@makepayment')->name('user/makepayment');
     // Route::get('user/myregstration', 'User\UserController@myregstration')->name('user/myregstration');
@@ -168,20 +152,11 @@ Route::group(['prefix' => 'user'], function () {
     Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
 });
 Route::get('advisor.search', 'User\SkillAdvisorController@search')->name('advisor.search');
-//////advisor.search
-
-//////userskill.save
 
 // Route::get('userskill/create', 'User\SkillAdvisorController@create')->name('userskill.create');
 Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
 
-
-//////crud and view 
-
 Route::get('user/index', 'User\UserController@index')->name('user/index');
-
-/////courses crud////////////admin crud pages
-
 Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.index');
 Route::get('admin/courses/create', 'Admin\CoursesController@create')->name('courses.create');
 Route::post('admin/courses/save', 'Admin\CoursesController@save')->name('courses.save');
@@ -191,10 +166,6 @@ Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('cou
 Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
 
 Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
-
-
-
-
 Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
 
 //                              *********************** USER ROUTE END ****************************

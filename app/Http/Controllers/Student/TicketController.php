@@ -12,7 +12,6 @@ class TicketController extends Controller
     public function index()
     {
         $student_id = Auth::id();
-
         $user_ticket = Ticket::where('user_id',$student_id)->paginate(10);
         return view('studentdashboard.ticket.index',compact('user_ticket'));
     }

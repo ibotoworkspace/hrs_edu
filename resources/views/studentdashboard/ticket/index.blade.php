@@ -52,7 +52,7 @@
                                         </tr>
                                     </thead>
                                     <tbody class="mycolarea">
-                                        @foreach ($user_ticket as $key => $ut)
+                                        @foreach ($user_ticket as $key=> $ut)
 
                                             <tr class="mycolareadata">
                                                 <td>HRS-TK{{ $ut->id }}</td>
