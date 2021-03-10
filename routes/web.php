@@ -232,7 +232,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
 
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
 
-    Route::match(['get', 'post'], '/ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
+    Route::match(['get', 'post'], 'ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 
     Route::get('/read/chapter', 'Student\CourseController@readChapter')->name('read.chapter');
     Route::get('/course/detail', 'Student\CourseController@courseDetail')->name('course.detail');

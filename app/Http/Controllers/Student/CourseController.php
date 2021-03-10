@@ -25,7 +25,7 @@ class CourseController extends Controller
             $register_course->user_id = $user_id;
             $register_course->save();
             // return redirect('student/courseregistration');
-            return Redirect('student/makepayment');
+            return Redirect('student/dashboard');
         } else {
             $courses = Courses::get();
             return view('studentdashboard.courseregistration.index', compact('courses'));
