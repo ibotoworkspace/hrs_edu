@@ -39,10 +39,9 @@ class StudentController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
         if (!$validation->fails()) {
-
             $student = new User();
             $this->add_or_update($student, $request);
-
+            Auth::login($student);
             return redirect('student/dashboard');
         } else {
 

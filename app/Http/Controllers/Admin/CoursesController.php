@@ -25,74 +25,70 @@ class CoursesController extends Controller
     // {
     //     return view('admin.Listofquiz.index');
     // }
-  
+
 
     function  addmaincourse()
     {
         return view('admin.addmaincourse.index');
     }
-        function  newquizquestion()
-        {
-            return view('admin.newquizquestion.index');
-        }
-  
+    function  newquizquestion()
+    {
+        return view('admin.newquizquestion.index');
+    }
 
-     
-        function  listofpromocode()
-        {
-            return view('admin.listofpromocode.index');
-        }
-  
 
-        function  listoforder()
-        {
-            return view('admin.listoforder.index');
-        }
-  
 
-        function  listofmembership()
-        {
-            return view('admin.listofmembership.index');
-        }
-  
+    function  listofpromocode()
+    {
+        return view('admin.listofpromocode.index');
+    }
 
-        function  ticket()
-        {
-            return view('admin.ticket.index');
-        }
-        
 
-        function  newpromocode()
-        {
-            return view('admin.newpromocode.index');
-        }
+    function  listoforder()
+    {
+        return view('admin.listoforder.index');
+    }
 
-   
-        function    userperformance()
-        {
-            return view('admin.userperformance.index');
-        }
-        
 
-///////////////crud course............................
+    function  listofmembership()
+    {
+        return view('admin.listofmembership.index');
+    }
+
+
+    function  ticket()
+    {
+        return view('admin.ticket.index');
+    }
+
+
+    function  newpromocode()
+    {
+        return view('admin.newpromocode.index');
+    }
+
+
+    function    userperformance()
+    {
+        return view('admin.userperformance.index');
+    }
 
 
 
 
-      public function index(Request $request)
+    public function index(Request $request)
     {
 
 
         $courses = Courses::paginate(10);
-     
-        return view('admin.courses.index', compact('courses'));
 
+        return view('admin.courses.index', compact('courses'));
     }
 
     public function create()
     {
         $control = 'create';
-      
+
 
         return \View::make(
             'admin.courses.create',
@@ -104,30 +100,27 @@ class CoursesController extends Controller
     public function save(Request $request)
     {
         $courses = new Courses();
-       
-        $this->add_or_update($request , $courses);
+
+        $this->add_or_update($request, $courses);
 
         return redirect('admin/courses');
-        
     }
     public function edit($id)
     {
 
-        // dd($id);
-
         $control = 'edit';
-       $courses = Courses::find($id);
+        $courses = Courses::find($id);
         return \View::make('admin.courses.create', compact(
             'control',
             'courses'
-           
+
         ));
     }
 
     public function update(Request $request, $id)
     {
         $courses = Courses::find($id);
-      
+
         $this->add_or_update($request, $courses);
         return Redirect('admin/courses');
     }
@@ -136,12 +129,21 @@ class CoursesController extends Controller
     public function add_or_update($request, $courses)
     {
         $courses->title = $request->title;
-        // $courses->detail = $request->detail;
-        // $courses->requirments = $request->requirments;
+        $courses->price = $request->price;
+        if ($request->requirments) {
+            $courses->requirments = $request->requirments;
+        }
         $courses->hours = $request->hours;
+        $courses->overview = $request->overview;
         // $courses->lectures = $request->lectures;
 
-      
+        if ($request->hasFile('downloadpdf')) {
+            $pdf_file = $request->downloadpdf;
+            $root = $request->root();
+            $courses->download_pdf = $this->move_img_get_path($pdf_file, $root, 'image');
+        } else if (strcmp($request->pdf_url, "")  !== 0) {
+            $courses->download_pdf = $request->pdf_url;
+        }
         if ($request->hasFile('avatar')) {
             $avatar = $request->avatar;
             $root = $request->root();
@@ -151,9 +153,9 @@ class CoursesController extends Controller
         }
 
 
-    
+
         $courses->save();
-      
+
         return redirect()->back();
     }
 
@@ -161,21 +163,15 @@ class CoursesController extends Controller
 
     public function search(Request $request)
 
- {
-
-
-    
-// dd($request->all());
+    {
         $name = $request->name ?? '';
-        // dd($name);
-        $courses = Courses::where('title', 'like', '%' . $name . '%')->paginate(10);     
-        return view('admin.courses.index', compact('courses','name'));
- 
+        $courses = Courses::where('title', 'like', '%' . $name . '%')->paginate(10);
+        return view('admin.courses.index', compact('courses', 'name'));
     }
 
-    
 
-       public function destroy_undestroy($id)
+
+    public function destroy_undestroy($id)
     {
 
         $courses = Courses::find($id);
@@ -193,10 +189,4 @@ class CoursesController extends Controller
         ]);
         return $response;
     }
-
-   
-
-
-
-
 }

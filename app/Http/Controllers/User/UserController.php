@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Models\Courses;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use validator;
@@ -24,26 +25,21 @@ class UserController extends Controller
 
     function checklogin(Request $request)
     {
-        
+
         $this->validate($request, [
             'email'   => 'required|email',
             'password'  => 'required|alphaNum|min:3'
-        ]);
-        ;
+        ]);;
         $user_data = array(
             'email'  => $request->get('email'),
             'password' => $request->get('password'),
             'role_id' => 2
         );
-        if(Auth::attempt($user_data))
-        { 
+        if (Auth::attempt($user_data)) {
             return redirect('user/home');
-        }
-        else
-        {
+        } else {
             return back()->with('error', 'Wrong Login Details');
         }
-
     }
 
 
@@ -56,7 +52,8 @@ class UserController extends Controller
 
 
 
-    public function aboutUs(){
+    public function aboutUs()
+    {
         return view('user.aboutus.index');
     }
 
@@ -64,15 +61,17 @@ class UserController extends Controller
     //     return view('user.users.index');
     // }
 
- 
-    public function about(){
+
+    public function about()
+    {
         return view('user.aboutus.index');
     }
 
 
 
 
-    public function certificate(){
+    public function certificate()
+    {
         return view('user.certificate.certificate');
     }
 
@@ -83,99 +82,121 @@ class UserController extends Controller
 
 
 
-public function career(){
-    return view('user.careerjobs.careerjobs');
-}
-// function userscore()
-// {
-//     return view('user.userscore.index');
-// }
+    public function career()
+    {
+        return view('user.careerjobs.careerjobs');
+    }
+    // function userscore()
+    // {
+    //     return view('user.userscore.index');
+    // }
     // public function contactus(){
     //     return view('user.contactus.index');
 
 
 
-        
+
     // }
 
-    public function contentwriter(){
+    public function contentwriter()
+    {
         return view('user.contentwriter.index');
     }
 
-    public function coprate(){
+    public function coprate()
+    {
         return view('user.coprate.index');
     }
 
-    public function courses(){
+    public function courses()
+    {
         return view('user.courses.index');
     }
 
-    public function designer(){
+    public function designer()
+    {
         return view('user.designer.index');
     }
 
-    public function home(){
-        return view('user.home.index');
+    public function home()
+    {
+        $popular_course = Courses::where('is_popular', 1)->get();
+        return view('user.home.index', compact('popular_course'));
     }
 
-    public function hrsbackend(){
+    public function hrsbackend()
+    {
         return view('user.hrsbackend.index');
     }
 
-    public function hrsdesktop(){
+    public function hrsdesktop()
+    {
         return view('user.hrsdesktop.index');
     }
 
-    public function hrshacking(){
+    public function hrshacking()
+    {
         return view('user.hrshacking.index');
     }
 
-    public function hrsitclient(){
+    public function hrsitclient()
+    {
         return view('user.hrsitclient.index');
     }
 
-    public function hrslinux(){
+    public function hrslinux()
+    {
         return view('user.hrslinux.index');
     }
 
-    public function hrslti(){
+    public function hrslti()
+    {
         return view('user.hrslti.index');
     }
 
-    public function hrsnetwork(){
+    public function hrsnetwork()
+    {
         return view('user.hrsnetwork.index');
     }
 
-    public function hrsoffice(){
+    public function hrsoffice()
+    {
         return view('user.hrsoffice.index');
     }
 
-    public function hrspc(){
+    public function hrspc()
+    {
         return view('user.hrspc.index');
     }
 
-    public function hrssecurity(){
+    public function hrssecurity()
+    {
         return view('user.hrssecurity.index');
     }
 
-    public function hrsserver(){
+    public function hrsserver()
+    {
         return view('user.hrsserver.index');
     }
 
 
-    public function learning(){
+    public function learning()
+    {
         return view('user.learning.index');
     }
 
-    public function makepayment(){
+    public function makepayment()
+    {
         return view('user.makepayment.index');
     }
 
-    public function myregstration(){
+    public function myregstration()
+    {
         return view('user.myregstration.index');
     }
 
-    public function phpdeveloper(){
+    public function phpdeveloper()
+    {
         return view('user.phpdeveloper.index');
     }
 
@@ -183,30 +204,30 @@ public function career(){
     //     return view('user.registration.index');
     // }
 
-    public function regstration(){
+    public function regstration()
+    {
         return view('user.regstration.index');
     }
 
-    public function resourse(){
+    public function resourse()
+    {
         return view('user.resourse.index');
     }
 
-    public function skilladvisor(){
+    public function skilladvisor()
+    {
         return view('user.skilladvisor.index');
     }
 
-    public function studentdashboard(){
+    public function studentdashboard()
+    {
         return view('user.studentdashboard.index');
     }
 
 
 
-    public function studentprofile(){
+    public function studentprofile()
+    {
         return view('user.studentprofile.index');
     }
-
 }
-
-
-
-

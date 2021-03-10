@@ -106,66 +106,73 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 //                              *********************** ADMIN ROUTE END ****************************
 
 
-
-
 //                              *********************** USER ROUTE START ****************************
 
+Route::group(['prefix' => 'user'], function () {
 
 
-Route::get('user/index', 'User\UserController@index')->name('user/index');
+    Route::get('/courses', 'User\CourseController@courseList')->name('user.courses');
+    Route::get('/coursedetail', 'User\CourseController@courseDetail')->name('user.detail');
 
-
-
-Route::get('user/aboutus', 'User\UserController@about')->name('user/about');
-
-Route::get('user/career', 'User\UserController@career')->name('user/career');
-
-Route::get('user/certificate', 'User\UserController@certificate')->name('user/certificate');
-Route::get('user/contactus', 'User\ContactUsController@contactus')->name('user/contactus');
-Route::get('user/contentwriter', 'User\UserController@contentwriter')->name('user/contentwriter');
-Route::get('user/coprate', 'User\UserController@coprate')->name('user/coprate');
-Route::get('user/courses', 'User\UserController@courses')->name('user/courses');
-Route::get('user/designer', 'User\UserController@designer')->name('user/designer');
-Route::get('user/home', 'User\UserController@home')->name('user/home');
-// Route::get('user/hrsbackend', 'User\UserController@hrsbackend')->name('user/hrsbackend');
-Route::get('user/hrsdesktop', 'User\UserController@hrsdesktop')->name('user/hrsdesktop');
-
-Route::get('user/hrshacking', 'User\UserController@hrshacking')->name('user/hrshacking');
-Route::get('user/hrsitclient', 'User\UserController@hrsitclient')->name('user/hrsitclient');
-Route::get('user/hrslinux', 'User\UserController@hrslinux')->name('user/hrslinux');
-Route::get('user/hrslti', 'User\UserController@hrslti')->name('user/hrslti');
-Route::get('user/hrsnetwork', 'User\UserController@hrsnetwork')->name('user/hrsnetwork');
-Route::get('user/hrsoffice', 'User\UserController@hrsoffice')->name('user/hrsoffice');
-Route::get('user/hrspc', 'User\UserController@hrspc')->name('user/hrspc');
-Route::get('user/hrssecurity', 'User\UserController@hrssecurity')->name('user/hrssecurity');
-Route::get('user/hrsserver', 'User\UserController@hrsserver')->name('user/hrsserver');
-Route::get('user/userscore', 'User\UserScoreController@userscore')->name('user/userscore');
-////////user login
-// Route::get('user/login', 'User\UserController@login')->name('user/user/login');
-
-Route::post('user/checklogin', 'User\UserController@checklogin');
-Route::get('user/logout', 'User\UserController@logout')->name('logout');
+    Route::get('/courseregister', 'User\CourseController@registerCourse')->name('user.courseregister');
 
 
 
-Route::get('user/learning', 'User\UserController@learning')->name('user/learning');
-// Route::get('user/makepayment', 'User\UserController@makepayment')->name('user/makepayment');
-// Route::get('user/myregstration', 'User\UserController@myregstration')->name('user/myregstration');
-Route::get('user/phpdeveloper', 'User\UserController@phpdeveloper')->name('user/phpdeveloper');
 
-/////user/registration
-
-Route::get('user/list', 'User\StudentRegistrationController@list')->name('user.list');
-////////userlist.search
-Route::get('user/list/search', 'User\StudentRegistrationController@search')->name('userlist.search');
+    Route::get('user/index', 'User\UserController@index')->name('user/index');
 
 
 
-// Route::get('user/regstration', 'User\UserController@regstration')->name('user/regstration');
-Route::get('user/resource', 'User\UserController@resourse')->name('user/resourse');
-Route::get('user/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
-Route::get('user/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
-Route::post('user/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
+    Route::get('/aboutus', 'User\UserController@about')->name('user/about');
+
+    Route::get('/career', 'User\UserController@career')->name('user/career');
+
+    Route::get('/certificate', 'User\UserController@certificate')->name('user/certificate');
+    Route::get('/contactus', 'User\ContactUsController@contactus')->name('user/contactus');
+    Route::get('/contentwriter', 'User\UserController@contentwriter')->name('user/contentwriter');
+    Route::get('/coprate', 'User\UserController@coprate')->name('user/coprate');
+    // Route::get('/courses', 'User\UserController@courses')->name('user/courses');
+    Route::get('/designer', 'User\UserController@designer')->name('user/designer');
+    Route::get('/home', 'User\UserController@home')->name('user.home');
+    // Route::get('user/hrsbackend', 'User\UserController@hrsbackend')->name('user/hrsbackend');
+    Route::get('/hrsdesktop', 'User\UserController@hrsdesktop')->name('user/hrsdesktop');
+
+    Route::get('/hrshacking', 'User\UserController@hrshacking')->name('user/hrshacking');
+    Route::get('/hrsitclient', 'User\UserController@hrsitclient')->name('user/hrsitclient');
+    Route::get('/hrslinux', 'User\UserController@hrslinux')->name('user/hrslinux');
+    Route::get('/hrslti', 'User\UserController@hrslti')->name('user/hrslti');
+    // Route::get('/hrsnetwork', 'User\UserController@hrsnetwork')->name('user/hrsnetwork');
+    Route::get('/hrsoffice', 'User\UserController@hrsoffice')->name('user/hrsoffice');
+    Route::get('/hrspc', 'User\UserController@hrspc')->name('user/hrspc');
+    Route::get('/hrssecurity', 'User\UserController@hrssecurity')->name('user/hrssecurity');
+    Route::get('/hrsserver', 'User\UserController@hrsserver')->name('user/hrsserver');
+    Route::get('/userscore', 'User\UserScoreController@userscore')->name('user/userscore');
+    ////////user login
+
+    Route::post('/checklogin', 'User\UserController@checklogin');
+    Route::get('/logout', 'User\UserController@logout')->name('logout');
+
+
+
+    Route::get('/learning', 'User\UserController@learning')->name('user/learning');
+    // Route::get('user/makepayment', 'User\UserController@makepayment')->name('user/makepayment');
+    // Route::get('user/myregstration', 'User\UserController@myregstration')->name('user/myregstration');
+    Route::get('/phpdeveloper', 'User\UserController@phpdeveloper')->name('user/phpdeveloper');
+
+    /////user/registration
+
+    Route::get('/list', 'User\StudentRegistrationController@list')->name('user.list');
+    ////////userlist.search
+    Route::get('/list/search', 'User\StudentRegistrationController@search')->name('userlist.search');
+
+
+
+    // Route::get('user/regstration', 'User\UserController@regstration')->name('user/regstration');
+    Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
+    Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
+    Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
+    Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
+});
 Route::get('advisor.search', 'User\SkillAdvisorController@search')->name('advisor.search');
 //////advisor.search
 
@@ -218,17 +225,14 @@ Route::get('student/logout', 'Student\StudentController@logout')->name('logout')
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
-   
 
-   
-    Route::post('/forgetpassword','Student\StudentController@forgetPassword')->name('forgetpassword');
+    Route::post('/forgetpassword', 'Student\StudentController@forgetPassword')->name('forgetpassword');
 
     Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
     Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
     Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');
-    Route::post('/makepayment', 'Student\PaymentController@make_payment')->name('student/makepayment');
+    Route::post('/makepayment', 'Student\PaymentController@make_payment')->name('student.makepayment');   // send course_id in request
     Route::get('/payment/detail', 'Student\PaymentController@details')->name('payment.detail');
-
     Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
     // Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
 
@@ -264,7 +268,7 @@ Route::get('student/changepassword', 'Student\ChangePasswordController@index')->
 //////student//courselist
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
 
- // student payment route 
+// student payment route 
 //  Route::get('student/stripe', 'Student\PaymentController@stripe');
- Route::post('student/stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
+Route::post('student/stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
 Route::get('/makepayment', 'Student\PaymentController@make_payment_app');
