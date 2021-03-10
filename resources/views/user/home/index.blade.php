@@ -121,15 +121,15 @@
                         <div class="col-sm-4">
                             <div class="coursebox">
                                 <div class="courseboximg">
-                                    <img src="{{ asset('images/securitypro.png') }}" class="img-responsive">
+                                    <img src="{{ $pc->avatar }}" class="img-responsive">
                                 </div>
                                 <div class="courseboxsdata">
                                     <h4>
                                         {{ $pc->title }}
                                     </h4>
-                                    <p>
+                                    <div class="mTEXT">
                                         {!! $pc->overview !!}
-                                    </p>
+                                        </div>
                                 </div>
                             </div>
                         </div>

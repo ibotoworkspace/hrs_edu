@@ -34,8 +34,8 @@
     text-align: center;
     color: #525252;
     font-size: 19px;
-    min-height: 230px;
-    margin-top: 25px;
+    /* min-height: 230px;
+    margin-top: 25px; */
 }
 .coursesbox {
     background: white;
@@ -56,3 +56,49 @@
     padding: 10px 15px !important;
     border-radius: 6px !important;
 }
+.max-lines {
+    /* display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* word-wrap: break-word; */
+    /* overflow: hidden;
+    max-height: 15.5em;
+    line-height: 1.5em;
+    max-width: 300px;
+    margin: auto; */ 
+    overflow: hidden; 
+    white-space: normal; 
+    margin-bottom: 20px;
+      
+    /* Exactly 2 lines are displayed.  
+        Height of 1 line is 1.2em*/ 
+        height: 7.4em;  
+    text-overflow: -o-ellipsis-lastline; 
+  }
+  .mCARD{
+    background-color: aliceblue;
+    max-width: 33.333333333333333%;
+    margin-bottom: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 410px;
+    padding-bottom: 20px;
+
+  }
+  .cardimg{
+    max-width: 250px;
+    max-height: 150px;
+    min-width: 40px;
+    min-height: 156px;
+    
+  }
+  .cardinner{
+      margin-bottom: 30px;
+      margin-right: 10px;
+  }
+  .max-lines p{
+      text-align: center;
+  }

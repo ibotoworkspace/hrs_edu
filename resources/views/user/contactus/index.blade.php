@@ -4,7 +4,7 @@
   
   @section('default')
 
-  <div class="contactarea">
+  <div class=" backgroundcolor">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -91,7 +91,7 @@
                           <textarea class="form-control myformdata" rows="6" id="GnTcomment" placeholder="Enter Comment"></textarea>
                         </div>
                         <div class="myformclick">
-                          <button type="button" class="btn btn-primary entersend">SEND NOW</button>
+                          <button type="button" class="btn btn-secondry entersend">SEND NOW</button>
                         </div>
                       </div>
                     </div>
