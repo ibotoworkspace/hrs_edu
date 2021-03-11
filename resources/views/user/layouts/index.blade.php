@@ -12,26 +12,7 @@
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 
 
-
-
-    <style>
-        .newsarea {
-            background-image: url(images/newsletter.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 50% 50%;
-            padding: 50px 10px;
-        }
-
-        .contactarea {
-            background-image: url(images/contactbg.jpg);
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: 50% 50%;
-            padding: 30px 10px;
-        }
-
-    </style>
+   
 
 
 </head>
@@ -147,6 +128,52 @@
 </html> -->
 
     @yield('default')
+    <section>
+  <div class="newsarea">
+      <div class="container">
+          <div class="row">
+              <div class="col-sm-12">
+                  <div class="newsdata">
+                      <h3>Connect to HRS Academy</h3>
+                      <h2>JOIN OUR NEWSLETTER</h2>
+                      <p>Hey you, sign up it only takes a second to be the first to <br> find out about our latest news and promotions…</p>
+                  </div>                                   
+              </div>
+              <div class="row">
+                  <div class="newsletter">
+                    <div class="col-sm-1"></div>
+                    <div class="col-sm-8">
+                       <div class="formnews">
+                        <i class="fa fa-envelope-o message" aria-hidden="true"></i>
+                        <input type="search" class="form-controle enteremil" placeholder="Your Email"/>
+                       </div>
+                    </div>
+                    <div class="col-sm-2">
+                      <div class="newsclick">
+                        <button type="button" class="btn btn-primary newssign">Sign Up</button>
+                      </div>
+                    </div>
+                    <div class="col-sm-1"></div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section>
+  <div class="sponserarea">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="sponserpics">
+          <img style="width: 100%;" src="{{ asset('images/partnerlgoo.png') }}" />            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
     <footer>
         <div class="footerarea">

@@ -76,6 +76,47 @@ button.btn.btn-primary.applynow{
     white-space: normal;
 }
 
+input#GnTName {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid !important;
+    border-bottom-color: white !important;
+    border-radius: 0px !important;
+    height: 40px !important;
+}
+input#GnTPhone{
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid !important;
+    border-bottom-color: white !important;
+    border-radius: 0px !important;
+    height: 40px !important;
+}
+input#pwd{
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid !important;
+    border-bottom-color: white !important;
+    border-radius: 0px !important;
+    height: 40px !important;
+}
+input#confirm_pwd{
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid !important;
+    border-bottom-color: white !important;
+    border-radius: 0px !important;
+    height: 40px !important;
+}
+input#GnTemail{
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid !important;
+    border-bottom-color: white !important;
+    border-radius: 0px !important;
+    height: 40px !important;
+}
+
 /* Side Navigation */
 
 @media(min-width:768px) {

@@ -1,0 +1,39 @@
+.loginHeading{
+    color: #bfb28e;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.loginpara{
+    color: #bfb28e;
+    font-size: 25px;
+}
+.loginbtn{
+    background-color: #bfb28e;
+    color: aliceblue;
+}
+.reformbox {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 40px;
+}
+input.form-control.reformbox {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 40px;
+}
+input.form-control{
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 40px;
+}
