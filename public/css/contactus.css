@@ -101,7 +101,7 @@ h1,h2,h3,h4{
     color: white im !important;
 }
 .backgroundcolor{
-    background-image: url("../images/contactbg.jpg");
+    background-image: url("../images//contactbg.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;

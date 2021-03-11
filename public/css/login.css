@@ -83,8 +83,23 @@ button.btn.btn-primary.hrsclicks {
     border-radius: 0px;
     height: 41px;
 }
+.reformbox {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 40px;
+}
 
-
+input.form-control.reformbox {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 40px;
+}
 
 
 

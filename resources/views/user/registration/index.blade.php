@@ -1,6 +1,8 @@
 @extends('user.layouts.index')
 
-<link href="{{ asset('css/registration.css') }}" rel="stylesheet">
+<link href="{{ asset('css/registration.css') }}" rel="stylesheet"/>
+<link href="{{ asset('css/regstration.css') }}"/>
+<link href="{{asset('css/regstration.css')}}" rel="stylesheet">
 @section('default')
 
 
@@ -44,23 +46,23 @@
                                 <h3>HRS NETWORK PRO ENROLLMENT FORM <br> WELCOME TO THE HRS ACADEMY</h3>
                                 <div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control reformbox" id="GnTName"
+                                        <input type="text" class="form-control " id="GnTName"
                                             placeholder="Full Name" name="name" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" class="form-control reformbox" id="GnTemail"
+                                        <input type="email" class="form-control " id="GnTemail"
                                             placeholder="Enter Email" name="email" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="number" class="form-control reformbox" id="GnTPhone"
+                                        <input type="number" class="form-control " id="GnTPhone"
                                             placeholder="Enter Phone" name="phone" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control reformbox" id="pwd"
+                                        <input type="password" class="form-control " id="pwd"
                                             placeholder="Enter Password" name="password" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" class="form-control reformbox" id="confirm_pwd"
+                                        <input type="password" class="form-control " id="confirm_pwd"
                                             placeholder="Confirm Password" id="CheckPasswordMatch" name="confirm">
                                     </div>
 
@@ -70,7 +72,7 @@
                                     </div>
                                     <input type="hidden" value="roleid">
                                     <div class="reformclick">
-                                        <input type="submit" class="btn btn-primary applyhere" value="save">
+                                        <input type="submit" class="btn btn-primary applyhere" value="Submit">
                                     </div>
                     </form>
 
