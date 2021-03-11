@@ -21,7 +21,7 @@
     padding: 50px 10px;
 }
 .contactarea {
-      background-image: url(images/contactbg.jpg);
+    
       background-repeat: no-repeat;
       background-size: cover;
       background-position: 50% 50%;

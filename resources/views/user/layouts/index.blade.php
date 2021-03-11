@@ -23,13 +23,13 @@
             padding: 50px 10px;
         }
 
-        .contactarea {
+        /* .contactarea {
             background-image: url(images/contactbg.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50% 50%;
             padding: 30px 10px;
-        }
+        } */
 
     </style>
 
@@ -43,7 +43,7 @@
         <div class="topheader">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <div class="topheaderdata">
                             <div class="topbox">
                                 <div class="topboxicon">
@@ -73,12 +73,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <div class="topheaderclick">
                             <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button>
-                            <button data-target="#mNAV" data-toggle="collapse" id="mnav-button"
+                            <!-- <button data-target="#mNAV" data-toggle="collapse" id="mnav-button"
                                 class="navbar-toggle fa fa-bars fa-2x collapsed" type="button">
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                                             class="btn btn-primary portal">Login Account</button></a>
                                     <a href="{{ asset('user/skilladvisor') }}"><button type="button"
                                             class="btn btn-primary portal">Join us as SDA</button></a>
-                                    {{-- <button type="button" class="btn btn-primary portal">Join us as SDA</button> --}}
+                                     <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button>  -->
                                 </div>
                             </div>
                         </nav>
