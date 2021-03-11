@@ -5,12 +5,15 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Course_Registered;
 use App\Models\Payment;
+use App\Models\PromoCode;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use PhpParser\Node\Expr\Print_;
 use Stripe;
 
 class PaymentController extends Controller
@@ -124,5 +127,46 @@ class PaymentController extends Controller
     public function paypalpayment()
     {
         return view('studentdashboard.paypal.index');
+    }
+
+
+    public function applyPromocode(Request $request)
+    {
+
+        // dd($request->all());
+        $current_date_time = Carbon::now()->toDateTimeString();
+        // check code from database 
+
+        $promocode = PromoCode::where('code', $request->code)
+            ->where('is_active', 1)
+            ->where('used_times', '>', 0)
+            ->where('validity', '>', $current_date_time)
+            ->first();
+
+        if ($promocode) {
+
+            $promocode->used_times =  $promocode->used_times - 1;
+            $promocode->save();
+            $discount_amount = $promocode->percentage / 100;
+            $discount_amount = $discount_amount * $request->current_amount;
+            $promo_amount = ceil($request->current_amount - $discount_amount);
+
+            $response = array(
+                'status' => 'success',
+                'msg' => 'Promocode Applied',
+                'response' => $promo_amount,
+            );
+        } else {
+
+            $response = array(
+                'status' => 'error',
+                'msg' => 'Promocode Not valid !',
+                'response' => '',
+            );
+        }
+
+
+
+        return $response;
     }
 }

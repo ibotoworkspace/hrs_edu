@@ -53,13 +53,22 @@ $layout = 'studentdashboard.layouts.index';
                             </div>
                         </div>
                     </div>
+
+                    <div class="alert alert-danger alert-block" id="error" style="display: none">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong class="promo_msg">Message heree </strong>
+                    </div>
+                    <div class="alert alert-success alert-block" id="success" style="display: none">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong class="promo_msg">Message heree </strong>
+                    </div>
                     <form method="post" action="{{ url('/student/paymentmethood') }}">
                         {{ csrf_field() }}
 
                         <div class="row mypayment">
                             <div class="col-sm-12">
                                 <div class="ngncode">
-                                    <p id="ammount" name="ammount">USD {{ $register_course->course->price }}</p>
+                                    <h3 id="ammount" name="ammount">USD {{ $register_course->course->price }}</h3>
                                 </div>
                             </div>
                         </div>
@@ -99,7 +108,8 @@ $layout = 'studentdashboard.layouts.index';
                                 <label class="radio-inline" for="exampleRadios2">
                                     Promo Code
                                 </label>
-                                <input class="form-check-input" type="text" onchange="promoCode()" placeholder="Enter promo code" name="promocode" id="promocode">
+                                <input class="form-check-input" type="text" onchange="promoCode()"
+                                    placeholder="Enter promo code" name="promocode" id="promocode">
 
                             </div>
                         </div>
@@ -127,11 +137,46 @@ $layout = 'studentdashboard.layouts.index';
     </div>
 
     <script>
-        function promoCode(){
-            var bla = $('#promocode').val();
-            console.log('value !!!!!!', bla);
+        function promoCode() {
+            var promo_code = $('#promocode').val();
+            var current_amount = {{ $register_course->course->price }};
+            console.log('value !!!!!!', promo_code);
+            console.log('current_amount !!!!!!', current_amount);
+
+            let _token = "{{ csrf_token() }}";
+            $.ajax({
+                url: "{{ asset('student/applypromocode') }}",
+                type: "POST",
+                data: {
+                    code: promo_code,
+                    current_amount: current_amount,
+                    _token: _token
+                },
+                success: function(response) {
+                    console.log(response);
+                    let message = '';
+                    if (response.status == "success") {
+                        message = response.msg
+                        console.log('success')
+                        let discount_price = response.response;
+                        $('#ammount').html(discount_price);
+
+                        $('#success').css('display', ' block');
+                        $('#error').css('display', ' none');
+                    } else {
+                        console.log('failed')
+                        message = response.msg;
+                        $('#success').css('display ', 'none');
+                        $('#error').css('display', ' block');
+                    }
+
+                    $('.promo_msg').html(message)
+
+                },
+            });
 
         }
+
     </script>
 
 

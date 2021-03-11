@@ -183,6 +183,7 @@ Route::get('student/logout', 'Student\StudentController@logout')->name('logout')
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
 
+    Route::post('/applypromocode', 'Student\PaymentController@applyPromocode')->name('applypromocode');
     Route::post('/forgetpassword', 'Student\StudentController@forgetPassword')->name('forgetpassword');
 
     Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');

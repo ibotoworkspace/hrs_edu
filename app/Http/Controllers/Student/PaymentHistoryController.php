@@ -9,10 +9,7 @@ class PaymentHistoryController extends Controller
 {
     function index()
     {
-      
- 
-        // $blogpage = BlogPage::paginate(10);
-       
+    
        
     
 }
