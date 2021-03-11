@@ -11,25 +11,25 @@
 
 
 
-    <section>
-        <div class="coursesarea">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <div class="coursesareahead">
-                            <h2>HRS CERTIFICATION COURSES</h2>
-                        </div>
+<section>
+    <div class="coursesarea">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="coursesareahead">
+                        <h2>HRS CERTIFICATION COURSES</h2>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <section>
-        <div class="coursesback">
-            <div class="container">
+<section>
+    <div class="coursesback">
+        <div class="container">
 
-                <div class="row">
+            <!-- <div class="row">
                     @foreach ($courses as $course)
 
 
@@ -39,26 +39,49 @@
                                     <img src="{{ $course->avatar }}" class="img-responsive">
                                 </div>
                                 <div class="coursesboxdata">
-                                    <h3>HRS {{ $course->title }}</h3>
-                                    <p>{!! $course->overview !!}
-                                    </p>
-                                </div>
+                                   <h3>HRS {{ $course->title }}</h3>
+                                    <div class="max-lines">{!! $course->overview !!}
+                                    </div>
+                                </div> 
                                 <div class="coursesboxclick">
-                                    <a href="{{ asset('user/coursedetail?course_id=' . $course->id) }}"><button
-                                            type="button" class="btn btn-primary readarea">READ MORE</button></a>
+                                    <a href="{{ asset('user/coursedetail?course_id=' . $course->id) }}">
+                                    <button type="button" class="btn btn-primary readarea">READ MORE</button></a>
                                 </div>
                             </div>
                         </div>
 
                     @endforeach
 
+                </div> -->
+            <div class="row">
+                @foreach ($courses as $course)
+
+                <div class="col-sm-4">
+                    <div class="container">
+                        <div class="mCARD">
+                            <img src="{{ $course->avatar }}" class="cardimg">
+                            <h3>HRS {{ $course->title }}</h3>
+                            <div class="max-lines">
+                                {!! $course->overview !!}
+                            </div>
+                            <div class="coursesboxclick">
+                                <a class="btn btn-primary readarea" href="{{ asset('user/coursedetail?course_id=' . $course->id) }}">
+                                    READ MORE
+                                </a>
+                                <!-- <button type="button" class=""></button> -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-
+                @endforeach
 
             </div>
+
+
+
         </div>
-    </section>
+    </div>
+</section>
 
 
 

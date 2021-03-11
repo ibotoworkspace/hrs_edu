@@ -13,11 +13,11 @@ h1,h2,h3,h4{
     background-color: #ca0000;
     border-color: #ca0000;
 } */
-.btn-primary:hover {
+/* .btn-primary:hover {
     color: #fff;
     background-color: #2d2c32;
     border-color: #2d2c32;
-}
+} */
 .contactareadata h2 {
     text-align: center;
     color: white;
@@ -84,23 +84,29 @@ h1,h2,h3,h4{
     color: white;
 }
 .entersend {
-    background: #e2e2e2;
-    border-color: #e2e2e2;
-    color: black;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 2px 15px;
-    padding-top: 9px;
-    height: 45px;
-    width: 140px;
-    margin-top: 15px;
+    background: #e2e2e2 im !important;
+    border-color: #e2e2e2 im !important;
+    color: black im !important;
+    font-size: 18px im !important;
+    font-weight: bold im !important;
+    padding: 2px 15px im !important;
+    padding-top: 9px im !important;
+    height: 45px im !important;
+    width: 140px im !important;
+    margin-top: 15px im !important;
 }
 .entersend:hover {
-    background: #bfb28e;
-    border-color: #bfb28e;
-    color: white;
+    background: #bfb28e im !important;
+    border-color: #bfb28e im !important;
+    color: white im !important;
 }
-
+.backgroundcolor{
+    background-image: url("../images/contactbg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 30px 10px;
+}
 
 
 

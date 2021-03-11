@@ -18,7 +18,14 @@ h1,h2,h3,h4{
     background-color: #2d2c32;
     border-color: #2d2c32;
 } */
-
+.mTEXT {
+    overflow: hidden;
+    overflow: hidden;
+    white-space: normal;
+    margin-bottom: 20px;
+    height: 7.4em;
+    text-overflow: -o-ellipsis-lastline;
+}
 
 
 
