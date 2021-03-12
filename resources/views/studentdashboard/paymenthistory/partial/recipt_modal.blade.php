@@ -1,42 +1,40 @@
-{{-- <div class="modal fade imagemodal in" id="msgmodal" tabindex="-1" role="dialog" aria-hidden="false"> --}}
+
 <div class="modal   detail_{{ $payment_detail->id }}" tabindex="-1" role="dialog" aria-hidden="true"
     data-backdrop="false">
     <div class="modal-dialog modal-mg ">
+
         <div class="modal-content" id="confirm">
             <div class="modal-header">
-                <h4 class="modal-title">RECIPT </h4>
+                <h4 class="modal-title">DETAIL </h4>
             </div>
             <div class="modal-body">
                 <div class="row">
-                
-                    <div class="well modalfix col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <address>
-                                    <strong>HRS Academy</strong>
-                                    <br>
-                                    416 N.H. Street Suites 5 San, 
-                                    <br>
-                                    Bernardino CA 92410 USA.
-                                    <br>
-                                    <abbr title="Phone">P:</abbr> (213) 484-6829
-                                </address>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                                <p>
-                                    <em>Date: {{ $payment_detail->created_at }}</em>
-                                </p>
-                                <p>
-                                    <em>Receipt #: HRS-0u00{{ $payment_detail->id }}</em>
-                                </p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="text-center">
-                                <h1>Receipt</h1>
-                            </div>
-                            </span>
-                            <table class="table table-hover">
+                    <div class="col-sm-6">
+                        <address>
+
+                            <strong>HRS Academy</strong>
+                            <br>
+                            416 N.H. Street Suites 5 San,
+                            <br>
+                            Bernardino CA 92410 USA.
+                            <br>
+                            <abbr title="Phone">P:</abbr> (213) 484-6829
+                        </address>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>
+                            <em>Date: {{ $payment_detail->created_at }}</em>
+                        </p>
+                        <p>
+                            <em>Receipt #: HRS-0u00{{ $payment_detail->id }}</em>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <h1>Receipt</h1>
+                </div>
+                <div class="row">
+                <table class="table table-hover">
                                 <thead>
                                     <tr>
                                         <th>Course</th>
@@ -49,18 +47,18 @@
                                 {{-- {{ dd($payment_detail) }} --}}
                                 <tbody>
                                     <tr>
-                                        <td class="col-md-9"><em>{{$payment_detail->registerCourse->name}}</em></h4>
+                                        <td class="col-md-9"><em  style="color: #000;">{{$payment_detail->registerCourse->name}}</em></h4>
                                         </td>
-                                        <td class="col-md-1" style="text-align: center"> 1 </td>
-                                        <td class="col-md-1 text-center">{{ $payment_detail->promocode->code ?? " --" }}</td>
-                                        <td class="col-md-1 text-center">${{ $payment_detail->price }}</td>
-                                        <td class="col-md-1 text-center">${{ $payment_detail->price }}</td>
+                                        <td class="col-md-1" style="text-align: center;color: #000;"> 1 </td>
+                                        <td class="col-md-1 text-center" style="color: #000;">{{ $payment_detail->promocode->code ?? " --" }}</td>
+                                        <td class="col-md-1 text-center" style="color: #000;">${{ $payment_detail->price }}</td>
+                                        <td class="col-md-1 text-center" style="color: #000;">${{ $payment_detail->price }}</td>
                                     </tr>
 
                                     <tr>
                                         <td>   </td>
                                         <td>   </td>
-                                        <td class="text-right">
+                                        <td class="text-right" style="color: #000;">
                                             <p>
                                                 <strong>Subtotal: </strong>
                                             </p>
@@ -68,7 +66,7 @@
                                                 <strong>Tax: </strong>
                                             </p>
                                         </td>
-                                        <td class="text-center">
+                                        <td class="text-center" style="color: #000;"> 
                                             <p>
                                                 <strong>${{ $payment_detail->price }}</strong>
                                             </p>
@@ -89,10 +87,8 @@
                                     </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                
                 </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default close-modal" onclick="closeModal()" data-dismiss="modal">Close</button>
