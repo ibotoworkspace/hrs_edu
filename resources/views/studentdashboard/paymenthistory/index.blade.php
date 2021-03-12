@@ -74,11 +74,11 @@
 
                                                 <td>
 
-                                                    <a href="">
+                                                    <!-- <a href="">
                                                         <span class="badge bg-info" name="msgmodal"
                                                             data-url="{!! asset('index.php/admin/contact/full_desc/') . '/' . $pd->id !!}">
                                                             View Receipt</span>
-                                                    </a>
+                                                    </a> -->
                                                     <span class="ucc detail_{!! $pd->id !!}" data-toggle="modal"
                                                         data-target=".detail_{!! $pd->id !!}">View Receipt</span>
                                                     {{-- <span class="badge bg-info" name="msgmodal"
