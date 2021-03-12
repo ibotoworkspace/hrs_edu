@@ -1,7 +1,7 @@
 @extends('user.layouts.index')
 
-<link href="{{asset('css/contactus.css')}}" rel="stylesheet">
-<link href="{{asset('css/studentlogin.css')}}" rel="stylesheet">
+<link href="{{asset('css/contactus.css')}}" rel="stylesheet"/>
+<link href="{{asset('css/studentlogin.css')}}" rel="stylesheet"/>
 
 @section('default')
 
@@ -13,8 +13,7 @@
     </div>
     <div class="" style="background-color: #243439eb;">
         <div class="container">
-
-            <div class="row">
+            <div class="">
 
                 @if ($message = Session::get('error'))
                 <div class="alert alert-danger alert-block">
@@ -33,10 +32,10 @@
                 </div>
                 @endif
                 <div class="row">
-                    <div class="col-sm-6">
-                        <img src="{{ asset('images/icon.png') }}" />
+                    <div class="col-sm-6 col-xs-12">
+                        <img src="{{ asset('images/icon.png') }}" class="img-responsive"/>
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 col-xs-12">
                     <p class="loginpara">HRS LOGIN AN ACCOUNT</p>
                     <p class="loginpara">WELCOME TO THE HRS ACADEMY</p>
                         <form method="post" action="{{ url('/student/checklogin') }}">
