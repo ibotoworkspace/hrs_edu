@@ -1,5 +1,5 @@
 {{-- <div class="modal fade imagemodal in" id="msgmodal" tabindex="-1" role="dialog" aria-hidden="false"> --}}
-<div class="modal   detail_{{ $payment_detail->id }}" tabindex="-1" role="dialog" aria-hidden="false"
+<div class="modal   detail_{{ $payment_detail->id }}" tabindex="-1" role="dialog" aria-hidden="true"
     data-backdrop="false">
     <div class="modal-dialog modal-mg ">
         <div class="modal-content" id="confirm">
@@ -95,7 +95,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-default close-modal" onclick="closeModal()" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -115,3 +115,14 @@
             width: 83% im !important;
         }
 </style>
+
+
+<script>
+
+  
+function closeModal(){
+$('.modal').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+}
+</script>

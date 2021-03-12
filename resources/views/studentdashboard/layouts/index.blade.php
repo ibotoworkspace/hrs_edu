@@ -251,33 +251,41 @@
 
 
     </footer>
-    @section('app_jquery')
-        <script>
-            // Get the Sidebar
-            var mySidebar = document.getElementById("mySidebar");
+    @yield('app_jquery')
+    <script>
+        $(function() {
 
-            // Get the DIV with overlay effect
-            var overlayBg = document.getElementById("myOverlay");
+            $(".close-modal in").click(function() {
+                alert("Handler for .click() called.");
+                $('.modal-backdrop').remove();
+                $('.modal').modal('hide');
+            });
+        })
+        // Get the Sidebar
+        var mySidebar = document.getElementById("mySidebar");
 
-            // Toggle between showing and hiding the sidebar, and add overlay effect
-            function w3_open() {
-                if (mySidebar.style.display === 'block') {
-                    mySidebar.style.display = 'none';
-                    overlayBg.style.display = "none";
-                } else {
-                    mySidebar.style.display = 'block';
-                    overlayBg.style.display = "block";
-                }
-            }
+        // Get the DIV with overlay effect
+        var overlayBg = document.getElementById("myOverlay");
 
-            // Close the sidebar with the close button
-            function w3_close() {
-                mySidebar.style.display = "none";
+        // Toggle between showing and hiding the sidebar, and add overlay effect
+        function w3_open() {
+            if (mySidebar.style.display === 'block') {
+                mySidebar.style.display = 'none';
                 overlayBg.style.display = "none";
+            } else {
+                mySidebar.style.display = 'block';
+                overlayBg.style.display = "block";
             }
+        }
 
-        </script>
+        // Close the sidebar with the close button
+        function w3_close() {
+            mySidebar.style.display = "none";
+            overlayBg.style.display = "none";
+        }
 
-    </body>
+    </script>
 
-    </html>
+</body>
+
+</html>
