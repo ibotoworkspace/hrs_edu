@@ -17,4 +17,7 @@ class Payment extends Model
     public function User(){
         return $this->hasOne('App\user','id','user_id');
     }
+    public function promocode(){
+        return $this->hasOne('App\Models\PromoCode','id','promocode_id');
+    }
 }
