@@ -8,9 +8,6 @@
 
 
 
-
-
-
 <section>
     <div class="coursesarea">
         <div class="container">
@@ -56,9 +53,9 @@
             <div class="row">
                 @foreach ($courses as $course)
 
-                <div class="col-sm-4">
+                <div class="col-sm-4 col-xs-12">
                     <div class="container">
-                        <div class="mCARD">
+                        <div class="mCARD mobolecard">
                             <img src="{{ $course->avatar }}" class="cardimg">
                             <h3>HRS {{ $course->title }}</h3>
                             <div class="max-lines">
@@ -82,11 +79,6 @@
         </div>
     </div>
 </section>
-
-
-
-
-
 
 
 

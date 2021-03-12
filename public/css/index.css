@@ -478,8 +478,13 @@ p.smallright {
     background-position: 50% 50%;
     padding: 30px 10px;
 }
-
-
+.navbg{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+.mUL{
+    margin-left: 0px !important;
+}
 
 
 
@@ -503,5 +508,7 @@ p.smallright {
 
 @media only screen and (max-width : 768px) {
 
-   
+    .crbtngroup{
+        float: left;
+    }
 }

@@ -75,13 +75,16 @@ h1,h2,h3,h4{
     margin-bottom: 25px;
 }
 .myformdata {
-    background: transparent;
-    border: 3px solid;
-    border-color: white;
+    background: transparent !important;
+    border: 3px solid white !important;
     border-radius: 6px;
     height: 50px;
     width: 100%;
     color: white;
+}
+.myformdata::placeholder {
+    color: #fff !important;
+    opacity: 1 !important;
 }
 .entersend {
     background: #e2e2e2 im !important;
@@ -107,7 +110,13 @@ h1,h2,h3,h4{
     background-position: 50% 50%;
     padding: 30px 10px;
 }
-
+.contactarea {
+    background-image: url('../images/contactbg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 30px 10px;
+}
 
 
 
