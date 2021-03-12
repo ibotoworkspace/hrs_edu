@@ -1,18 +1,19 @@
 {{-- <div class="modal fade imagemodal in" id="msgmodal" tabindex="-1" role="dialog" aria-hidden="false"> --}}
 <div class="modal   detail_{{ $payment_detail->id }}" tabindex="-1" role="dialog" aria-hidden="false"
     data-backdrop="false">
-    <div class="modal-dialog modal-mg ">
+    <div class="modal-dialog modal-lg ">
         <div class="modal-content" id="confirm">
             <div class="modal-header">
                 <h4 class="modal-title">RECIPT </h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="color: #000;">
                 <div class="row">
                 
                     <div class="well modalfix col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3">
                         <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
+                            <div class="col-xs-6 col-sm-6" >
                                 <address>
+                                
                                     <strong>HRS Academy</strong>
                                     <br>
                                     416 N.H. Street Suites 5 San, 
@@ -22,7 +23,7 @@
                                     <abbr title="Phone">P:</abbr> (213) 484-6829
                                 </address>
                             </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6 text-right">
+                            <div class="col-xs-6 col-sm-6 text-right">
                                 <p>
                                     <em>Date: {{ $payment_detail->created_at }}</em>
                                 </p>
