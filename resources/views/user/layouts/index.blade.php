@@ -23,14 +23,13 @@
             padding: 50px 10px;
         }
 
-        .contactarea {
+        /* .contactarea {
             background-image: url(images/contactbg.jpg);
             background-repeat: no-repeat;
             background-size: cover;
             background-position: 50% 50%;
             padding: 30px 10px;
-        }
-
+        } */
     </style>
 
 
@@ -40,10 +39,10 @@
 
 
     <header>
-        <div class="topheader">
+        <div class="topheader hidden-xs">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-10">
                         <div class="topheaderdata">
                             <div class="topbox">
                                 <div class="topboxicon">
@@ -73,12 +72,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-3">
+                    <div class="col-sm-2">
                         <div class="topheaderclick">
-                            <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button>
-                            <button data-target="#mNAV" data-toggle="collapse" id="mnav-button"
+                            <a href="{{ url('student/login') }}" class="btn btn-primary leadrning">LEARNING PORTAL</a>
+                            <!-- <button data-target="#mNAV" data-toggle="collapse" id="mnav-button"
                                 class="navbar-toggle fa fa-bars fa-2x collapsed" type="button">
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </div>
@@ -92,7 +91,7 @@
     <section>
         <div class="twoheader">
             <div class="container-fluid">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-sm-2 col-xs-12">
                         <div class="logoArea">
                             <a href="{{ asset('user/home') }}">
@@ -101,7 +100,7 @@
                         </div>
                     </div>
                     <div class="col-sm-10 col-xs-12">
-                        <nav>
+                        <!-- <nav>
                             <div class="jump" id="nmNAV">
                                 <div class="navbar-collapse nav-collapse collapse">
                                     <ul class="nav navbar-nav">
@@ -127,14 +126,62 @@
                                     </ul>
                                     <a href="{{ asset('student/login') }}"><button type="button"
                                             class="btn btn-primary portal">Login Account</button></a>
-                                    <a href="{{ asset('user/skilladvisor') }}"><button type="button"
+                                    <a href=""><button type="button"
                                             class="btn btn-primary portal">Join us as SDA</button></a>
-                                    {{-- <button type="button" class="btn btn-primary portal">Join us as SDA</button> --}}
-                                </div>
+                                     <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button> {{ asset('user/skilladvisor') }}  -->
+                <!-- </div>
                             </div>
-                        </nav>
+                        </nav> -->
+                <!-- </div>
+                </div> -->
+
+                <nav class="navbar navbar-default navbg" role="navigation">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a href="{{ asset('user/home') }}">
+                            <img src="{{ asset('images/logo.png') }}" class="img-responsive">
+                        </a>
                     </div>
-                </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+                        <ul class="nav navbar-nav mUL">
+                            <li id="11">
+                                <a href="{{ asset('user/home') }}"><span class="headpad">Home</span> </a>
+                            </li>
+                            <li id="4">
+                                <a href="{{ asset('user/aboutus') }}"><span class="headpad">About us</span>
+                                </a>
+                            </li>
+                            <li id="5">
+                                <a href="{{ asset('user/courses') }}"><span class="headpad">Courses</span>
+                                </a>
+                            </li>
+                            <li id="6">
+                                <a href="{{ asset('user/resource') }}"><span class="headpad">Resource</span> </a>
+                            </li>
+                            <li id="7">
+                                <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="crbtngroup">
+                        <a href="{{ asset('student/login') }}"><button type="button" class="btn btn-primary portal">Login Account</button></a>
+                        <a href=""><button type="button" class="btn btn-primary portal">Join us as SDA</button></a>
+                        </div>
+                        
+                        <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button>  -->
+                        <!-- {{ asset('user/skilladvisor') }} -->
+                    </div><!-- /.navbar-collapse -->
+                </nav>
+
             </div>
         </div>
     </section>
@@ -221,8 +268,7 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="copydata">
-                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | Designed by <a
-                                    href="https://hatinco.com/" target="_blank"> HATINC.</a></p>
+                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a></p>
                         </div>
                     </div>
                     <div class="col-sm-4">
