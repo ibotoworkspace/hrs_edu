@@ -73,6 +73,12 @@
                     </div>
                 </div>
                 <div class="col-sm-8">
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
                     <div class="contactform">
                         <form method="post" action="{{ url('/user/contactform') }}" enctype="multipart/form-data">
 

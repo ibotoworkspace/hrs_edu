@@ -37,14 +37,14 @@ $layout = 'studentdashboard.layouts.index';
             </title>
             <div class="serchsite">
                 <div class="container-fluid">
-                    <div class="row serchbox">
+                    {{-- <div class="row serchbox">
                         <div class="col-sm-12">
                             <div class="serchsitedata">
                                 <input type="text" class="form-control shdata" id="exampleFormControlInput1"
                                     placeholder="Serch here...">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row paymentarea">
                         <div class="col-sm-12">
@@ -72,8 +72,13 @@ $layout = 'studentdashboard.layouts.index';
                                 </div>
                             </div>
                         </div>
+                        <input name="promo_code_id" class="promo-code-class" hidden>
+                        <input name="actual_price" class="actual-price-class" hidden>
+                        <input name="discount_price" class="discount-price-class" hidden>
+                        <input name="price" class="price" value="{{ $register_course->course->price }}" hidden>
 
-                        <input name="course_id" value="{{ $register_course->id }}" hidden>
+
+                        <input name=" course_id" value="{{ $register_course->id }}" hidden>
                         {{-- <div class="form-group row mypayment">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
@@ -105,10 +110,10 @@ $layout = 'studentdashboard.layouts.index';
                                 </label>
                             </div>
                             <div class="form-check">
-                                <label class="radio-inline" for="exampleRadios2">
+                                <label class="col-sm-2 col-form-label" for="exampleRadios2">
                                     Promo Code
                                 </label>
-                                <input class="form-check-input" type="text" onchange="promoCode()"
+                                <input class="form-control paymentformdata" type="text" onchange="promoCode()"
                                     placeholder="Enter promo code" name="promocode" id="promocode">
 
                             </div>
@@ -156,10 +161,17 @@ $layout = 'studentdashboard.layouts.index';
                     console.log(response);
                     let message = '';
                     if (response.status == "success") {
-                        message = response.msg
-                        console.log('success')
-                        let discount_price = response.response;
-                        $('#ammount').html(discount_price);
+                        message = response.msg;
+                        let actual_amount = response.response.actual_amount;
+                        let discount_amount = response.response.discount_amount;
+                        let price = response.response.price;
+                        let promo_id = response.response.promo_id;
+
+                        $('#ammount').html(price);
+                        $('.price').val(price);
+                        $('.actual-price-class').val(actual_amount);
+                        $('.discount-price-class').val(discount_amount);
+                        $('.promo-code-class').val(promo_id);
 
                         $('#success').css('display', ' block');
                         $('#error').css('display', ' none');
