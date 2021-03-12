@@ -6,8 +6,6 @@
 @section('default')
 
 
-
-
 <section>
     <div class="registrationhead">
         <div class="container">
@@ -21,7 +19,6 @@
         </div>
     </div>
 </section>
-
 <section>
 
     @if ($message = Session::get('error'))
@@ -33,7 +30,7 @@
     <div class="registrationform">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 hidden-xs">
+                <div class="col-sm-6 col-xs-12">
                     <div class="registrationformimg">
                         <img src="{{ asset('images/loginbg.png') }}" class="img-responsive">
                     </div>
@@ -77,8 +74,6 @@
     </div>
    
 </section>
-
-
 <script>
     function checkPasswordMatch() {
         var password = $("#pwd").val();
@@ -92,13 +87,4 @@
         $("#confirm_pwd").keyup(checkPasswordMatch);
     });
 </script>
-
-
-
-
-
-
-
-
-
 @endsection

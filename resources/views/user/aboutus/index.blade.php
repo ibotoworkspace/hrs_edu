@@ -2,10 +2,6 @@
 
 <link href="{{asset('css/aboutus.css')}}" rel="stylesheet">
 @section('default')
-
-
-
-
 <section>
 
   <head>
@@ -17,7 +13,7 @@
         <div class="col-sm-6">
           <div class="fstbannerdatas">
             <h2>ABOUT US</h2>
-            <h1><span class="thinword">LEARN FROM</span> <br> INDUSTRY <br> PROFESSIONALS</h1>
+            <h1 ><span class="thinword">LEARN FROM</span> <br> INDUSTRY <br> PROFESSIONALS</h1>
           </div>
         </div>
         <div class="col-sm-6">
@@ -29,7 +25,6 @@
     </div>
   </div>
 </section>
-
 <section>
   <div class="pointsareas">
     <div class="container">
@@ -97,7 +92,6 @@
     </div>
   </div>
 </section>
-
 <section>
   <div class="foundarea">
     <div class="container">
@@ -122,7 +116,6 @@
     </div>
   </div>
 </section>
-
 <section>
   <div class="visionarea">
     <div class="container">
@@ -146,7 +139,6 @@
     </div>
   </div>
 </section>
-
 <section>
   <div class="courseareaabout">
     <div class="container">
@@ -272,7 +264,6 @@
     </div>
   </div>
 </section>
-
 <section>
   <div class="unclearea">
     <div class="container">
@@ -301,9 +292,4 @@
     </div>
   </div>
 </section>
-
-
-
-
-
 @endsection
