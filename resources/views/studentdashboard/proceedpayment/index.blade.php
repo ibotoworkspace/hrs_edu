@@ -1,6 +1,11 @@
 <?php
 $payment_common = session()->get('payment_common');
 $register_course = $payment_common->register_course;
+$price = $payment_common->price;
+$discount_price = $payment_common->discount_price;
+$actual_price = $payment_common->actual_price;
+$promo_code_id = $payment_common->promo_code_id;
+
 $page_layout = session()->get('page_layout');
 $header = $page_layout->header;
 $layout = '';
@@ -100,7 +105,10 @@ $layout = 'studentdashboard.layouts.index';
                                     id="payment-form">
                                     @csrf
 
-                                    <input name="amount" value="{{ $register_course->course->price }}" hidden>
+                                    <input name="amount" value="{{$price}}" hidden>
+                                    <input name="promo_code_id" value="{{$promo_code_id ?? ''}}" hidden>
+                                    <input name="actual_price" value="{{$actual_price ?? ''}}" hidden>
+                                    <input name="discount_price" value="{{$discount_price ?? ''}}" hidden>
                                     <input name="course_register_id" value="{{ $register_course->id }}" hidden>
 
                                     <div class='form-row row'>

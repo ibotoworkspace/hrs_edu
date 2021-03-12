@@ -55,10 +55,24 @@
                                             <tr class="mycolareadata">
                                                 <td>HRS{{$pd->registerCourse->name}}</td>
                                                 <td>HRS {{$pd->registerCourse->id}}</td>
-                                                <td>NGN {{$pd->registerCourse->course->price}}</td>
+                                                <td>USD {{$pd->registerCourse->course->price}}</td>
                                                 <td>{{$pd->card_type}}</td>
                                                 <td>{{$pd->created_at}}</td>
-                                                <td>View Receipt</td>
+                                                <td>
+                                                    {{-- <a href="#">
+                                                    View Receipt</a> --}}
+                                                
+                                                    <a href="">
+                                                        <span class="badge bg-info" name="msgmodal"
+                                                        data-url="{!! asset('index.php/admin/contact/full_desc/').'/'.$pd->id !!}"
+                                                              >
+                                                              View Receipt</span>
+                                                  </a>
+                                                  <span class="ucc detail_{!!$pd->id!!}" data-toggle="modal"
+                                                    data-target=".detail_{!!$pd->id!!}">View Receipt</span>
+                                                @include('studentdashboard.paymenthistory.partial.image_modal',['payment_detail','date_index'])
+                                                {{-- @include('studentdashboard.paymenthistory.partial.image_modal',) --}}
+                                                </td>
                                             </tr>
                                         @endforeach
 
@@ -75,6 +89,7 @@
 
 
     </div>
+    @include('studentdashboard.paymenthistory.partial.image_modal')
 
 
 @endsection

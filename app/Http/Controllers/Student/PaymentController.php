@@ -45,9 +45,12 @@ class PaymentController extends Controller
     public function paymentMethod(Request $request)
     {
         $register_course = Course_Registered::with('course')->find($request->course_id);
-
         $payment_common = new \stdClass();
         $payment_common->register_course = $register_course;
+        $payment_common->actual_price = $request->actual_price ?? 0;
+        $payment_common->discount_price = $request->discount_price ?? 0;
+        $payment_common->promo_code_id = $request->promo_code_id ?? 0;
+        $payment_common->price = $request->price ?? $register_course->course->price;
 
         session(['payment_common' => $payment_common]);
 
@@ -62,7 +65,6 @@ class PaymentController extends Controller
 
     public function stripePost(Request $request)
     {
-        Log::info('in payment');
         $user = Auth::user();
         if (!$user) {
             $page_layout = session()->get('page_layout');
@@ -87,6 +89,10 @@ class PaymentController extends Controller
             $payment->user_id = $user->id;
             $payment->payment_id = $stripe->id;
             $payment->course_register_id = $request->course_register_id;
+            $payment->price = $request->amount;
+            $payment->actual_amount = $request->actual_price;
+            $payment->discount_amount =$request->discount_price;
+            $payment->promocode_id =$request->promo_code_id;
             $payment->payment_response = $stripe->status;
             $payment->card_type = $stripe->payment_method_details->card->brand;
             $payment->save();
@@ -151,10 +157,16 @@ class PaymentController extends Controller
             $discount_amount = $discount_amount * $request->current_amount;
             $promo_amount = ceil($request->current_amount - $discount_amount);
 
+            $res = new \stdClass();
+            $res->promo_id = $promocode->id;
+            $res->actual_amount = $request->current_amount;
+            $res->discount_amount = ceil($discount_amount);
+            $res->price = $promo_amount;
+
             $response = array(
                 'status' => 'success',
                 'msg' => 'Promocode Applied',
-                'response' => $promo_amount,
+                'response' => $res,
             );
         } else {
 
@@ -164,9 +176,6 @@ class PaymentController extends Controller
                 'response' => '',
             );
         }
-
-
-
         return $response;
     }
 }
