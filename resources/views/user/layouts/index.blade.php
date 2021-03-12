@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-sm-2">
                         <div class="topheaderclick">
-                            <a href="{{ url('student/login') }}" class="btn btn-primary leadrning">LEARNING PORTAL</a>
+                            <a href="{{ url('student/registration') }}" class="btn btn-primary leadrning">LEARNING PORTAL</a>
                             <!-- <button data-target="#mNAV" data-toggle="collapse" id="mnav-button"
                                 class="navbar-toggle fa fa-bars fa-2x collapsed" type="button">
                             </button> -->
@@ -94,7 +94,7 @@
                 <!-- <div class="row">
                     <div class="col-sm-2 col-xs-12">
                         <div class="logoArea">
-                            <a href="{{ asset('user/home') }}">
+                            <a href="{{ asset('student/home') }}">
                                 <img src="{{ asset('images/logo.png') }}" class="img-responsive">
                             </a>
                         </div>
