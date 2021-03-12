@@ -186,6 +186,8 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::post('/applypromocode', 'Student\PaymentController@applyPromocode')->name('applypromocode');
     Route::post('/forgetpassword', 'Student\StudentController@forgetPassword')->name('forgetpassword');
 
+    Route::post('/getpaymentdetail', 'Student\PaymentController@paymentDetail')->name('getpaymentdetail');
+
     Route::post('/profileupdate', 'Student\StudentController@update_profile')->name('profile.update');
     Route::get('/ebooks', 'Student\EbooksController@index')->name('student/ebooks');
     Route::get('/invoice', 'Student\InvoiceController@index')->name('student/invoice');

@@ -9,6 +9,17 @@
     padding: 24px 5px;
     margin-top: 0px;
 }
+.well {
+    min-height: 20px im !important;
+    padding: 19px im !important;
+    margin-bottom: 20px im !important;
+    background-color: #243439 im !important;
+    border: 1px solid #243439 im !important;
+    border-radius: 4px im !important;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%) im !important;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%) im !important;
+    width: 83% im !important;
+}
 .shdata {
     border-color: #bfb28e;
     width: 100%;

@@ -91,8 +91,8 @@ class PaymentController extends Controller
             $payment->course_register_id = $request->course_register_id;
             $payment->price = $request->amount;
             $payment->actual_amount = $request->actual_price;
-            $payment->discount_amount =$request->discount_price;
-            $payment->promocode_id =$request->promo_code_id;
+            $payment->discount_amount = $request->discount_price;
+            $payment->promocode_id = $request->promo_code_id;
             $payment->payment_response = $stripe->status;
             $payment->card_type = $stripe->payment_method_details->card->brand;
             $payment->save();
@@ -120,7 +120,7 @@ class PaymentController extends Controller
     {
 
         $user_id = Auth::id();
-        $payment_details = Payment::with('registerCourse.course')->where('user_id', $user_id)->get();
+        $payment_details = Payment::with('registerCourse.course','promocode')->where('user_id', $user_id)->get();
 
         return view('studentdashboard.paymenthistory.index', compact('payment_details'));
     }
@@ -178,4 +178,6 @@ class PaymentController extends Controller
         }
         return $response;
     }
+
+ 
 }

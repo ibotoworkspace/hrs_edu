@@ -8,7 +8,20 @@
 @section('default')
 
 
+    <style>
+        .modalfix {
+            min-height: 20px im !important;
+            padding: 19px im !important;
+            margin-bottom: 20px im !important;
+            background-color: #243439 im !important;
+            border: 1px solid #243439 im !important;
+            border-radius: 4px im !important;
+            -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%) im !important;
+            box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%) im !important;
+            width: 83% im !important;
+        }
 
+    </style>
 
 
 
@@ -53,25 +66,25 @@
                                         @foreach ($payment_details as $pd)
 
                                             <tr class="mycolareadata">
-                                                <td>HRS{{$pd->registerCourse->name}}</td>
-                                                <td>HRS {{$pd->registerCourse->id}}</td>
-                                                <td>USD {{$pd->registerCourse->course->price}}</td>
-                                                <td>{{$pd->card_type}}</td>
-                                                <td>{{$pd->created_at}}</td>
+                                                <td>HRS{{ $pd->registerCourse->name }}</td>
+                                                <td>HRS {{ $pd->registerCourse->id }}</td>
+                                                <td>USD {{ $pd->registerCourse->course->price }}</td>
+                                                <td>{{ $pd->card_type }}</td>
+                                                <td>{{ $pd->created_at }}</td>
+
                                                 <td>
-                                                    {{-- <a href="#">
-                                                    View Receipt</a> --}}
-                                                
+
                                                     <a href="">
                                                         <span class="badge bg-info" name="msgmodal"
-                                                        data-url="{!! asset('index.php/admin/contact/full_desc/').'/'.$pd->id !!}"
-                                                              >
-                                                              View Receipt</span>
-                                                  </a>
-                                                  <span class="ucc detail_{!!$pd->id!!}" data-toggle="modal"
-                                                    data-target=".detail_{!!$pd->id!!}">View Receipt</span>
-                                                @include('studentdashboard.paymenthistory.partial.image_modal',['payment_detail','date_index'])
-                                                {{-- @include('studentdashboard.paymenthistory.partial.image_modal',) --}}
+                                                            data-url="{!! asset('index.php/admin/contact/full_desc/') . '/' . $pd->id !!}">
+                                                            View Receipt</span>
+                                                    </a>
+                                                    <span class="ucc detail_{!! $pd->id !!}" data-toggle="modal"
+                                                        data-target=".detail_{!! $pd->id !!}">View Receipt</span>
+                                                    {{-- <span class="badge bg-info" name="msgmodal"
+                                                        data-url="{!! asset('student/getpaymentdetail?payment_id=') . $pd->id !!}">
+                                                        View Receipt</span> --}}
+                                                    @include('studentdashboard.paymenthistory.partial.recipt_modal',['payment_detail'=>$pd])
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -89,7 +102,6 @@
 
 
     </div>
-    @include('studentdashboard.paymenthistory.partial.image_modal')
 
 
 @endsection
