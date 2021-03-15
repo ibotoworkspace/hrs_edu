@@ -12,6 +12,6 @@ class Course_Registered extends Model
 
     public function course()
     {
-        return $this->hasOne('App\Models\Courses', 'id', 'course_id');
+        return $this->hasOne('App\Models\Courses', 'id', 'course_id')->withTrashed();
     }
 }
