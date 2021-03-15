@@ -230,8 +230,11 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="copydata">
-                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | Designed by <a
-                                    href="{{ asset('https://hatinco.com/') }}" target="_blank"> HATINC.</a></p>
+                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | <a
+                                    href="{{ asset('user/privacy&policy') }}" target="_blank">Privacy Policy </a> |
+                                <a href="{{ asset('user/terms&condition') }}" target="_blank">Term & Condition </a>|
+                                Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a>
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm-4">

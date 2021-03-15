@@ -76,12 +76,25 @@
                     <div class="bestpara">{!! $tc->message !!}</div>
                 </td>
                 <td class="mypara">
-                    
-                     <a class="btn btn-info" href="{{$tc->avatar}}" download> Download </a>
+
+                    <a class="btn btn-info" href="{{ $tc->avatar }}" download> Download </a>
                 </td>
 
                 <td class="mypara">
-                    <span class="badge badge-primary">{{ $tc->status}}</span>
+                    @if ($tc->status == 'pending')
+
+                        <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{ $tc->id }}"
+                            hit_url="{{ url('/admin/ticketstatus/' . $tc->id) }}" name="activate_delete_link"
+                            data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                            <span class="badge bg-info btn-danger ">
+                                Pending</span></a>
+
+
+                    @else
+                        <span class="badge bg-info btn-primary ">
+                            Resolved</span>
+                    @endif
+
                 </td>
 
 
