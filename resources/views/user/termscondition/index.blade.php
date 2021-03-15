@@ -27,7 +27,8 @@
                             which it was given to you. You are not allowed to duplicate our website and materials.
                             Should you need assistance, feel free to contact HRS Academy or and our partners for
                             solutions to your problems. If you are not satisfied with our services, please contact us at
-                            +1 909 381 9095 or at contactus@ibotoempire.com
+                            +1 909 381 9095 or at contactus@hrsedu.com
+
                         </p>
                     </div>
                 </div> 

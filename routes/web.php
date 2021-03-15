@@ -53,7 +53,8 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/listoforder', 'Admin\OrderController@index')->name('admin/listofpromocode');
     Route::get('/listofmembership', 'Admin\CoursesController@listofmembership')->name('admin/listofpromocode');
 
-    Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket');
+    Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket'); 
+    Route::get('/ticketstatus/{id}', 'Admin\TicketController@status')->name('ticket.status');
     Route::get('/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
 
     Route::get('/userperformance', 'Admin\CoursesController@userperformance')->name('admin/userperformance');
@@ -217,6 +218,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
 
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
+    
 
     Route::match(['get', 'post'], 'ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 
