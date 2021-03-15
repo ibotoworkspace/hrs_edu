@@ -42,8 +42,7 @@
                         <option value="intermediate">intermediate</option>
                         <option value="expert">expert</option>
                     </select>
-
-                    <input type="hidden" name="course_id" value="{!! $courses->id !!}"> --}}
+                   
 
 
                     {{-- <div class="form-group">
@@ -62,8 +61,7 @@
 
 
 
-
-
+        <input type="hidden" name="course_id" value="{!! $courses->id !!}">
 
 
 
