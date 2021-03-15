@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use App\Models\Course_Video;
+use App\Models\CourseRequest;
 use App\Models\Courses;
 use App\Models\PromoCode;
 use App\Models\Quiz;
@@ -36,15 +38,11 @@ class AdminController extends Controller
             'role_id' => 1
         );
 
-        if(Auth::attempt($user_data))
-        {
+        if (Auth::attempt($user_data)) {
             return redirect('admin/dashboard');
-        }
-        else
-        {
+        } else {
             return back()->with('error', 'Wrong Login Details');
         }
-
     }
 
 
@@ -56,14 +54,15 @@ class AdminController extends Controller
     }
 
 
-    function dashboard (){
+    function dashboard()
+    {
 
         $admin_common = new \stdClass();
         $admin_dashboard = $this->admin_dashboard();
-        $courses= Courses::paginate(10);
+        $courses = Courses::paginate(10);
         $modules = $admin_dashboard['modules'];
         $reports = $admin_dashboard['reports'];
-        
+
         $admin_common->id = '1';
         $admin_common->modules = $modules;
         $admin_common->reports = $reports;
@@ -73,13 +72,14 @@ class AdminController extends Controller
         $chart = $admin_dashboard['chart'];
 
         session(['admin_common' => $admin_common]);
-        return \View('layouts.default_dashboard',compact(
-            'chart'));
+        return \View('layouts.default_dashboard', compact(
+            'chart'
+        ));
     }
     public function admin_dashboard()
     {
-        $total_count =Courses::count('id');
-        $active_count =Courses::count('id'); // where is_active == 1
+        $total_count = Courses::count('id');
+        $active_count = Courses::count('id'); // where is_active == 1
         $modules[] = [
 
             'url' => 'admin/courses',
@@ -88,10 +88,10 @@ class AdminController extends Controller
             'active' => $active_count,
             'image' => 'images/icon-20.png',
 
-            
+
         ];
-        $total_count =User::where('role_id',2)->count('id');
-        $active_count =User::where('role_id',2)->count('id'); // where is_active == 1
+        $total_count = User::where('role_id', 2)->count('id');
+        $active_count = User::where('role_id', 2)->count('id'); // where is_active == 1
         $modules[] = [
 
             'url' => 'user/list',
@@ -100,11 +100,11 @@ class AdminController extends Controller
             'active' => $active_count,
             'image' => 'images/icon-21.png',
 
-            
+
         ];
-        
-        $total_count =Quiz::count('id');
-        $active_count =Quiz::count('id'); // where is_active == 1
+
+        $total_count = Quiz::count('id');
+        $active_count = Quiz::count('id'); // where is_active == 1
         $modules[] = [
 
             'url' => '#',
@@ -113,10 +113,10 @@ class AdminController extends Controller
             'active' => $active_count,
             'image' => 'images/icon-22.png',
 
-            
+
         ];
-        $total_count =Course_Video::count('id');
-        $active_count =Course_Video::count('id'); // where is_active == 1
+        $total_count = Course_Video::count('id');
+        $active_count = Course_Video::count('id'); // where is_active == 1
         $modules[] = [
 
             'url' => '#',
@@ -125,10 +125,10 @@ class AdminController extends Controller
             'active' => $active_count,
             'image' => 'images/icon-23.png',
 
-            
+
         ];
-        $total_count =PromoCode::count('id');
-        $active_count =PromoCode::count('id'); // where is_active == 1
+        $total_count = PromoCode::count('id');
+        $active_count = PromoCode::count('id'); // where is_active == 1
         $modules[] = [
 
             'url' => 'admin/newpromocode',
@@ -137,7 +137,7 @@ class AdminController extends Controller
             'active' => $active_count,
             'image' => 'images/icon-24.png',
 
-            
+
         ];
         $modules[] = [
 
@@ -147,46 +147,49 @@ class AdminController extends Controller
             'active' => '5',
             'image' => 'images/icon-25.png',
 
-            
+
         ];
-        $total_count =SkillAdvisor::count('id');
-        $active_count =SkillAdvisor::count('id'); // where is_active == 1
+        // $total_count =SkillAdvisor::count('id');
+        // $active_count =SkillAdvisor::count('id'); // where is_active == 1
+        // $modules[] = [
+
+        //     'url' => 'user/advisorlist',
+        //     'title' => 'Total Advisor',
+        //     'total' => $total_count,
+        //     'active' => $active_count,
+        //     'image' => 'images/icon-26.png',
+
+
+        // ];
+
+        $total_count = Blog::count('id');
         $modules[] = [
 
-            'url' => 'user/advisorlist',
-            'title' => 'Total Advisor',
+            'url' => 'admin/addblog',
+            'title' => 'Add Blog',
             'total' => $total_count,
-            'active' => $active_count,
-            'image' => 'images/icon-26.png',
+            'active' => $total_count,
+            'image' => 'images/icon-20.png',
 
-            
+
         ];
+        $total_count = CourseRequest::count('id');
         $modules[] = [
 
-            'url' => 'admin/listofmembership',
-            'title' => 'Member Ship',
-            'total' => '5',
-            'active' => '6',
-            'image' => 'images/icon-27.png',
+            'url' => 'admin/courserequest',
+            'title' => 'Request For Course PDF',
+            'total' => $total_count,
+            'active' => $total_count,
+            'image' => 'images/icon-20.png',
 
-            
+
         ];
 
         $myvar = [];
         $myvar['modules'] = $modules;
-        $myvar['reports'] = [] ;
+        $myvar['reports'] = [];
         $myvar['chart'] = [];
 
         return $myvar;
     }
-
-
-
-
 }
-
-
-
-
-
-

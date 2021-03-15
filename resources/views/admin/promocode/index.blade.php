@@ -149,48 +149,5 @@
 @section('pagination')
     <span class="pagination pagination-md pull-right">{!! $promocode->render() !!}</span>
 @endsection
-{{-- modal open --}}
 
-
-
-
-
-
-
-
-{{-- <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Choose Product <span class="caret"></span></button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#" data-toggle="modal" data-target="#modal1">Open modal 1</a></li>
-    <li><a href="#" data-toggle="modal" data-target="#modal2">Open modal 2</a></li>
-  </ul>
-</div> --}}
-
-<!--Modal code -->
-{{-- <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1-label">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title">Modal 1</h2>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal1-label">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h2 class="modal-title">Modal 2</h2>
-      </div>
-    </div>
-  </div>
-</div> --}}
-
-
-
-
-
-{{-- modal close --}}
 @stop

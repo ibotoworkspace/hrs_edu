@@ -25,7 +25,7 @@
         </div>
 
     </div> --}}
-    <div class="form-group">
+    {{-- <div class="form-group">
         {!! Form::label('paid', 'Is Paid') !!}
         <div>
             <select id="select-example" class="form-control" name="paid" placeholder="Select paid...">
@@ -43,7 +43,7 @@
                         <option value="expert">expert</option>
                     </select>
 
-                    <input type="hidden" name="course_id" value="{!! $courses->id !!}">
+                    <input type="hidden" name="course_id" value="{!! $courses->id !!}"> --}}
 
 
                     {{-- <div class="form-group">

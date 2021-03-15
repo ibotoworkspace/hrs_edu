@@ -27,10 +27,11 @@ class ListofQuizController extends Controller
 
     public function create($course_id)
     {
+        $quiz = new Quiz();
         $control = 'create';
         return \View::make(
             'admin.listofquiz.create',
-            compact('control', 'course_id')
+            compact('control', 'course_id','quiz')
         );
     }
 

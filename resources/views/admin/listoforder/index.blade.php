@@ -43,14 +43,14 @@
 
             </th>
 
-            <th class="option">
+            {{-- <th class="option">
                 <div class="bestoption"> Status</div>
 
             </th>
             <th class="option">
                 <div class="bestoption">Option</div>
 
-            </th>
+            </th> --}}
 
 
 
@@ -82,7 +82,7 @@
                 <td class="mynbr">
                     <div class="bestnbr">{{ $ord->created_at }}</div>
                 </td>
-                <td class="mystatus">
+                {{-- <td class="mystatus">
                     <div class="status"><button type="button" class="btn btn-primary onstatus"
                             id="mystatus lateststatus">Sub Canceled</button></div>
                 </td>
@@ -93,7 +93,7 @@
                     <div class="myoptionss">
                         <i class="fa fa-cog settinger " aria-hidden="true"></i>
                     </div>
-                </td>
+                </td> --}}
             </tr>
         @endforeach
 

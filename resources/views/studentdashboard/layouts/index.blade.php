@@ -172,7 +172,7 @@
             <li>
                 <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
                 <ul id="submenu-1" class="collapse">
-                    <li><a href="#"> Library</a></li>
+                    <li><a href="{{ asset('student/library') }}"> Library</a></li>
                     <li><a href="{{ asset('student/blogpage') }}"> Blog</a></li>
                 </ul>
             </li>
@@ -230,8 +230,11 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="copydata">
-                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | Designed by <a
-                                    href="{{ asset('https://hatinco.com/') }}" target="_blank"> HATINC.</a></p>
+                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | <a
+                                    href="{{ asset('user/privacy&policy') }}" target="_blank">Privacy Policy </a> |
+                                <a href="{{ asset('user/terms&condition') }}" target="_blank">Term & Condition </a>|
+                                Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a>
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm-4">

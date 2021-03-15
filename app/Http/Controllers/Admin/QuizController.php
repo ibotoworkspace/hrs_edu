@@ -30,10 +30,9 @@ class QuizController extends Controller
     {
         $control = 'create';
       
-
         return \View::make(
             'admin.quiz.create',
-            compact('control')
+            compact('control','quiz')
         );
     }
 
