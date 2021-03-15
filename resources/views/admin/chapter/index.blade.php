@@ -1,6 +1,6 @@
 @extends('layouts.default_module')
 @section('module_name')
-    List of Chapter of {{ $courses->title }}
+    List of Chapter of {{ $courses->title ?? '' }}
 @stop
 @section('add_btn')
     {!! Form::open(['method' => 'get', 'url' => ['admin/chapter/create/' . ($courses->id ?? $chapter[0]->course_id)], 'files' => true]) !!}
