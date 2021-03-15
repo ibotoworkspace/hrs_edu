@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\CourseRequest;
 use COM;
 use Illuminate\Http\Request;
 use App\Models\Courses;
@@ -159,8 +160,6 @@ class CoursesController extends Controller
         return redirect()->back();
     }
 
-
-
     public function search(Request $request)
 
     {
@@ -168,8 +167,6 @@ class CoursesController extends Controller
         $courses = Courses::where('title', 'like', '%' . $name . '%')->paginate(10);
         return view('admin.courses.index', compact('courses', 'name'));
     }
-
-
 
     public function destroy_undestroy($id)
     {
@@ -185,6 +182,36 @@ class CoursesController extends Controller
         $response = Response::json([
             "status" => true,
             'action' => Config::get('constants.ajax_action.delete'),
+            'new_value' => $new_value
+        ]);
+        return $response;
+    }
+
+    public function courseRequest(Request $request)
+    {
+        $course_request = CourseRequest::with('course', 'user')->paginate(10);
+
+        return view('admin.courses.request', compact('course_request'));
+    }
+
+    public function status($id)
+    {
+
+        $request_course = CourseRequest::find($id);
+
+        if ($request_course->can_download == 0) {
+            $request_course->can_download = 1;
+            $request_course->save();
+            $new_value = 'Allow';
+        } else {
+            $request_course->can_download = 0;
+            $request_course->save();
+            $new_value = 'Pending';
+        }
+
+        $response = Response::json([
+            "status" => true,
+            'action' => 'update',
             'new_value' => $new_value
         ]);
         return $response;

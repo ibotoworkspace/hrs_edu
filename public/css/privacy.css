@@ -1,0 +1,39 @@
+.ourprivicyarea {
+    padding: 50px 0px;
+    background: #e6e6e6;
+}
+.ourprivicydata h3 {
+    font-size: 30px;
+    color: #bfb28e;
+    font-weight: 600;
+}
+.ourprivicydata h4 {
+    font-size: 25px;
+    color: #bfb28e;
+    font-weight: 600;
+}
+.ourprivicydata p {
+    font-size: 18px;
+    color: #475661;
+    margin-top: 20px;
+    font-weight: 500;
+    line-height: 27px;
+}
+.ourprivicydata ul li:before {
+    content: "\f138";
+    color: #bfb28e;
+    font-size: 18px;   
+    font-family: 'FontAwesome';
+    padding-right: 10px;
+    left: 0;
+}
+.ourprivicydata li {
+    color: #475661;
+    font-size: 18px;
+    line-height: 35px;
+    text-align: left;
+}
+.ourprivicydata ul {
+    list-style: none;
+    padding: 0px;
+}

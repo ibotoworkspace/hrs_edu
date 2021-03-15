@@ -51,7 +51,7 @@
             var hit_url = $(this).attr('hit_url');
             var hit_method = $(this).attr('hit_method');
             var remove_parent = $(this).attr('remove_parent');
-            console.log(modal_heading, modal_msg);
+            console.log('in modal !!!',modal_heading, modal_msg);
             if (modal_heading != '' || modal_heading != undefined) {
                 $('#modal-heading').html(modal_heading);
             }
