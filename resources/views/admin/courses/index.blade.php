@@ -82,7 +82,7 @@
 
         @foreach ($courses as $key => $crs)
 
-            <tr class="myarrow myarrow_{{$crs->id}}">
+            <tr class="myarrow myarrow_{{ $crs->id }}">
                 <td class="mynbr">
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
@@ -107,8 +107,8 @@
                 <td class="myvideos">
                     <div class="vide">
 
-                        <a href="{{ url('admin/courses/videos/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
-                            id="myvide">1830</a>
+                        <a href="{{ url('admin/courses/videos/' . $crs->id) }}" type="button"
+                            class="btn btn-primary onvideos" id="myvide">videos</a>
                         {{-- <button href="{{ route('courses.videos') }}" type="button" class="btn btn-primary onvideos" id="myvide">1830 --}}
 
                     </div>
@@ -134,6 +134,7 @@
                                 <li>
 
                                     <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$crs->id}}" hit_url="{{ url('/admin/course/delete/' . $crs->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+
                                         <span class="badge bg-info btn-danger ">
                                             {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
                                 </li>

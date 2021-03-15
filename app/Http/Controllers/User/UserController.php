@@ -199,11 +199,6 @@ class UserController extends Controller
     {
         return view('user.phpdeveloper.index');
     }
-
-    // public function registration(){
-    //     return view('user.registration.index');
-    // }
-
     public function regstration()
     {
         return view('user.regstration.index');
@@ -224,6 +219,14 @@ class UserController extends Controller
         return view('user.studentdashboard.index');
     }
 
+    public function privacyAndPolicy(){
+
+        return view('user.privacypolicy.index');
+    }
+    public function termsAndCondition(){
+
+        return view('user.termscondition.index');
+    }
 
 
     public function studentprofile()

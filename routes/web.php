@@ -28,6 +28,10 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
 
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
+    // Add BLog
+    Route::get('/addblog', 'Admin\BlogController@index')->name('addblog');
+    Route::post('/saveblog', 'Admin\BlogController@save')->name('saveblog');
+
     //     Route::get('admin/courses', 'Admin\CoursesController@list')->name('admin/courses');
 
     Route::get('/listofcourses', 'Admin\CoursesController@listofcourses')->name('admin/listofcourses');
@@ -50,13 +54,17 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/listoforder', 'Admin\OrderController@index')->name('admin/listofpromocode');
     Route::get('/listofmembership', 'Admin\CoursesController@listofmembership')->name('admin/listofpromocode');
 
-    Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket');
+    Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket'); 
+    Route::get('/ticketstatus/{id}', 'Admin\TicketController@status')->name('ticket.status');
     Route::get('/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
 
     Route::get('/userperformance', 'Admin\CoursesController@userperformance')->name('admin/userperformance');
     // admin/choices
     Route::get('/choices/{id}', 'Admin\ChoiceController@index')->name('admin.choices');
     Route::get('/choices', 'Admin\ChoiceController@index')->name('admin.choices');
+
+    Route::get('/courserequest', 'Admin\CoursesController@courseRequest')->name('admin.courserequest');
+    Route::get('/coursesrequest/status/{id}', 'Admin\CoursesController@status')->name('coursesrequest.status');
 
 
 
@@ -146,7 +154,8 @@ Route::group(['prefix' => 'user'], function () {
 
 
 
-    // Route::get('user/regstration', 'User\UserController@regstration')->name('user/regstration');
+    Route::get('privacy&policy', 'User\UserController@privacyAndPolicy')->name('privacy');
+    Route::get('terms&condition', 'User\UserController@termsAndCondition')->name('privacy');
     Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
     Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
     Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
@@ -184,6 +193,10 @@ Route::get('student/logout', 'Student\StudentController@logout')->name('logout')
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
 
+    Route::get('/library', 'Student\LibraryController@index')->name('library');
+    Route::post('/downloadpdf', 'Student\LibraryController@downloadRequest')->name('downloadpdf');
+
+
     Route::post('/applypromocode', 'Student\PaymentController@applyPromocode')->name('applypromocode');
     Route::post('/forgetpassword', 'Student\StudentController@forgetPassword')->name('forgetpassword');
 
@@ -206,6 +219,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
 
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
+    
 
     Route::match(['get', 'post'], 'ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 

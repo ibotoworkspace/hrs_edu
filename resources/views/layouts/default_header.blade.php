@@ -183,9 +183,9 @@ $admin_common = session()->get('admin_common');
                         </a>
                     </li>
                     <li>
-                        <a href="{{asset('admin/listofmembership')}}">
+                        <a href="{{asset('admin/addblog')}}">
                         <img src="{{ asset('images/icon-18.png') }}" alt="">      
-                        <span>Membership</span>
+                        <span>Add Blog</span>
                         </a>
                     </li>
 

@@ -46,10 +46,10 @@
 
 
             </th>
-            <th class="option">
+            {{-- <th class="option">
                 <div class="bestoption">IS Paid</div>
 
-            </th>
+            </th> --}}
             <th class="option">
                 <div class="bestoption">Level</div>
 
@@ -82,10 +82,10 @@
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->description !!}</div>
                 </td>
 
-                <td class="mylectures">
+                {{-- <td class="mylectures">
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->is_paid == 0 ? 'No' : 'Yes' !!}</div>
 
-                </td>
+                </td> --}}
 
                 <td class="mylectures">
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->course_level !!}</div>

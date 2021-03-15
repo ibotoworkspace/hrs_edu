@@ -5,12 +5,12 @@ list of courses
 @stop
 
 
-{{-- @section('add_btn')
+@section('add_btn')
 
 {!! Form::open(['method' => 'get', 'route' => ['quiz.create'], 'files'=>true]) !!}
 <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
 {!! Form::close() !!}
-@stop --}}
+@stop
 
 
 
