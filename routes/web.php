@@ -35,6 +35,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     //     Route::get('admin/courses', 'Admin\CoursesController@list')->name('admin/courses');
 
     Route::get('/listofcourses', 'Admin\CoursesController@listofcourses')->name('admin/listofcourses');
+    Route::get('/course/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('course.delete');
 
     /////listofquiz
     Route::get('/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin.listofquiz');
