@@ -149,4 +149,9 @@ class StudentController extends Controller
 
         return redirect()->back()->with('success', 'your password has been reset');
     }
+
+    public function Library(Request $request){
+        
+        return view('studentdashboard.ebooks.index');
+    }
 }

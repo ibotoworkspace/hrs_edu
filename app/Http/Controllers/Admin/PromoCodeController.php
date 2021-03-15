@@ -13,7 +13,7 @@ class PromoCodeController extends Controller
     public function index()
     {
 
-        $promocode = PromoCode::paginate(10);
+        $promocode = PromoCode::orderBy('created_at', 'desc')->paginate(10);
         return view('admin.promocode.index', compact('promocode'));
     }
 

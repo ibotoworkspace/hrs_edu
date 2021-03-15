@@ -1,0 +1,15 @@
+.termsarea {
+    background: white;
+    padding: 50px 10px;
+}
+.termsareadata h2 {
+    color: #bfb28e;
+    font-size: 40px;
+    font-weight: 600;
+}
+.termsareadata p {
+    color: #475661;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 35px;
+}

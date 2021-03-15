@@ -1,6 +1,6 @@
 @extends('layouts.default_module')
 @section('module_name')
-    List of Order
+    List of Ticket
 
 
 @stop
@@ -40,6 +40,10 @@
 
             </th>
             <th class="option">
+                <div class="bestoption">Attachment</div>
+
+            </th>
+            <th class="option">
                 <div class="bestoption">Action</div>
 
             </th>
@@ -70,6 +74,10 @@
 
                 <td class="mypara">
                     <div class="bestpara">{!! $tc->message !!}</div>
+                </td>
+                <td class="mypara">
+                    
+                     <a class="btn btn-info" href="{{$tc->avatar}}" download> Download </a>
                 </td>
 
                 <td class="mypara">

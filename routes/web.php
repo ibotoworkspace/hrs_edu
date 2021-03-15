@@ -28,6 +28,10 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
 
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
+    // Add BLog
+    Route::get('/addblog', 'Admin\BlogController@index')->name('addblog');
+    Route::post('/saveblog', 'Admin\BlogController@save')->name('saveblog');
+
     //     Route::get('admin/courses', 'Admin\CoursesController@list')->name('admin/courses');
 
     Route::get('/listofcourses', 'Admin\CoursesController@listofcourses')->name('admin/listofcourses');
@@ -56,6 +60,9 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     // admin/choices
     Route::get('/choices/{id}', 'Admin\ChoiceController@index')->name('admin.choices');
     Route::get('/choices', 'Admin\ChoiceController@index')->name('admin.choices');
+
+    Route::get('/courserequest', 'Admin\CoursesController@courseRequest')->name('admin.courserequest');
+    Route::get('/coursesrequest/status/{id}', 'Admin\CoursesController@status')->name('coursesrequest.status');
 
 
 
@@ -145,7 +152,8 @@ Route::group(['prefix' => 'user'], function () {
 
 
 
-    // Route::get('user/regstration', 'User\UserController@regstration')->name('user/regstration');
+    Route::get('privacy&policy', 'User\UserController@privacyAndPolicy')->name('privacy');
+    Route::get('terms&condition', 'User\UserController@termsAndCondition')->name('privacy');
     Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
     Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
     Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
@@ -181,6 +189,10 @@ Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
+
+
+    Route::get('/library', 'Student\LibraryController@index')->name('library');
+    Route::post('/downloadpdf', 'Student\LibraryController@downloadRequest')->name('downloadpdf');
 
 
     Route::post('/applypromocode', 'Student\PaymentController@applyPromocode')->name('applypromocode');

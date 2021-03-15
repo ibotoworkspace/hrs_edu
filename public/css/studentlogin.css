@@ -38,3 +38,6 @@ input.form-control{
     border-radius: 0px;
     height: 40px;
 }
+input.form-control {
+    color: #fff;
+}
