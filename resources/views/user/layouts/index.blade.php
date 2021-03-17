@@ -174,7 +174,7 @@
                         </ul>
                         <div class="crbtngroup">
                         <a href="{{ asset('student/login') }}"><button type="button" class="btn btn-primary portal">Login Account</button></a>
-                        <a href=""><button type="button" class="btn btn-primary portal">Join us as SDA</button></a>
+                        <a href="{{asset('add/skilladvisor')}}"><button type="button" class="btn btn-primary portal">Join us as SDA</button></a>
                         </div>
                         
                         <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button>  -->

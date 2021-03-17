@@ -50,7 +50,6 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/newquizquestion', 'Admin\CoursesController@newquizquestion')->name('admin/newquizquestion');
     Route::get('/listofpromocode', 'Admin\CoursesController@listofpromocode')->name('admin/listofpromocode');
 
-    // Route::get('/listoforder', 'Admin\CoursesController@listoforder')->name('admin/listofpromocode');
     Route::get('/listoforder', 'Admin\OrderController@index')->name('admin/listofpromocode');
     Route::get('/listofmembership', 'Admin\CoursesController@listofmembership')->name('admin/listofpromocode');
 
@@ -66,8 +65,9 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/courserequest', 'Admin\CoursesController@courseRequest')->name('admin.courserequest');
     Route::get('/coursesrequest/status/{id}', 'Admin\CoursesController@status')->name('coursesrequest.status');
 
-
-
+    //admin advisor
+    Route::get('/advisor', 'Admin\SkillAdvisorController@index')->name('advisor');
+    Route::get('/advisorstatus/{id}', 'Admin\SkillAdvisorController@updateStatus')->name('advisorstatus');
     // admin/choices/create
     Route::get('/choices/create/{id}', 'Admin\ChoiceController@create')->name('admin.choices.create');
 
@@ -157,14 +157,18 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('privacy&policy', 'User\UserController@privacyAndPolicy')->name('privacy');
     Route::get('terms&condition', 'User\UserController@termsAndCondition')->name('privacy');
     Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
-    Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
-    Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
-    Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
+    Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
+
+    Route::match(['get', 'post'], 'add/skilladvisor', 'User\SkillAdvisorController@add')->name('add.skilladvisor');
+
+    // Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
+    // Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
+    // Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
 });
-Route::get('advisor.search', 'User\SkillAdvisorController@search')->name('advisor.search');
+// Route::get('advisor/search', 'User\SkillAdvisorController@search')->name('advisor.search');
 
 // Route::get('userskill/create', 'User\SkillAdvisorController@create')->name('userskill.create');
-Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
+// Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
 
 Route::get('user/index', 'User\UserController@index')->name('user/index');
 Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.index');

@@ -84,6 +84,14 @@ input#GnTName {
     border-radius: 0px !important;
     height: 40px !important;
 }
+input#sdkaddress {
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px solid !important;
+    border-bottom-color: white !important;
+    border-radius: 0px !important;
+    height: 40px !important;
+}
 input#GnTPhone{
     background: transparent !important;
     border: none !important;
