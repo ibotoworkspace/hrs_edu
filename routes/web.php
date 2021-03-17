@@ -156,14 +156,18 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('privacy&policy', 'User\UserController@privacyAndPolicy')->name('privacy');
     Route::get('terms&condition', 'User\UserController@termsAndCondition')->name('privacy');
     Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
-    Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
-    Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
-    Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
+    Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
+
+    Route::match(['get', 'post'], 'add/skilladvisor', 'User\SkillAdvisorController@add')->name('add.skilladvisor');
+
+    // Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
+    // Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
+    // Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
 });
-Route::get('advisor.search', 'User\SkillAdvisorController@search')->name('advisor.search');
+// Route::get('advisor/search', 'User\SkillAdvisorController@search')->name('advisor.search');
 
 // Route::get('userskill/create', 'User\SkillAdvisorController@create')->name('userskill.create');
-Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
+// Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
 
 Route::get('user/index', 'User\UserController@index')->name('user/index');
 Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.index');

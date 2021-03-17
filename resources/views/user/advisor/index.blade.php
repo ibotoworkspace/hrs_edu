@@ -1,6 +1,6 @@
-@extends('layouts.default_module')
+@extends('user.layouts.index')
 
-@section('module_name')
+@section('module_name') 
     Advisor List
 @stop
 
@@ -11,6 +11,7 @@
 {!!  Form::close() !!}
 @stop --}}
 
+@section('default')
 
 
 @section('table-properties')
@@ -70,4 +71,6 @@
 <script>
 	
 </script>
+@endsection
+
 @endsection

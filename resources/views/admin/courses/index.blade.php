@@ -139,7 +139,8 @@
                                         name="activate_delete_link" data-target=".delete" modal_heading="Alert"
                                         modal_msg="Do You Want to Proceed?">
                                         <span class="badge bg-info btn-danger ">
-                                            {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span></a>
+                                            {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span>
+                                    </a>
                                 </li>
                             </ul>
 
