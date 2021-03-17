@@ -24,10 +24,10 @@ class SkillAdvisorController extends Controller
 
             $check_user = User::find($request->email);
             // dd($check_user);
-            if ($check_user) {  
-                dd('here'); 
-                return back()->with('error','Email Already exist ');
-            } else { 
+            if ($check_user) {
+                dd('here');
+                return back()->with('error', 'Email Already exist ');
+            } else {
                 $user = new User();
                 $user->name = $request->name;
                 $user->role_id = 3;
