@@ -45,6 +45,12 @@
     color: white !important;
     border-color: #243439 !important;
 }
+.book {
+    display: flex;
+}
+.bookclick {
+    margin-left: 10px;
+}
 .down {
     background: #243439 !important;
     color: white !important;

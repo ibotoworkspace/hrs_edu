@@ -53,7 +53,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/listoforder', 'Admin\OrderController@index')->name('admin/listofpromocode');
     Route::get('/listofmembership', 'Admin\CoursesController@listofmembership')->name('admin/listofpromocode');
 
-    Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket'); 
+    Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket');
     Route::get('/ticketstatus/{id}', 'Admin\TicketController@status')->name('ticket.status');
     Route::get('/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
 
@@ -185,8 +185,7 @@ Route::post('user/courseregistered', 'Student\CourseRegistrationController@regis
 //                              *********************** USER ROUTE END ****************************
 
 
-
-//                              *********************** STUDENT ROUTE START ****************************
+//                              *********************** STUDENT ROUTE START ***********************
 
 Route::get('student/registration', 'Student\StudentController@index')->name('student.registration');
 Route::post('student/registration/save', 'Student\StudentController@save')->name('student.save');
@@ -196,6 +195,8 @@ Route::get('student/logout', 'Student\StudentController@logout')->name('logout')
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
+
+    Route::post('/checkcode', 'Student\LibraryController@verifyCode')->name('checkcode');
 
     Route::get('/library', 'Student\LibraryController@index')->name('library');
     Route::post('/downloadpdf', 'Student\LibraryController@downloadRequest')->name('downloadpdf');
@@ -223,7 +224,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
 
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
-    
+
 
     Route::match(['get', 'post'], 'ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 

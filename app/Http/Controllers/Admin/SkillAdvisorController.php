@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\Response;
 
 class SkillAdvisorController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-
-        $advisor = SkillAdvisor::paginate(10);
+        $search_text= $request->name ?? '';
+        $advisor = SkillAdvisor::where('name','like', '%' . $search_text . '%')->paginate(10);
 
 
         return view('admin.advisor.index', compact('advisor'));
@@ -22,13 +22,12 @@ class SkillAdvisorController extends Controller
     {
         $advisor = SkillAdvisor::find($id);
 
-        if($advisor->status == 'pending'){
-            $advisor->status = 'approved' ;
+        if ($advisor->status == 'pending') {
+            $advisor->status = 'approved';
             $advisor->save();
             $new_value = 'Approved';
-
-        }else{
-            $advisor->status = 'pending' ;
+        } else {
+            $advisor->status = 'pending';
             $advisor->save();
             $new_value = 'Pending';
         }
@@ -38,7 +37,5 @@ class SkillAdvisorController extends Controller
             'new_value' => $new_value
         ]);
         return $response;
-
-
     }
 }
