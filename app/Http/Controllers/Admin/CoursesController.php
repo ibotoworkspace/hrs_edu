@@ -3,12 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Mail\CourseCode;
 use App\Models\CourseRequest;
 use COM;
 use Illuminate\Http\Request;
 use App\Models\Courses;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 
 class CoursesController extends Controller
@@ -196,13 +199,22 @@ class CoursesController extends Controller
 
     public function status($id)
     {
-
-        $request_course = CourseRequest::find($id);
-
+        $random = Str::random(10);
+        $request_course = CourseRequest::with('user')->find($id);
         if ($request_course->can_download == 0) {
             $request_course->can_download = 1;
+            $request_course->download_code = 'hrs-'.$random;
             $request_course->save();
-            $new_value = 'Allow';
+            $new_value = 'Allowed';
+
+            $details = [
+                'to' => $request_course->user->email,
+                'from' => 'contactus@hrsedu.com',
+                'title' => 'HRS Academy Course Download Request ',
+                'subject' => 'Course pdf code ',
+                "code"  => $request_course->download_code ,
+            ];
+            Mail::to($request_course->user->email)->send(new CourseCode($details));
         } else {
             $request_course->can_download = 0;
             $request_course->save();

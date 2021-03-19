@@ -9,6 +9,7 @@ use App\Models\Courses;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Response;
 
 class LibraryController extends Controller
 {
@@ -18,8 +19,8 @@ class LibraryController extends Controller
         $user_id = Auth::id();
 
         // $course_pdf = Course_Registered::with('course')->where('user_id',$user_id)->get();
-        $course_pdf = Courses::with(['requestCourse'=>function($q) use($user_id){
-            $q->where('user_id',$user_id);
+        $course_pdf = Courses::with(['requestCourse' => function ($q) use ($user_id) {
+            $q->where('user_id', $user_id);
         }])->get();
 
         return view('studentdashboard.ebooks.index', compact('course_pdf'));
@@ -37,5 +38,33 @@ class LibraryController extends Controller
 
         // return view('studentdashboard.ebooks.index');
         return  back()->with('success', 'Your course request is submited');
+    }
+
+    public function verifyCode(Request $request)
+    {
+
+        $user_id = Auth::id();
+        $request_course = CourseRequest::with('course')->where('download_code', $request->code)->where('is_expired', 0)->where('user_id', $user_id)->first();
+
+        if ($request_course) {
+            $request_course->is_expired = 1;
+            $request_course->save();
+
+            $response = Response::json([
+                "status" => true,
+                'action' => 'success',
+                'response' => $request_course
+            ]);
+        } else {
+
+            $response = Response::json([
+                "status" => true,
+                'action' => 'failed',
+                'response' => ''
+            ]);
+        }
+
+
+        return $response;
     }
 }

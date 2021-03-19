@@ -13,9 +13,9 @@
 
 
 @section('table')
-    {{-- {!! Form::open(['method' => 'get', 'url' => ['admin/chapter/' . $courses->id ?? ''], 'files' => true]) !!}
-    @include('admin.chapter.partial.searchfilters')
-    {!! Form::close() !!} --}}
+    {!! Form::open(['method' => 'get', 'url' => ['admin/advisor'], 'files' => true]) !!}
+    @include('admin.advisor.partial.searchfilters')
+    {!! Form::close() !!}
 
 
     <thead>
