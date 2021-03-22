@@ -183,6 +183,12 @@ $admin_common = session()->get('admin_common');
                         </a>
                     </li>
                     <li>
+                        <a href="{{asset('admin/group')}}">
+                        <img src="{{ asset('images/icon-17.png') }}" alt="">
+                            <span>Groups</span>
+                        </a>
+                    </li>
+                    <li>
                         <a href="{{asset('admin/addblog')}}">
                         <img src="{{ asset('images/icon-18.png') }}" alt="">      
                         <span>Add Blog</span>
