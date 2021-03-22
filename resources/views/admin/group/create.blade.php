@@ -4,20 +4,20 @@ $heading = 'Edit';
 } else {
 $heading = 'Add';
 } ?>
+
 @extends('layouts.default_edit')
 @section('heading')
     {!! $heading !!}
 @endsection
 @section('leftsideform')
     @if ($control == 'edit')
-        {{-- {{dd($courses)}} --}}
         {!! Form::model($courses, ['id' => 'my_form', 'method' => 'POST', 'route' => ['courses.update', $courses->id], 'files' => true]) !!}
     @else
-        {!! Form::open(['id' => 'my_form', 'method' => 'POST', 'route' => ['courses.save'], 'files' => true]) !!}
+        {!! Form::open(['id' => 'my_form', 'method' => 'POST', 'route' => ['group.save'], 'files' => true]) !!}
     @endif
 
 
-    @include('admin.courses.partial.form')
+    @include('admin.group.partial.form')
     {!! Form::close() !!}
 
 

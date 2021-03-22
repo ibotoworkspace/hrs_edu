@@ -45,16 +45,18 @@
         });
         $('a[name="activate_delete_link"]').on('click', function(e) {
             var current = this;
-            e.preventDefault();
+            e.preventDefault(); 
             var modal_heading = $(this).attr('modal_heading');
             var modal_msg = $(this).attr('modal_msg');
             var hit_url = $(this).attr('hit_url');
             var hit_method = $(this).attr('hit_method');
             var remove_parent = $(this).attr('remove_parent');
-            console.log('in modal !!!',modal_heading, modal_msg);
+            console.log('in modal !!!',this);
+            
             if (modal_heading != '' || modal_heading != undefined) {
                 $('#modal-heading').html(modal_heading);
             }
+            
             if (modal_msg != '' || modal_msg != undefined) {
                 $('#modal_msg').html(modal_msg);
             }
@@ -66,7 +68,8 @@
 
                     var my_url = hit_url;
                     var my_method = hit_method;
-
+                    console.log('my_url my_url',my_url)
+                    console.log('my_method my_method',my_method)
                     $.ajax({
                         url: my_url,
                         method: my_method,

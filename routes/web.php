@@ -27,6 +27,16 @@ Route::get('admin/logout', 'Admin\AdminController@logout')->name('logout');
 Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
 
+    Route::get('/discussion/{id}', 'Admin\GroupController@chatList')->name('discussion');
+    Route::get('/addcomment', 'Admin\GroupController@addComment')->name('addcomment');
+    Route::post('chat/send/{group_id}','Admin\GroupController@send')->name('chat.send');
+    Route::get('chat/latestchat','Admin\GroupController@latestChat')->name('chat.latestchat');
+
+    Route::get('/group/statusupdate/{id}', 'Admin\GroupController@statusUpdate')->name('group.statusupdate');
+    Route::get('/creategroup', 'Admin\GroupController@create')->name('group.create');
+    Route::post('/savegroup', 'Admin\GroupController@save')->name('group.save');
+    Route::get('/group', 'Admin\GroupController@index')->name('group');
+
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
     // Add BLog
     Route::get('/addblog', 'Admin\BlogController@index')->name('addblog');
