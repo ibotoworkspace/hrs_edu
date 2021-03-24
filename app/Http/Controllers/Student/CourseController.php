@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Chapter;
 use App\Models\Course_Registered;
 use App\Models\Courses;
+use App\Models\Discussion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,33 +37,34 @@ class CourseController extends Controller
     {
 
         $user_id = Auth::id();
-        $register_courses = Course_Registered::with('course')->where('user_id', $user_id)->where('is_paid', 1)->get();
+        $register_courses = Course_Registered::with('course.group')->where('user_id', $user_id)->where('is_paid', 1)->get();
         return view('studentdashboard.course.index', compact('register_courses'));
     }
 
-    public function courseDetail (Request $request){
+    public function courseDetail(Request $request)
+    {
 
         $course_id = decrypt($request->course_id);
 
-        $course_detail = Courses::with('chapters','videos','registerCourse')->find($course_id);
+        $course_detail = Courses::with('chapters', 'videos', 'registerCourse')->find($course_id);
 
 
-        return view('studentdashboard.course.detail', compact('course_detail')); 
+        return view('studentdashboard.course.detail', compact('course_detail'));
     }
 
-
-    public function readChapter(Request $request){
+    public function readChapter(Request $request)
+    {
 
         $chapter = Chapter::find($request->chap_id);
 
         return view('studentdashboard.course.readchapter', compact('chapter'));
-
     }
 
-    public function courseBadge(Request $request){
+    public function courseBadge(Request $request)
+    {
 
         $course_reg = Course_Registered::find($request->course_id);
-        $course_reg->is_completed= 1 ;
+        $course_reg->is_completed = 1;
         $course_reg->save();
 
         $response = array(
@@ -70,6 +72,179 @@ class CourseController extends Controller
             'msg' => $course_reg,
         );
 
-        return $response ;
+        return $response;
     }
+    //  general discussion
+    public function generalchatList()
+    {
+        $student_common = session()->get('student_common');
+        $chat = Discussion::with('user')->where('is_general', 1)->orderBy('created_at', 'DESC')->paginate(10);
+        foreach ($chat as $c) {
+            $c->created_on = $this->created_at_msg_time($c->created_at);
+        }
+        return view('studentdashboard.generalchat.index', compact('chat', 'student_common'));
+    }
+
+    public function generalsend(Request $request, $group_id)
+    {
+
+        $current_user = Auth::id();
+
+        $user_msg = new Discussion();
+        $user_msg->user_id = $current_user;
+        $user_msg->group_id = $group_id;
+        $user_msg->chat = $request->message;
+        $res = new \stdClass();
+        $res->status = true;
+        $res->response = $user_msg;
+        $res->error = null;
+
+        $user_msg->save();
+
+        $response = json_encode($res);
+        return $response;
+    }
+
+    public function generallatestChat(Request $request)
+    {
+
+        $chat = Discussion::where('group_id', $request->group_id)
+            // ->where('sender','user')
+            ->where('id', '>', $request->msg_id)
+            ->orderBy('created_at', 'DESC')->get();
+        $res = new \stdClass();
+        $res->status = true;
+        $res->response = $chat;
+        $res->error = null;
+
+        return json_encode($res);
+    }
+
+
+    public function generaladdComment(Request $request)
+    {
+
+        $user_id = Auth::id();
+        $discussion = new Discussion();
+        $discussion->chat = $request->comment;
+        $discussion->user_id = $user_id;
+        $discussion->is_general = 1;
+        $discussion->save();
+
+        return redirect('student/discussion/' . $request->group_id);
+    }
+
+    // is class methoods start 
+
+    public function chatList($id)
+    {
+        $group_id = $id;
+        $student_common = session()->get('student_common');
+        $chat = Discussion::with('user')->where('group_id', $group_id)->orderBy('created_at', 'DESC')->paginate(10);
+        foreach ($chat as $c) {
+            $c->created_on = $this->created_at_msg_time($c->created_at);
+        }
+        return view('studentdashboard.course.chatdetail', compact('chat', 'student_common', 'group_id'));
+    }
+
+    public function send(Request $request, $group_id)
+    {
+
+        $current_user = Auth::id();
+
+        $user_msg = new Discussion();
+        $user_msg->user_id = $current_user;
+        $user_msg->group_id = $group_id;
+        $user_msg->chat = $request->message;
+        $res = new \stdClass();
+        $res->status = true;
+        $res->response = $user_msg;
+        $res->error = null;
+
+        $user_msg->save();
+
+        $response = json_encode($res);
+        return $response;
+    }
+
+    public function latestChat(Request $request)
+    {
+
+        $chat = Discussion::where('group_id', $request->group_id)
+            // ->where('sender','user')
+            ->where('id', '>', $request->msg_id)
+            ->orderBy('created_at', 'DESC')->get();
+        $res = new \stdClass();
+        $res->status = true;
+        $res->response = $chat;
+        $res->error = null;
+
+        return json_encode($res);
+    }
+
+    public function created_at_msg_time($created_at)
+    {
+
+        $created_at = new \DateTime($created_at);
+        $now = new \DateTime(date('Y-m-d H:i:s'));
+        $created_at = $created_at->diff($now);
+
+        $year = $created_at->y;
+        $month = $created_at->m;
+        $day = $created_at->d;
+        $hr = $created_at->h;
+        $min = $created_at->i;
+
+        if ($year) {
+            if ($year == 1) {
+                return $year . ' year ago';
+            }
+            return $year . ' years ago';
+        }
+
+        if ($month) {
+            if ($month == 1) {
+                return $month . ' month ago';
+            }
+            return $month . ' months ago';
+        }
+
+        if ($day) {
+            if ($day == 1) {
+                return $day . ' day ago';
+            }
+            return $day . ' days ago';
+        }
+
+        if ($hr) {
+            if ($hr == 1) {
+                return $hr . ' hour ago';
+            }
+            return $hr . ' hours ago';
+        }
+
+        if ($min) {
+            if ($min == 1) {
+                return $min . ' minute ago';
+            }
+            return $min . ' minutes ago';
+        } else {
+            return '0 minutes ago';
+        }
+    }
+    public function addComment(Request $request)
+    {
+
+        $user_id = Auth::id();
+        $discussion = new Discussion();
+        $discussion->chat = $request->comment;
+        $discussion->user_id = $user_id;
+        $discussion->group_id = $request->group_id;
+        $discussion->is_general = 1;
+        $discussion->save();
+
+        return redirect('student/discussion/' . $request->group_id);
+    }
+
+    // is class methoods end
 }

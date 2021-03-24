@@ -19,7 +19,6 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
 
 //                           *********************** ADMIN ROUTE START ****************************
 
-
 Route::get('admin/login', 'Admin\AdminController@index');
 Route::post('admin/checklogin', 'Admin\AdminController@checklogin');
 Route::get('admin/logout', 'Admin\AdminController@logout')->name('logout');
@@ -29,8 +28,8 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
     Route::get('/discussion/{id}', 'Admin\GroupController@chatList')->name('discussion');
     Route::get('/addcomment', 'Admin\GroupController@addComment')->name('addcomment');
-    Route::post('chat/send/{group_id}','Admin\GroupController@send')->name('chat.send');
-    Route::get('chat/latestchat','Admin\GroupController@latestChat')->name('chat.latestchat');
+    Route::post('chat/send/{group_id}', 'Admin\GroupController@send')->name('chat.send');
+    Route::get('chat/latestchat', 'Admin\GroupController@latestChat')->name('chat.latestchat');
 
     Route::get('/group/statusupdate/{id}', 'Admin\GroupController@statusUpdate')->name('group.statusupdate');
     Route::get('/creategroup', 'Admin\GroupController@create')->name('group.create');
@@ -122,7 +121,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 });
 
 
-//                              *********************** ADMIN ROUTE END ****************************
+//                            *********************** ADMIN ROUTE END ****************************
 
 
 //                              *********************** USER ROUTE START ****************************
@@ -204,6 +203,19 @@ Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
+
+    // general discussion 
+  
+    Route::get('generaldiscussion', 'Student\CourseController@generalchatList')->name('discussion');
+    Route::get('/addcomment', 'Student\CourseController@generaladdComment')->name('addcomment');
+    Route::post('chat/send/{group_id}', 'Student\CourseController@generalsend')->name('chat.send');
+    Route::get('chat/latestchat', 'Student\CourseController@generallatestChat')->name('chat.latestchat');
+
+    // discussion against course 
+    Route::get('course/discussion/{id}', 'Student\CourseController@chatList')->name('discussion');
+    Route::get('/addcomment', 'Student\CourseController@addComment')->name('addcomment');
+    Route::post('chat/send/{group_id}', 'Student\CourseController@send')->name('chat.send');
+    Route::get('chat/latestchat', 'Student\CourseController@latestChat')->name('chat.latestchat');
 
 
     Route::post('/checkcode', 'Student\LibraryController@verifyCode')->name('checkcode');

@@ -88,11 +88,11 @@
                                     <button type="button" class="btn btn-primary down"><i
                                             class="fa fa-long-arrow-down arrow" aria-hidden="true"></i>Download</button>
                                 @else --}}
-                                    <form method="post" action="{{ asset('student/downloadpdf') }}">
-                                        @csrf()
-                                        <input name="course_id" value="{{ $c_pdf->id }}" hidden>
-                                        <button type="submit" class="btn btn-primary for">Request for Download</button>
-                                    </form>
+                                <form method="post" action="{{ asset('student/downloadpdf') }}">
+                                    @csrf()
+                                    <input name="course_id" value="{{ $c_pdf->id }}" hidden>
+                                    <button type="submit" class="btn btn-primary for">Request for Download</button>
+                                </form>
 
                                 {{-- @endif --}}
                             </div>
@@ -170,8 +170,8 @@
 
         function downloadPdfhtml(url) {
             return ` <a id='download_link' class='download_link' href='` + url + `' target="_blank" download>
-                                        </a>
-                                    `
+                                            </a>
+                                        `
         }
 
     </script>
