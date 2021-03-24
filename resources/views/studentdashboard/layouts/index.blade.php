@@ -214,12 +214,6 @@
 
     @yield('default')
 
-
-
-
-
-
-
     <footer id="myFooter">
 
 

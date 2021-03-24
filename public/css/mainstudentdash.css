@@ -383,11 +383,18 @@ p.smallright {
     display: flex;
     margin: 0px -10px;
 }
+
 .message {
     font-size: 35px !important;
     color: white;
     margin: 0px 5px;
+
+    margin-top: 10px !important;
 } 
+.msgcss {
+    width: 84% !important;
+    float: right !important;
+}
 .newssign {
     background: #e2e2e2 !important;
     border-color: #e2e2e2 !important;

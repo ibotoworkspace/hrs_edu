@@ -62,8 +62,6 @@ class GroupController extends Controller
         foreach ($chat as $c) {
             $c->created_on = $this->created_at_msg_time($c->created_at);
         }
-
-
         // $discusssion_list =  Discussion::with('user')->where('group_id', $group_id)->get();
 
         return view('admin.group.details', compact('chat', 'admin_common', 'group_id'));

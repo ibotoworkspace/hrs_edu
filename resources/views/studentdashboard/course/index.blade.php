@@ -39,41 +39,56 @@
                     </div>
 
                     <div class="row courseside">
+                        <a class="btn-primary" href="{{ asset('student/generaldiscussion') }}"><button type="button"
+                                class="btn btn-primary">General Discussion</button></a>
                         <div class="col-sm-12">
                             <div class="coursesidedata">
+
                                 <div class="coursesidedata">
-                                
-                                <table class="table mytables">
-                                    <thead class="coursesidehead">
-                                    <tr>
-                                            <th>Course No</th>
-                                            <th>Title</th>
-                                            <th>Image</th>
-                                            <th>Action </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="mycolarea">
-                                        @foreach ($register_courses as $key => $r_course)
-                                            <tr class="mycolareadata">
-                                                <td class="tdcenter">HRS-{{ $r_course->id }}</td>
-                                                <td class="tdcenter">{{ $r_course->course->title }}</td>
-                                                <td class="tdcenter"> 
-                                                    <img width="100px" src="{!! $r_course->course->avatar !!}" class="show-product-img imgshow">
 
-                                                </td class="tdcenter">
-                                                <?php 
-                                                $course_id = Crypt::encrypt($r_course->course->id);
-                                                ?>
-                                                <td class="tdcenter"><a href="{{asset('student/course/detail?course_id='.$course_id)}}" target="_blank">
-                                                        <span class="badge badge-success">View</span>
-                                                    </a></td>
-
+                                    <table class="table mytables">
+                                        <thead class="coursesidehead">
+                                            <tr>
+                                                <th>Course No</th>
+                                                <th>Title</th>
+                                                <th>Image</th>
+                                                <th>Action </th>
                                             </tr>
-                                        @endforeach
+                                        </thead>
+                                        <tbody class="mycolarea">
+                                            @foreach ($register_courses as $key => $r_course)
+                                                <tr class="mycolareadata">
+                                                    <td class="tdcenter">HRS-{{ $r_course->id }}</td>
+                                                    <td class="tdcenter">{{ $r_course->course->title }}</td>
+                                                    <td class="tdcenter">
+                                                        <img width="100px" src="{!! $r_course->course->avatar !!}"
+                                                            class="show-product-img imgshow">
 
-                                    </tbody>
-                                </table>
-                            </div>
+                                                    </td class="tdcenter">
+                                                    <?php
+                                                    $course_id = Crypt::encrypt($r_course->course->id);
+                                                    $group_id = $r_course->course->group->id ?? null;
+                                                    ?>
+                                                    <td class="tdcenter"><a
+                                                            href="{{ asset('student/course/detail?course_id=' . $course_id) }}"
+                                                            target="_blank">
+                                                            <span class="badge badge-success">View</span>
+                                                        </a>
+                                                        @if ($group_id)
+                                                            <a href="{{ asset('student/course/discussion/' . $group_id) }}"
+                                                                target="_blank">
+                                                                <span class="badge badge-success">Discussion</span>
+                                                            </a>
+                                                        @endif
+                                                    </td>
+
+
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -81,12 +96,6 @@
             </div>
         </section>
 
-
-
-
-
     </div>
-
-
 
 @endsection
