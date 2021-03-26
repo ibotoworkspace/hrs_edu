@@ -85,14 +85,14 @@ class CourseController extends Controller
         return view('studentdashboard.generalchat.index', compact('chat', 'student_common'));
     }
 
-    public function generalsend(Request $request, $group_id)
+    public function generalsend(Request $request)
     {
 
         $current_user = Auth::id();
 
         $user_msg = new Discussion();
         $user_msg->user_id = $current_user;
-        $user_msg->group_id = $group_id;
+        $user_msg->is_general = 1;
         $user_msg->chat = $request->message;
         $res = new \stdClass();
         $res->status = true;

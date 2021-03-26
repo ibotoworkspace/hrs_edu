@@ -1,18 +1,18 @@
 <div class="form-group">
 
-    {!! Form::label('title', 'Title') !!}
+    {!! Form::label('title', 'Add Voucher') !!}
     <div>
-        {!! Form::text('title', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
+        {!! Form::text('voucher', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Enter Voucher', 'required', 'maxlength' => '100']) !!}
     </div>
 
 
 
-    <div class="form-group">
+    {{-- <div class="form-group">
         {!! Form::label('description', 'Description') !!}
         <div>
             <textarea class="ckeditor form-control" id="summary-ckeditor" name="description"></textarea>
         </div>
-    </div>
+    </div> --}}
     {{-- <div class="form-group">
   
         {!! Form::label('paid','Paid') !!}
@@ -61,14 +61,14 @@
 
 
 
-        <input type="hidden" name="course_id" value="{!! $courses->id !!}">
+    <input type="hidden" name="reg_course_id" value="{!! $reg_course !!}">
 
 
 
 
 
 
-                    {{-- <div class="form-group">
+    {{-- <div class="form-group">
                 {!! Form::label('downloadurl','Downloadurl') !!}
                 <div>
   
@@ -110,22 +110,22 @@
 
 
 
-                    <div class="col-md-5 pull-left">
-                        <div class="form-group text-center">
-                            <div>
-                                {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block btn-lg btn-parsley', 'onblur' => 'return validateForm();']) !!}
-                            </div>
-                        </div>
-                    </div>
+    <div class="col-md-5 pull-left">
+        <div class="form-group text-center">
+            <div>
+                {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block btn-lg btn-parsley', 'onblur' => 'return validateForm();']) !!}
+            </div>
+        </div>
+    </div>
 
-                    @section('app_jquery')
-                        <script>
-                            function validateForm() {
-                                return true;
-                            }
+    @section('app_jquery')
+        <script>
+            function validateForm() {
+                return true;
+            }
 
-                        </script>
+        </script>
 
-                        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
-                    @endsection
+    @endsection

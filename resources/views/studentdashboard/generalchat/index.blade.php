@@ -26,15 +26,18 @@
     <div class="chat-box" id="chating">
         @for ($i = sizeOf($chat->items()) - 1; $i > -1; $i--)
 
-            <?php $c = $chat[$i]; ?>
-            @if ($c->user->role_id == 2)
-                @include('studentdashboard.course.partial.user')
-            @endif
-            @if ($c->user->role_id == 1 || $c->user->role_id == 3)
-                @include('studentdashboard.course.partial.student')
+            <?php $c = $chat[$i]; 
+            
+            $current_user = Auth::user();
+            ?>
+            @if ($c->user->id == $current_user->id)
+                @include('studentdashboard.generalchat.partial.user')
+            {{-- @endif
+            @if ($c->user->role_id == 1 || $c->user->role_id == 3) --}}
+            @else
+                @include('studentdashboard.generalchat.partial.student')
             @endif
         @endfor
-        <h1>dsgfg</h1>
     </div>
 
     <?php $last_msg_id = isset($c) ? $c->id : ''; ?>
@@ -83,7 +86,7 @@
 
 
         function latestChat() {
-            var url = "{!! asset('student/chat/latestchat?msg_id=) !!}" + last_msg_id;
+            var url = "{!! asset('student/chat/generallatestchat?msg_id=') !!}" + last_msg_id;
             console.log(url);
             $.get(url, function(data, status) {
                 // console.log("m7y url ",url);
@@ -150,7 +153,7 @@
                 return;
             }
             console.log("message :", msg)
-            $.post("{!! asset('/student/chat/send') !!}", {
+            $.post("{!! asset('/student/chat/generalsend') !!}", {
                     message: msg,
                     _token: '{!! csrf_token() !!}'
                 })

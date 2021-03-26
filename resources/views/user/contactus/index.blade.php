@@ -35,7 +35,7 @@
                                 <img src="{{ asset('images/call.png') }}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
-                                <p>+1(909) 031-9921</p>
+                                <p>+1(909) 381 9095</p>
                             </div>
                         </div>
                         <div class="infobox">
@@ -43,7 +43,7 @@
                                 <img src="{{ asset('images/call.png') }}" class="img-responsive">
                             </div>
                             <div class="infoboxdata">
-                                <p>+234(702) 559-9031</p>
+                                <p>+234(70) 20319921</p>
                             </div>
                         </div>
                         <div class="infobox">
