@@ -30,6 +30,7 @@
             background-position: 50% 50%;
             padding: 30px 10px;
         } */
+
     </style>
 
 
@@ -67,14 +68,15 @@
                                     <img src="{{ asset('images/call.png') }}" class="img-responsive">
                                 </div>
                                 <div class="topboxdata">
-                                    <h4>+1(909) 031-9921</h4>
+                                    <h4>+1(909) 381 9095</h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="topheaderclick">
-                            <a href="{{ url('student/registration') }}" class="btn btn-primary leadrning">LEARNING PORTAL</a>
+                            <a href="{{ url('student/registration') }}" class="btn btn-primary leadrning">LEARNING
+                                PORTAL</a>
                             <!-- <button data-target="#mNAV" data-toggle="collapse" id="mnav-button"
                                 class="navbar-toggle fa fa-bars fa-2x collapsed" type="button">
                             </button> -->
@@ -138,7 +140,8 @@
                 <nav class="navbar navbar-default navbg" role="navigation">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                            data-target=".navbar-ex1-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -170,13 +173,15 @@
                             <li id="7">
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
-                            
+
                         </ul>
                         <div class="crbtngroup">
-                        <a href="{{ asset('student/login') }}"><button type="button" class="btn btn-primary portal">Login Account</button></a>
-                        <a href="{{asset('add/skilladvisor')}}"><button type="button" class="btn btn-primary portal">Join us as SDA</button></a>
+                            <a href="{{ asset('student/login') }}"><button type="button"
+                                    class="btn btn-primary portal">Login Account</button></a>
+                            <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
+                                    class="btn btn-primary portal">Join us as SDA</button></a>
                         </div>
-                        
+
                         <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button>  -->
                         <!-- {{ asset('user/skilladvisor') }} -->
                     </div><!-- /.navbar-collapse -->
@@ -251,7 +256,8 @@
                                     <li>Help Cente</li>
                                     <li>Contact Us</li></a>
                                 </ul>
-                                <a href=""><img src="{{ asset('images/googleplay.png') }}" class="img-responsive"></a>
+                                <a href=""><img src="{{ asset('images/googleplay.png') }}"
+                                        class="img-responsive"></a>
                             </div>
                         </div>
                     </div>
@@ -268,10 +274,11 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="copydata">
-                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | 
-                                <a href="{{asset('user/privacy&policy')}}" target="_blank">Privacy Policy </a> | 
-                                <a href="{{asset('user/terms&condition')}}" target="_blank">Term & Condition </a>| 
-                                Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a></p>
+                            <p>Copyright © 2020 HRS Academy | All Rights Reserved |
+                                <a href="{{ asset('user/privacy&policy') }}" target="_blank">Privacy Policy </a> |
+                                <a href="{{ asset('user/terms&condition') }}" target="_blank">Term & Condition </a>|
+                                Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a>
+                            </p>
                         </div>
                     </div>
                     <div class="col-sm-4">

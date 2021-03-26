@@ -14,9 +14,9 @@ class AlterCourseRegisterTable extends Migration
     public function up()
     {
         Schema::table('student_course_registered', function (Blueprint $table) {
-            $table->tinyInteger('certificate_req')->nullable()->default(0);
-            $table->tinyInteger('badge_req')->nullable()->default(0);
-            $table->tinyInteger('voucher_req')->nullable()->default(0);
+            $table->string('certificate_status')->nullable()->default('pending');
+            $table->string('badge_status')->nullable()->default('pending');
+            $table->string('voucher_status')->nullable()->default('pending');
         });
     }
 

@@ -220,7 +220,7 @@ $admin_common = session()->get('admin_common'); ?>
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{ asset('admin/report/request') }}">
+                                    <a href="{{ asset('admin/report/user') }}">
                                         <span>Request</span>
                                     </a>
                                 </li>

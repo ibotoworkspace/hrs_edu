@@ -83,11 +83,12 @@
 
                 </td>
                 <td class="mypara">
-                    @if ($reg_course->voucher_req)
+                    @if ($reg_course->voucher_req == 'pending')
 
                         <a href="{{ asset('admin/report/user/voucher/' . $reg_course->id) }}">
                             <span class="badge bg-info btn-success ">
-                                Requested</span></a>
+                                Requested</span>
+                        </a>
 
 
                     @else

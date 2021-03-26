@@ -61,13 +61,15 @@ class UserController extends Controller
     public function badge($id)
     {
 
+        $reg_course = Course_Registered::get();
 
-        // $response = Response::json([
-        //     "status" => true,
-        //     'action' => 'update',
-        //     'new_value' => $new_value
-        // ]);
-        // return $response;
+
+        $response = Response::json([
+            "status" => true,
+            'action' => 'update',
+            'new_value' => $new_value
+        ]);
+        return $response;
     }
 
     public function mailCheck()
