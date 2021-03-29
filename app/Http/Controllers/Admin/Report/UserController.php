@@ -30,7 +30,7 @@ class UserController extends Controller
     public function certificate($id)
     {
         $reg_course = Course_Registered::with('course', 'user')->find($id);
-        $new_value = 'Requested';
+        $new_value = 'Accepted';
         if ($reg_course) {
             $details = [
                 'to' => $reg_course->user->email,
@@ -44,6 +44,8 @@ class UserController extends Controller
             ];
             Mail::to($reg_course->user->email)->send(new Certificate($details));
             $new_value = 'Send';
+            $reg_course->certificate_status =  'accepted';
+            $reg_course->save();
         }
 
         $response = Response::json([
@@ -61,9 +63,13 @@ class UserController extends Controller
     public function badge($id)
     {
 
-        $reg_course = Course_Registered::get();
-
-
+        $reg_course = Course_Registered::with('course', 'user')->find($id);
+        $new_value= 'Requested';
+        if ($reg_course) {
+            $reg_course->badge_status = 'accepted';
+            $reg_course->save();
+            $new_value = 'Accepted';
+        }
         $response = Response::json([
             "status" => true,
             'action' => 'update',

@@ -37,7 +37,10 @@
                             <h3>My Courses</h3>
                         </div>
                     </div>
-
+                    <div class="alert alert-success alert-block success-modal" style="display: none;">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong id="suc-msg">{{ $message ?? '' }}</strong>
+                    </div>
                     <div class="row courseside">
                         <a class="btn-primary" href="{{ asset('student/generaldiscussion') }}"><button type="button"
                                 class="btn btn-primary">General Discussion</button></a>
@@ -57,6 +60,7 @@
                                         </thead>
                                         <tbody class="mycolarea">
                                             @foreach ($register_courses as $key => $r_course)
+
                                                 <tr class="mycolareadata">
                                                     <td class="tdcenter">HRS-{{ $r_course->id }}</td>
                                                     <td class="tdcenter">{{ $r_course->course->title }}</td>
@@ -69,8 +73,8 @@
                                                     $course_id = Crypt::encrypt($r_course->course->id);
                                                     $group_id = $r_course->course->group->id ?? null;
                                                     ?>
-                                                    <td class="tdcenter"><a
-                                                            href="{{ asset('student/course/detail?course_id=' . $course_id) }}"
+                                                    <td class="tdcenter">
+                                                        <a href="{{ asset('student/course/detail?course_id=' . $course_id) }}"
                                                             target="_blank">
                                                             <span class="badge badge-success">View</span>
                                                         </a>
@@ -79,6 +83,24 @@
                                                                 target="_blank">
                                                                 <span class="badge badge-success">Discussion</span>
                                                             </a>
+                                                        @endif
+
+                                                        @if ($r_course->course->group)
+                                                            <?php
+                                                            $current_time = Carbon\Carbon::now()->timestamp;
+                                                            $end_date = $r_course->course->group->end_date ?? 0;
+                                                            ?>
+                                                            @if ($end_date > $current_time)
+                                                                <button type="button"
+                                                                    onclick="certificate_requestFun({{ $r_course->id }});"
+                                                                    class="btn btn-info">Request For Certificate</button>
+                                                                <button type="button"
+                                                                    onclick="badge_requestFun({{ $r_course->id }});"
+                                                                    class="btn btn-info">Request For Badge</button>
+                                                            @endif
+                                                            <button type="button"
+                                                                onclick="voucher_requestFun({{ $r_course->id }});"
+                                                                class="btn btn-info">Request For Voucher</button>
                                                         @endif
                                                     </td>
 
@@ -97,5 +119,74 @@
         </section>
 
     </div>
+
+    <script>
+        function certificate_requestFun(course_reg_id) {
+
+            let _token = "{{ csrf_token() }}";
+
+            $.ajax({
+                url: "{{ asset('student/certificate_req') }}",
+                type: "POST",
+                data: {
+                    course_reg_id: course_reg_id,
+                    _token: _token
+                },
+                success: function(response) {
+                    console.log('response !!!!!!!!', response);
+                    if (response.status == 'true') {
+                        $('.success-modal').css("display", "block")
+                        $('#suc-msg').html(response.value)
+                    }
+                }
+            });
+
+        }
+
+        function badge_requestFun(course_reg_id) {
+
+            let _token = "{{ csrf_token() }}";
+
+            $.ajax({
+                url: "{{ asset('student/badge_req') }}",
+                type: "POST",
+                data: {
+                    course_reg_id: course_reg_id,
+                    _token: _token
+                },
+                success: function(response) {
+                    console.log('response !!!!!!!!', response);
+                    if (response.status == 'true') {
+                        $('.success-modal').css("display", "block")
+                        $('#suc-msg').html(response.value)
+                    }
+                }
+            });
+
+        }
+
+        function voucher_requestFun(course_reg_id) {
+
+            let _token = "{{ csrf_token() }}";
+
+            $.ajax({
+                url: "{{ asset('student/voucher_req') }}",
+                type: "POST",
+                data: {
+                    course_reg_id: course_reg_id,
+                    _token: _token
+                },
+                success: function(response) {
+                    console.log('response !!!!!!!!', response);
+                    if (response.status == 'true') {
+                        $('.success-modal').css("display", "block")
+                        $('#suc-msg').html(response.value)
+                    }
+                }
+            });
+
+        }
+
+    </script>
 
 @endsection

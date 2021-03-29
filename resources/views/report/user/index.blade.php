@@ -83,53 +83,66 @@
 
                 </td>
                 <td class="mypara">
-                    @if ($reg_course->voucher_req == 'pending')
+                    @if ($reg_course->voucher_status == 'pending')
 
+
+                        <span class="badge bg-info btn-danger ">
+                            Pending</span>
+
+
+                    @elseif($reg_course->voucher_status == 'requested')
                         <a href="{{ asset('admin/report/user/voucher/' . $reg_course->id) }}">
-                            <span class="badge bg-info btn-success ">
-                                Requested</span>
+                            <span class="badge bg-info btn-primary ">
+                                Requested
+                            </span>
                         </a>
 
-
                     @else
-                        <span class="badge bg-info btn-primary ">
-                            No request
-                        </span>
+                        <span class="badge bg-info btn-success ">
+                            Accepted</span>
                     @endif
 
                 </td>
                 <td class="mypara">
-                    @if ($reg_course->certificate_req)
+                    @if ($reg_course->certificate_status == 'pending')
 
+
+                        <span class="badge bg-info btn-danger ">
+                            Pending</span>
+
+                    @elseif($reg_course->certificate_status == 'requested')
                         <a href="" data-toggle="modal" hit_method="get"
                             hit_url="{{ url('/admin/report/user/certificate/' . $reg_course->id) }}"
                             name="activate_delete_link" data-target=".delete" modal_heading="Alert"
                             modal_msg="Do You Want to Proceed?">
-                            <span class="badge bg-info btn-success ">
+                            <span class="badge bg-info btn-primary ">
                                 Requested</span></a>
 
-
                     @else
-                        <span class="badge bg-info btn-primary ">
-                            No request
+                        <span class="badge bg-info btn-success ">
+                            Accepted
                         </span>
                     @endif
 
                 </td>
                 <td class="mypara">
-                    @if ($reg_course->badge_req)
+                    @if ($reg_course->badge_status == 'pending')
+
+
+                        <span class="badge bg-info btn-danger ">
+                            Pending</span>
+
+                    @elseif($reg_course->badge_status == 'requested')
 
                         <a href="" data-toggle="modal" hit_method="get"
                             hit_url="{{ url('/admin/report/user/badge/' . $reg_course->id) }}" name="activate_delete_link"
                             data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
-                            <span class="badge bg-info btn-success ">
+                            <span class="badge bg-info btn-primary ">
                                 Requested</span>
                         </a>
-
-
                     @else
-                        <span class="badge bg-info btn-primary ">
-                            No request
+                        <span class="badge bg-info btn-success ">
+                            Accepted
                         </span>
                     @endif
 

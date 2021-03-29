@@ -32,7 +32,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');
     Route::get('/report/user', 'Admin\Report\UserController@index')->name('report.course');
     Route::get('/report/user/certificate/{id}', 'Admin\Report\UserController@certificate')->name('report.course');
-    Route::get('/report/user/badge/{id}', 'Admin\Report\CourseController@badge')->name('report.badge');
+    Route::get('/report/user/badge/{id}', 'Admin\Report\UserController@badge')->name('report.badge');
     Route::get('/report/user/voucher/{id}', 'Admin\Report\VoucherController@index')->name('report.voucher');
     Route::post('/report/user/voucher/save', 'Admin\Report\VoucherController@save')->name('admin.voucher.save');
 
@@ -214,9 +214,13 @@ Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
+    // request for certificate
+
+    Route::post('certificate_req', 'Student\RequestController@certificateRequest')->name('certificate_req');
+    Route::post('badge_req', 'Student\RequestController@badgeRequest')->name('badge_req');
+    Route::post('voucher_req', 'Student\RequestController@voucherRequest')->name('voucher_req');
 
     // general discussion 
-
     Route::get('generaldiscussion', 'Student\CourseController@generalchatList')->name('discussion');
     Route::get('/generaladdcomment', 'Student\CourseController@generaladdComment')->name('addcomment');
     Route::post('chat/generalsend', 'Student\CourseController@generalsend')->name('chat.send');
