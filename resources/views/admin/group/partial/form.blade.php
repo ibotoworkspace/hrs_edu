@@ -43,7 +43,7 @@
         <div>
             <label for="sda">Select Skill Advisor</label>
 
-            <select id="sda" name="sda_id" class='form-control'>
+            <select id="sda" name="sda_id" class='form-control' required>
                 @foreach ($skill_advisor as $sda)
                     <option value="{{ $sda->id }}">{{ $sda->name }}</option>
                 @endforeach
