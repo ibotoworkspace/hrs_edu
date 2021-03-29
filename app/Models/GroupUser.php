@@ -15,4 +15,8 @@ class GroupUser extends Model
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
+     public function group()
+    {
+        return $this->hasOne('App\Models\Group', 'id', 'group_id');
+    }
 }

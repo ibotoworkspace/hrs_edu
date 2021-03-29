@@ -7,6 +7,7 @@ use App\Models\Chapter;
 use App\Models\Course_Registered;
 use App\Models\Courses;
 use App\Models\Discussion;
+use App\Models\GroupUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,10 +35,11 @@ class CourseController extends Controller
     }
 
     public function index(Request $request)
-    {
-
+    {   
         $user_id = Auth::id();
-        $register_courses = Course_Registered::with('course.group')->where('user_id', $user_id)->where('is_paid', 1)->get();
+        
+        $register_courses = Course_Registered::with('course.group')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
+        
         return view('studentdashboard.course.index', compact('register_courses'));
     }
 
