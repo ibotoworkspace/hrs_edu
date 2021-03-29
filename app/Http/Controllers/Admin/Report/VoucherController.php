@@ -24,7 +24,7 @@ class VoucherController extends Controller
         $voucher->save();
 
         $reg_course = Course_Registered::find($request->reg_course_id);
-        $reg_course->voucher_status= "accepted" ;
+        $reg_course->voucher_status = "accepted";
         $reg_course->save();
 
         return redirect('admin/report/user');
