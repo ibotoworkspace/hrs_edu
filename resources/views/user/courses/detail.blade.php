@@ -36,6 +36,8 @@
                                 @endforeach
 
                             </ul>
+                            <h2>Learning Path</h2>
+                            {!! $course_detail->learning_path ??'' !!}
                         </div>
                         @if (!Auth::check())
                             <div class="courseoverviewclick">

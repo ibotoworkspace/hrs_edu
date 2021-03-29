@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Libraries\ExcelExport;
 use App\Models\Courses;
 use App\Models\Discussion;
 use App\Models\Group;
@@ -11,7 +12,9 @@ use App\Models\SkillAdvisor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GroupController extends Controller
 {
@@ -187,5 +190,23 @@ class GroupController extends Controller
             'new_value' => $new_value
         ]);
         return $response;
+    }
+
+    public function index_excel(Request $request)
+    {
+        $all = Config::get('constants.request_status.all');
+
+        $search_text = $request->user;
+        $date = $request->date;
+        $status = $request->status ?? $all;
+        $data =  Group::with('c')->get()->toArray();
+        dd($data);
+        $headings = ['Id', 'Name', 'Message'];
+
+        $excel = Excel::download(new ExcelExport($data, $headings), 'leads.xlsx');
+        return $excel;
+        $response = Response::json(["status" => true]);
+        return $response;
+        //    return Redirect::back();
     }
 }

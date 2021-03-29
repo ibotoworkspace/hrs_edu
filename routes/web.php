@@ -27,6 +27,8 @@ Route::get('admin/mailCheck', 'Admin\Report\UserController@mailCheck')->name('ma
 
 Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
+    Route::get('group/excel', 'Admin\GroupController@index_excel')->name('leads.excel');
+
     // REPORTS 
 
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');

@@ -137,6 +137,9 @@ class CoursesController extends Controller
         if ($request->requirments) {
             $courses->requirments = $request->requirments;
         }
+        if ($request->learning_path) {
+            $courses->learning_path  = $request->learning_path;
+        }
         $courses->hours = $request->hours;
         $courses->overview = $request->overview;
         // $courses->lectures = $request->lectures;
@@ -155,9 +158,6 @@ class CoursesController extends Controller
         } else if (strcmp($request->avatar_visible, "")  !== 0) {
             $courses->avatar = $request->avatar_visible;
         }
-
-
-
         $courses->save();
 
         return redirect()->back();
@@ -203,7 +203,7 @@ class CoursesController extends Controller
         $request_course = CourseRequest::with('user')->find($id);
         if ($request_course->can_download == 0) {
             $request_course->can_download = 1;
-            $request_course->download_code = 'hrs-'.$random;
+            $request_course->download_code = 'hrs-' . $random;
             $request_course->save();
             $new_value = 'Allowed';
 
@@ -212,7 +212,7 @@ class CoursesController extends Controller
                 'from' => 'contactus@hrsedu.com',
                 'title' => 'HRS Academy Course Download Request ',
                 'subject' => 'Course pdf code ',
-                "code"  => $request_course->download_code ,
+                "code"  => $request_course->download_code,
             ];
             Mail::to($request_course->user->email)->send(new CourseCode($details));
         } else {

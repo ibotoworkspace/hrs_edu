@@ -11,27 +11,18 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 
 class ExcelExport  //FromArray
 {
-    use Exportable;
-    public $myArray;
-    public $myHeadings;
+    private $myArray;
+    private $myHeadings;
 
-    // public function __construct(){
-    //     $this->myArray = $myArray;
-    //     $this->myHeadings = $myHeadings;
-    // }
+    public function __construct($myArray, $myHeadings){
+        $this->myArray = $myArray;
+        $this->myHeadings = $myHeadings;
+    }
 
-    // public function array(): array
-    // {
-    //     return [
-    //         [1, 2, 3],
-    //         [4, 5, 6]
-    //     ];
-    // }
-
-    // public function collection()
-    // {
+    public function collection()
+    {
         // dd($this->myArray);
-        // return collect($this->myArray);
+        return collect($this->myArray);
         // return collect([
         //     [
         //         'name' => 'Povilas',
@@ -46,19 +37,19 @@ class ExcelExport  //FromArray
         //         'twitter' => '@taylorotwell'
         //     ]
         // ]);
-    // }
+    }
 
-    // public function headings(): array
-    // {
+    public function headings(): array
+    {
 
-        // return $this->myHeadings;
+        return $this->myHeadings;
         // return [
         //     'Name',
         //     'Surname',
         //     'Email',
         //     'Twitter',
         // ];
-    // }
+    }
     // public function array(): array{
     //     return $this->myArray;
     // }

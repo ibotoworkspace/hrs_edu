@@ -15,7 +15,7 @@
 @section('table')
     <div class="ableclick">
         <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
-        <button type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</button>
+        <a href="{{asset('admin/group/excel')}}" type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</a>
         <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
         <button type="button" class="btn btn-primary myopen" id="mybuttoner"> PDF</button>
         <button type="button" class="btn btn-primary myopen" id="mybuttoners"> Print</button>
@@ -80,7 +80,8 @@
 
 
                     <a onclick="statusUpdate({{ $gr->id }})">
-                        <span id="status_{{$gr->id}}" class={{ ($gr->is_active == 1) ? 'btn-primary' : 'btn-danger ' }}>
+                        <span id="status_{{ $gr->id }}"
+                            class={{ $gr->is_active == 1 ? 'btn-primary' : 'btn-danger ' }}>
                             {{ $gr->is_active == 1 ? 'Active' : 'In Active' }}</span></a>
                     {{-- @else
                         <a onclick="statusUpdate({{ $gr->id }})">
@@ -99,7 +100,7 @@
                 <td>
                     <div class="mydatearrow">
                         <a href="{{ asset('admin/discussion/' . $gr->id) }}">
-                            Discussion
+                            <span class="btn btn-primary">Discussion</span>
                         </a>
                     </div>
                 </td>
@@ -141,12 +142,12 @@
                 console.log('data data', data)
 
                 if (data.status == true) {
-                    if(data.new_value == 'active'){
-                        $("#status_"+group_id).html(data.new_value);
-                        $("#status_"+group_id).css('class',' btn-primary');
-                    }else{
-                        $("#status_"+group_id).html(data.new_value);
-                        $("#status_"+group_id).css('class',' btn-danger');
+                    if (data.new_value == 'active') {
+                        $("#status_" + group_id).html(data.new_value);
+                        $("#status_" + group_id).css('class', ' btn-primary');
+                    } else {
+                        $("#status_" + group_id).html(data.new_value);
+                        $("#status_" + group_id).css('class', ' btn-danger');
                     }
 
                 }

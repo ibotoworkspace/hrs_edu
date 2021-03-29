@@ -150,7 +150,12 @@
 
         </div>
         </div> --}}
-
+    <div class="form-group">
+        {!! Form::label('learningpath', 'Learning Path') !!}
+        <div>
+            <textarea class="ckeditor form-control" id="learning_path" name="learning_path"></textarea>
+        </div>
+    </div>
 
 
 
