@@ -10,15 +10,21 @@
     {!! Form::close() !!}
 @stop
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
 
-{{-- {{dd($groups)}} --}}
 @section('table')
     <div class="ableclick">
-        <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
-        <button type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> PDF</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoners"> Print</button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/group/excel') }}" style="color: #fff"> Excel</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/group/csv') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/group/pdf') }}"
+                style="color: #fff">PDF</a> </button>
     </div>
 
 
@@ -80,7 +86,8 @@
 
 
                     <a onclick="statusUpdate({{ $gr->id }})">
-                        <span id="status_{{$gr->id}}" class={{ ($gr->is_active == 1) ? 'btn-primary' : 'btn-danger ' }}>
+                        <span id="status_{{ $gr->id }}"
+                            class={{ $gr->is_active == 1 ? 'btn-primary' : 'btn-danger ' }}>
                             {{ $gr->is_active == 1 ? 'Active' : 'In Active' }}</span></a>
                     {{-- @else
                         <a onclick="statusUpdate({{ $gr->id }})">
@@ -99,7 +106,7 @@
                 <td>
                     <div class="mydatearrow">
                         <a href="{{ asset('admin/discussion/' . $gr->id) }}">
-                            Discussion
+                            <span class="btn btn-primary">Discussion</span>
                         </a>
                     </div>
                 </td>
@@ -141,12 +148,12 @@
                 console.log('data data', data)
 
                 if (data.status == true) {
-                    if(data.new_value == 'active'){
-                        $("#status_"+group_id).html(data.new_value);
-                        $("#status_"+group_id).css('class',' btn-primary');
-                    }else{
-                        $("#status_"+group_id).html(data.new_value);
-                        $("#status_"+group_id).css('class',' btn-danger');
+                    if (data.new_value == 'active') {
+                        $("#status_" + group_id).html(data.new_value);
+                        $("#status_" + group_id).css('class', ' btn-primary');
+                    } else {
+                        $("#status_" + group_id).html(data.new_value);
+                        $("#status_" + group_id).css('class', ' btn-danger');
                     }
 
                 }

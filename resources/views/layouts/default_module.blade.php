@@ -10,7 +10,7 @@
 
     <ol class="breadcrumb">
         <li>
-            <a href="{{asset('index.php/home')}}"><i class="ti-home mr5"></i>
+            <a href="{{ asset('index.php/home') }}"><i class="ti-home mr5"></i>
                 Dashboard</a>
         </li>
         <li>
@@ -24,7 +24,8 @@
     <section class="panel panel-default">
         <div class="panel-body">
             <div class="table-responsive no-border">
-                <table @yield('table-properties') id="index-table" class="table table-bordered table-striped mg-t editable-datatable">
+                <table @yield('table-properties') id="index-table"
+                    class="table table-bordered table-striped mg-t editable-datatable">
                     <div class="demo-button margin-bottom">
                         @yield('add_btn')
                         @yield('module_search_left')
@@ -72,7 +73,7 @@
     <script src="{{ asset('theme/vendor/datatables/media/js/jquery.dataTables.js') }}"></script>
     <!-- /page level scripts -->
 
-    
+
     <!-- page level scripts -->
     <script src="{{ asset('theme/vendor/moment/moment.js') }}"></script>
     <script src="{{ asset('theme/vendor/bootstrap-daterangepicker/daterangepicker.js') }}"></script>

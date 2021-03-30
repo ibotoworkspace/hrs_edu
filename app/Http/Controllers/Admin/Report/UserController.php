@@ -9,7 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+use App\Libraries\ExportToExcel;
 
 class UserController extends Controller
 {
@@ -64,7 +66,7 @@ class UserController extends Controller
     {
 
         $reg_course = Course_Registered::with('course', 'user')->find($id);
-        $new_value= 'Requested';
+        $new_value = 'Requested';
         if ($reg_course) {
             $reg_course->badge_status = 'accepted';
             $reg_course->save();
@@ -94,5 +96,49 @@ class UserController extends Controller
         $pdf = PDF::loadView('admin.mail.certificate', compact('details'));
         return $pdf->download('invoice.pdf');
         // return view('admin.mail.certificate', compact('details'));
+    }
+
+    public function query()
+    {
+        $course_name = '';
+        $user_name = '';
+        $register_course = Course_Registered::whereHas('course', function ($q) use ($course_name) {
+            $q->where('title', 'like', '%' . $course_name . '%');
+        })->whereHas('user', function ($q) use ($user_name) {
+            $q->where('name', 'like', '%' . $user_name . '%');
+        })->with('course', 'user')->orderBy('created_at', 'desc')->get();
+        return $register_course;
+    }
+
+    public function index_excel(Request $request)
+    {
+        $register_course = $this->query();
+        $view =  view('report.user.export', compact('register_course'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'user-request.xlsx');
+
+        return $excel;
+    }
+    public function index_csv(Request $request)
+    {
+        $register_course = $this->query();
+        $view =  view('report.user.export', compact('register_course'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'user-request.csv');
+
+        return $excel;
+    }
+
+    public function generatePDF()
+    {
+        $type = 'pdf';
+        $register_course = $this->query();
+        $pdf = PDF::loadView('report.user.export', compact('register_course', 'type'));
+
+        return $pdf->download('HRS-user-request.pdf');
     }
 }

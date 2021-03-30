@@ -42,8 +42,10 @@
                         <strong id="suc-msg">{{ $message ?? '' }}</strong>
                     </div>
                     <div class="row courseside">
+                        <div class="col-sm-12">
                         <a class="btn-primary" href="{{ asset('student/generaldiscussion') }}"><button type="button"
-                                class="btn btn-primary">General Discussion</button></a>
+                                class="btn btn-info">General Discussion</button></a>
+                        </div>
                         <div class="col-sm-12">
                             <div class="coursesidedata">
 
@@ -76,12 +78,12 @@
                                                     <td class="tdcenter">
                                                         <a href="{{ asset('student/course/detail?course_id=' . $course_id) }}"
                                                             target="_blank">
-                                                            <span class="badge badge-success">View</span>
+                                                            <span class="btn btn-primary">View</span>
                                                         </a>
                                                         @if ($group_id)
                                                             <a href="{{ asset('student/course/discussion/' . $group_id) }}"
                                                                 target="_blank">
-                                                                <span class="badge badge-success">Discussion</span>
+                                                                <span class="btn btn-primary">Discussion</span>
                                                             </a>
                                                         @endif
 
@@ -91,16 +93,16 @@
                                                             $end_date = $r_course->course->group->end_date ?? 0;
                                                             ?>
                                                             @if ($end_date > $current_time)
-                                                                <button type="button"
+                                                                <button 
                                                                     onclick="certificate_requestFun({{ $r_course->id }});"
-                                                                    class="btn btn-info">Request For Certificate</button>
+                                                                    class="badge" > Request For Certificate</button>
                                                                 <button type="button"
                                                                     onclick="badge_requestFun({{ $r_course->id }});"
-                                                                    class="btn btn-info">Request For Badge</button>
+                                                                    class="badge">Request For Badge</button>
                                                             @endif
                                                             <button type="button"
                                                                 onclick="voucher_requestFun({{ $r_course->id }});"
-                                                                class="btn btn-info">Request For Voucher</button>
+                                                                class="badge">Request For Voucher</button>
                                                         @endif
                                                     </td>
 

@@ -8,11 +8,12 @@
 @section('table')
 
     <div class="ableclick">
-        <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
-        <button type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> PDF</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoners"> Print</button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/order/excel') }}" style="color: #fff"> Excel</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/order/csv') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/order/pdf') }}"
+                style="color: #fff">PDF</a> </button>
     </div>
 
 

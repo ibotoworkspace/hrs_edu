@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use App\Models\PromoCode;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
+use App\Libraries\ExportToExcel;
 
 class PromoCodeController extends Controller
 {
@@ -25,7 +28,6 @@ class PromoCodeController extends Controller
             compact('control')
         );
     }
-
 
     public function save(Request $request)
     {
@@ -76,8 +78,6 @@ class PromoCodeController extends Controller
         return redirect()->back();
     }
 
-
-
     public function destroy_undestroy($id)
     {
 
@@ -95,5 +95,38 @@ class PromoCodeController extends Controller
             'new_value' => $new_value
         ]);
         return $response;
+    }
+
+
+    public function index_excel(Request $request)
+    {
+        $promocode = PromoCode::orderBy('created_at', 'desc')->get();
+        $view =  view('admin.promocode.export', compact('promocode'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'promo-code.xlsx');
+
+        return $excel;
+    }
+    public function index_csv(Request $request)
+    {
+        $promocode = PromoCode::orderBy('created_at', 'desc')->get();
+        $view =  view('admin.promocode.export', compact('promocode'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'promo-code.csv');
+
+        return $excel;
+    }
+
+    public function generatePDF()
+    {
+        $type = 'pdf';
+        $promocode = PromoCode::orderBy('created_at', 'desc')->get();
+        $pdf = PDF::loadView('admin.promocode.export', compact('promocode', 'type'));
+
+        return $pdf->download('HRS-promo-code-list.pdf');
     }
 }

@@ -27,6 +27,31 @@ Route::get('admin/mailCheck', 'Admin\Report\UserController@mailCheck')->name('ma
 
 Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
+    Route::get('user/request/csv', 'Admin\Report\UserController@index_csv')->name('user.request.csv');
+    Route::get('user/request/excel', 'Admin\Report\UserController@index_excel')->name('user.request.excel');
+    Route::get('user/request/pdf', 'Admin\Report\UserController@generatePDF')->name('user.request.pdf');
+
+    Route::get('ticket/csv', 'Admin\TicketController@index_csv')->name('ticket.csv');
+    Route::get('ticket/excel', 'Admin\TicketController@index_excel')->name('ticket.excel');
+    Route::get('ticket/pdf', 'Admin\TicketController@generatePDF')->name('ticket.pdf');
+
+    Route::get('order/csv', 'Admin\OrderController@index_csv')->name('order.csv');
+    Route::get('order/excel', 'Admin\OrderController@index_excel')->name('order.excel');
+    Route::get('order/pdf', 'Admin\OrderController@generatePDF')->name('order.pdf');
+
+    Route::get('group/csv', 'Admin\GroupController@index_csv')->name('group.csv');
+    Route::get('group/excel', 'Admin\GroupController@index_excel')->name('group.excel');
+    Route::get('group/pdf', 'Admin\GroupController@generatePDF')->name('group.pdf');
+
+    Route::get('promo/csv', 'Admin\PromoCodeController@index_csv')->name('promo.csv');
+    Route::get('promo/excel', 'Admin\PromoCodeController@index_excel')->name('promo.excel');
+    Route::get('promo/pdf', 'Admin\PromoCodeController@generatePDF')->name('promo.pdf');
+
+    // course export files 
+    Route::get('course/csv', 'Admin\CoursesController@index_csv')->name('group.csv');
+    Route::get('course/excel', 'Admin\CoursesController@index_excel')->name('group.excel');
+    Route::get('course/pdf', 'Admin\CoursesController@generatePDF')->name('group.pdf');
+
     // REPORTS 
 
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');
@@ -286,3 +311,6 @@ Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list
 // student payment route 
 Route::post('student/stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
 Route::get('/makepayment', 'Student\PaymentController@make_payment_app');
+
+
+Route::get('group/pdf/sample', 'Admin\GroupController@PDF')->name('group.pdf');

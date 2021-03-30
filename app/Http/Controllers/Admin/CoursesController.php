@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Libraries\ExportToExcel;
 use App\Mail\CourseCode;
 use App\Models\CourseRequest;
 use COM;
@@ -12,7 +13,8 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class CoursesController extends Controller
 {
@@ -137,6 +139,9 @@ class CoursesController extends Controller
         if ($request->requirments) {
             $courses->requirments = $request->requirments;
         }
+        if ($request->learning_path) {
+            $courses->learning_path  = $request->learning_path;
+        }
         $courses->hours = $request->hours;
         $courses->overview = $request->overview;
         // $courses->lectures = $request->lectures;
@@ -155,9 +160,6 @@ class CoursesController extends Controller
         } else if (strcmp($request->avatar_visible, "")  !== 0) {
             $courses->avatar = $request->avatar_visible;
         }
-
-
-
         $courses->save();
 
         return redirect()->back();
@@ -203,7 +205,7 @@ class CoursesController extends Controller
         $request_course = CourseRequest::with('user')->find($id);
         if ($request_course->can_download == 0) {
             $request_course->can_download = 1;
-            $request_course->download_code = 'hrs-'.$random;
+            $request_course->download_code = 'hrs-' . $random;
             $request_course->save();
             $new_value = 'Allowed';
 
@@ -212,7 +214,7 @@ class CoursesController extends Controller
                 'from' => 'contactus@hrsedu.com',
                 'title' => 'HRS Academy Course Download Request ',
                 'subject' => 'Course pdf code ',
-                "code"  => $request_course->download_code ,
+                "code"  => $request_course->download_code,
             ];
             Mail::to($request_course->user->email)->send(new CourseCode($details));
         } else {
@@ -227,5 +229,37 @@ class CoursesController extends Controller
             'new_value' => $new_value
         ]);
         return $response;
+    }
+
+    public function index_excel(Request $request)
+    {
+        $courses = Courses::orderBy('id', 'DESC')->get();
+        $view =  view('admin.courses.export', compact('courses'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.xlsx');
+
+        return $excel;
+    }
+    public function index_csv(Request $request)
+    {
+        $courses = Courses::orderBy('id', 'DESC')->get();
+        $view =  view('admin.courses.export', compact('courses'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.csv');
+
+        return $excel;
+    }
+
+    public function generatePDF()
+    {
+        $type = 'pdf';
+        $courses = Courses::orderBy('id', 'DESC')->get();
+        $pdf = PDF::loadView('admin.courses.export', compact('courses', 'type'));
+
+        return $pdf->download('HRS-course-list.pdf');
     }
 }

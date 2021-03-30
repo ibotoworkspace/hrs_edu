@@ -209,16 +209,17 @@ $admin_common = session()->get('admin_common'); ?>
                             <a href="javascript:;">
                                 <i class="toggle-accordion"></i>
                                 <!-- <i class="ti-support"></i> -->
-                                <i class="fa fa-line-chart"></i>
+                                {{-- <i class="fa fa-line-chart"></i> --}}
+                                <img src="{{ asset('images/icon-15.png') }}" alt="">
                                 <span>Reports</span>
                             </a>
                             <ul class="sub-menu">
                                 {{-- @foreach ($admin_common->reports as $key => $report)  <li> --}}
-                                <li>
+                                {{-- <li>
                                     <a href="{{ asset('admin/report/course') }}">
                                         <span>Course</span>
                                     </a>
-                                </li>
+                                </li> --}}
                                 <li>
                                     <a href="{{ asset('admin/report/user') }}">
                                         <span>Request</span>

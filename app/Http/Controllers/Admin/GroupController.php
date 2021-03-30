@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Libraries\ExcelExport;
+use App\Libraries\ExportToExcel;
 use App\Models\Courses;
 use App\Models\Discussion;
 use App\Models\Group;
@@ -11,7 +13,10 @@ use App\Models\SkillAdvisor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Response;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
 
 class GroupController extends Controller
 {
@@ -187,5 +192,44 @@ class GroupController extends Controller
             'new_value' => $new_value
         ]);
         return $response;
+    }
+
+    public function index_excel(Request $request)
+    {
+        $groups = Group::with('groupUser.user', 'course', 'skilladvisor')->orderBy('id', 'DESC')->get();
+        $view =  view('admin.group.pdf', compact('groups'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'group.xlsx');
+
+        return $excel;
+    }
+    public function index_csv(Request $request)
+    {
+        $groups = Group::with('groupUser.user', 'course', 'skilladvisor')->orderBy('id', 'DESC')->get();
+        $view =  view('admin.group.pdf', compact('groups'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'group.csv');
+
+        return $excel;
+    }
+
+    public function generatePDF()
+    {
+        $type = 'pdf';
+        $groups = Group::with('groupUser.user', 'course', 'skilladvisor')->orderBy('id', 'DESC')->get();
+        $pdf = PDF::loadView('admin.group.pdf', compact('groups','type'));
+
+        return $pdf->download('HRS-group-list.pdf');
+    }
+
+
+    public function PDF(){
+
+        $groups = Group::with('groupUser.user', 'course', 'skilladvisor')->orderBy('id', 'DESC')->get();
+        return view('admin.group.pdf', compact('groups'));
     }
 }
