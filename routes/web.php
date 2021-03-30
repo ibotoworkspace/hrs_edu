@@ -56,9 +56,9 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
 
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');
     Route::get('/report/user', 'Admin\Report\UserController@index')->name('report.course');
-    Route::get('/report/user/certificate/{id}', 'Admin\Report\UserController@certificate')->name('report.course');
+    Route::get('/report/user/certificate/{id}/{user_id}', 'Admin\Report\UserController@certificate')->name('report.course');
     Route::get('/report/user/badge/{id}', 'Admin\Report\UserController@badge')->name('report.badge');
-    Route::get('/report/user/voucher/{id}', 'Admin\Report\VoucherController@index')->name('report.voucher');
+    Route::get('/report/user/voucher/{id}/{user_id}', 'Admin\Report\VoucherController@index')->name('report.voucher');
     Route::post('/report/user/voucher/save', 'Admin\Report\VoucherController@save')->name('admin.voucher.save');
 
 

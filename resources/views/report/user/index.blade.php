@@ -99,7 +99,7 @@
 
 
                     @elseif($reg_course->voucher_status == 'requested')
-                        <a href="{{ asset('admin/report/user/voucher/' . $reg_course->id) }}">
+                        <a href="{{ asset('admin/report/user/voucher/' . $reg_course->id.'/'. $reg_course->user->id) }}">
                             <span class="badge bg-info btn-primary ">
                                 Requested
                             </span>
