@@ -92,17 +92,18 @@
                                                             $current_time = Carbon\Carbon::now()->timestamp;
                                                             $end_date = $r_course->course->group->end_date ?? 0;
                                                             ?>
-                                                            @if ($end_date > $current_time)
+                                                            @if ($end_date < $current_time)
                                                                 <button 
                                                                     onclick="certificate_requestFun({{ $r_course->id }});"
                                                                     class="badge" > Request For Certificate</button>
                                                                 <button type="button"
                                                                     onclick="badge_requestFun({{ $r_course->id }});"
                                                                     class="badge">Request For Badge</button>
-                                                            @endif
-                                                            <button type="button"
+                                                                    <button type="button"
                                                                 onclick="voucher_requestFun({{ $r_course->id }});"
                                                                 class="badge">Request For Voucher</button>
+                                                            @endif
+                                                            
                                                         @endif
                                                     </td>
 

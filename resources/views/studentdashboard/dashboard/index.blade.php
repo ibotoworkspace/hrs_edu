@@ -81,9 +81,8 @@ $courses = $student_common->courses;
                                         @foreach ($courses as $key => $r_course)
                                             <tr class="mycolareadata">
                                                 <td>HRS0{{ $r_course->id }}
-                                                    @if ($r_course->is_completed == 1)
-
-                                                        <span><img src="{{ asset('images/monograme.png') }}" width="25"
+                                                    @if ($r_course->badge_status == 'accepted')
+                                                        <span><img src="{{ $r_course->course->badge }}" width="25"
                                                                 height="30"></span>
                                                     @endif
                                                 </td>

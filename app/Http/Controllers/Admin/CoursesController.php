@@ -160,6 +160,13 @@ class CoursesController extends Controller
         } else if (strcmp($request->avatar_visible, "")  !== 0) {
             $courses->avatar = $request->avatar_visible;
         }
+        
+        if ($request->hasFile('badge')) {
+            $course_badge = $request->badge;
+            $root = $request->root();
+            $courses->badge = $this->move_img_get_path($course_badge, $root, 'image');
+        }
+
         $courses->save();
 
         return redirect()->back();
@@ -262,4 +269,5 @@ class CoursesController extends Controller
 
         return $pdf->download('HRS-course-list.pdf');
     }
+    
 }
