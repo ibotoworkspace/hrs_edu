@@ -10,15 +10,21 @@
     {!! Form::close() !!}
 @stop
 
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+</head>
 
-{{-- {{dd($groups)}} --}}
 @section('table')
     <div class="ableclick">
-        <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
-        <a href="{{asset('admin/group/excel')}}" type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</a>
-        <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> PDF</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoners"> Print</button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/group/excel') }}" style="color: #fff"> Excel</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/group/csv') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/group/pdf') }}"
+                style="color: #fff">PDF</a> </button>
     </div>
 
 

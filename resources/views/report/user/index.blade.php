@@ -17,6 +17,14 @@
     @include('report.user.partial.searchfilters')
     {!! Form::close() !!}
 
+    <div class="ableclick">
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/user/request/excel') }}" style="color: #fff"> Excel</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/user/request/csv') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/user/request/pdf') }}"
+                style="color: #fff">PDF</a> </button>
+    </div>
 
     <thead>
         <tr>
