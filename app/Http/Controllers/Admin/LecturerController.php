@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Libraries\ExportToExcel;
+use App\Mail\ClassLink;
 use App\Mail\ReferenceLink;
+use App\Models\Group;
 use App\Models\Lecturer;
 use App\User;
 use Illuminate\Http\Request;
@@ -136,9 +138,8 @@ class LecturerController extends Controller
 
         $lecturer = Lecturer::with('user')->find($id);
 
-        dd($lecturer);
-
         if ($lecturer) {
+
             $details = [
                 'to' => $lecturer->user->email,
                 'from' => 'contactus@hrsedu.com',
@@ -146,9 +147,14 @@ class LecturerController extends Controller
                 'subject' => 'Reference Link From HRS Academy ',
                 "dated"  => date('d F, Y (l)'),
             ];
-            Mail::to($lecturer->user->email)->send(new ReferenceLink($details));
+            Mail::to($lecturer->user->email)->send(new ClassLink($details));
 
             return redirect('admin/lecturer')->with('success', 'Reference link send to ' . $lecturer->user->mail);
         }
+    }
+    public function note($id){
+        
+        $group = Group::find($id) ; 
+        return view('lecturer.group.note',compact('group'));
     }
 }

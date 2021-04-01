@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Lecturer;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ClassLink;
 use App\Mail\ReferenceLink;
 use App\Models\Group;
 use Illuminate\Http\Request;
@@ -26,17 +27,16 @@ class CourseController extends Controller
     {
 
         $groups = Group::with('groupUser.user')->find($id);
-
         foreach ($groups->groupUser as $gr) {
-            dd($gr->user->email);
             $details = [
                 'to' => $gr->user->email,
                 'from' => 'contactus@hrsedu.com',
                 'title' => 'HRS Academy',
                 'subject' => 'Reference Link From HRS Academy ',
                 "dated"  => date('d F, Y (l)'),
+                "class_link" => $groups->class_link
             ];
-            Mail::to($gr->user->email)->send(new ReferenceLink($details));
+            Mail::to($gr->user->email)->send(new ClassLink($details));
         }
 
         return redirect('lecturer/mygroup')->with('success', 'Send Link Successfully');
