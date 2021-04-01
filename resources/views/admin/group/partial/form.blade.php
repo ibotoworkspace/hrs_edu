@@ -1,8 +1,12 @@
+<?php
+if (isset($group)) {
+$selected_users = $group->groupUser->pluck('user_id')->toArray();
+} ?>
 <div class="form-group">
 
     {!! Form::label('title', 'Title') !!}
     <div>
-        {!! Form::text('title', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
+        {!! Form::text('title', $group->name ?? null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
     </div>
 
 
@@ -11,7 +15,7 @@
 
         {!! Form::label('startdate', 'Start Date') !!}
         <div>
-            {!! Form::date('start_date', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Select Start Date', 'required', 'maxlength' => '100']) !!}
+            {!! Form::date('start_date', isset($group) ? date('d-m-Y', $group->start_date) : '', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Select Start Date', 'required', 'maxlength' => '100']) !!}
         </div>
 
     </div>
@@ -20,7 +24,7 @@
 
         {!! Form::label('enddate', 'End Date') !!}
         <div>
-            {!! Form::date('end_date', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'required']) !!}
+            {!! Form::date('end_date', isset($group) ? date('d-m-Y', $group->end_date) : '', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'required']) !!}
         </div>
 
     </div>
@@ -31,6 +35,11 @@
             <label for="course">Select Course</label>
 
             <select id="course" name="course_id" class='form-control'>
+                @if (isset($group->course))
+
+                    <option value="{{ $group->course->id }}" selected>{{ $group->course->title }}</option>
+                @endif
+
                 @foreach ($courses as $cor)
                     <option value="{{ $cor->id }}">{{ $cor->title }}</option>
                 @endforeach
@@ -43,9 +52,16 @@
         <div>
             <label for="sda">Select Skill Advisor</label>
 
-            <select id="sda" name="sda_id" class='form-control' required>
-                @foreach ($skill_advisor as $sda)
-                    <option value="{{ $sda->id }}">{{ $sda->name }}</option>
+            <select id="lecturer_id" name="lecturer_id" class='form-control' required>
+
+                @if (isset($group->skilladvisor))
+
+                    <option value="{{ $group->skilladvisor->id }}" selected>{{ $group->skilladvisor->name }}
+                    </option>
+                @endif
+                
+                @foreach ($lecturers as $lec)
+                    <option value="{{ $lec->id }}">{{ $lec->user->name }}</option>
                 @endforeach
 
             </select>
@@ -56,7 +72,7 @@
 
         {!! Form::label('link', 'Class Link') !!}
         <div>
-            {!! Form::text('link', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Enter Class Link', 'required', 'maxlength' => '200']) !!}
+            {!! Form::text('link', $group->class_link ?? null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Enter Class Link', 'required', 'maxlength' => '200']) !!}
         </div>
 
     </div>
@@ -108,10 +124,16 @@
                 <div class="modal-body">
                     <div class="row">
                         @foreach ($users as $key => $user)
+                            <?php
+                            $checked = '';
+                            if (isset($selected_users)) {
+                            $checked = in_array($user->id, $selected_users) != false ? 'checked' : '';
+                            }
+                            ?>
                             <div class="col-sm-6">
                                 <div class="form-check">
                                     <input class="form-check-input" name="user_check[]" type="checkbox"
-                                        value="{{ $user->id }}" id="user_checkbox">
+                                        {!! $checked !!} value="{{ $user->id }}" id="user_checkbox">
                                     <label class="form-check-label" for="user_checkbox">
                                         {{ $user->name }}
                                     </label>

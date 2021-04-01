@@ -83,6 +83,8 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/creategroup', 'Admin\GroupController@create')->name('group.create');
     Route::post('/savegroup', 'Admin\GroupController@save')->name('group.save');
     Route::get('/group', 'Admin\GroupController@index')->name('group');
+    Route::post('/group/update/{id}', 'Admin\GroupController@update')->name('group.update');
+    Route::get('/edit/group/{id}', 'Admin\GroupController@edit')->name('edit.group');
 
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
     // Add BLog
@@ -230,10 +232,6 @@ Route::group(['prefix' => 'user'], function () {
     // Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
     // Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
 });
-// Route::get('advisor/search', 'User\SkillAdvisorController@search')->name('advisor.search');
-
-// Route::get('userskill/create', 'User\SkillAdvisorController@create')->name('userskill.create');
-// Route::post('userskill/save', 'User\SkillAdvisorController@save')->name('userskill.save');
 
 Route::get('user/index', 'User\UserController@index')->name('user/index');
 Route::get('admin/courses', 'Admin\CoursesController@index')->name('courses.index');
@@ -254,7 +252,7 @@ Route::post('user/courseregistered', 'Student\CourseRegistrationController@regis
 
 Route::get('student/registration', 'Student\StudentController@index')->name('student.registration');
 Route::post('student/registration/save', 'Student\StudentController@save')->name('student.save');
-Route::get('student/login', 'Student\StudentController@login');
+Route::get('login', 'Student\StudentController@login');
 Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
@@ -328,9 +326,36 @@ Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('stu
 Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
 
+
 // student payment route 
 Route::post('student/stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
 Route::get('/makepayment', 'Student\PaymentController@make_payment_app');
 
+//                              *********************** STUDENT ROUTE END    ***********************
 
-Route::get('group/pdf/sample', 'Admin\GroupController@PDF')->name('group.pdf');
+//                              *********************** LECTURER ROUTE START ***********************
+Route::group(['middleware' => 'lecturer_auth', 'prefix' => 'lecturer'], function () {
+
+    Route::get('/dashboard', 'Lecturer\DashboardController@dashboard');
+
+    Route::get('/profile', 'Lecturer\DashboardController@profile');
+    //course list
+    Route::get('/mygroup', 'Lecturer\CourseController@index');
+
+    Route::get('/group/sendlink/{id}', 'Lecturer\CourseController@sendLink');
+});
+
+//                              *********************** LECTURER ROUTE END ***********************
+
+//                              *********************** SKILL ADVISOR ROUTE START ****************
+
+Route::group(['middleware' => 'skilladvisor_auth', 'prefix' => 'skilladvisor'], function () {
+
+    Route::get('/dashboard', 'Lecturer\DashboardController@dashboard');
+
+    Route::get('/profile', 'Lecturer\DashboardController@profile');
+    //course list
+    Route::get('/course', 'Lecturer\CourseController@index');
+});
+
+//                              *********************** SKILL ADVISOR ROUTE END *****************

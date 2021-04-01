@@ -49,7 +49,7 @@
 
     <div class="col-sm-6">
         <div class="maininput">
-            <textarea class="ckeditor form-control" id="summary-ckeditor" name="description" required>{{$lecture->details ?? ''}}"</textarea>
+            <textarea class="ckeditor form-control" id="summary-ckeditor" name="description" required>{{$lecture->details ?? ''}}</textarea>
         </div>
     </div>
 </div>

@@ -16,7 +16,7 @@ class CreateGroupTable extends Migration
         Schema::create('group', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name')->nullable()->default(null);
-            $table->bigInteger('sda_id')->nullable()->default(0);
+            $table->bigInteger('lecturer_id')->nullable()->default(0);
             $table->bigInteger('user_id')->nullable()->default(0);
             $table->bigInteger('course_id')->nullable()->default(0);
             $table->binary('notes')->nullable()->default(null);

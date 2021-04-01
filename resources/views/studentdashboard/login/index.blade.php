@@ -6,11 +6,11 @@
 @section('default')
 
 <section>
-    <div class="loginHeading">
+    {{-- <div class="loginHeading">
         <h2><strong>
             Student Login
         </strong></h2>
-    </div>
+    </div> --}}
     <div class="" style="background-color: #243439eb;">
         <div class="container">
             <div class="">

@@ -9,6 +9,7 @@ use App\Models\Courses;
 use App\Models\Discussion;
 use App\Models\Group;
 use App\Models\GroupUser;
+use App\Models\Lecturer;
 use App\Models\SkillAdvisor;
 use App\User;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class GroupController extends Controller
     public function index()
     {
 
-        $groups = Group::with('groupUser.user', 'course', 'skilladvisor')->orderBy('id', 'DESC')->paginate(10);
+        $groups = Group::with('groupUser.user', 'course', 'lecturer.user')->orderBy('id', 'DESC')->paginate(10);
 
         return view('admin.group.index', compact('groups'));
     }
@@ -31,18 +32,54 @@ class GroupController extends Controller
     {
         $control = 'create';
         $users = User::where('role_id', 2)->get();
-        $skill_advisor = SkillAdvisor::get();
+        $lecturers = Lecturer::with('user')->get();
         $courses = Courses::get();
 
-        return view('admin.group.create', compact('control', 'users', 'skill_advisor', 'courses'));
+        return view('admin.group.create', compact('control', 'users', 'lecturers', 'courses'));
     }
 
     public function save(Request $request)
     {
 
         $group = new Group();
+
+        $this->add_or_update($request, $group);
+
+        return redirect('admin/group');
+    }
+
+    public function edit($id)
+    {
+        $control = 'edit';
+        $group = Group::with('groupUser.user', 'course', 'lecturer')->find($id);
+        $users = User::where('role_id', 2)->get();
+        $lecturers = Lecturer::with('user')->get();
+        $courses = Courses::get();
+        return \View::make('admin.group.create', compact(
+            'control',
+            'courses',
+            'group',
+            'lecturers',
+            'users',
+
+        ));
+    }
+
+
+    public function update(Request $request, $id)
+    {
+
+        $group = Group::find($id);
+
+        $this->add_or_update($request, $group);
+        return Redirect('admin/group');
+    }
+
+    public function add_or_update($request, $group)
+    {
+
         $group->name = $request->title;
-        $group->sda_id = $request->sda_id;
+        $group->lecturer_id = $request->lecturer_id;
         $group->course_id = $request->course_id;
         $group->class_link = $request->link;
         $group->start_date = strtotime($request->start_date);
@@ -55,10 +92,7 @@ class GroupController extends Controller
                 ['user_id' => $user, 'group_id' => $group->id];
         }
         GroupUser::insert($data);
-
-        return redirect('admin/group');
     }
-
     public function chatList($id)
     {
         $group_id = $id;
@@ -221,13 +255,14 @@ class GroupController extends Controller
     {
         $type = 'pdf';
         $groups = Group::with('groupUser.user', 'course', 'skilladvisor')->orderBy('id', 'DESC')->get();
-        $pdf = PDF::loadView('admin.group.pdf', compact('groups','type'));
+        $pdf = PDF::loadView('admin.group.pdf', compact('groups', 'type'));
 
         return $pdf->download('HRS-group-list.pdf');
     }
 
 
-    public function PDF(){
+    public function PDF()
+    {
 
         $groups = Group::with('groupUser.user', 'course', 'skilladvisor')->orderBy('id', 'DESC')->get();
         return view('admin.group.pdf', compact('groups'));

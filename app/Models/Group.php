@@ -11,9 +11,9 @@ class Group extends Model
     protected $table = 'group';
 
 
-    public function skilladvisor()
+    public function lecturer()
     {
-        return $this->hasOne('App\Models\SkillAdvisor', 'id', 'sda_id');
+        return $this->hasOne('App\Models\Lecturer', 'id', 'lecturer_id');
     }
     public function course()
     {

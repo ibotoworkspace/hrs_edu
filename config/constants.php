@@ -10,6 +10,12 @@ return [
 		'android' => "rota-app-mobile",
     ],
 
+	'role_id' => [
+		'admin'=>'1',
+		'student'=>'2',
+		'skilladvisor'=>'3',
+		'lecturer'=>'4',
+	],
 	'social_login' => [
 		'facebook'=>'facebook',
 		'twitter'=>'twitter',
