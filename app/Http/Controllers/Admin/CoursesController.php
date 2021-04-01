@@ -134,6 +134,7 @@ class CoursesController extends Controller
 
     public function add_or_update($request, $courses)
     {
+
         $courses->title = $request->title;
         $courses->price = $request->price;
         if ($request->requirments) {
@@ -160,7 +161,7 @@ class CoursesController extends Controller
         } else if (strcmp($request->avatar_visible, "")  !== 0) {
             $courses->avatar = $request->avatar_visible;
         }
-        
+
         if ($request->hasFile('badge')) {
             $course_badge = $request->badge;
             $root = $request->root();
@@ -269,5 +270,4 @@ class CoursesController extends Controller
 
         return $pdf->download('HRS-course-list.pdf');
     }
-    
 }

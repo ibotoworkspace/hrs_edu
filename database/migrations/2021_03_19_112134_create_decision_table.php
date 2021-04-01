@@ -14,7 +14,7 @@ class CreateDecisionTable extends Migration
     public function up()
     {
         Schema::create('discussion', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->text('chat')->nullable()->default(null);
             $table->bigInteger('group_id')->nullable()->default(0);
             $table->bigInteger('user_id')->nullable()->default(0);

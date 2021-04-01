@@ -133,7 +133,6 @@
 
 
                                 <li>
-
                                     <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$crs->id}}" hit_url="{{ url('/admin/course/delete/' . $crs->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                                         <span class="badge bg-info btn-danger ">
                                             {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span>

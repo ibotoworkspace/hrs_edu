@@ -14,7 +14,7 @@ class CreateGroupUserTable extends Migration
     public function up()
     {
         Schema::create('group_user', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->bigInteger('group_id');
             $table->bigInteger('user_id');
             $table->softDeletes();
