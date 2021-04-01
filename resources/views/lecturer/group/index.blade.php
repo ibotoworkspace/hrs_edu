@@ -31,7 +31,12 @@
                             </div>
                         </div>
                     </div>
-
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
                     <div class="row subrow">
                         <div class="col-sm-12">
                             <h3>My Groups</h3>
@@ -52,7 +57,6 @@
                                             <tr>
                                                 <th>Group No</th>
                                                 <th>Title</th>
-                                                <th>Image</th>
                                                 <th>Action </th>
                                             </tr>
                                         </thead>
@@ -63,11 +67,18 @@
                                                     <td class="tdcenter">HRS-{{ $gr->id }}</td>
                                                     <td class="tdcenter">{{ $gr->name }}</td>
                                                     <td class="tdcenter">
-                                                        <a href="{{ asset('lecturer/group/sendlink/'.$gr->id) }}">
+                                                        <a href="{{ asset('lecturer/group/sendlink/' . $gr->id) }}">
                                                             <span class="btn-primary">
                                                                 Send links
                                                             </span>
                                                         </a>
+
+                                                        <a href="{{ asset('lecturer/group/sendlink/' . $gr->id) }}">
+                                                            <span class="badge btn-primary">
+                                                                Edit notes
+                                                            </span>
+                                                        </a>
+
                                                     </td>
                                                     {{-- <?php
                                                     $course_id = Crypt::encrypt($r_course->course->id);
