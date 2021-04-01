@@ -73,7 +73,7 @@
                                                             </span>
                                                         </a>
 
-                                                        <a href="{{ asset('lecturer/group/sendlink/' . $gr->id) }}">
+                                                        <a href="{{ asset('lecturer/group/note/' . $gr->id) }}">
                                                             <span class="badge btn-primary">
                                                                 Edit notes
                                                             </span>

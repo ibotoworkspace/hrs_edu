@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Libraries\ExportToExcel;
 use App\Mail\ClassLink;
 use App\Mail\ReferenceLink;
+use App\Models\Group;
 use App\Models\Lecturer;
 use App\User;
 use Illuminate\Http\Request;
@@ -150,5 +151,10 @@ class LecturerController extends Controller
 
             return redirect('admin/lecturer')->with('success', 'Reference link send to ' . $lecturer->user->mail);
         }
+    }
+    public function note($id){
+        
+        $group = Group::find($id) ; 
+        return view('lecturer.group.note',compact('group'));
     }
 }

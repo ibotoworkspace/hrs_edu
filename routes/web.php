@@ -343,6 +343,8 @@ Route::group(['middleware' => 'lecturer_auth', 'prefix' => 'lecturer'], function
     Route::get('/mygroup', 'Lecturer\CourseController@index');
 
     Route::get('/group/sendlink/{id}', 'Lecturer\CourseController@sendLink');
+    Route::get('/group/note/{id}', 'Lecturer\CourseController@note');
+    Route::post('/group/savenotes', 'Lecturer\CourseController@saveNotes');
 });
 
 //                              *********************** LECTURER ROUTE END ***********************
