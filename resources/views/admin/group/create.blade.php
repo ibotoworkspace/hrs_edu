@@ -11,7 +11,7 @@ $heading = 'Add';
 @endsection
 @section('leftsideform')
     @if ($control == 'edit')
-        {!! Form::model($courses, ['id' => 'my_form', 'method' => 'POST', 'route' => ['courses.update', $courses->id], 'files' => true]) !!}
+        {!! Form::model($group, ['id' => 'my_form', 'method' => 'POST', 'route' => ['group.update', $group->id], 'files' => true]) !!}
     @else
         {!! Form::open(['id' => 'my_form', 'method' => 'POST', 'route' => ['group.save'], 'files' => true]) !!}
     @endif

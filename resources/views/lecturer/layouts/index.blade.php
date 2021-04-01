@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Student DashBoard</title>
+    <title>Lecturer DashBoard</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -110,13 +110,13 @@
                                                     <a href="{{ asset('user/contactus') }}"><span
                                                             class="headpad">Contact</span> </a>
                                                 </li>
-                                                <li id="7">
+                                                {{-- <li id="7">
                                                     <a href="{{ asset('student/courseregistration') }}"><span
                                                             class="headpad">Course Registration</span> </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                             @if (Auth::check())
-                                                <a href="{{ asset('student/logout') }}"><button type="button"
+                                                <a href="{{ asset('lecturer/logout') }}"><button type="button"
                                                         class="btn btn-primary portal">Logout</button></a>
                                             @else
                                                 <a href="{{ asset('login') }}"><button type="button"
@@ -155,39 +155,20 @@
 
         <ul class="nav navbar-nav side-nav mysidemenu">
             <li>
-                <a href="{{ asset('student/dashboard') }}"> Dashboard</a>
+                <a href="{{ asset('lecturer/dashboard') }}"> Dashboard</a>
             </li>
             <li>
-                <a href="{{ asset('student/profile') }}"> Profile</a>
+                <a href="{{ asset('lecturer/profile') }}"> Profile</a>
+            </li>
+
+            <li>
+                <a href="{{ asset('lecturer/mygroup') }}"> My Groups</a>
             </li>
             <li>
-                <a href="{{ asset('student/courseregistration') }}"> Apply for Course</a>
+                <a href="{{ asset('lecturer/changepassword') }}"> Change Password</a>
             </li>
             <li>
-                <a href="{{ asset('student/mycourse') }}"> My Courses</a>
-            </li>
-            <li>
-                <a href="{{ asset('student/payment/detail') }}"> Payments</a>
-            </li>
-            <li>
-                <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
-                <ul id="submenu-1" class="collapse">
-                    <li><a href="{{ asset('student/library') }}"> Library</a></li>
-                    <li><a href="{{ asset('student/blogpage') }}"> Blog</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#" data-toggle="collapse" data-target="#submenu-2"> Enquiry &amp; Support</a>
-                <ul id="submenu-2" class="collapse">
-                    <li><a href="{{ asset('student/ticket/add') }}"> Submit a request</a> </li>
-                    <li><a href="{{ asset('student/ticket') }}">View Tickets</a> </li>
-                </ul>
-            </li>
-            <li>
-                <a href="{{ asset('student/changepassword') }}"> Change Password</a>
-            </li>
-            <li>
-                <a href="{{ asset('student/logout') }}"> Logout</a>
+                <a href="{{ asset('lecturer/logout') }}"> Logout</a>
             </li>
         </ul>
 

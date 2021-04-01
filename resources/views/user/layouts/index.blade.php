@@ -126,7 +126,7 @@
                                                     class="headpad">Contact</span> </a>
                                         </li>
                                     </ul>
-                                    <a href="{{ asset('student/login') }}"><button type="button"
+                                    <a href="{{ asset('login') }}"><button type="button"
                                             class="btn btn-primary portal">Login Account</button></a>
                                     <a href=""><button type="button"
                                             class="btn btn-primary portal">Join us as SDA</button></a>
@@ -176,8 +176,8 @@
 
                         </ul>
                         <div class="crbtngroup">
-                            <a href="{{ asset('student/login') }}"><button type="button"
-                                    class="btn btn-primary portal">Login Account</button></a>
+                            <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
+                                    Account</button></a>
                             <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
                                     class="btn btn-primary portal">Join us as SDA</button></a>
                         </div>

@@ -230,6 +230,13 @@ $admin_common = session()->get('admin_common'); ?>
                         </li>
                         <!-- /Reports -->
 
+                        <li>
+                            <a href="{{ asset('admin/logout') }}">
+                                <img src="{{ asset('images/logout.png') }}" alt="">
+                                <span> Logout</span>
+                            </a>
+                        </li>
+
 
                     </ul>
                 </nav>

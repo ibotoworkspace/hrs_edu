@@ -72,5 +72,9 @@ class Kernel extends HttpKernel
         'user_auth' => \App\Http\Middleware\UserAuth::class,
         // Student middleware
         'student_auth' => \App\Http\Middleware\StudentAuth::class,
+        // lecturer middleware
+        'lecturer_auth' => \App\Http\Middleware\LecturerAuth::class,
+        // skill Advisor middleware
+        'skilladvisor_auth' => \App\Http\Middleware\LecturerAuth::class,
     ];
 }

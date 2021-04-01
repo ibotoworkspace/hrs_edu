@@ -16,8 +16,8 @@ class CreateLecturerTable extends Migration
         Schema::create('lecturer', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->nullable()->default(0);
-            $table->string('reg_links')->nullable()->default(null);
             $table->text('details')->nullable()->default(null);
+            $table->bigInteger('is_approve')->nullable()->default(0);
             $table->softDeletes();
             $table->timestamps();
         });

@@ -18,8 +18,8 @@
 </head>
 
 @section('table')
-   
-{!! Form::open(['method' => 'get', 'route' => ['admin.general.discussion'], 'files' => true]) !!}
+
+    {!! Form::open(['method' => 'get', 'route' => ['admin.general.discussion'], 'files' => true]) !!}
     <span>{!! Form::submit('General Discussion', ['class' => 'btn btn-primary ']) !!}</span>
     {!! Form::close() !!}
 
@@ -45,7 +45,7 @@
                 <div class="bestcourse">Group Name</div>
             </th>
             <th class="mycourse">
-                <div class="bestcourse">Skill Advisor Name</div>
+                <div class="bestcourse">Lecturer Name</div>
             </th>
             <th class="mycourse">
                 <div class="bestcourse"> Course Name</div>
@@ -71,7 +71,7 @@
 
                 </td>
                 <td class="hrs">
-                    <div class="besthrs">{{ $gr->skilladvisor->name }}</div>
+                    <div class="besthrs">{{ $gr->lecturer->user->name ?? '' }}</div>
                     {{-- <a href="{{ url('/admin/groupss/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">groupss</a> --}}
 
                 </td>
@@ -106,7 +106,12 @@
                         <span class="badge detail_{!! $gr->id !!}" data-toggle="modal"
                             data-target=".detail_{!! $gr->id !!}">Detail</span>
                         @include('admin.group.partial.detail_modal')
+                        <a href="{{ asset('admin/edit/group/' . $gr->id) }}">
+                            <span class="badge btn-primary">Edit</span>
+                        </a>
                     </div>
+
+
                 </td>
                 <td>
                     <div class="mydatearrow">

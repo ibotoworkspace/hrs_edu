@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Student;
 use App\Http\Controllers\Controller;
 use App\Models\Course_Registered;
 use App\Models\Courses;
+use App\Models\Lecturer;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -103,11 +105,26 @@ class StudentController extends Controller
         $user_data = array(
             'email'  => $request->get('email'),
             'password' => $request->get('password'),
-            'role_id' => 2
         );
 
         if (Auth::attempt($user_data)) {
-            return redirect('student/dashboard');
+
+            $user = User::where('email', $user_data['email'])->first();
+
+            if ($user->role_id == Config::get('constants.role_id.student')) {
+                return redirect('student/dashboard');
+            } elseif ($user->role_id == Config::get('constants.role_id.skilladvisor')) {
+                return redirect('skilladvisor/dashboard');
+            } elseif ($user->role_id == Config::get('constants.role_id.lecturer')) {
+                $lecturer = Lecturer::where('user_id', $user->id)->where('is_approve',1)->first();
+                if ($lecturer) {
+                    return redirect('lecturer/dashboard');
+                } else {
+                    return back()->with('error', 'Wrong Login Details');
+                }
+            } else {
+                return back()->with('error', 'Wrong Login Details');
+            }
         } else {
             return back()->with('error', 'Wrong Login Details');
         }
@@ -150,8 +167,9 @@ class StudentController extends Controller
         return redirect()->back()->with('success', 'your password has been reset');
     }
 
-    public function Library(Request $request){
-        
+    public function Library(Request $request)
+    {
+
         return view('studentdashboard.ebooks.index');
     }
 }
