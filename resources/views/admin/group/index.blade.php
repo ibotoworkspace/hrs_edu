@@ -18,6 +18,11 @@
 </head>
 
 @section('table')
+   
+{!! Form::open(['method' => 'get', 'route' => ['admin.general.discussion'], 'files' => true]) !!}
+    <span>{!! Form::submit('General Discussion', ['class' => 'btn btn-primary ']) !!}</span>
+    {!! Form::close() !!}
+
     <div class="ableclick">
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
             <a href="{{ asset('admin/group/excel') }}" style="color: #fff"> Excel</a> </button>

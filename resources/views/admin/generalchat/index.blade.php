@@ -12,7 +12,7 @@
 </style>
 @extends('layouts.default_module')
 @section('module_name')
-    Discussion of groups
+    General Discussion
 @stop
 @section('content')
     <div class="clearfix mt10 mb10">
@@ -24,10 +24,10 @@
         @for ($i = sizeOf($chat->items()) - 1; $i > -1; $i--)
             <?php $c = $chat[$i]; ?>
             @if ($c->user->role_id == 2)
-                @include('admin.group.partial.user')
+                @include('admin.generalchat.partial.user')
             @endif
             @if ($c->user->role_id == 1 || $c->user->role_id == 3)
-                @include('admin.group.partial.student')
+                @include('admin.generalchat.partial.student')
             @endif
         @endfor
     </div>
@@ -61,7 +61,7 @@
 
 
         function latestChat() {
-            var url = "{!! asset('admin/chat/latestchat?group_id=' . $group_id . '&msg_id=') !!}" + last_msg_id;
+            var url = "{!! asset('admin/general/chat/latestchat?' . 'msg_id=') !!}" + last_msg_id;
             console.log(url);
             $.get(url, function(data, status) {
                 // console.log("m7y url ",url);
@@ -70,6 +70,7 @@
                 if (res.response[0] != null) {
 
                     for (let i = (res.response.length - 1); i > -1; i--) {
+
                         var user_msg = user_chat_html(res.response[i].chat);
 
                         last_msg_id = res.response[i].id
@@ -84,25 +85,25 @@
 
         function user_chat_html(msg) {
             return `<div class="chatbox-user">
-                <a href="javascript:;" class="chat-avatar pull-right">
-                 <img src="https://picsum.photos/200/300/?blur"
-                  class="img-circle"
-                  title="{!! $admin_common->name !!}" alt="">
-                </a>
-                <div class="message">
-                 <div id="last_msg" class="panel">
-                  <div class="panel-body">
-                   <p>` + msg + `</p>
-                  </div>
-                 </div>
-                 <small class="chat-time">
-                  <i class="ti-time mr5"></i>
-                  <b>0 minutes ago</b>
-                  <input type="checkbox" class="ti-check text-success no-borders">
-                  <span class="ti-check text-success" > </span>
-                 </small>
-                </div>
-               </div>`;
+                                <a href="javascript:;" class="chat-avatar pull-right">
+                                 <img src="https://picsum.photos/200/300/?blur"
+                                  class="img-circle"
+                                  title="{!! $admin_common->name !!}" alt="">
+                                </a>
+                                <div class="message">
+                                 <div id="last_msg" class="panel">
+                                  <div class="panel-body">
+                                   <p>` + msg + `</p>
+                                  </div>
+                                 </div>
+                                 <small class="chat-time">
+                                  <i class="ti-time mr5"></i>
+                                  <b>0 minutes ago</b>
+                                  <input type="checkbox" class="ti-check text-success no-borders">
+                                  <span class="ti-check text-success" > </span>
+                                 </small>
+                                </div>
+                               </div>`;
         }
 
         function page_scroll_bottom() {
@@ -128,7 +129,7 @@
                 return;
             }
             console.log("message :", msg)
-            $.post("{!! asset('/admin/chat/send/' . $group_id) !!}", {
+            $.post("{!! asset('/admin/general/chat/send') !!}", {
                     message: msg,
                     _token: '{!! csrf_token() !!}'
                 })
@@ -137,25 +138,25 @@
                     console.log("data :", data)
                     //append
                     var html = `<div class="chatbox-user right">
-                <a href="javascript:;" class="chat-avatar pull-right">
-                 <img src="https://picsum.photos/200/300/?blur"
-                  class="img-circle"
-                  title="{!! $admin_common->name !!}" alt="">
-                </a>
-                <div class="message">
-                 <div id="last_msg" class="panel">
-                  <div class="panel-body">
-                   <p>` + msg + `</p>
-                  </div>
-                 </div>
-                 <small class="chat-time">
-                  <i class="ti-time mr5"></i>
-                  <b>0 minutes ago</b>
-                  <input type="checkbox" class="ti-check text-success no-borders">
-                  <span class="ti-check text-success" > </span>
-                 </small>
-                </div>
-               </div>`;
+                                <a href="javascript:;" class="chat-avatar pull-right">
+                                 <img src="https://picsum.photos/200/300/?blur"
+                                  class="img-circle"
+                                  title="{!! $admin_common->name !!}" alt="">
+                                </a>
+                                <div class="message">
+                                 <div id="last_msg" class="panel">
+                                  <div class="panel-body">
+                                   <p>` + msg + `</p>
+                                  </div>
+                                 </div>
+                                 <small class="chat-time">
+                                  <i class="ti-time mr5"></i>
+                                  <b>0 minutes ago</b>
+                                  <input type="checkbox" class="ti-check text-success no-borders">
+                                  <span class="ti-check text-success" > </span>
+                                 </small>
+                                </div>
+                               </div>`;
                     $('#chating').append(html);
                     $('#text_msg').val('');
                     var checkFocus = $(".no-borders");

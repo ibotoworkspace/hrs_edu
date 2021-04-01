@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Models\Course_Video;
 use App\Models\CourseRequest;
 use App\Models\Courses;
+use App\Models\Lecturer;
 use App\Models\PromoCode;
 use App\Models\Quiz;
 use App\Models\SkillAdvisor;
@@ -149,18 +150,18 @@ class AdminController extends Controller
 
 
         ];
-        // $total_count =SkillAdvisor::count('id');
-        // $active_count =SkillAdvisor::count('id'); // where is_active == 1
-        // $modules[] = [
+        $total_count =Lecturer::count('id');
+        $active_count =Lecturer::count('id'); // where is_active == 1
+        $modules[] = [
 
-        //     'url' => 'user/advisorlist',
-        //     'title' => 'Total Advisor',
-        //     'total' => $total_count,
-        //     'active' => $active_count,
-        //     'image' => 'images/icon-26.png',
+            'url' => 'admin/lecturer',
+            'title' => 'Total Lecturer',
+            'total' => $total_count,
+            'active' => $active_count,
+            'image' => 'images/icon-26.png',
 
 
-        // ];
+        ];
 
         $total_count = Blog::count('id');
         $modules[] = [

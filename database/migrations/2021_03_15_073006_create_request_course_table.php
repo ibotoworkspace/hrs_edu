@@ -14,7 +14,7 @@ class CreateRequestCourseTable extends Migration
     public function up()
     {
         Schema::create('request_course', function (Blueprint $table) {
-            $table->id();
+            $table->bigIncrements('id');
             $table->bigInteger('course_id');
             $table->bigInteger('user_id');
             $table->tinyInteger('can_download')->nullable()->default(0);

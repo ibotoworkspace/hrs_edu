@@ -31,6 +31,10 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('user/request/excel', 'Admin\Report\UserController@index_excel')->name('user.request.excel');
     Route::get('user/request/pdf', 'Admin\Report\UserController@generatePDF')->name('user.request.pdf');
 
+    Route::get('lecturer/csv', 'Admin\LecturerController@index_csv')->name('lecturer.csv');
+    Route::get('lecturer/excel', 'Admin\LecturerController@index_excel')->name('lecturer.excel');
+    Route::get('lecturer/pdf', 'Admin\LecturerController@generatePDF')->name('lecturer.pdf');
+
     Route::get('ticket/csv', 'Admin\TicketController@index_csv')->name('ticket.csv');
     Route::get('ticket/excel', 'Admin\TicketController@index_excel')->name('ticket.excel');
     Route::get('ticket/pdf', 'Admin\TicketController@generatePDF')->name('ticket.pdf');
@@ -60,6 +64,14 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/report/user/badge/{id}', 'Admin\Report\UserController@badge')->name('report.badge');
     Route::get('/report/user/voucher/{id}/{user_id}', 'Admin\Report\VoucherController@index')->name('report.voucher');
     Route::post('/report/user/voucher/save', 'Admin\Report\VoucherController@save')->name('admin.voucher.save');
+
+
+    // general discussion 
+
+    Route::get('/general/discussion', 'Admin\DiscussionController@generalchatList')->name('admin.general.discussion');
+    Route::get('/general/addcomment', 'Admin\DiscussionController@generaladdComment')->name('general.addcomment');
+    Route::post('/general/chat/send', 'Admin\DiscussionController@generalsend')->name('general.chat.send');
+    Route::get('general/chat/latestchat', 'Admin\DiscussionController@generallatestChat')->name('general.chat.latestchat');
 
 
     Route::get('/discussion/{id}', 'Admin\GroupController@chatList')->name('discussion');
@@ -145,17 +157,25 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     // lectures button clicking in course page
     Route::get('/chapter/{id}', 'Admin\ChapterController@index')->name('chapters.index');
     Route::get('/chapter', 'Admin\ChapterController@index')->name('chapter.index');
-
-
     Route::get('/chapter/create/{id}', 'Admin\ChapterController@create')->name('chapter.create');
     Route::post('/chapter/save', 'Admin\ChapterController@save')->name('chapter.save');
-
     Route::get('/chapter/edit/{id}', 'Admin\ChapterController@edit')->name('chapter.edit');
     Route::post('/chapter/update/{id}', 'Admin\ChapterController@update')->name('chapter.update');
     Route::post('/chapter/delete/{id}', 'Admin\ChapterController@destroy_undestroy')->name('chapter.delete');
     Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.search');
-});
 
+
+    // Lecturer Routes  lecturer
+
+    Route::get('/lecturer/link/{id}', 'Admin\LecturerController@sendLink')->name('lecturer.link');
+    Route::get('/lecturer', 'Admin\LecturerController@index')->name('lecturer.index');
+    Route::get('/lecturer/create', 'Admin\LecturerController@create')->name('lecturer.create');
+    Route::post('/lecturer/save', 'Admin\LecturerController@save')->name('lecturer.save');
+    Route::get('/lecturer/edit/{id}', 'Admin\LecturerController@edit')->name('lecturer.edit');
+    Route::post('/lecturer/update/{id}', 'Admin\LecturerController@update')->name('lecturer.update');
+    Route::get('/lecturer/delete/{id}', 'Admin\LecturerController@destroy_undestroy')->name('lecturer.delete');
+    // Route::get('chapter/search', 'Admin\ChapterController@search')->name('lecturer.search');
+});
 
 //                            *********************** ADMIN ROUTE END ****************************
 

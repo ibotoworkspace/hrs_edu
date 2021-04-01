@@ -139,7 +139,7 @@
                     if (res.response[0] != null) {
 
                         for (let i = (res.response.length - 1); i > -1; i--) {
-                            var user_msg = user_chat_html(res.response[i].msg);
+                            var user_msg = user_chat_html(res.response[i].chat);
 
                             last_msg_id = res.response[i].id
                             $('#chating').append(user_msg);
