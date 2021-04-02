@@ -24,7 +24,7 @@ $heading = 'Add';
     <div class="col-md-5 pull-left">
         <div class="form-group text-center">
             <div>
-                {!! Form::open(['method' => 'get', 'route' => ['courses.index']]) !!}
+                {!! Form::open(['method' => 'get', 'route' => ['group.index']]) !!}
                 {!! Form::submit('Cancel', ['class' => 'btn btn-default btn-block btn-lg btn-parsley']) !!}
                 {!! Form::close() !!}
             </div>

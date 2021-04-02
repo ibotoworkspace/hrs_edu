@@ -67,10 +67,22 @@ class CourseController extends Controller
     }
     public function saveLink(Request $request)
     {
-        $group = Group::find($request->group_id);
+        $group = Group::with('groupUser.user')->find($request->group_id);
         $group->notes = $request->link;
         $group->save();
 
-        return redirect('lecturer/mygroup')->with('success', 'Class Link Update Successfully');
+        foreach ($group->groupUser as $gr) {
+            $details = [
+                'to' => $gr->user->email,
+                'from' => 'contactus@hrsedu.com',
+                'title' => 'HRS Academy',
+                'subject' => 'Reference Link From HRS Academy ',
+                "dated"  => date('d F, Y (l)'),
+                "class_link" => $group->class_link
+            ];
+            Mail::to($gr->user->email)->send(new ClassLink($details));
+        }
+
+        return redirect('lecturer/mygroup')->with('success', 'Class Link Send Successfully');
     }
 }

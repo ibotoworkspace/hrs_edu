@@ -82,17 +82,12 @@
                 </td>
                 <td class="hrs">
                     @if ($l->is_approve == 0)
-                        {{-- <a href="{{ asset('admin/lecturer/approval/' . $l->id) }}">
-                            <span class="btn-danger">Pending</span>
-                        </a> --}}
-                        <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{ $l->id }}"
+                        <a href="" data-toggle="modal" hit_method="get"
                             hit_url="{{ url('/admin/lecturer/approval/' . $l->id) }}" name="activate_delete_link"
                             data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                             <span class="badge bg-info btn-danger ">Pending</span></a>
                     @else
-                        {{-- <a href="{{ asset('admin/lecturer/link/' . $l->id) }}"> --}}
                         <span class="badge bg-info btn-success">Approve</span>
-                        {{-- </a> --}}
                     @endif
 
                 </td>

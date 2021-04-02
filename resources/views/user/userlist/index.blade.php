@@ -46,9 +46,9 @@
             <th class="mycourse">
                 <div class="bestcourse">Skill advisor Name</div>
             </th>
-            <th class="mycourse">
+            {{-- <th class="mycourse">
                 <div class="bestcourse">Skill advisor Email</div>
-            </th>
+            </th> --}}
             <th class="mycourse">
                 <div class="bestcourse">Course Registered</div>
             </th>
@@ -73,9 +73,9 @@
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! $lp->sda->name ?? '--'!!}</div>
                 </td>
-                <td class="hrs">
+                {{-- <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! $lp->sda->email ?? '--'!!}</div>
-                </td>
+                </td> --}}
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">
                         <a href={{ asset('student/courselist/' . $lp->id) }}><button type="submit"

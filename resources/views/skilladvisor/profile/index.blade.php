@@ -59,7 +59,7 @@ $skilladvisor = $skilladvisor_common->skilladvisor;
                                         </div>
                                         <div class="studentboxdatathree col-sm-8">
                                             <h4>{{ strtoupper($skilladvisor->name) }}</h4>
-                                            <h5>skilladvisor</h5>
+                                            <h5>SKILL ADVISOR</h5>
                                         </div>
                                         <div class="studentdboxdataimg col-sm-2">
                                             <img src="{{ asset('images/image-15.png') }}" class="img-responsive">
