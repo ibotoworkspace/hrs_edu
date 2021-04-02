@@ -71,10 +71,10 @@
                     <div class="besthrs" name="mytitle">{!! $lp->email !!}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! $lp->skilladvisor->name ?? '--'!!}</div>
+                    <div class="besthrs" name="mytitle">{!! $lp->sda->name ?? '--'!!}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! $lp->skilladvisor->email ?? '--'!!}</div>
+                    <div class="besthrs" name="mytitle">{!! $lp->sda->email ?? '--'!!}</div>
                 </td>
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">
