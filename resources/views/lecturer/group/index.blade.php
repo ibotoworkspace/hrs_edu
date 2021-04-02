@@ -67,28 +67,24 @@
                                                     <td class="tdcenter">HRS-{{ $gr->id }}</td>
                                                     <td class="tdcenter">{{ $gr->name }}</td>
                                                     <td class="tdcenter">
-                                                        <a href="{{ asset('lecturer/group/sendlink/' . $gr->id) }}">
+                                                        {{-- <a href="{{ asset('lecturer/group/sendlink/' . $gr->id) }}">
                                                             <span class="btn-primary">
                                                                 Send links
                                                             </span>
-                                                        </a>
+                                                        </a> --}}
 
                                                         <a href="{{ asset('lecturer/group/note/' . $gr->id) }}">
-                                                            <span class="badge btn-primary">
-                                                                Edit notes
+                                                            <span class="btn btn-primary">
+                                                             Notes
                                                             </span>
                                                         </a>
                                                         <a href="{{ asset('lecturer/group/editlink/' . $gr->id) }}">
-                                                            <span class="badge btn-primary">
-                                                                Edit Class Link
+                                                            <span class="btn btn-primary">
+                                                                Send Invitation Link
                                                             </span>
                                                         </a>
 
                                                     </td>
-                                                    {{-- <?php
-                                                    $course_id = Crypt::encrypt($r_course->course->id);
-                                                    $group_id = $r_course->course->group->id ?? null;
-                                                    ?> --}}
                                                     {{-- <td class="tdcenter">
                                                         <a href="{{ asset('student/course/detail?course_id=' . $course_id) }}"
                                                             target="_blank">

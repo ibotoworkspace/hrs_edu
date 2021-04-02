@@ -82,7 +82,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/group/statusupdate/{id}', 'Admin\GroupController@statusUpdate')->name('group.statusupdate');
     Route::get('/creategroup', 'Admin\GroupController@create')->name('group.create');
     Route::post('/savegroup', 'Admin\GroupController@save')->name('group.save');
-    Route::get('/group', 'Admin\GroupController@index')->name('group');
+    Route::get('/group', 'Admin\GroupController@index')->name('group.index');
     Route::post('/group/update/{id}', 'Admin\GroupController@update')->name('group.update');
     Route::get('/edit/group/{id}', 'Admin\GroupController@edit')->name('edit.group');
 

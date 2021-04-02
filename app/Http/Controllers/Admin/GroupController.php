@@ -32,7 +32,7 @@ class GroupController extends Controller
     {
         $control = 'create';
         $users = User::where('role_id', 2)->get();
-        $lecturers = Lecturer::with('user')->get();
+        $lecturers = Lecturer::with('user')->where('is_approve',1)->get();
         $courses = Courses::get();
 
         return view('admin.group.create', compact('control', 'users', 'lecturers', 'courses'));

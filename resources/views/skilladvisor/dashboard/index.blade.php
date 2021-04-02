@@ -69,7 +69,7 @@ $skilladvisor = $skilladvisor_common->skilladvisor;
                                         <tr>
                                             <th>S.NO </th>
                                             <th>User Name</th>
-                                            <th>USer Email</th>
+                                            <th>User Email</th>
                                             <th>Registartion Date </th>
                                         </tr>
                                     </thead>
