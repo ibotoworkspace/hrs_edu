@@ -1,8 +1,8 @@
-@extends('lecturer.layouts.index')
+@extends('skilladvisor.layouts.index')
 
 <?php
-$lecturer_common = session()->get('lecturer_common');
-$lecturer = $lecturer_common->lecturer;
+$skilladvisor_common = session()->get('skilladvisor_common');
+$skilladvisor = $skilladvisor_common->skilladvisor;
 ?>
 <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
 <link href="{{ asset('css/lecturerdashboard.css') }}" rel="stylesheet">
@@ -33,7 +33,7 @@ $lecturer = $lecturer_common->lecturer;
                         <div class="col-sm-6">
                             <div class="infoboxdata row">
                                 <div class="infoboxdatatext col-sm-8">
-                                    <h4 style="text-transform: uppercase;">{{ $lecturer->name }}</h4>
+                                    <h4 style="text-transform: uppercase;">{{ $skilladvisor->name }}</h4>
                                     <h3>Welcome to HRS Academy</h3>
                                 </div>
                                 <div class="infoboxdatatextimg col-sm-4">
@@ -63,26 +63,26 @@ $lecturer = $lecturer_common->lecturer;
                     <div class="row courseside">
                         <div class="col-sm-12">
                             <div class="coursesidedata">
-                                <h3>MY GROUPS</h3>
+                                <h3>Registered Students</h3>
                                 <table class="table mytables">
                                     <thead class="coursesidehead">
                                         <tr>
                                             <th>S.NO </th>
-                                            <th>Course Title</th>
-                                            <th>Group Name</th>
-                                            <th>Start Date </th>
+                                            <th>User Name</th>
+                                            <th>USer Email</th>
+                                            <th>Registartion Date </th>
                                         </tr>
                                     </thead>
                                     <tbody class="mycolarea">
-                                        @foreach ($groups as $key => $gr)
+                                        @foreach ($users as $key => $u)
 
 
                                             <tr class="mycolareadata">
                                                 <td>HRS0{{ $key + 1 }}
                                                 </td>
-                                                <td>{{ $gr->course->title }}</td>
-                                                <td>{{ $gr->name }}</td>
-                                                <td>{{ date('d-m-Y', $gr->end_date) }}</td>
+                                                <td>{{ $u->name }}</td>
+                                                <td>{{ $u->email }}</td>
+                                                <td>{{  $u->created_at }}</td>
                                                 {{-- <?php
                                                 $register_course_id = Crypt::encrypt($r_course->id);
                                                 $course_id = Crypt::encrypt($r_course->course->id);

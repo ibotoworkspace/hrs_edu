@@ -85,8 +85,8 @@ class LecturerController extends Controller
 
     public function destroy_undestroy($id)
     {
-        $promocode = Lecturer::find($id);
-        if ($promocode) {
+        $lecturer = Lecturer::find($id);
+        if ($lecturer) {
             Lecturer::destroy($id);
             $new_value = 'Activate';
         } else {
@@ -152,9 +152,23 @@ class LecturerController extends Controller
             return redirect('admin/lecturer')->with('success', 'Reference link send to ' . $lecturer->user->mail);
         }
     }
-    public function note($id){
-        
-        $group = Group::find($id) ; 
-        return view('lecturer.group.note',compact('group'));
+    public function approval($id)
+    {
+
+        $lecturer = Lecturer::find($id);
+        if ($lecturer) {
+            $lecturer->is_approve = 1;
+            $lecturer->save();
+            $new_value = 'Approve';
+        } else {
+            // Lecturer::withTrashed()->find($id)->restore();
+            $new_value = 'Pending';
+        }
+        $response = Response::json([
+            "status" => true,
+            'action' => Config::get('constants.ajax_action.delete'),
+            'new_value' => $new_value
+        ]);
+        return $response;
     }
 }

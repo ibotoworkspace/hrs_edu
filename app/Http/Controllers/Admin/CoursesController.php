@@ -86,7 +86,7 @@ class CoursesController extends Controller
     {
 
 
-        $courses = Courses::paginate(10);
+        $courses = Courses::orderBy('created_at', 'DESC')->paginate(10);
 
         return view('admin.courses.index', compact('courses'));
     }
@@ -166,6 +166,11 @@ class CoursesController extends Controller
             $course_badge = $request->badge;
             $root = $request->root();
             $courses->badge = $this->move_img_get_path($course_badge, $root, 'image');
+        }
+        if ($request->hasFile('book_avatar')) {
+            $book_avatar = $request->book_avatar;
+            $root = $request->root();
+            $courses->book_avatar = $this->move_img_get_path($book_avatar, $root, 'image');
         }
 
         $courses->save();

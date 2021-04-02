@@ -125,7 +125,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/coursesrequest/status/{id}', 'Admin\CoursesController@status')->name('coursesrequest.status');
 
     //admin advisor
-    Route::get('/advisor', 'Admin\SkillAdvisorController@index')->name('advisor');
+    Route::get('/skilladvisor', 'Admin\SkillAdvisorController@index')->name('advisor');
     Route::get('/advisorstatus/{id}', 'Admin\SkillAdvisorController@updateStatus')->name('advisorstatus');
     // admin/choices/create
     Route::get('/choices/create/{id}', 'Admin\ChoiceController@create')->name('admin.choices.create');
@@ -176,10 +176,10 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/lecturer/edit/{id}', 'Admin\LecturerController@edit')->name('lecturer.edit');
     Route::post('/lecturer/update/{id}', 'Admin\LecturerController@update')->name('lecturer.update');
     Route::get('/lecturer/delete/{id}', 'Admin\LecturerController@destroy_undestroy')->name('lecturer.delete');
-    // Route::get('chapter/search', 'Admin\ChapterController@search')->name('lecturer.search');
+    Route::get('lecturer/approval/{id}', 'Admin\LecturerController@approval')->name('lecturer.approval');
 });
 
-//                            *********************** ADMIN ROUTE END ****************************
+//                              *********************** ADMIN ROUTE END ****************************
 
 
 //                              *********************** USER ROUTE START ****************************
@@ -339,10 +339,15 @@ Route::group(['middleware' => 'lecturer_auth', 'prefix' => 'lecturer'], function
     Route::get('/dashboard', 'Lecturer\DashboardController@dashboard');
 
     Route::get('/profile', 'Lecturer\DashboardController@profile');
+    Route::post('/profileupdate', 'Lecturer\DashboardController@update_profile');
+    Route::post('/forgetpassword', 'Lecturer\DashboardController@forgetPassword')->name('forgetpassword');
+    Route::get('/changepassword', 'Lecturer\DashboardController@changePassword')->name('changepassword');
+    Route::get('/logout', 'Lecturer\DashboardController@logout')->name('logout');
     //course list
     Route::get('/mygroup', 'Lecturer\CourseController@index');
-
     Route::get('/group/sendlink/{id}', 'Lecturer\CourseController@sendLink');
+    Route::get('/group/editlink/{id}', 'Lecturer\CourseController@editLink');
+    Route::post('/group/savelink', 'Lecturer\CourseController@saveLink');
     Route::get('/group/note/{id}', 'Lecturer\CourseController@note');
     Route::post('/group/savenotes', 'Lecturer\CourseController@saveNotes');
 });
@@ -353,11 +358,13 @@ Route::group(['middleware' => 'lecturer_auth', 'prefix' => 'lecturer'], function
 
 Route::group(['middleware' => 'skilladvisor_auth', 'prefix' => 'skilladvisor'], function () {
 
-    Route::get('/dashboard', 'Lecturer\DashboardController@dashboard');
+    Route::get('/dashboard', 'SkillAdvisor\DashboardController@index');
 
-    Route::get('/profile', 'Lecturer\DashboardController@profile');
+    Route::get('/profile', 'SkillAdvisor\DashboardController@profile');
+    Route::post('/profileupdate', 'SkillAdvisor\DashboardController@updateProfile');
     //course list
-    Route::get('/course', 'Lecturer\CourseController@index');
+    Route::get('/course', 'SkillAdvisor\CourseController@index');
+    Route::get('/logout', 'SkillAdvisor\DashboardController@logout');
 });
 
 //                              *********************** SKILL ADVISOR ROUTE END *****************

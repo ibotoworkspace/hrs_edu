@@ -1,4 +1,4 @@
-@extends('lecturer.layouts.index')
+@extends('skilladvisor.layouts.index')
 
 <link href="{{ asset('css/submitrequest.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
@@ -67,20 +67,15 @@
                                                     <td class="tdcenter">HRS-{{ $gr->id }}</td>
                                                     <td class="tdcenter">{{ $gr->name }}</td>
                                                     <td class="tdcenter">
-                                                        <a href="{{ asset('lecturer/group/sendlink/' . $gr->id) }}">
+                                                        <a href="{{ asset('skilladvisor/group/sendlink/' . $gr->id) }}">
                                                             <span class="btn-primary">
                                                                 Send links
                                                             </span>
                                                         </a>
 
-                                                        <a href="{{ asset('lecturer/group/note/' . $gr->id) }}">
+                                                        <a href="{{ asset('skilladvisor/group/note/' . $gr->id) }}">
                                                             <span class="badge btn-primary">
                                                                 Edit notes
-                                                            </span>
-                                                        </a>
-                                                        <a href="{{ asset('lecturer/group/editlink/' . $gr->id) }}">
-                                                            <span class="badge btn-primary">
-                                                                Edit Class Link
                                                             </span>
                                                         </a>
 

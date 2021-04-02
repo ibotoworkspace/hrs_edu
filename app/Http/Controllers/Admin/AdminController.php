@@ -150,12 +150,24 @@ class AdminController extends Controller
 
 
         ];
-        $total_count =Lecturer::count('id');
-        $active_count =Lecturer::count('id'); // where is_active == 1
+        $total_count = Lecturer::count('id');
+        $active_count = Lecturer::count('id'); // where is_active == 1
         $modules[] = [
 
             'url' => 'admin/lecturer',
             'title' => 'Total Lecturer',
+            'total' => $total_count,
+            'active' => $active_count,
+            'image' => 'images/icon-26.png',
+
+
+        ];
+        $total_count = SkillAdvisor::count('id');
+        $active_count = SkillAdvisor::where('status','approved')->count('id'); // where is_active == 1
+        $modules[] = [
+
+            'url' => 'admin/skilladvisor',
+            'title' => 'Total Skills Advisor',
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-26.png',

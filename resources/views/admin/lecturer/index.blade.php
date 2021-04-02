@@ -53,7 +53,7 @@
             </th>
 
             <th class="option">
-                <div class="bestoption">Send Link</div>
+                <div class="bestoption">Approval </div>
 
             </th>
 
@@ -80,11 +80,21 @@
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! $l->user->email !!}</div>
                 </td>
-
                 <td class="hrs">
-                    <a href="{{ asset('admin/lecturer/link/' . $l->id) }}">
-                        <span class="btn-primary">send reference link</span>
-                    </a>
+                    @if ($l->is_approve == 0)
+                        {{-- <a href="{{ asset('admin/lecturer/approval/' . $l->id) }}">
+                            <span class="btn-danger">Pending</span>
+                        </a> --}}
+                        <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{ $l->id }}"
+                            hit_url="{{ url('/admin/lecturer/approval/' . $l->id) }}" name="activate_delete_link"
+                            data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                            <span class="badge bg-info btn-danger ">Pending</span></a>
+                    @else
+                        {{-- <a href="{{ asset('admin/lecturer/link/' . $l->id) }}"> --}}
+                        <span class="badge bg-info btn-success">Approve</span>
+                        {{-- </a> --}}
+                    @endif
+
                 </td>
 
                 <td class="optionss">
