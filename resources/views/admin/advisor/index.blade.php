@@ -13,7 +13,7 @@
 
 
 @section('table')
-    {!! Form::open(['method' => 'get', 'url' => ['admin/advisor'], 'files' => true]) !!}
+    {!! Form::open(['method' => 'get', 'url' => ['admin/skilladvisor'], 'files' => true]) !!}
     @include('admin.advisor.partial.searchfilters')
     {!! Form::close() !!}
 

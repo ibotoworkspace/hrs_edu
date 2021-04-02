@@ -45,17 +45,21 @@ class User extends Authenticatable
         'password' => 'required'
     ];
 
-
-    public function resetPassword($email) {
+    public function skilladvisor()
+    {
+        return $this->hasOne('App\Models\SkillAdvisor', 'user_id', 'id');
+    }
+    public function resetPassword($email)
+    {
         $user = User::where(['email' => $email])->first([
-    			'id',
-    			'email',
-    			'password'
-    	]);
-    
-    	if(!empty($user)) {
-    		$random_password =Str::random(8);
-    		
+            'id',
+            'email',
+            'password'
+        ]);
+
+        if (!empty($user)) {
+            $random_password = Str::random(8);
+
             $details = [
                 'from' => "greetings@mail.com",
                 'subject' => 'Your Password For Web | Greetings',
@@ -63,13 +67,12 @@ class User extends Authenticatable
                 "body"  => "Yor password is change ."
             ];
             $user->password = Hash::make($random_password);
-    		if($user->save()) {
+            if ($user->save()) {
                 // Mail::to($user->email)->send(new ForgotPass($details));
 
-    		
-    			
-    		}
-    	}
-    	
+
+
+            }
+        }
     }
 }

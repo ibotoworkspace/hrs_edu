@@ -1,4 +1,4 @@
-@extends('lecturer.layouts.index')
+@extends('skilladvisor.layouts.index')
 
 <link href="{{ asset('css/submitrequest.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
@@ -39,7 +39,7 @@
                         <button type="button" class="close" data-dismiss="alert">×</button>
                         <strong id="suc-msg">{{ $message ?? '' }}</strong>
                     </div>
-                    <form action="{{asset('lecturer/group/savenotes')}}" method="post">
+                    <form action="{{asset('skilladvisor/group/savenotes')}}" method="post">
                         @csrf
                     <div class="row courseside">
                         <div class="col-sm-12">

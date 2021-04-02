@@ -39,6 +39,38 @@ class CourseController extends Controller
             Mail::to($gr->user->email)->send(new ClassLink($details));
         }
 
-        return redirect('lecturer/mygroup')->with('success', 'Send Link Successfully');
+        return redirect('lecturer/mygroup')->with('success', 'Link Send Successfully');
+    }
+
+    public function note($id)
+    {
+
+        $group = Group::find($id);
+        return view('lecturer.group.note', compact('group'));
+    }
+
+    public function saveNotes(Request $request)
+    {
+
+
+        $group = Group::find($request->group_id);
+        $group->notes = $request->notes;
+        $group->save();
+
+        return redirect('lecturer/mygroup')->with('success', 'Notes Update Successfully');
+    }
+
+    public function editLink($id)
+    {
+        $group = Group::find($id);
+        return view('lecturer.group.classlink', compact('group'));
+    }
+    public function saveLink(Request $request)
+    {
+        $group = Group::find($request->group_id);
+        $group->notes = $request->link;
+        $group->save();
+
+        return redirect('lecturer/mygroup')->with('success', 'Class Link Update Successfully');
     }
 }

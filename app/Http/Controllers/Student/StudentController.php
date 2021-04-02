@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course_Registered;
 use App\Models\Courses;
 use App\Models\Lecturer;
+use App\Models\SkillAdvisor;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -40,15 +41,44 @@ class StudentController extends Controller
         $validation = Validator::make($request->all(), [
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
+        $user = new User();
         if (!$validation->fails()) {
-            $student = new User();
-            $this->add_or_update($student, $request);
-            Auth::login($student);
-            return redirect('student/dashboard');
+            if ($request->role_id == Config::get('constants.role_id.lecturer')) {
+                $this->add_lecturer($user, $request);
+                return back()->with('success', 'Thank You For Registration , Your account is in verification process');
+            } else {
+                $this->add_or_update($user, $request);
+                Auth::login($user);
+                return redirect('student/dashboard');
+            }
         } else {
 
             return back()->with('error', 'Email already exsist');
         }
+    }
+    public function add_lecturer($user, $request)
+    {
+        if ($request->name) {
+            $user->name = $request->name;
+        }
+        if ($request->address) {
+            $user->address = $request->address;
+        }
+        $user->email = $request->email;
+        if ($request->phone) {
+            $user->mobileno = $request->phone;
+        }
+        if ($request->password) {
+            $user->password = Hash::make($request->password);
+        }
+        $user->role_id = Config::get('constants.role_id.lecturer');
+
+        $user->access_token = uniqid();
+        $user->save();
+
+        $lecturer = new Lecturer();
+        $lecturer->user_id = $user->id;
+        $lecturer->save();
     }
 
     public function add_or_update($student, $request)
@@ -110,13 +140,20 @@ class StudentController extends Controller
         if (Auth::attempt($user_data)) {
 
             $user = User::where('email', $user_data['email'])->first();
-
+           
             if ($user->role_id == Config::get('constants.role_id.student')) {
                 return redirect('student/dashboard');
             } elseif ($user->role_id == Config::get('constants.role_id.skilladvisor')) {
-                return redirect('skilladvisor/dashboard');
+                // dd($user);
+                $skilladvisor = SkillAdvisor::where('user_id', $user->id)->where('status', 'approved')->first();
+                if ($skilladvisor) {
+                    Auth::login($user);
+                    return redirect('skilladvisor/dashboard');
+                } else {
+                    return back()->with('error', 'Your profile is under verification .');
+                }
             } elseif ($user->role_id == Config::get('constants.role_id.lecturer')) {
-                $lecturer = Lecturer::where('user_id', $user->id)->where('is_approve',1)->first();
+                $lecturer = Lecturer::where('user_id', $user->id)->where('is_approve', 1)->first();
                 if ($lecturer) {
                     return redirect('lecturer/dashboard');
                 } else {
@@ -133,7 +170,7 @@ class StudentController extends Controller
     {
 
         Auth::logout();
-        return redirect('student/login');
+        return redirect('login');
     }
     function update_profile(Request $request)
     {

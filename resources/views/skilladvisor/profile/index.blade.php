@@ -1,11 +1,11 @@
-@extends('lecturer.layouts.index')
+@extends('skilladvisor.layouts.index')
 
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
 
 <?php
-$lecturer_common = session()->get('lecturer_common');
-$lecturer = $lecturer_common->lecturer;
+$skilladvisor_common = session()->get('skilladvisor_common');
+$skilladvisor = $skilladvisor_common->skilladvisor;
 ?>
 
 @section('default')
@@ -36,7 +36,7 @@ $lecturer = $lecturer_common->lecturer;
                         </div>
                     @endif
                     <div class="grayback">
-                        <form method="post" action="{{ url('/lecturer/profileupdate') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ url('/skilladvisor/profileupdate') }}" enctype="multipart/form-data">
 
                             {{ csrf_field() }}
                             <div class="row studentarea">
@@ -48,7 +48,7 @@ $lecturer = $lecturer_common->lecturer;
 
                                             <div id="profile-image">
                                                 <img id="profile_image"
-                                                    src="{{ $lecturer->avatar ?? asset('images/user_icon.jpg') }}"
+                                                    src="{{ $skilladvisor->avatar ?? asset('images/user_icon.jpg') }}"
                                                     class="img-responsive">
                                                 <span> here to change profile image </span>
 
@@ -58,8 +58,8 @@ $lecturer = $lecturer_common->lecturer;
 
                                         </div>
                                         <div class="studentboxdatathree col-sm-8">
-                                            <h4>{{ strtoupper($lecturer->name) }}</h4>
-                                            <h5>LECTURER</h5>
+                                            <h4>{{ strtoupper($skilladvisor->name) }}</h4>
+                                            <h5>skilladvisor</h5>
                                         </div>
                                         <div class="studentdboxdataimg col-sm-2">
                                             <img src="{{ asset('images/image-15.png') }}" class="img-responsive">
@@ -72,15 +72,15 @@ $lecturer = $lecturer_common->lecturer;
                                 <div class="col-sm-12">
                                     <div class="studentform inputstyle">
                                         <input type="email" class="form-control stuform" id="email" name="email"
-                                            value="{{ $lecturer->email }}" placeholder="Email" readonly>
+                                            value="{{ $skilladvisor->email }}" placeholder="Email" readonly>
                                         <input type="text" class="form-control stuform" id="name" name="name"
-                                            value="{{ $lecturer->name }}" placeholder="Name">
+                                            value="{{ $skilladvisor->name }}" placeholder="Name">
                                         <input type="number" class="form-control stuform" id="ph_no" name="phone"
-                                            value="{{ $lecturer->mobileno ?? '' }}" placeholder="Phone No " required>
+                                            value="{{ $skilladvisor->mobileno ?? '' }}" placeholder="Phone No " required>
                                         <input type="text" class="form-control stuform" id="address" name="address"
-                                            value="{{ $lecturer->address ?? '' }}" placeholder="Contact Address"
+                                            value="{{ $skilladvisor->address ?? '' }}" placeholder="Contact Address"
                                             required>
-                                        <input type="text" class="form-control stuform" id="region" name="region" value="{{$lecturer->region ?? '' }}"
+                                        <input type="text" class="form-control stuform" id="region" name="region" value="{{$skilladvisor->region ?? '' }}"
                                             placeholder="Region ">
                                     </div>
                                     <div class="stufomclick">

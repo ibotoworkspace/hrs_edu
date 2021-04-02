@@ -1,16 +1,13 @@
  <div class="col-xs-4">
      <div class="form-group">
-         <label>Search Name</label>
+         <label>Search User Name</label>
          <div class="mb15">
              <fieldset>
                  <div class="control-group">
                      <div class="controls">
                          <div class="input-prepend input-group">
                              <span class="add-on input-group-addon"></span>
-                             {!! Form::text('name',$name ??null, ['class' => 'form-control',
-                             'data-parsley-required'=>'true',
-                             'data-parsley-trigger'=>'change',
-                             'placeholder'=>'Enter Name','id'=>'name']) !!}
+                             {!! Form::text('name', $name ?? null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Enter Text here ...', 'id' => 'name']) !!}
                          </div>
                      </div>
                  </div>
@@ -23,10 +20,8 @@
      <div class="form-group text-center">
          <label></label>
          <div>
-             <input type="submit" class="btn btn-info pull-left date-range-review-btn"
-                    value="Search"
-                    {{--onclick ="return search();" --}}
-             >
+             <input type="submit" class="btn btn-info pull-left date-range-review-btn" value="Search"
+                 {{-- onclick ="return search();" --}}>
          </div>
      </div>
  </div>
