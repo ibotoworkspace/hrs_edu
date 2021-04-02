@@ -24,8 +24,7 @@ class StudentRegistrationController extends Controller
     {
 
 
-        $userlist = User::with('skilladvisor')->where('role_id', 2)->paginate(10);
-      
+        $userlist = User::with('sda')->where('role_id', 2)->paginate(10);
         return view('user.userlist.index', compact('userlist'));
     }
 
