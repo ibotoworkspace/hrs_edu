@@ -10,4 +10,11 @@ class Choices extends Model
     use SoftDeletes;
     protected $table='choice';
    
+
+    public function quiz()
+    {
+        return $this->hasOne('App\Models\Quiz', 'id', 'quiz_id');
+    }
+
+
 }

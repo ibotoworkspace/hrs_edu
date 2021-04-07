@@ -1,7 +1,7 @@
 
 @extends('layouts.default_module')
 @section('module_name')
-List of Choices
+Question : {{ $choice[0]->quiz->question}}
 @stop
 
 
@@ -25,7 +25,7 @@ List of Choices
                             <div class="bestcso">S. No.</div>
                         </th> --}}
                         <th class="mycourse">
-                            <div class="bestcourse">Question NO.</div>
+                            <div class="bestcourse">S.NO.</div>
                         </th>
                         <th class="mycourse">
                             <div class="bestcourse">Choice</div>
@@ -53,13 +53,13 @@ List of Choices
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($choice as $c)
+                    @foreach($choice as $key=>$c)
                     <tr class="myarrow">
                         {{-- <td class="mynbr">
                             <div class="bestnbr"> 1</div>
                         </td> --}}
                         <td class="hrs">
-                            <div class="besthrs">{{ $c->quiz_id }}</div>
+                            <div class="besthrs">{{ $key+1}}</div>
                             {{-- <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>    --}}
 
                         </td>
