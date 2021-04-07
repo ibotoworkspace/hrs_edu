@@ -25,8 +25,6 @@
         <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
         <button type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</button>
         <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> PDF</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoners"> Print</button>
     </div>
 
 
@@ -43,13 +41,7 @@
                 <div class="bestcourse">Decriptions</div>
             </th>
 
-
-
             </th>
-            {{-- <th class="option">
-                <div class="bestoption">IS Paid</div>
-
-            </th> --}}
             <th class="option">
                 <div class="bestoption">Level</div>
 
@@ -91,9 +83,33 @@
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->course_level !!}</div>
 
                 </td>
-                <td class="optionss">
+                {{-- <td class="optionss">
                     <div class="myoptionss">
                         <i class="fa fa-cog settings" aria-hidden="true"></i>
+                    </div>
+                </td> --}}
+                <td class="optionss">
+                    <div class="myoptionss">
+
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><span
+                                    class="caret"></span></button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ url('/admin/chapter/edit/' . $ch->id) }}">Edit</a></li>
+
+
+                                <li>
+                                    <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$ch->id}}" hit_url="{{ url('/admin/chapter/delete/' . $ch->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                        <span class="badge bg-info btn-danger ">
+                                            {!! $ch->deleted_at ? 'Activate' : 'Delete' !!}</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                        <i class="fa fa-cog settings" aria-hidden="true"></i>
+
                     </div>
                 </td>
 

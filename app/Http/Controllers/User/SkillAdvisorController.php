@@ -18,14 +18,10 @@ class SkillAdvisorController extends Controller
     public function add(Request $request)
     {
 
-        // dd($request->all());
-
         if ($request->isMethod('post')) {
 
-            $check_user = User::find($request->email);
-            // dd($check_user);
+            $check_user = User::where('email',$request->email)->first();
             if ($check_user) {
-                dd('here');
                 return back()->with('error', 'Email Already exist ');
             } else {
                 $user = new User();
@@ -43,6 +39,7 @@ class SkillAdvisorController extends Controller
                 $skill_advisor->password = Hash::make($request->password);
                 $skill_advisor->name = $request->name;
                 $skill_advisor->email = $request->email;
+                $skill_advisor->registration_code = uniqid();
                 $skill_advisor->save();
 
                 return back()->with('success', 'An email with verification link was sent to  ' . $request->email);

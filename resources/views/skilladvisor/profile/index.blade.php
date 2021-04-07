@@ -36,7 +36,8 @@ $skilladvisor = $skilladvisor_common->skilladvisor;
                         </div>
                     @endif
                     <div class="grayback">
-                        <form method="post" action="{{ url('/skilladvisor/profileupdate') }}" enctype="multipart/form-data">
+                        <form method="post" action="{{ url('/skilladvisor/profileupdate') }}"
+                            enctype="multipart/form-data">
 
                             {{ csrf_field() }}
                             <div class="row studentarea">
@@ -80,8 +81,11 @@ $skilladvisor = $skilladvisor_common->skilladvisor;
                                         <input type="text" class="form-control stuform" id="address" name="address"
                                             value="{{ $skilladvisor->address ?? '' }}" placeholder="Contact Address"
                                             required>
-                                        <input type="text" class="form-control stuform" id="region" name="region" value="{{$skilladvisor->region ?? '' }}"
-                                            placeholder="Region ">
+                                        <input type="text" class="form-control stuform" id="region" name="region"
+                                            value="{{ $skilladvisor->region ?? '' }}" placeholder="Region ">
+                                        <input type="text" class="form-control stuform" id="registration_code"
+                                            name="registration_" value="{!! asset('student/registration') . '?registration_code=' . $skilladvisor->skilladvisor->registration_code !!}" placeholder="Region ">
+                                        <span> <button onclick="copyTextFun()">Copy text</button></span>
                                     </div>
                                     <div class="stufomclick">
                                         <button type="submit" class="btn btn-primary update">UPDATE PROFILE</button>
@@ -119,6 +123,13 @@ $skilladvisor = $skilladvisor_common->skilladvisor;
         $("#profile-image-upload").change(function() {
             readURL(this);
         });
+
+        function copyTextFun() {
+            var copyText = document.getElementById("registration_code");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999)
+            document.execCommand("copy");
+        }
 
     </script>
 
