@@ -29,10 +29,11 @@ class StudentController extends Controller
     {
         return view('studentdashboard.login.index');
     }
-    public function index()
+    public function index(Request $request)
     {
 
-        return view('user.registration.index');
+        $registration_code = $request->registration_code;
+        return view('user.registration.index',compact('registration_code'));
     }
 
 
@@ -47,6 +48,10 @@ class StudentController extends Controller
                 $this->add_lecturer($user, $request);
                 return back()->with('success', 'Thank You For Registration , Your account is in verification process');
             } else {
+                if($request->registration_code){
+                    $sda = SkillAdvisor::where('registration_code',$request->registration_code)->first();
+                    $user->sda_id = $sda->id;
+                }
                 $this->add_or_update($user, $request);
                 Auth::login($user);
                 return redirect('student/dashboard');
@@ -129,7 +134,7 @@ class StudentController extends Controller
     {
         $this->validate($request, [
             'email'   => 'required|email',
-            'password'  => 'required|alphaNum|min:3'
+            'password'  => 'required|min:3'
         ]);
 
         $user_data = array(

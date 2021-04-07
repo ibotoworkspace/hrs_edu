@@ -82,6 +82,12 @@
 
                                 </div>
                                 <input type="hidden" value="roleid">
+                                <?php 
+                                    if(!isset($registration_code)){
+                                        $registration_code = '';
+                                    }
+                                ?>
+                                <input type="hidden" name="registration_code" value='{!!$registration_code!!}'>
                                 <div class="reformclick">
                                     <input type="submit" class="btn btn-primary applyhere" value="Submit">
                                 </div>
