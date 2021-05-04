@@ -43,10 +43,18 @@
         ['class'=>'form-group', 'class'=>'form-control','onchange'=>'select_question_type()'])!!}
         
     </div>
-</div>  --}}
+</div> --}}
+{{-- {!!dd($test_assigned)!!} --}}
+
+
+{{-- $is_check = '';
+if ($test_assigned->group->name) {
+$is_check = 'checked';
+} --}}
+
 <div class="form-group">
     {!! Form::label('name', 'Group Name') !!}
-   
+
     <div class="multiselect">
         <div class="selectBox" onclick="showCheckboxes()">
             <select>
@@ -57,10 +65,10 @@
         <div id="checkboxes">
 
             @foreach ($group as $key => $g)
-         
-        
-                <label >
-                    <input type="checkbox" value="{!! $key !!}" name="group[]" />
+
+
+                <label>
+                    <input type="checkbox"  value="{!! $key !!}" name="group[]" />
                     {!! $g !!}
                 </label>
             @endforeach
@@ -85,55 +93,54 @@
     </div>
 
  </div> --}}
- <input type="hidden" name="test_id" value="{!! $test_id !!}"> 
+    <input type="hidden" name="test_id" value="{!! $test_id !!}">
 
-{{-- <div class="form-group">
+    {{-- <div class="form-group">
     {!! Form::label('courses', 'Courses') !!}
     <div>
         {!! Form::select('courses_id', $courses, null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'courses', 'required', 'maxlength' => '100']) !!}
     </div>
 </div> --}}
 
-<span id="err" class="error-product"></span>
+    <span id="err" class="error-product"></span>
 
 
-<div class="form-group col-md-12">
-</div>
+    <div class="form-group col-md-12">
+    </div>
 
 
-<div class="col-md-5 pull-left">
-    <div class="form-group text-center">
-        <div>
-            {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block btn-lg btn-parsley', 'onblur' => 'return validateForm();']) !!}
+    <div class="col-md-5 pull-left">
+        <div class="form-group text-center">
+            <div>
+                {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block btn-lg btn-parsley', 'onblur' => 'return validateForm();']) !!}
+            </div>
         </div>
     </div>
-</div>
 
-@section('app_jquery')
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    @section('app_jquery')
+        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    <!-- JS & CSS library of MultiSelect plugin -->
-    <script src="multiselect/jquery.multiselect.js"></script>
-    <link rel="stylesheet" href="multiselect/jquery.multiselect.css">
+        <!-- JS & CSS library of MultiSelect plugin -->
+        <script src="multiselect/jquery.multiselect.js"></script>
+        <link rel="stylesheet" href="multiselect/jquery.multiselect.css">
 
 
-    <script>
-        var expanded = false;
+        <script>
+            var expanded = false;
 
-        function showCheckboxes() {
-            var checkboxes = document.getElementById("checkboxes");
-            if (!expanded) {
-                checkboxes.style.display = "block";
-                expanded = true;
-            } else {
-                checkboxes.style.display = "none";
-                expanded = false;
+            function showCheckboxes() {
+                var checkboxes = document.getElementById("checkboxes");
+                if (!expanded) {
+                    checkboxes.style.display = "block";
+                    expanded = true;
+                } else {
+                    checkboxes.style.display = "none";
+                    expanded = false;
+                }
             }
-        }
 
-    </script>
+        </script>
 
-@endsection
-
+    @endsection

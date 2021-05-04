@@ -7,7 +7,7 @@
  
     {!! Form::open(['method' => 'get', 'url' => ['admin/test_assigned/create/' . $test_id], 'files' => true]) !!}
     {{-- <input type="hidden" name="course_id" value="{!!$listofquiz->course_id!!}"> --}}
-    <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
+    <span>{!! Form::submit('Test Assigned', ['class' => 'btn btn-success pull-right']) !!}</span>
     {!! Form::close() !!}
 @stop
 
@@ -24,8 +24,8 @@
 
 
 @section('table')
-    {{-- {!! Form::open(['method' => 'get', 'route' => ['admin.test'], 'files' => true]) !!}
-    @include('admin.test.partial.searchfilters')
+    {{-- {!! Form::open(['method' => 'get', 'route' => ['admin.test.assigned'], 'files' => true]) !!}
+    @include('admin.test_assigned.partial.searchfilters')
     {!! Form::close() !!} --}}
 
     <div class="ableclick">
@@ -51,6 +51,10 @@
                 <div class="bestoption">Group Name</div>
 
             </th>
+            <th class="option">
+                <div class="bestoption">Test Result</div>
+
+            </th>
            
         </tr>
     </thead>
@@ -61,7 +65,7 @@
         <tr class="myarrow myarrow_{{$t->id}}">
 
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! $t->test->name !!}</div>
+                    <div class="besthrs" name="mytitle">{!! ucwords($t->test->name) !!}</div>
                 </td>
                 {{-- @if ($t->is_assignable == '1')
                     <td class="mynbr">
@@ -73,10 +77,18 @@
                     </td>
                 @endif --}}
 
-              
+  
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! $t->group->name !!}</div>
+                    <div class="besthrs" name="mytitle">{!! ucwords($t->group->name) !!}</div>
                 </td>
+                 
+
+                <td class="myquizerr">
+                    {{-- <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div> --}}
+                    <a href="{{ url('/admin/test_result/details/' . $t->id) }}" type="button" class="btn btn-primary onquizes"
+                        id="myvide"> Test Result</a>
+                </td>
+               
                 {{-- <td class="optionss">
                     <div class="myoptionss">
 

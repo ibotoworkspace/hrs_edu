@@ -15,10 +15,9 @@ class Test_assignedController extends Controller
 
 
 
-    public function index($id)
+    public function index(Request $request , $id)
     {
-
-
+        
         $test_id = $id;
         $test_assigned = Test_assigned::where('test_id', $id)->with('group')->paginate(10);
         return view('admin.test_assigned.index', compact('test_assigned', 'test_id'));
@@ -29,7 +28,9 @@ class Test_assignedController extends Controller
 
         $control = 'create';
         $group = Group::pluck('name', 'id');
-        return view('admin.test_assigned.create', compact('control', 'group', 'test_id'));
+        $test_assigned = Test_assigned::with('group');
+
+        return view('admin.test_assigned.create', compact('control', 'group', 'test_id','test_assigned'));
     }
 
 
@@ -41,7 +42,7 @@ class Test_assignedController extends Controller
         $test_assigned = new Test_assigned();
         $this->add_or_update($request, $test_assigned);
 
-        return redirect('admin.test_assigned/'.$request->test_id);
+        return redirect('admin/test_assigned/'.$request->test_id);
     }
 
     public function add_or_update(Request $request, $test_assigned)

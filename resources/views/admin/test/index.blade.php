@@ -27,14 +27,14 @@
     @include('admin.test.partial.searchfilters')
     {!! Form::close() !!}
 
-    <div class="ableclick">
+    {{-- <div class="ableclick">
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
             <a href="{{ asset('admin/course/excel') }}" style="color: #fff"> Excel</a> </button>
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
             <a href="{{ asset('admin/course/csv') }}" style="color: #fff">CSV</a> </button>
         <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/course/pdf') }}"
                 style="color: #fff">PDF</a> </button>
-    </div>
+    </div> --}}
 
 
 
@@ -68,7 +68,7 @@
         <tr class="myarrow myarrow_{{$t->id}}">
 
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! $t->name !!}</div>
+                    <div class="besthrs" name="mytitle">{!! ucwords($t->name) !!}</div>
                 </td>
                 @if ($t->is_assignable == '1')
                     <td class="mynbr">
