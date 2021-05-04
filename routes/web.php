@@ -51,12 +51,12 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('promo/excel', 'Admin\PromoCodeController@index_excel')->name('promo.excel');
     Route::get('promo/pdf', 'Admin\PromoCodeController@generatePDF')->name('promo.pdf');
 
-    // course export files 
+    // course export files
     Route::get('course/csv', 'Admin\CoursesController@index_csv')->name('group.csv');
     Route::get('course/excel', 'Admin\CoursesController@index_excel')->name('group.excel');
     Route::get('course/pdf', 'Admin\CoursesController@generatePDF')->name('group.pdf');
 
-    // REPORTS 
+    // REPORTS
 
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');
     Route::get('/report/user', 'Admin\Report\UserController@index')->name('report.course');
@@ -65,7 +65,7 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/report/user/voucher/{id}/{user_id}', 'Admin\Report\VoucherController@index')->name('report.voucher');
     Route::post('/report/user/voucher/save', 'Admin\Report\VoucherController@save')->name('admin.voucher.save');
 
-/////TEST 
+/////TEST
 
 Route::get('/test', 'Admin\TestController@index')->name('admin.test');
 Route::get('/test/create', 'Admin\TestController@create')->name('test.create');
@@ -103,7 +103,7 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
 
 
 
-    // general discussion 
+    // general discussion
 
     Route::get('/general/discussion', 'Admin\DiscussionController@generalchatList')->name('admin.general.discussion');
     Route::get('/general/addcomment', 'Admin\DiscussionController@generaladdComment')->name('general.addcomment');
@@ -300,13 +300,13 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::post('badge_req', 'Student\RequestController@badgeRequest')->name('badge_req');
     Route::post('voucher_req', 'Student\RequestController@voucherRequest')->name('voucher_req');
 
-    // general discussion 
+    // general discussion
     Route::get('generaldiscussion', 'Student\CourseController@generalchatList')->name('discussion');
     Route::get('/generaladdcomment', 'Student\CourseController@generaladdComment')->name('addcomment');
     Route::post('chat/generalsend', 'Student\CourseController@generalsend')->name('chat.send');
     Route::get('chat/generallatestchat', 'Student\CourseController@generallatestChat')->name('chat.latestchat');
 
-    // discussion against course 
+    // discussion against course
     Route::get('course/discussion/{id}', 'Student\CourseController@chatList')->name('discussion');
     Route::get('/addcomment', 'Student\CourseController@addComment')->name('addcomment');
     Route::post('chat/send/{group_id}', 'Student\CourseController@send')->name('chat.send');
@@ -347,6 +347,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
 
     Route::get('/read/chapter', 'Student\CourseController@readChapter')->name('read.chapter');
     Route::get('/course/detail', 'Student\CourseController@courseDetail')->name('course.detail');
+    Route::get('/course/test', 'Student\CourseController@testList')->name('course.test');
     Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
     Route::post('/coursebadge', 'Student\CourseController@courseBadge')->name('student.mycourse');
     Route::match(['get', 'post'], '/courseregistration', 'Student\CourseController@registerCourse')->name('course.registration');
@@ -364,7 +365,7 @@ Route::get('student/changepassword', 'Student\ChangePasswordController@index')->
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
 
 
-// student payment route 
+// student payment route
 Route::post('student/stripe', 'Student\PaymentController@stripePost')->name('stripe.post');
 Route::get('/makepayment', 'Student\PaymentController@make_payment_app');
 
