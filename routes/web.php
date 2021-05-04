@@ -76,7 +76,7 @@ Route::get('test/delete/{id}', 'Admin\TestController@destroy_undestroy')->name('
 
 // test_assigned and test id
 
-Route::get('/test_assigned/{id}','Admin\Test_assignedController@index');
+Route::get('/test_assigned/{id}','Admin\Test_assignedController@index')->name('admin.test.assigned');;
 
 Route::get('/test_assigned','Admin\Test_assignedController@index')->name('test.assigned');
 Route::get('/test_assigned/create/{id}','Admin\Test_assignedController@create')->name('test_assigned.create');

@@ -29,6 +29,12 @@ span.error{
     top: 125%!important;
     left: 10%!important;
 }
+.header .brand .navbar-brand img {
+    max-height: 25px;
+    margin-right: 5px;
+    margin-top: 8px;
+    display: inline;
+}
 td.myquizerr {
     width: 213px;
 }
