@@ -65,6 +65,43 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/report/user/voucher/{id}/{user_id}', 'Admin\Report\VoucherController@index')->name('report.voucher');
     Route::post('/report/user/voucher/save', 'Admin\Report\VoucherController@save')->name('admin.voucher.save');
 
+/////TEST 
+
+Route::get('/test', 'Admin\TestController@index')->name('admin.test');
+Route::get('/test/create', 'Admin\TestController@create')->name('test.create');
+Route::post('/test/save', 'Admin\TestController@save')->name('test.save');
+Route::get('/test/edit/{id}', 'Admin\TestController@edit')->name('test.edit');
+Route::post('/test/update/{id}', 'Admin\TestController@update')->name('test.update');
+Route::get('test/delete/{id}', 'Admin\TestController@destroy_undestroy')->name('test.delete');
+
+// test_assigned and test id
+
+Route::get('/test_assigned/{id}','Admin\Test_assignedController@index');
+
+Route::get('/test_assigned','Admin\Test_assignedController@index')->name('test.assigned');
+Route::get('/test_assigned/create/{id}','Admin\Test_assignedController@create')->name('test_assigned.create');
+Route::post('/test_assigned/save','Admin\Test_assignedController@save')->name('test_assigned.save');
+
+
+// admin/test_result
+Route::get('/test_result','Admin\Test_resultController@index');
+Route::get('/test_result/details/{id}','Admin\Test_resultController@details');
+// admin/testresult/details/
+
+
+
+/////questions list and test id
+Route::get('/question/{id}', 'Admin\QuestionController@index')->name('admin.question');
+Route::get('/question', 'Admin\QuestionController@index')->name('admin.question');
+Route::get('/question/create/{id}', 'Admin\QuestionController@create')->name('question.create');
+Route::post('/question/save', 'Admin\QuestionController@save')->name('question.save');
+Route::get('/edit/questions/{id}', 'Admin\QuestionController@edit')->name('question.edit');
+Route::post('/question/update/{id}', 'Admin\QuestionController@update')->name('question.update');
+Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy')->name('question.delete');
+
+
+
+
 
     // general discussion 
 

@@ -9,8 +9,10 @@ use App\Models\CourseRequest;
 use App\Models\Courses;
 use App\Models\Lecturer;
 use App\Models\PromoCode;
+use App\Models\Test_result;
 use App\Models\Quiz;
 use App\Models\SkillAdvisor;
+use App\Models\Test;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -182,6 +184,29 @@ class AdminController extends Controller
             'title' => 'Add Blog',
             'total' => $total_count,
             'active' => $total_count,
+            'image' => 'images/icon-20.png',
+
+
+        ];
+        $total_test = Test::count('id');
+        $modules[] = [
+
+            'url' => 'admin/test',
+            'title' => 'Test',
+            'total' => $total_test,
+            'active' => $total_test,
+            'image' => 'images/icon-20.png',
+
+
+        ];
+
+        $test_result = Test_result::count('id');
+        $modules[] = [
+
+            'url' => 'admin/test_result',
+            'title' => 'Test_Result',
+            'total' => $test_result,
+            'active' => $test_result,
             'image' => 'images/icon-20.png',
 
 

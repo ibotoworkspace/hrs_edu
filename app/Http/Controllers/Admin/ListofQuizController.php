@@ -58,7 +58,8 @@ class ListofQuizController extends Controller
     public function update(Request $request, $id)
     {
         // dd($request->all());
-        Quiz::find($id)->delete();
+        // Quiz::find($id)->delete();
+        Quiz::destroy($id);
         // $courses = Courses::find($id);
         $this->add_or_update($request);
         return redirect('admin/listofquiz/' . $request->course_id);

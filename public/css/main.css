@@ -26,6 +26,9 @@ h1,h2,h3,h4{
 .logoArea img {
     width: 20%;
 }
+td.myquizes {
+    width: 213px;
+}
 .headerArea {
     background-image: url(../images/header.jpg);
     background-repeat: no-repeat;
