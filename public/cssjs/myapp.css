@@ -29,6 +29,15 @@ span.error{
     top: 125%!important;
     left: 10%!important;
 }
+td.myquizerr {
+    width: 213px;
+}
+.err_corect_choice {
+    color: red;
+    font-size: large;
+    font-family: cursive;
+    background-color: blanchedalmond;
+}
 
 .dell-gallery {
 	font-size: 15px;

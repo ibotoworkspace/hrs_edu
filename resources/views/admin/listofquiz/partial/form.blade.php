@@ -1,3 +1,41 @@
+<style>
+    .multiselect {
+        width: 200px;
+    }
+
+    .selectBox {
+        position: relative;
+    }
+
+    .selectBox select {
+        width: 100%;
+        font-weight: bold;
+    }
+
+    .overSelect {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    #checkboxes {
+        display: none;
+        border: 1px #dadada solid;
+    }
+
+    #checkboxes label {
+        display: block;
+    }
+
+    #checkboxes label:hover {
+        background-color: #1e90ff;
+    }
+
+</style>
+
+
 <div class="form-group">
     {!! Form::label('question', 'Question') !!}
     <div>
@@ -57,6 +95,9 @@
 
 
 @section('app_jquery')
+
+  
+
     <script>
         function validateForm() {
             return true;
@@ -92,8 +133,27 @@
                             <option class ="option-file" value="` + no + `">Choice # ` + no + `</option>
                             `
         }
+        var expanded = false;
+
+function showCheckboxes() {
+    var checkboxes = document.getElementById("checkboxes");
+    if (!expanded) {
+        checkboxes.style.display = "block";
+        expanded = true;
+    } else {
+        checkboxes.style.display = "none";
+        expanded = false;
+    }
+}
+
 
     </script>
+    <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- JS & CSS library of MultiSelect plugin -->
+  <script src="multiselect/jquery.multiselect.js"></script>
+  <link rel="stylesheet" href="multiselect/jquery.multiselect.css">
 
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
