@@ -81,6 +81,9 @@ Route::get('/test_assigned/{id}','Admin\Test_assignedController@index')->name('a
 Route::get('/test_assigned','Admin\Test_assignedController@index')->name('test.assigned');
 Route::get('/test_assigned/create/{id}','Admin\Test_assignedController@create')->name('test_assigned.create');
 Route::post('/test_assigned/save','Admin\Test_assignedController@save')->name('test_assigned.save');
+Route::get('/test_assigned/edit/{id}', 'Admin\Test_assignedController@edit')->name('test_assigned.edit');
+Route::post('/test_assigned/update/{id}', 'Admin\Test_assignedController@update')->name('test_assigned.update');
+Route::get('test_assigned/delete/{id}', 'Admin\Test_assignedController@destroy_undestroy')->name('test_assigned.delete');
 
 
 // admin/test_result
