@@ -15,4 +15,8 @@ class Test extends Model
         return $this->hasOne('App\Models\Test_assigned','test_id','id');
   
       }
+    public function test_result(){
+        return $this->hasOne('App\Models\Test_result','test_id','id');
+  
+      }
 }
