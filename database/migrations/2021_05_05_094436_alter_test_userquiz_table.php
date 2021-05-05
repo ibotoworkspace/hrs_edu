@@ -14,10 +14,10 @@ class AlterTestUserquizTable extends Migration
     public function up()
     {
         Schema::table('test', function (Blueprint $table) {
-            $table->string('total_question');
+            $table->string('total_question')->nullable()->default(0);
         });
         Schema::table('userquiz_result', function (Blueprint $table) {
-            $table->string('total_question')->nullable()->default(null);
+            $table->string('total_question')->nullable()->default(0);
             $table->string('percentage')->nullable()->default(null);
         });
     }
