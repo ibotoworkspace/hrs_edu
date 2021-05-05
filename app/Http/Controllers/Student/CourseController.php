@@ -101,13 +101,15 @@ class CourseController extends Controller
 
         $total_question = count($questions);
 
-        $user_quiz = UserQuiz::where('user_id', $user_id)->where('test_id',$request->test_id  );
-
+        $user_quiz = UserQuiz::where('user_id', $user_id)->where('test_id', $request->test_id)->where('is_correct', 1)->pluck('id');
+        $score = count($user_quiz);
         $user_quiz_result = new Test_result();
-        $user_quiz_result->test_id =  $request->test_id ;
-        $user_quiz_result->user_id =  $user_id ;
-        $user_quiz_result->total_question =  $total_question ;
-        $user_quiz_result->total_question =  $total_question ;
+        $user_quiz_result->test_id =  $request->test_id;
+        $user_quiz_result->user_id =  $user_id;
+        $user_quiz_result->total_question =  $total_question;
+        $user_quiz_result->score =  $score;
+        $user_quiz_result->percentage =  ($score / $total_question) * 100;
+        $user_quiz_result->save();
 
 
 
