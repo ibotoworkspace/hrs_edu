@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Chapter;
+use App\Models\Choices;
 use App\Models\Course_Registered;
 use App\Models\Courses;
 use App\Models\Discussion;
 use App\Models\GroupUser;
 use App\Models\Quiz;
+use App\Models\Test_result;
+use App\Models\UserQuiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,34 +38,82 @@ class CourseController extends Controller
         }
     }
 
-    public function index(Request $request)
+    public function index(Request $request, $message = null)
     {
         $user_id = Auth::id();
+        $register_courses = Course_Registered::with('course.group', 'course.test.test_assign')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
 
-        $register_courses = Course_Registered::with('course.group','course.test')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
-        // dd($register_courses);
         return view('studentdashboard.course.index', compact('register_courses'));
-    }
-
-    public function testList (Request $request){
-
-
-        $questions = Quiz::with('choice')->where('test_id',$request->test_id)->get();
-        return view('studentdashboard.course.test', compact('questions'));
-
     }
 
     public function courseDetail(Request $request)
     {
 
         $course_id = decrypt($request->course_id);
-
         $course_detail = Courses::with('chapters', 'videos', 'registerCourse')->find($course_id);
 
 
         return view('studentdashboard.course.detail', compact('course_detail'));
     }
+    public function testList(Request $request)
+    {
 
+        $questions = Quiz::with('choice')->where('test_id', $request->test_id)->get();
+
+        return view('studentdashboard.course.test', compact('questions'));
+    }
+
+    public function testSave(Request $request)
+    {
+        $questions = $request->question;
+        $user_id = Auth::id();
+        $user_quiz = [];
+
+        foreach ($questions as $qkey => $q) {
+            $selected_choices = [];
+            if (isset($request->answer[$qkey]) && $request->answer[$qkey]) {
+                $selected_choices = $request->answer[$qkey];
+            }
+            $is_correct = true;
+            $correct_choices = Choices::where('quiz_id', $q)->where('is_correct', 1)->pluck('id')->toArray();
+            if (sizeof($correct_choices) == sizeof($selected_choices)) {
+                $is_correct = true;
+
+                foreach ($correct_choices as $cc) {
+                    if (!in_array($cc, $selected_choices)) {
+                        $is_correct = false;
+                        break;
+                    }
+                }
+            } else {
+                $is_correct = false;
+            }
+            $user_quiz[] = [
+                'user_id' => $user_id,
+                'quiz_id' => $q,
+                'test_id' => $request->test_id,
+                'selected_choice' => json_encode($selected_choices),
+                'is_correct' => $is_correct
+            ];
+        }
+
+        UserQuiz::insert($user_quiz);
+
+        $total_question = count($questions);
+
+        $user_quiz = UserQuiz::where('user_id', $user_id)->where('test_id',$request->test_id  );
+
+        $user_quiz_result = new Test_result();
+        $user_quiz_result->test_id =  $request->test_id ;
+        $user_quiz_result->user_id =  $user_id ;
+        $user_quiz_result->total_question =  $total_question ;
+        $user_quiz_result->total_question =  $total_question ;
+
+
+
+
+        return redirect('student/dashboard')->with('sussess', 'Your assignment is submitted .');
+    }
     public function readChapter(Request $request)
     {
 
@@ -145,7 +196,7 @@ class CourseController extends Controller
         return redirect('student/discussion/' . $request->group_id);
     }
 
-    // is class methoods start
+    // is class methoods start 
 
     public function chatList($id)
     {

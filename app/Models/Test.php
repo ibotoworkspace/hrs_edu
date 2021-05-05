@@ -9,4 +9,10 @@ class Test extends Model
 {
     use SoftDeletes;
     protected $table = 'test';
+
+
+    public function test_assign(){
+        return $this->hasOne('App\Models\Test_assigned','test_id','id');
+  
+      }
 }
