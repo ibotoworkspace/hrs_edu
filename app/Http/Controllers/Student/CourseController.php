@@ -65,9 +65,8 @@ class CourseController extends Controller
     public function testResult(Request $request)
     {
 
-        $questions = Test_result::where('test_id', $request->test_result_id)->get();
-
-        return view('studentdashboard.course.test_result', compact('questions'));
+        $test_result = Test_result::where('test_id', $request->test_result_id)->first();
+        return view('studentdashboard.course.test_result', compact('test_result'));
     }
 
     public function testSave(Request $request)
