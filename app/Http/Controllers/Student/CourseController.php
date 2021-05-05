@@ -41,7 +41,7 @@ class CourseController extends Controller
     public function index(Request $request, $message = null)
     {
         $user_id = Auth::id();
-        $register_courses = Course_Registered::with('course.group', 'course.test.test_assign')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
+        $register_courses = Course_Registered::with('course.group', 'course.test.test_assign', 'course.test.test_result')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
 
         return view('studentdashboard.course.index', compact('register_courses'));
     }
@@ -61,6 +61,13 @@ class CourseController extends Controller
         $questions = Quiz::with('choice')->where('test_id', $request->test_id)->get();
 
         return view('studentdashboard.course.test', compact('questions'));
+    }
+    public function testResult(Request $request)
+    {
+
+        $questions = Test_result::where('test_id', $request->test_result_id)->get();
+
+        return view('studentdashboard.course.test_result', compact('questions'));
     }
 
     public function testSave(Request $request)
