@@ -37,6 +37,13 @@ $courses = $student_common->courses;
                         </div>
                     </div>
 
+                    @if ($message = Session::get('sussess'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
+
                     <div class="row infobox">
                         <div class="col-sm-6">
                             <div class="infoboxdata row">
@@ -109,6 +116,14 @@ $courses = $student_common->courses;
                                                             onclick="window.location.href='{{ asset('student/course/detail?course_id=' . $course_id) }}';">View
                                                             Course</button>
                                                     </td>
+                                                    
+                                                    @if ($r_course->test)
+                                                    <td>
+                                                        <button type="button" class="btn btn-primary payment"
+                                                            onclick="window.location.href='{{ asset('student/course/detail?course_id=' . $course_id) }}';">Start test</button>
+                                                    </td>
+                                                    @endif
+                                                   
 
                                                 @endif
                                             </tr>
