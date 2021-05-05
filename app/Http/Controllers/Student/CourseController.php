@@ -111,9 +111,6 @@ class CourseController extends Controller
         $user_quiz_result->percentage =  ($score / $total_question) * 100;
         $user_quiz_result->save();
 
-
-
-
         return redirect('student/dashboard')->with('sussess', 'Your assignment is submitted .');
     }
     public function readChapter(Request $request)

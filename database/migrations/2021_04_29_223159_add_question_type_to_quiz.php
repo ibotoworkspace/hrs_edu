@@ -15,6 +15,7 @@ class AddQuestionTypeToQuiz extends Migration
     {
         Schema::table('quiz', function (Blueprint $table) {
           $table->string('question_type')->nullable()->default('single');
+          $table->bigInteger('test_id')->nullable()->default(0);
         });
     }
 

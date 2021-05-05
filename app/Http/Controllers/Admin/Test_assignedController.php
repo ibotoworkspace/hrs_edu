@@ -70,15 +70,14 @@ class Test_assignedController extends Controller
        $d_time = $request->start_date.' ' .$request->start_time;
 
         $start_time = strtotime($d_time);
-        $test_duration = $request->test_duration * 60;
+        $test_duration_sec = $request->test_duration * 60;
      
-        $test_assigned = new Test_assigned();
 
         $test_assigned->group_id = $request->group_id;
         $test_assigned->test_id = $request->test_id;
         $test_assigned->start_date_time = $start_time;
-        $test_assigned->end_date_time = ($start_time + $test_duration);
-        $test_assigned->test_duration = $test_duration;
+        $test_assigned->end_date_time = ($start_time + $test_duration_sec);
+        $test_assigned->test_duration = $request->test_duration ;
 
         $test_assigned->save();
         return redirect('admin.test_assigned/'.$request->test_id);
