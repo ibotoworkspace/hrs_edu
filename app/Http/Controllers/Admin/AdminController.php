@@ -204,7 +204,7 @@ class AdminController extends Controller
         $modules[] = [
 
             'url' => 'admin/test_result',
-            'title' => 'Test_Result',
+            'title' => 'Test Result',
             'total' => $test_result,
             'active' => $test_result,
             'image' => 'images/icon-20.png',

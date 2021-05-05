@@ -1,13 +1,13 @@
 @extends('layouts.default_module')
 @section('module_name')
-    Test Assigned
+Test Assigned
 @stop
 
 @section('add_btn')
  
     {!! Form::open(['method' => 'get', 'url' => ['admin/test_assigned/create/' . $test_id], 'files' => true]) !!}
     {{-- <input type="hidden" name="course_id" value="{!!$listofquiz->course_id!!}"> --}}
-    <span>{!! Form::submit('Test Assigned', ['class' => 'btn btn-success pull-right']) !!}</span>
+    <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
     {!! Form::close() !!}
 @stop
 
@@ -52,7 +52,16 @@
 
             </th>
             <th class="option">
+                <div class="bestoption">Start Test Date</div>
+
+            </th>
+            <th class="option">
                 <div class="bestoption">Test Result</div>
+
+            </th>
+          
+            <th class="option">
+                <div class="bestoption">Option</div>
 
             </th>
            
@@ -81,6 +90,13 @@
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! ucwords($t->group->name) !!}</div>
                 </td>
+
+                
+                <td class="hrs">
+                    <div class="besthrs" name="mytitle">{!! ucwords($t->start_date_time) !!}</div>
+                </  td>
+       
+
                  
 
                 <td class="myquizerr">
@@ -89,7 +105,7 @@
                         id="myvide"> Test Result</a>
                 </td>
                
-                {{-- <td class="optionss">
+                <td class="optionss">
                     <div class="myoptionss">
 
                         <div class="dropdown">
@@ -114,7 +130,7 @@
                         <i class="fa fa-cog settings" aria-hidden="true"></i>
 
                     </div>
-                </td> --}}
+                </td>
             </tr>
 
 
