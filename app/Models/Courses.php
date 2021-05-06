@@ -33,4 +33,8 @@ class Courses extends Model
     {
         return $this->hasOne('App\Models\Group', 'course_id', 'id');
     }
+    public function test()
+    {
+        return $this->hasOne('App\Models\Test', 'course_id', 'id');
+    }
 }

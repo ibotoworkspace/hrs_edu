@@ -8,6 +8,7 @@ use App\Models\Course_Registered;
 use App\Models\Courses;
 use App\Models\Discussion;
 use App\Models\GroupUser;
+use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -35,12 +36,20 @@ class CourseController extends Controller
     }
 
     public function index(Request $request)
-    {   
+    {
         $user_id = Auth::id();
-        
-        $register_courses = Course_Registered::with('course.group')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
-        
+
+        $register_courses = Course_Registered::with('course.group','course.test')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
+        // dd($register_courses);
         return view('studentdashboard.course.index', compact('register_courses'));
+    }
+
+    public function testList (Request $request){
+
+
+        $questions = Quiz::with('choice')->where('test_id',$request->test_id)->get();
+        return view('studentdashboard.course.test', compact('questions'));
+
     }
 
     public function courseDetail(Request $request)
@@ -136,7 +145,7 @@ class CourseController extends Controller
         return redirect('student/discussion/' . $request->group_id);
     }
 
-    // is class methoods start 
+    // is class methoods start
 
     public function chatList($id)
     {
