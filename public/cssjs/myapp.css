@@ -502,6 +502,12 @@ i.fa.fa-cog.settings {
     font-size: 33px;
     color: #bfb18e;
 }
+button#dropdownMenu1 {
+    margin-left: 50px;
+    font-size: 33px;
+    color: #bfb18e;
+    
+}
 .myuser {
     font-size: 18px;
 }
