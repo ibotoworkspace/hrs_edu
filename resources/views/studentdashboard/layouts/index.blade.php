@@ -170,6 +170,10 @@
                 <a href="{{ asset('student/payment/detail') }}"> Payments</a>
             </li>
             <li>
+                <a href="{{ asset('student/course/testlist') }}">Test List </a>
+            </li>
+            
+            <li>
                 <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
                 <ul id="submenu-1" class="collapse">
                     <li><a href="{{ asset('student/library') }}"> Library</a></li>
