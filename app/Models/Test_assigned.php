@@ -13,8 +13,9 @@ class Test_assigned extends Model
 
     public function group(){
       return $this->hasOne('App\Models\Group','id','group_id');
-     
-
+    }
+    public function group_user(){
+      return $this->hasMany('App\Models\GroupUser','group_id','group_id');
     }
     public function test(){
       return $this->hasOne('App\Models\Test','id','test_id');

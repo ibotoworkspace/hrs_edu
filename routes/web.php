@@ -352,6 +352,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::get('/course/detail', 'Student\CourseController@courseDetail')->name('course.detail');
     Route::get('/course/test', 'Student\CourseController@testList')->name('course.test');
     Route::get('/course/test/result', 'Student\CourseController@testResult')->name('course.test.result');
+    Route::get('/course/testlist', 'Student\CourseController@ShowTestList')->name('course.test.list');
     Route::post('/course/test/save', 'Student\CourseController@testSave')->name('course.save');
     Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
     Route::post('/coursebadge', 'Student\CourseController@courseBadge')->name('student.mycourse');
