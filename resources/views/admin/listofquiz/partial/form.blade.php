@@ -47,7 +47,7 @@
 
     <div class="form-group">
         <label for="correct-choice">Select Correct Choice</label>
-        <select class="form-control" id="correct-choice" name="correct_choice">
+        <select class="form-control" id="correct-choice" name="correct_choice" required>
             @if ($quiz->choice)
                 @foreach ($quiz->choice as $key => $ch)
                     <option class="option-file" value="{{ $key + 1 }}">Choice # {{ $key + 1 }}</option>
@@ -114,7 +114,7 @@
         function radioBtnHtml(nextdivnum) {
             return `<div class="choice-input">
                                 <lable>Choice # ` + nextdivnum + `</lable>
-                                <input type="text" class="add form-control" name="choices[]" style="margin-top: 10px; margin-bottom: 5px;">
+                                <input type="text" required class="add form-control" name="choices[]" style="margin-top: 10px; margin-bottom: 5px;">
                                 </div>
                             `
         }

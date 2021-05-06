@@ -35,7 +35,7 @@ class QuestionController extends Controller
 
     public function save(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $quiz = new Quiz();
         $this->add_or_update($request, $quiz);
 

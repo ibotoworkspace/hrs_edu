@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddEndDateToTestAssigned extends Migration
+class AddTestDurationToTestAssigned extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class AddEndDateToTestAssigned extends Migration
     public function up()
     {
         Schema::table('test_assigned', function (Blueprint $table) {
-            $table->timestamp('start_date_time')->nullable()->default(null);
-            $table->timestamp('end_date_time')->nullable()->default(null);
+           $table->bigInteger('test_duration')->nullable()->default(0);
         });
     }
 

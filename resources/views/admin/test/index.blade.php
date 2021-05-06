@@ -88,7 +88,7 @@
                 <td class="myquizerr">
                     {{-- <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div> --}}
                     <a href="{{ url('/admin/test_assigned/' . $t->id) }}" type="button" class="btn btn-primary onquizes"
-                        id="myvide"> Test_Assigned</a>
+                        id="myvide"> Test Assigned</a>
                 </td>
 
                 <td class="optionss">

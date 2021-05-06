@@ -35,112 +35,97 @@
 
 </style>
 
+<div class="form-group">
 
-{{-- <div class="form-group">
-    {!! Form::label('test_id', 'Test Name') !!}
+    {!! Form::label('Group Name', 'Group Name') !!}
     <div>
-        {!!Form::select('test_id',$test_id,null,
-        ['class'=>'form-group', 'class'=>'form-control','onchange'=>'select_question_type()'])!!}
-        
+        {!! Form::select('group_id',$group,null , ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Select Group Name', 'required', 'maxlength' => '100']) !!}
     </div>
-</div> --}}
-{{-- {!!dd($test_assigned)!!} --}}
 
+</div>
+<div class="form-group">
+    <?php 
+        $start_date = '';
+        $start_time = '';
+        if(isset($test_assigned)){
+            $start_date_time = $test_assigned->start_date_time;
+            $start_date = date("Y-m-d", $start_date_time);
+            $start_time = date("H:i", $start_date_time);
+        }    
+    ?>
+    {!! Form::label('startdate', 'Start Test Date') !!}
+    <div>
+        {!! Form::date('start_date', $start_date , ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Select Start Test Date', 'required', 'maxlength' => '100']) !!}
+    </div>
 
-{{-- $is_check = '';
-if ($test_assigned->group->name) {
-$is_check = 'checked';
-} --}}
+</div>
+<div class="form-group">
+
+    {!! Form::label('starttime', 'Start Test time') !!}
+    <div>
+        {!! Form::time('start_time', $start_time, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Select Start Test Time', 'required', 'maxlength' => '100']) !!}
+    </div>
+
+</div>
 
 <div class="form-group">
-    {!! Form::label('name', 'Group Name') !!}
 
-    <div class="multiselect">
-        <div class="selectBox" onclick="showCheckboxes()">
-            <select>
-                <option>Select an option</option>
-            </select>
-            <div class="overSelect"></div>
-        </div>
-        <div id="checkboxes">
-
-            @foreach ($group as $key => $g)
-
-
-                <label>
-                    <input type="checkbox"  value="{!! $key !!}" name="group[]" />
-                    {!! $g !!}
-                </label>
-            @endforeach
-        </div>
+    {!! Form::label('testduration', 'Test Duration Minutes') !!}
+    <div>
+        {!! Form::number('test_duration', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => ' Select Test Duration Minutes', 'required', 'maxlength' => '100']) !!}
     </div>
-    {{-- <div class="form-group">
+</div>
 
-        {!! Form::label('startdate', 'Start Date') !!}
-        <div>
-            {!! Form::date('start_date', isset($group) ? date('d-m-Y', $group->start_date) : '', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Select Start Date', 'required', 'maxlength' => '100']) !!}
-        </div>
 
-    </div>
+</div>
+<input type="hidden" name="test_id" value="{!! $test_id !!}">
 
-    <div class="form-group">
-
-        {!! Form::label('enddate', 'End Date') !!}
-        <div>
-            {!! Form::date('end_date', isset($group) ? date('d-m-Y', $group->end_date) : '', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'required']) !!}
-        </div>
-
-    </div>
-
- </div> --}}
-    <input type="hidden" name="test_id" value="{!! $test_id !!}">
-
-    {{-- <div class="form-group">
+{{-- <div class="form-group">
     {!! Form::label('courses', 'Courses') !!}
     <div>
         {!! Form::select('courses_id', $courses, null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'courses', 'required', 'maxlength' => '100']) !!}
     </div>
 </div> --}}
 
-    <span id="err" class="error-product"></span>
+<span id="err" class="error-product"></span>
 
 
-    <div class="form-group col-md-12">
-    </div>
+<div class="form-group col-md-12">
+</div>
 
 
-    <div class="col-md-5 pull-left">
-        <div class="form-group text-center">
-            <div>
-                {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block btn-lg btn-parsley', 'onblur' => 'return validateForm();']) !!}
-            </div>
+<div class="col-md-5 pull-left">
+    <div class="form-group text-center">
+        <div>
+            {!! Form::submit('Save', ['class' => 'btn btn-primary btn-block btn-lg btn-parsley', 'onblur' => 'return validateForm();']) !!}
         </div>
     </div>
+</div>
 
-    @section('app_jquery')
-        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-        <!-- jQuery library -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+@section('app_jquery')
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-        <!-- JS & CSS library of MultiSelect plugin -->
-        <script src="multiselect/jquery.multiselect.js"></script>
-        <link rel="stylesheet" href="multiselect/jquery.multiselect.css">
+    <!-- JS & CSS library of MultiSelect plugin -->
+    <script src="multiselect/jquery.multiselect.js"></script>
+    <link rel="stylesheet" href="multiselect/jquery.multiselect.css">
 
 
-        <script>
-            var expanded = false;
+    <script>
+        var expanded = false;
 
-            function showCheckboxes() {
-                var checkboxes = document.getElementById("checkboxes");
-                if (!expanded) {
-                    checkboxes.style.display = "block";
-                    expanded = true;
-                } else {
-                    checkboxes.style.display = "none";
-                    expanded = false;
-                }
+        function showCheckboxes() {
+            var checkboxes = document.getElementById("checkboxes");
+            if (!expanded) {
+                checkboxes.style.display = "block";
+                expanded = true;
+            } else {
+                checkboxes.style.display = "none";
+                expanded = false;
             }
+        }
 
-        </script>
+    </script>
 
-    @endsection
+@endsection
