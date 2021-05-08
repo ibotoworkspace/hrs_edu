@@ -210,7 +210,6 @@
 @section('default')
     <div class="w3-main mainContent" style="margin-left:250px">
         <section>
-            {{-- {{ dd($test_result) }} --}}
             <div class="serchsite">
                 <div class="container">
                     <div class="card">
