@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::group(['middleware' => 'auth.client_token'], function () {
+Route::group(['middleware' => 'auth.client_token'], function () {
 
     // Route::post('video', 'Services\UserController@video');
 
@@ -51,5 +51,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     // Route::get('/makepayment', 'Student\PaymentController@make_payment')
     //
 
-// });
+});
 Route::get('/makepayment', 'Student\PaymentController@make_payment_app');
