@@ -18,7 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['middleware' => 'auth.client_token'], function () {
+// Route::group(['middleware' => 'auth.client_token'], function () {
 
     // Route::post('video', 'Services\UserController@video');
 
@@ -42,9 +42,14 @@ Route::group(['middleware' => 'auth.client_token'], function () {
     Route::get('/getChapter', 'services\ChapterController@getChapter');
     Route::get('/profile', 'services\UserController@getUser');
 
+    Route::get('/testList', 'services\TestController@testList');
+    Route::get('/startTest', 'services\TestController@start_test');
+    Route::get('/showScore', 'services\TestController@showScore');
+    Route::post('/saveTest', 'services\TestController@testSave');
+
     //payment 
     // Route::get('/makepayment', 'Student\PaymentController@make_payment')
     //
 
-});
+// });
 Route::get('/makepayment', 'Student\PaymentController@make_payment_app');

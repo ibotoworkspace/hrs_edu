@@ -43,7 +43,7 @@ class CourseController extends Controller
     {
         $user_id = Auth::id();
         $register_courses = Course_Registered::with('course.group', 'course.test.test_assign', 'course.test.test_result')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
-        
+
         return view('studentdashboard.course.index', compact('register_courses'));
     }
 
@@ -65,12 +65,12 @@ class CourseController extends Controller
     }
     public function ShowTestList(Request $request)
     {
-        $all_test = Test_assigned::with('group_user','test.course','test.test_result')
-        ->whereHas('group_user',function($g){
+        $all_test = Test_assigned::with('group_user', 'test.course', 'test.test_result')
+            ->whereHas('group_user', function ($g) {
                 $g->where('user_id',  Auth::id());
-        })->get();
+            })->get();
 
-        return view('studentdashboard.test.index',compact('all_test'));
+        return view('studentdashboard.test.index', compact('all_test'));
     }
     public function testResult(Request $request)
     {

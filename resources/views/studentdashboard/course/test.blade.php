@@ -15,7 +15,7 @@
                             @foreach ($questions as $key => $ques)
                                 <div class="all_questions question_{!! $key + 1 !!}" style="{!! $display !!}">
                                     <div>
-                                        <h2>Question {!! $key + 1 !!}</h2>
+                                        {{-- <h2>Question {!! $key + 1 !!}</h2> --}}
                                         <p>{!! $ques->question !!}</p>
                                     </div>
                                     <div class="choices">
