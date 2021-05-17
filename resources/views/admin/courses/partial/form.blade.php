@@ -68,7 +68,7 @@
     <div class="form-group">
         {!! Form::label('overview', 'Overview') !!}
         <div>
-            <textarea class="ckeditor form-control" id="overview" name="overview">{!! $courses->overview !!}</textarea>
+            <textarea class="ckeditor form-control" id="overview" name="overview">{!! $courses->overview ??'' !!}</textarea>
         </div>
     </div>
     <div class="form-group">
@@ -81,7 +81,6 @@
     <div class="form-group">
         {!! Form::label('Book Cover Image', 'Book Cover Image') !!}
         <div>
-
             <input type="file" class="form-control-file" id="book_avatar" name="book_avatar">
         </div>
     </div>
@@ -101,7 +100,7 @@
         {!! Form::label('learningpath', 'Learning Path') !!}
         <div>
             <textarea class="ckeditor form-control" id="learning_path"
-                name="learning_path">{!! $courses->learning_path !!}</textarea>
+                name="learning_path">{!! $courses->learning_path ??'' !!}</textarea>
         </div>
     </div>
 

@@ -3,21 +3,10 @@
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
 <link href="{{ asset('css/ebooks.css') }}" rel="stylesheet">
 
-
-
-
 @section('default')
-
-
-
-
-
 
     <!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
     <div class="w3-main mainContent" style="margin-left:250px">
-
-
-
 
         <section>
             <title>
@@ -78,7 +67,8 @@
                         {{-- @endif --}}
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="{{ asset('images/mypdf.png') }}" class="img-responsive">
+                                <?php $thumnail_book = '';?>
+                                <img src="{!! $c_pdf->book_avatar ?? asset('images/mypdf.png') !!}" class="show-product-img img-responsive">
                                 <p>{{ $c_pdf->title }}</p>
                             </div>
                             {{-- @if (isset($c_pdf->requestCourse->can_download) && $c_pdf->requestCourse->can_download == 1) --}}
@@ -121,13 +111,6 @@
             </div>
     </div>
     </section>
-
-
-
-
-
-
-
     </div>
 
     <script>

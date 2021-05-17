@@ -154,6 +154,7 @@ class CoursesController extends Controller
         } else if (strcmp($request->pdf_url, "")  !== 0) {
             $courses->download_pdf = $request->pdf_url;
         }
+        sleep(1);
         if ($request->hasFile('avatar')) {
             $avatar = $request->avatar;
             $root = $request->root();
@@ -161,7 +162,7 @@ class CoursesController extends Controller
         } else if (strcmp($request->avatar_visible, "")  !== 0) {
             $courses->avatar = $request->avatar_visible;
         }
-
+        sleep(1);
         if ($request->hasFile('badge')) {
             $course_badge = $request->badge;
             $root = $request->root();

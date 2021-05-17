@@ -12,6 +12,7 @@ html,body,h1,h2,h3,h4,h5,h6 {font-family: 'Manjari', sans-serif;}
 .serchsite {
     margin-top: 135px;
 }
+
 footer#myFooter {
     position: fixed;
     bottom: 0px;
@@ -79,6 +80,10 @@ ul.nav.navbar-nav.side-nav.mysidemenu {
     padding: 0px 16px;
     padding-top: 8px;
     margin-top: 2px;
+}
+.show-product-img {
+    height: 43px;
+    width: 43px;
 }
 .leadrning:hover {
     background: #bfb28e !important;
