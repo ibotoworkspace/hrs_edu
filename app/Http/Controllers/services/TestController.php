@@ -25,7 +25,6 @@ class TestController extends Controller
 
                 $show_result = false;
                 $test_user = new \stdClass();
-                // dd($item->test);
                 if ($item->test == null || $item->test->test_result == null) {
                     $show_result = false;
                 } else {
