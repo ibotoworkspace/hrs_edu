@@ -21,9 +21,23 @@ class TestController extends Controller
                 ->whereHas('group_user', function ($g) use ($user) {
                     $g->where('user_id', $user->id);
                 })->get();
+            $all_test->transform(function ($item) {
+
+                $show_result = false;
+                $test_user = new \stdClass();
+                if ($item->test == null || $item->test->test_result == null) {
+                    $show_result = false;
+                } else {
+                    $show_result = true;
+                }
+
+                $item->user = new \stdClass();
+                $item->show_result = $show_result;
 
 
-            return $this->sendResponse(200, $all_test); //, $discussion
+                return $item;
+            });
+            return $this->sendResponse(200, $all_test);
         } catch (\Exception $e) {
             return $this->sendResponse(
                 500,
