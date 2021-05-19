@@ -49,13 +49,16 @@ class TestController extends Controller
 
     public function start_test(Request $request)
     {
-
         try {
             $questions = Quiz::with('choice')->where('test_id', $request->test_id)->get();
-            $res = new \stdClass();
-            $res->show_reult = 'true';
-            $res->data = $questions;
-            return $this->sendResponse(200, $res); //, $discussion
+            $questions->transform(function($item){
+                foreach($item->choice as $choice){
+                    $choice->is_selected = false;
+                }
+                return $choice;
+            });
+            
+            return $this->sendResponse(200, $questions); //, $discussion
         } catch (\Exception $e) {
             return $this->sendResponse(
                 500,
@@ -112,6 +115,8 @@ class TestController extends Controller
         $user_quiz_result->score =  $score;
         $user_quiz_result->percentage =  ($score / $total_question) * 100;
         $user_quiz_result->save();
+
+
 
         return redirect('student/dashboard')->with('sussess', 'Your assignment is submitted .');
     }
