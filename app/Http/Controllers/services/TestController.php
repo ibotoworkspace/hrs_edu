@@ -55,9 +55,8 @@ class TestController extends Controller
                 foreach($item->choice as $choice){
                     $choice->is_selected = false;
                 }
-                return $choice;
+                return $item;
             });
-            
             return $this->sendResponse(200, $questions); //, $discussion
         } catch (\Exception $e) {
             return $this->sendResponse(
