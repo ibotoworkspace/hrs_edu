@@ -51,8 +51,8 @@ class TestController extends Controller
     {
         try {
             $questions = Quiz::with('choice')->where('test_id', $request->test_id)->get();
-            $questions->transform(function($item){
-                foreach($item->choice as $choice){
+            $questions->transform(function ($item) {
+                foreach ($item->choice as $choice) {
                     $choice->is_selected = false;
                 }
                 return $item;
@@ -69,17 +69,19 @@ class TestController extends Controller
 
     public function testSave(Request $request)
     {
-        $questions = $request->question;
+        // dd ($request->all());
+        $questions = $request->data;
         $user = $request->attributes->get('user');
         $user_quiz = [];
 
         foreach ($questions as $qkey => $q) {
+
             $selected_choices = [];
-            if (isset($request->answer[$qkey]) && $request->answer[$qkey]) {
-                $selected_choices = $request->answer[$qkey];
+            foreach ($q['selected_answers'] as $ans) {
+                $selected_choices[] = $ans['value'];
             }
             $is_correct = true;
-            $correct_choices = Choices::where('quiz_id', $q)->where('is_correct', 1)->pluck('id')->toArray();
+            $correct_choices = Choices::where('quiz_id', $q['id'])->where('is_correct', 1)->pluck('id')->toArray();
             if (sizeof($correct_choices) == sizeof($selected_choices)) {
                 $is_correct = true;
 
@@ -94,7 +96,7 @@ class TestController extends Controller
             }
             $user_quiz[] = [
                 'user_id' => $user->id,
-                'quiz_id' => $q,
+                'quiz_id' => $q['id'],
                 'test_id' => $request->test_id,
                 'selected_choice' => json_encode($selected_choices),
                 'is_correct' => $is_correct
@@ -115,9 +117,10 @@ class TestController extends Controller
         $user_quiz_result->percentage =  ($score / $total_question) * 100;
         $user_quiz_result->save();
 
+        $res = new \stdClass();
+        $res->score = $user_quiz_result->percentage;
 
-
-        return redirect('student/dashboard')->with('sussess', 'Your assignment is submitted .');
+        return $this->sendResponse(200, $res);
     }
 
     public function showScore(Request $request)
