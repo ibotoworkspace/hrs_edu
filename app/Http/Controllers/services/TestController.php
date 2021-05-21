@@ -73,8 +73,9 @@ class TestController extends Controller
         $questions = $request->data;
         $user = $request->attributes->get('user');
         $user_quiz = [];
-
+        $test_id = 0 ;
         foreach ($questions as $qkey => $q) {
+            $test_id = $q->test_id;
 
             $selected_choices = [];
             foreach ($q['selected_answers'] as $ans) {
@@ -97,7 +98,7 @@ class TestController extends Controller
             $user_quiz[] = [
                 'user_id' => $user->id,
                 'quiz_id' => $q['id'],
-                'test_id' => $request->data->test_id,
+                'test_id' => $test_id,
                 'selected_choice' => json_encode($selected_choices),
                 'is_correct' => $is_correct
             ];
