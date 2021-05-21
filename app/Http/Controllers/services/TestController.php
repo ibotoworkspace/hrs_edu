@@ -97,7 +97,7 @@ class TestController extends Controller
             $user_quiz[] = [
                 'user_id' => $user->id,
                 'quiz_id' => $q['id'],
-                'test_id' => $request->test_id,
+                'test_id' => $request->data->test_id,
                 'selected_choice' => json_encode($selected_choices),
                 'is_correct' => $is_correct
             ];
@@ -138,4 +138,6 @@ class TestController extends Controller
             );
         }
     }
+
+
 }
