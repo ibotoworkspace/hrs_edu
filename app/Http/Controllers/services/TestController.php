@@ -75,7 +75,7 @@ class TestController extends Controller
         $user_quiz = [];
         $test_id = 0 ;
         foreach ($questions as $qkey => $q) {
-            $test_id = $q->test_id;
+            $test_id = $q['test_id'];
 
             $selected_choices = [];
             foreach ($q['selected_answers'] as $ans) {
