@@ -114,7 +114,7 @@ class CoursesController extends Controller
         try {
             $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
             $user = User::where('access_token', $header)->first();
-            $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id);
+            $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
             if ($user_course) {
                 return $this->sendResponse(200, 'Course Is Already Registered');
             } else {
