@@ -9,6 +9,7 @@ use App\Models\Test_assigned;
 use App\Models\Test_result;
 use App\Models\UserQuiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TestController extends Controller
 {
@@ -73,10 +74,8 @@ class TestController extends Controller
         $questions = $request->data;
         $user = $request->attributes->get('user');
         $user_quiz = [];
-        $test_id = 0 ;
         foreach ($questions as $qkey => $q) {
-            $test_id = $q['test_id'];
-
+            
             $selected_choices = [];
             foreach ($q['selected_answers'] as $ans) {
                 $selected_choices[] = $ans['value'];
@@ -98,28 +97,32 @@ class TestController extends Controller
             $user_quiz[] = [
                 'user_id' => $user->id,
                 'quiz_id' => $q['id'],
-                'test_id' => $test_id,
+                'test_id' => $q['test_id'],
                 'selected_choice' => json_encode($selected_choices),
                 'is_correct' => $is_correct
             ];
         }
+        // dd( $user_quiz);
+        $percentage = 0;
+        if(sizeof($user_quiz)){
+            UserQuiz::insert($user_quiz);
 
-        UserQuiz::insert($user_quiz);
-
-        $total_question = count($questions);
-
-        $user_quiz = UserQuiz::where('user_id', $user->id)->where('test_id', $request->test_id)->where('is_correct', 1)->pluck('id');
-        $score = count($user_quiz);
-        $user_quiz_result = new Test_result();
-        $user_quiz_result->test_id =  $request->test_id;
-        $user_quiz_result->user_id =  $user->id;
-        $user_quiz_result->total_question =  $total_question;
-        $user_quiz_result->score =  $score;
-        $user_quiz_result->percentage =  ($score / $total_question) * 100;
-        $user_quiz_result->save();
-
+            $total_question = count($questions);
+    
+            $user_quiz = UserQuiz::where('user_id', $user->id)->where('test_id', $request->test_id)->where('is_correct', 1)->pluck('id');
+            $score = count($user_quiz);
+            $user_quiz_result = new Test_result();
+            $user_quiz_result->test_id =  $questions[0]['test_id'];
+            $user_quiz_result->user_id =  $user->id;
+            $user_quiz_result->total_question =  $total_question;
+            $user_quiz_result->score =  $score;
+            $user_quiz_result->percentage =  ($score / $total_question) * 100;
+            $user_quiz_result->save();
+    
+            $percentage = $user_quiz_result->percentage;
+        }
         $res = new \stdClass();
-        $res->score = $user_quiz_result->percentage;
+        $res->score = $percentage;
 
         return $this->sendResponse(200, $res);
     }
