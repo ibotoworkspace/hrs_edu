@@ -20,7 +20,9 @@ class CoursesController extends Controller
             $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
             $user = User::where('access_token', $header)->first();
             $items_count = $request->items_count ?? '20';
-            $registred_courses = Course_Registered::with('course.chapters', 'course.videos')->where('user_id', $user->id)->orderBy('created_at', 'desc')->paginate($items_count);
+            $registred_courses = Course_Registered::with('course.chapters', 'course.videos')
+                ->where('user_id', $user->id)
+                ->orderBy('created_at', 'desc')->paginate($items_count);
 
             return $this->sendResponse(200, $registred_courses);
         } catch (\Exception $e) {
@@ -112,15 +114,18 @@ class CoursesController extends Controller
         try {
             $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
             $user = User::where('access_token', $header)->first();
-            $request->course_id;
+            $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id);
+            if ($user_course) {
+                return $this->sendResponse(200, 'Course Is Already Registered');
+            } else {
+                $registration = new Course_Registered();
+                $registration->course_id =  $request->course_id;
+                $registration->user_id =  $user->id;
+                $registration->name = $request->course_name;
+                $registration->save();
 
-            $registration = new Course_Registered();
-            $registration->course_id =  $request->course_id;
-            $registration->user_id =  $user->id;
-            $registration->name = $request->course_name;
-            $registration->save();
-
-            return $this->sendResponse(200, 'Course Registered Successfully ');
+                return $this->sendResponse(200, 'Course Registered Successfully ');
+            }
         } catch (\Exception $e) {
             return [
                 'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
