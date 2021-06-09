@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Validator;
 
 class SkillAdvisorController extends Controller
 {
@@ -18,12 +19,20 @@ class SkillAdvisorController extends Controller
     public function add(Request $request)
     {
 
-        if ($request->isMethod('post')) {
+      if ($request->isMethod('post')) {
 
-            $check_user = User::where('email',$request->email)->first();
+            $check_user = User::where('email',$request->email)
+            ->orwhere('mobileno',$request->phone)
+            ->first();
             if ($check_user) {
-                return back()->with('error', 'Email Already exist ');
+                if($check_user->mobileno == $request->phone){
+                    return back()->with('error', 'Mobile number already exist ');
+                }
+                else{
+                    return back()->with('error', 'Email already exist ');
+                }                
             } else {
+
                 $user = new User();
                 $user->name = $request->name;
                 $user->role_id = 3;

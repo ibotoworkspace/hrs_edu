@@ -56,7 +56,7 @@
 
             </th>
             <th class="option">
-                <div class="bestoption">Quizes</div>
+                <div class="bestoption">Quizzes</div>
 
             </th>
             <th class="option">
@@ -88,7 +88,7 @@
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! $crs->title !!}</div>
+                    <div class="besthrs" name="mytitle">{!! strtoupper($crs->title)  !!}</div>
                 </td>
                 <?php if (!$crs->avatar) {
                 $crs->avatar = asset('images/mediallogo.png');
@@ -103,7 +103,7 @@
                 <td class="myquiz">
                     {{-- <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div> --}}
                     <a href="{{ url('/admin/listofquiz/' . $crs->id) }}" type="button" class="btn btn-primary onquizes"
-                        id="myvide">quizes</a>
+                        id="myvide">quizzes</a>
                 </td>
                 <td class="myvideos">
                     <div class="vide">

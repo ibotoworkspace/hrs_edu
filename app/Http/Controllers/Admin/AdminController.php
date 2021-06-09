@@ -75,7 +75,7 @@ class AdminController extends Controller
         $chart = $admin_dashboard['chart'];
 
         session(['admin_common' => $admin_common]);
-        return \View('layouts.default_dashboard', compact(
+        return view('layouts.default_dashboard', compact(
             'chart'
         ));
     }
@@ -90,6 +90,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-20.png',
+            'background-color'=>'grey',
 
 
         ];
@@ -102,6 +103,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-21.png',
+            'background-color'=>'pink',
 
 
         ];
@@ -115,6 +117,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-22.png',
+            'background-color'=>'lightblue',
 
 
         ];
@@ -127,6 +130,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-23.png',
+            'background-color'=>'red',
 
 
         ];
@@ -139,6 +143,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-24.png',
+            'background-color'=>'orange',
 
 
         ];
@@ -149,6 +154,7 @@ class AdminController extends Controller
             'total' => '3',
             'active' => '5',
             'image' => 'images/icon-25.png',
+            'background-color'=>'green',
 
 
         ];
@@ -161,6 +167,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-26.png',
+            'background-color'=>'brown',
 
 
         ];
@@ -173,6 +180,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-26.png',
+            'background-color'=>'orange',
 
 
         ];
@@ -185,6 +193,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $total_count,
             'image' => 'images/icon-20.png',
+            'background-color'=>'purple',
 
 
         ];
@@ -196,6 +205,7 @@ class AdminController extends Controller
             'total' => $total_test,
             'active' => $total_test,
             'image' => 'images/icon-20.png',
+            'background-color'=>'blue',
 
 
         ];
@@ -208,6 +218,7 @@ class AdminController extends Controller
             'total' => $test_result,
             'active' => $test_result,
             'image' => 'images/icon-20.png',
+            'background-color'=>'green',
 
 
         ];
@@ -219,6 +230,7 @@ class AdminController extends Controller
             'total' => $total_count,
             'active' => $total_count,
             'image' => 'images/icon-20.png',
+            'background-color'=>'red',
 
 
         ];

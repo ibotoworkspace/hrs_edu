@@ -67,8 +67,11 @@
                             </div>
                             <div class="col-sm-3">
                                 <div class="topheaderclick">
-                                    <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button>
+                                    {{-- <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button> --}}
+                                    <a href="{{ asset('admin/courses') }}"><button type="button"
+                                        class="btn btn-primary leadrning">LEARNING PORTAL</button></a>
                                 </div>
+                                
                             </div>
                         </div>
                     </div>

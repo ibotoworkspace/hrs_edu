@@ -21,6 +21,9 @@
     margin: 0 auto;
     height: 150px;
 }
+.studentareabox.row {
+    color: white;
+}
 .studentboxdatathree.col-sm-8 h4 {
     margin-top: 42px;
     font-size: 22px;

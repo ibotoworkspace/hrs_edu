@@ -39,6 +39,9 @@
             <th class="mycourse">
                 <div class="bestcourse">Name</div>
             </th>
+            <th class="mycourse">
+                <div class="bestcourse">User Identify</div>
+            </th>
 
             <th class="mycourse">
                 <div class="bestcourse">User Email</div>
@@ -52,6 +55,10 @@
             <th class="mycourse">
                 <div class="bestcourse">Course Registered</div>
             </th>
+            <th class="option">
+                <div class="bestoption">Delete</div>
+
+            </th>
 
 
 
@@ -61,10 +68,13 @@
     <tbody>
 
         @foreach ($userlist as $lp)
-            <tr class="myarrow">
+            <tr  class="myarrow myarrow_{{ $lp->id }}">
 
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! $lp->name !!}</div>
+                </td>
+                <td class="hrs">
+                    <div class="besthrs" name="mytitle">{!! $lp->user_reg_id !!}</div>
                 </td>
 
                 <td class="hrs">
@@ -83,6 +93,13 @@
                         </a>
                     </div>
 
+                </td>
+
+                <td class="hrs">
+                    <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$lp->id}}" hit_url="{{ url('/user/list/delete/' . $lp->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Delete?">
+                        <span class="badge bg-info btn-danger ">
+                            Delete</span>
+                    </a>
                 </td>
             </tr>
 
