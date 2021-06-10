@@ -9,6 +9,7 @@ use App\Models\Test_assigned;
 use App\Models\Test_result;
 use App\Models\UserQuiz;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TestController extends Controller
 {
@@ -21,9 +22,23 @@ class TestController extends Controller
                 ->whereHas('group_user', function ($g) use ($user) {
                     $g->where('user_id', $user->id);
                 })->get();
+            $all_test->transform(function ($item) {
+
+                $show_result = false;
+                $test_user = new \stdClass();
+                if ($item->test == null || $item->test->test_result == null) {
+                    $show_result = false;
+                } else {
+                    $show_result = true;
+                }
+
+                $item->user = new \stdClass();
+                $item->show_result = $show_result;
 
 
-            return $this->sendResponse(200, $all_test); //, $discussion
+                return $item;
+            });
+            return $this->sendResponse(200, $all_test);
         } catch (\Exception $e) {
             return $this->sendResponse(
                 500,
@@ -35,13 +50,15 @@ class TestController extends Controller
 
     public function start_test(Request $request)
     {
-
         try {
             $questions = Quiz::with('choice')->where('test_id', $request->test_id)->get();
-            $res = new \stdClass();
-            $res->show_reult = 'true';
-            $res->data = $questions;
-            return $this->sendResponse(200, $res); //, $discussion
+            $questions->transform(function ($item) {
+                foreach ($item->choice as $choice) {
+                    $choice->is_selected = false;
+                }
+                return $item;
+            });
+            return $this->sendResponse(200, $questions); //, $discussion
         } catch (\Exception $e) {
             return $this->sendResponse(
                 500,
@@ -53,17 +70,18 @@ class TestController extends Controller
 
     public function testSave(Request $request)
     {
-        $questions = $request->question;
+        // dd ($request->all());
+        $questions = $request->data;
         $user = $request->attributes->get('user');
         $user_quiz = [];
-
         foreach ($questions as $qkey => $q) {
+            
             $selected_choices = [];
-            if (isset($request->answer[$qkey]) && $request->answer[$qkey]) {
-                $selected_choices = $request->answer[$qkey];
+            foreach ($q['selected_answers'] as $ans) {
+                $selected_choices[] = $ans['value'];
             }
             $is_correct = true;
-            $correct_choices = Choices::where('quiz_id', $q)->where('is_correct', 1)->pluck('id')->toArray();
+            $correct_choices = Choices::where('quiz_id', $q['id'])->where('is_correct', 1)->pluck('id')->toArray();
             if (sizeof($correct_choices) == sizeof($selected_choices)) {
                 $is_correct = true;
 
@@ -78,28 +96,35 @@ class TestController extends Controller
             }
             $user_quiz[] = [
                 'user_id' => $user->id,
-                'quiz_id' => $q,
-                'test_id' => $request->test_id,
+                'quiz_id' => $q['id'],
+                'test_id' => $q['test_id'],
                 'selected_choice' => json_encode($selected_choices),
                 'is_correct' => $is_correct
             ];
         }
+        // dd( $user_quiz);
+        $percentage = 0;
+        if(sizeof($user_quiz)){
+            UserQuiz::insert($user_quiz);
 
-        UserQuiz::insert($user_quiz);
+            $total_question = count($questions);
+    
+            $user_quiz = UserQuiz::where('user_id', $user->id)->where('test_id', $request->test_id)->where('is_correct', 1)->pluck('id');
+            $score = count($user_quiz);
+            $user_quiz_result = new Test_result();
+            $user_quiz_result->test_id =  $questions[0]['test_id'];
+            $user_quiz_result->user_id =  $user->id;
+            $user_quiz_result->total_question =  $total_question;
+            $user_quiz_result->score =  $score;
+            $user_quiz_result->percentage =  ($score / $total_question) * 100;
+            $user_quiz_result->save();
+    
+            $percentage = $user_quiz_result->percentage;
+        }
+        $res = new \stdClass();
+        $res->score = $percentage;
 
-        $total_question = count($questions);
-
-        $user_quiz = UserQuiz::where('user_id', $user->id)->where('test_id', $request->test_id)->where('is_correct', 1)->pluck('id');
-        $score = count($user_quiz);
-        $user_quiz_result = new Test_result();
-        $user_quiz_result->test_id =  $request->test_id;
-        $user_quiz_result->user_id =  $user->id;
-        $user_quiz_result->total_question =  $total_question;
-        $user_quiz_result->score =  $score;
-        $user_quiz_result->percentage =  ($score / $total_question) * 100;
-        $user_quiz_result->save();
-
-        return redirect('student/dashboard')->with('sussess', 'Your assignment is submitted .');
+        return $this->sendResponse(200, $res);
     }
 
     public function showScore(Request $request)
@@ -117,4 +142,6 @@ class TestController extends Controller
             );
         }
     }
+
+
 }
