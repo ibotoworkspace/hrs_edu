@@ -113,7 +113,7 @@ class AdminController extends Controller
         $modules[] = [
 
             'url' => '#',
-            'title' => 'Total Quizes',
+            'title' => 'Total Quizzes',
             'total' => $total_count,
             'active' => $active_count,
             'image' => 'images/icon-22.png',
