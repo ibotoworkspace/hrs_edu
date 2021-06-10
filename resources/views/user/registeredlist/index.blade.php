@@ -39,6 +39,13 @@ width="400px" style="table-layout:fixed;"
                         <th class="mycourse">
                             <div class="bestcourse">Name</div>
                         </th>
+                        <th class="mycourse">
+                            <div class="bestcourse">Registration Date</div>
+                        </th>
+                        
+                        <th class="mycourse">
+                            <div class="bestcourse">Hours</div>
+                        </th>
                       
                         {{-- <th class="mycourse">
                             <div class="bestcourse">Email</div>
@@ -56,10 +63,20 @@ width="400px" style="table-layout:fixed;"
 
                     @foreach($registered as $ru)
 
+                    <?php 
+                        $date = strtotime($ru->created_at);                        
+                        $date = date("F j, Y",$date);
+                    ?>
                     <tr class="myarrow">
                        
                         <td class="hrs">
                             <div class="besthrs"  name="mytitle">{!! $ru->name !!}</div>
+                        </td>
+                        <td class="hrs">
+                            <div class="besthrs"  name="mytitle">{!! $date !!}</div>
+                        </td>
+                        <td class="hrs">
+                            <div class="besthrs"  name="mytitle">{!! $ru->course->hours !!}</div>
                         </td>
 
                         {{-- <td class="hrs">

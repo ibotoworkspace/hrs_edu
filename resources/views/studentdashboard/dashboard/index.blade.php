@@ -59,9 +59,12 @@ $courses = $student_common->courses;
                         <div class="col-sm-6">
                             <div class="infoboxdata row">
                                 <div class="infoboxdatatext col-sm-8">
-                                    <h4>HELP GUIDE</h4>
+                                    <h4>Ticket</h4>
+                               
                                     <h3>Need help? Check out our help desk</h3>
-                                    <button type="button" class="btn btn-primary desk">HELP DESK</button>
+                                  
+                                       <a href="{{ asset('student/viewticket') }}"><button type="button"
+                                        class="btn btn-primary desk">HELP DESK</button></a>
                                 </div>
                                 <div class="infoboxdatatextimg col-sm-4">
                                     <img src="{{ asset('images/image-16.png') }}" class="img-responsive">

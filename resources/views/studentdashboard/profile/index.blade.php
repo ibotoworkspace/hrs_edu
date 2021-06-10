@@ -50,13 +50,16 @@ $student = $student_common->student;
                                             <div id="profile-image">
                                                 <img id="profile_image" src="{{ $student->avatar ?? asset('images/user_icon.jpg') }}"
                                                     class="img-responsive">
-                                                <span> here to change profile image </span>
+                                                <span class="btn btn-primary update"> here to change profile image </span>
 
 
                                             </div>
+                                            
 
 
                                         </div>
+
+
                                         <div class="studentboxdatathree col-sm-8">
                                             <h4>{{ strtoupper($student->name) }}</h4>
                                             <h5>STUDENT</h5>

@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User_Registered;
 use App\User;
+use Illuminate\Support\Facades\Response;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 
 class StudentRegistrationController extends Controller
@@ -32,16 +34,17 @@ class StudentRegistrationController extends Controller
 
 
 
-    public function search(Request $request)
-
+    public function delete($id)
     {
-
-
-
-        // dd($request->all());
-        $name = $request->name ?? '';
-        // dd($name);
-        $userlist = User::where('name', 'like', '%' . $name . '%')->paginate(10);
-        return view('user.userlist.index', compact('userlist', 'name'));
+      $userlist = User::find($id);
+        if ($userlist) {
+         $user =    User::destroy($id);
+      } 
+        $response = Response::json([
+            "status" => true,
+            'action' => Config::get('constants.ajax_action.delete'),
+          
+        ]);
+        return $response;
     }
 }

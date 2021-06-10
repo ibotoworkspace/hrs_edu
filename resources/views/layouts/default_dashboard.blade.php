@@ -28,7 +28,7 @@ $courses = $admin_common->courses_list;
 
             <a href="{!! asset($module['url']) !!}">
                 <div class="col-md-3 col-sm-6 col-xs-12">
-                    <section class="dash-tile bg-success">
+                    <section class="dash-tile bg-success"  style="background-color: {!!$module['background-color'] !!}">
                         <div class="tile-title">
                         </div>
                         <!-- <div class="tile-stats">{!! $module['title'] !!}

@@ -256,6 +256,8 @@ Route::group(['prefix' => 'user'], function () {
     /////user/registration
 
     Route::get('/list', 'User\StudentRegistrationController@list')->name('user.list');
+    Route::get('/list/delete/{id}', 'User\StudentRegistrationController@delete')->name('user.delete');
+
     ////////userlist.search
     Route::get('/list/search', 'User\StudentRegistrationController@search')->name('userlist.search');
 

@@ -62,7 +62,7 @@
                                         name="email" required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control " id="GnTPhone" placeholder="Enter Phone"
+                                    <input type="number" class="form-control " id="GnTPhone" placeholder="Enter Mobile no"
                                         name="phone" required>
                                 </div>
                                 <div class="form-group">

@@ -84,10 +84,7 @@ class CoursesController extends Controller
 
     public function index(Request $request)
     {
-
-
         $courses = Courses::orderBy('created_at', 'DESC')->paginate(10);
-
         return view('admin.courses.index', compact('courses'));
     }
 

@@ -28,6 +28,7 @@ class UserController extends Controller
                 $users->password    = Hash::make($request->password);
                 $users->mobileno = $request->mobileno;
                 $users->access_token = uniqid();
+                $users->user_reg_id = uniqid();
                 // $users->device_type = $request->header('client-id');
 
 

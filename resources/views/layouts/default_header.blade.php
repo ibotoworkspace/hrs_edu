@@ -57,7 +57,7 @@ $admin_common = session()->get('admin_common'); ?>
                 <!-- /toggle offscreen menu -->
 
                 <!-- logo -->
-                <a href="{{ asset('index.php/home') }}" class="navbar-brand">
+                <a href="{{ asset('admin/dashboard') }}" class="navbar-brand">
 
                     <div class="row">
 
@@ -88,7 +88,7 @@ $admin_common = session()->get('admin_common'); ?>
 
             <ul class="nav navbar-nav navbar-right">
 
-                <li class="mysrch row justify-content-center">
+                {{-- <li class="mysrch row justify-content-center">
                     <div class="col-sm-11">
                         <div class="mybstsrch">
                             <input type="search" id="mybox" class="form-control" placeholder="Search for........" />
@@ -99,7 +99,7 @@ $admin_common = session()->get('admin_common'); ?>
                     </div>
 
 
-                </li>
+                </li> --}}
 
 
                 <li class="off-right hidden-xs">
