@@ -205,7 +205,7 @@ class CoursesController extends Controller
 
     public function courseRequest(Request $request)
     {
-        $course_request = CourseRequest::with('course', 'user')->paginate(10);
+        $course_request = CourseRequest::with('ebook', 'user')->paginate(10);
 
         return view('admin.courses.request', compact('course_request'));
     }

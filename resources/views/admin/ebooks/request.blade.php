@@ -1,6 +1,6 @@
 @extends('layouts.default_module')
 @section('module_name')
-Ebook Request
+Course Request
 @stop
 
 
@@ -11,30 +11,36 @@ width="400px" style="table-layout:fixed;"
 {{-- @endsection --}}
 
 
+
+
+
+
+
 @section('table')
 
 
-{{-- <div class="ableclick">
+<div class="ableclick">
     <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
     <button type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</button>
     <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
     <button type="button" class="btn btn-primary myopen" id="mybuttoner"> PDF</button>
     <button type="button" class="btn btn-primary myopen" id="mybuttoners"> Print</button>
-</div> --}}
+</div>
 
 
 
 <thead>
     <tr>
+        <th class="myso">
+            <div class="bestcso">S.No</div>
+        </th>
         <th class="mycourse">
             <div class="bestcourse">Course Title</div>
         </th>
         <th class="myso">
             <div class="bestcso">User Name</div>
         </th>
-        <th class="myso">
-            <div class="bestcso">Download Code</div>
-        </th>
+
 
         <th class="option">
             <div class="bestoption">Option</div>
@@ -47,14 +53,14 @@ width="400px" style="table-layout:fixed;"
     @foreach ($course_request as $key => $cr)
 
     <tr class="myarrow myarrow_{{ $cr->id }}">
+        <td class="mynbr">
+            <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
+        </td>
         <td class="hrs">
-            <div class="besthrs" name="mytitle">{!! $cr->ebook->name !!}</div>
+            <div class="besthrs" name="mytitle">{!! $cr->course->title !!}</div>
         </td>
         <td class="hrs">
             <div class="besthrs" name="mytitle">{!! $cr->user->name !!}</div>
-        </td>
-        <td class="mynbr">
-            <div class="bestnbr" name="sno"> {{ $cr->download_code }}</div>
         </td>
 
         <td class="optionss">

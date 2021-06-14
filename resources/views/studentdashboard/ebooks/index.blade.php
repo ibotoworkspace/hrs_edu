@@ -68,8 +68,8 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <?php $thumnail_book = '';?>
-                                <img src="{!! $c_pdf->book_avatar ?? asset('images/mypdf.png') !!}" class="show-product-img img-responsive">
-                                <p>{{ $c_pdf->title }}</p>
+                                <img src="{!! $c_pdf->avatar ?? asset('images/mypdf.png') !!}" class="show-product-img img-responsive">
+                                <p>{{ $c_pdf->name }}</p>
                             </div>
                             {{-- @if (isset($c_pdf->requestCourse->can_download) && $c_pdf->requestCourse->can_download == 1) --}}
 
@@ -80,7 +80,7 @@
                                 @else --}}
                                 <form method="post" action="{{ asset('student/downloadpdf') }}">
                                     @csrf()
-                                    <input name="course_id" value="{{ $c_pdf->id }}" hidden>
+                                    <input name="ebook_id" value="{{ $c_pdf->id }}" hidden>
                                     <button type="submit" class="btn btn-primary for">Request for Download</button>
                                 </form>
 
@@ -132,7 +132,7 @@
                         $('.success-modal').css("display", "none")
                         $('#err-msg').html('Your code is invalid or expired !')
                     } else {
-                        url = response.response.course.download_pdf
+                        url = response.response.ebook.book_url
                         $('.success-modal').css("display", "block")
                         $('.error-modal').css("display", "none")
                         $('#suc-msg').html('Your PDF is Downloaded !')

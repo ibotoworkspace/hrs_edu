@@ -225,6 +225,11 @@ $admin_common = session()->get('admin_common'); ?>
                                         <span>Request</span>
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="{{ asset('admin/report/courserequest') }}">
+                                        <span>Request Ebooks</span>
+                                    </a>
+                                </li>
                                 {{-- @endforeach --}}
                             </ul>
                         </li>
