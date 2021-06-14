@@ -14,7 +14,7 @@ class Payment extends Model
     public function registerCourse(){
         return $this->hasOne('App\Models\Course_Registered','id','course_register_id');
     }
-    public function User(){
+    public function user(){
         return $this->hasOne('App\User','id','user_id');
     }
     public function promocode(){

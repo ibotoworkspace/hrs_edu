@@ -13,9 +13,7 @@ class OrderController extends Controller
 {
     public function index()
     {
-
-
-        $orders = Payment::with('User', 'registerCourse.course','promocode')->orderBy('created_at', 'desc')->paginate('10');
+        $orders = Payment::with('user', 'registerCourse.course','promocode')->orderBy('created_at', 'desc')->paginate('10');
         return view('admin.listoforder.index', compact('orders'));
     }
 
