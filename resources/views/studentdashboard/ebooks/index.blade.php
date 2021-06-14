@@ -56,8 +56,11 @@
                                     @csrf --}}
                                 <input type="text" name="code" class="form-control shdata" id="download-code"
                                     placeholder="Enter Code here...">
-                                <button type="submit" onclick="getCode()" class="btn btn-primary bookclick"> Download
-                                    Book</button>
+                                <button type="submit" onclick="getCode()" class="btn btn-primary bookclick"> Get
+                                    Book </button>
+                                    <div class="pdf-download">
+
+                                    </div>
                                 {{-- </form> --}}
                             </div>
 
@@ -104,9 +107,9 @@
 
                         </div>
                     </div>
-                    <div class="pdf-download">
+                    {{-- <div class="pdf-download">
 
-                    </div>
+                    </div> --}}
                 </div>
             </div>
     </div>
@@ -140,9 +143,7 @@
                         $('.pdf-download').append(downloadPdfhtml(url));
                         console.log('pdf html ', downloadPdfhtml(url))
                         setTimeout(() => {
-                            $('.pdf-download').click(function() {
                                 $('.download_link').trigger('click');
-                            });
                         }, 2000);
                     }
 
@@ -152,8 +153,8 @@
         // hrs-IdHksu0iBA
 
         function downloadPdfhtml(url) {
-            return ` <a id='download_link' class='download_link' href='` + url + `' target="_blank" download>
-                                            </a>
+            return ` <a id='download_link' class='download_link' href='` + url + `' download>
+                                           download </a>
                                         `
         }
 

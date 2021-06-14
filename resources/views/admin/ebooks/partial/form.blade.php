@@ -48,6 +48,30 @@
     </div>
     @include('admin.ebooks.partial.image_modal')
 
+    <?php
+    $book_url = asset('images/courses1.png');
+
+    if (isset($ebooks)) {
+    if ($ebooks->book_url) {
+    $book_url = $ebooks->book_url;
+    }
+    }
+    ?>
+    <div class="form-group">
+
+        <div class="form-group pull-right">
+            <img width="100px" src="{!! $book_url !!}" class="show-product-img imgshow">
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('book_url', 'Upload Book') !!}
+            {!! Form::file('book_url', ['class' => 'choose-image', 'id' => 'avatar']) !!}
+            <p class="help-block" id="error">Limit 2MB</p>
+        </div>
+
+    </div>
+    @include('admin.ebooks.partial.image_modal')
+
     <span id="err" class="error-product"></span>
 
 
@@ -69,14 +93,14 @@
     </div> --}}
 
 
-    <div class="form-group">
+    {{-- <div class="form-group">
 
         {!! Form::label('book_url', 'Book URL') !!}
         <div>
             {!! Form::text('book_url', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Enter Book URL']) !!}
         </div>
 
-    </div>
+    </div> --}}
 
 
     {{-- <div class="form-group">

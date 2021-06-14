@@ -54,7 +54,9 @@ use Illuminate\Support\Facades\Config;
 
 
     public function add_or_update($request, $ebooks)
+  
     {
+        // dd($request->all());
         $ebooks->name = $request->name;
         $ebooks->book_url = $request->book_url;
         $ebooks->course_id = $request->course_id;
@@ -66,6 +68,14 @@ use Illuminate\Support\Facades\Config;
         } else if (strcmp($request->avatar, "")  !== 0) {
             $ebooks->avatar = $request->avatar;
         }
+        if ($request->hasFile('book_url')) {
+            $book_url = $request->book_url;
+            $root = $request->root();
+            $ebooks->book_url = $this->move_img_get_path($book_url, $root, 'image');
+        } else if (strcmp($request->avatar, "")  !== 0) {
+            $ebooks->book_url = $request->book_url;
+        }
+      
       
        
         $ebooks->save();
