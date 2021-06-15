@@ -3,16 +3,10 @@
 Ebook Request
 @stop
 
-
-
-
 @section('table-properties')
 width="400px" style="table-layout:fixed;"
 {{-- @endsection --}}
-
-
 @section('table')
-
 
 {{-- <div class="ableclick">
     <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
@@ -21,8 +15,6 @@ width="400px" style="table-layout:fixed;"
     <button type="button" class="btn btn-primary myopen" id="mybuttoner"> PDF</button>
     <button type="button" class="btn btn-primary myopen" id="mybuttoners"> Print</button>
 </div> --}}
-
-
 
 <thead>
     <tr>
@@ -35,12 +27,9 @@ width="400px" style="table-layout:fixed;"
         <th class="myso">
             <div class="bestcso">Download Code</div>
         </th>
-
         <th class="option">
             <div class="bestoption">Option</div>
-
         </th>
-
     </tr>
 </thead>
 <tbody>
@@ -61,16 +50,18 @@ width="400px" style="table-layout:fixed;"
 
             @if ($cr->can_download == 1)
             <span class="badge bg-info btn-primary ">
-                Allowed</span></a>
+                Allowed
+            </span>
             @else
-            <a href="" data-toggle="modal" hit_method="get" hit_url="{{ url('/admin/coursesrequest/status/' . $cr->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
-                <span class="badge bg-info btn-danger ">Pending</span></a>
+            {{-- <a href="" data-toggle="modal" hit_method="get" hit_url="{{ url('/admin/coursesrequest/status/' . $cr->id) }}" 
+                    name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?"> --}}
+            <a href="{{ url('/admin/coursesrequest/status/' . $cr->id) }}">
+                <span class="badge bg-info btn-danger ">Pending</span>
+            </a>
             @endif
 
         </td>
     </tr>
-
-
 
     @endforeach
 </tbody>

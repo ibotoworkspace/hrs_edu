@@ -144,13 +144,13 @@ class CoursesController extends Controller
         $courses->overview = $request->overview;
         // $courses->lectures = $request->lectures;
 
-        if ($request->hasFile('downloadpdf')) {
-            $pdf_file = $request->downloadpdf;
-            $root = $request->root();
-            $courses->download_pdf = $this->move_img_get_path($pdf_file, $root, 'image');
-        } else if (strcmp($request->pdf_url, "")  !== 0) {
-            $courses->download_pdf = $request->pdf_url;
-        }
+        // if ($request->hasFile('downloadpdf')) {
+        //     $pdf_file = $request->downloadpdf;
+        //     $root = $request->root();
+        //     $courses->download_pdf = $this->move_img_get_path($pdf_file, $root, 'image');
+        // } else if (strcmp($request->pdf_url, "")  !== 0) {
+        //     $courses->download_pdf = $request->pdf_url;
+        // }
         sleep(1);
         if ($request->hasFile('avatar')) {
             $avatar = $request->avatar;
@@ -165,11 +165,11 @@ class CoursesController extends Controller
             $root = $request->root();
             $courses->badge = $this->move_img_get_path($course_badge, $root, 'image');
         }
-        if ($request->hasFile('book_avatar')) {
-            $book_avatar = $request->book_avatar;
-            $root = $request->root();
-            $courses->book_avatar = $this->move_img_get_path($book_avatar, $root, 'image');
-        }
+        // if ($request->hasFile('book_avatar')) {
+        //     $book_avatar = $request->book_avatar;
+        //     $root = $request->root();
+        //     $courses->book_avatar = $this->move_img_get_path($book_avatar, $root, 'image');
+        // }
 
         $courses->save();
 
@@ -227,12 +227,13 @@ class CoursesController extends Controller
                 'subject' => 'Course pdf code ',
                 "code"  => $request_course->download_code,
             ];
-            Mail::to($request_course->user->email)->send(new CourseCode($details));
+            // Mail::to($request_course->user->email)->send(new CourseCode($details));
         } else {
             $request_course->can_download = 0;
             $request_course->save();
             $new_value = 'Pending';
         }
+        return redirect()->back();
 
         $response = Response::json([
             "status" => true,

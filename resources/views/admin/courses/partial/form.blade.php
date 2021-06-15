@@ -71,7 +71,7 @@
             <textarea class="ckeditor form-control" id="overview" name="overview">{!! $courses->overview ??'' !!}</textarea>
         </div>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         {!! Form::label('PDF File', 'PDF File') !!}
         <div>
 
@@ -83,17 +83,17 @@
         <div>
             <input type="file" class="form-control-file" id="book_avatar" name="book_avatar">
         </div>
-    </div>
+    </div> --}}
 
 
-    <div class="form-group">
+    {{-- <div class="form-group">
 
         {!! Form::label('pdf url', 'PDF Url') !!}
         <div>
             {!! Form::text('pdf_url', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'PDF Url']) !!}
         </div>
 
-    </div>
+    </div> --}}
 
 
     <div class="form-group">

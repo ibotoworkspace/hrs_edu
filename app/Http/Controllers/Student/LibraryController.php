@@ -16,7 +16,6 @@ class LibraryController extends Controller
 {
     public function index(Request $request)
     {
-
         $user_id = Auth::id();
         $course_pdf = Ebooks::with(['requestCourse' => function ($q) use ($user_id) {
             $q->where('user_id', $user_id);
@@ -33,8 +32,6 @@ class LibraryController extends Controller
         $course_request->user_id = $user_id;
         $course_request->ebook_id = $request->ebook_id;
         $course_request->save();
-
-
         // return view('studentdashboard.ebooks.index');
         return  back()->with('success', 'Your course request is submited');
     }
