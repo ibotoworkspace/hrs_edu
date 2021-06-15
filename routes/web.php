@@ -74,6 +74,19 @@ Route::get('/test/edit/{id}', 'Admin\TestController@edit')->name('test.edit');
 Route::post('/test/update/{id}', 'Admin\TestController@update')->name('test.update');
 Route::get('test/delete/{id}', 'Admin\TestController@destroy_undestroy')->name('test.delete');
 
+
+///Ebooks
+
+
+
+Route::get('/ebooks', 'Admin\EbooksController@index')->name('admin.ebooks');
+Route::get('/ebooks/create/', 'Admin\EbooksController@create')->name('ebooks.create');
+Route::post('/ebooks/save', 'Admin\EbooksController@save')->name('ebooks.save');
+Route::get('/ebooks/edit/{id}', 'Admin\EbooksController@edit')->name('ebooks.edit');
+Route::post('/ebooks/update/{id}', 'Admin\EbooksController@update')->name('ebooks.update');
+Route::get('ebooks/delete/{id}', 'Admin\EbooksController@destroy_undestroy')->name('ebooks.delete');
+
+
 // test_assigned and test id
 
 Route::get('/test_assigned/{id}','Admin\Test_assignedController@index')->name('admin.test.assigned');;
@@ -161,7 +174,7 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     Route::get('/choices/{id}', 'Admin\ChoiceController@index')->name('admin.choices');
     Route::get('/choices', 'Admin\ChoiceController@index')->name('admin.choices');
 
-    Route::get('/courserequest', 'Admin\CoursesController@courseRequest')->name('admin.courserequest');
+    Route::get('/report/courserequest', 'Admin\CoursesController@courseRequest')->name('admin.courserequest');
     Route::get('/coursesrequest/status/{id}', 'Admin\CoursesController@status')->name('coursesrequest.status');
 
     //admin advisor

@@ -9,6 +9,7 @@ use App\Models\CourseRequest;
 use App\Models\Courses;
 use App\Models\Lecturer;
 use App\Models\PromoCode;
+use App\Models\Ebooks;
 use App\Models\Test_result;
 use App\Models\Quiz;
 use App\Models\SkillAdvisor;
@@ -17,8 +18,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
-
-
 
 class AdminController extends Controller
 {
@@ -121,6 +120,7 @@ class AdminController extends Controller
 
 
         ];
+        
         $total_count = Course_Video::count('id');
         $active_count = Course_Video::count('id'); // where is_active == 1
         $modules[] = [
@@ -231,6 +231,19 @@ class AdminController extends Controller
             'active' => $total_count,
             'image' => 'images/icon-20.png',
             'background-color'=>'red',
+
+
+        ];
+        $total_count = Ebooks::count('id');
+        $active_count = Ebooks::count('id'); // where is_active == 1
+        $modules[] = [
+
+            'url' => 'admin/ebooks',
+            'title' => 'EBooks',
+            'total' => $total_count,
+            'active' => $active_count,
+            'image' => 'images/icon-22.png',
+            'background-color'=>'pink',
 
 
         ];
