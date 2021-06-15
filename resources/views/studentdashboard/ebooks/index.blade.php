@@ -153,8 +153,8 @@
         // hrs-IdHksu0iBA
 
         function downloadPdfhtml(url) {
-            return ` <a id='download_link' class='download_link' href='` + url + `' download>
-                                           download </a>
+            return ` <a id='download_link' class=' btn btn-primary bookclick download_link' href='` + url + `' download>
+                                           Download </a>
                                         `
         }
 
