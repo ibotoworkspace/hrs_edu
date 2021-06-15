@@ -153,9 +153,15 @@
         // hrs-IdHksu0iBA
 
         function downloadPdfhtml(url) {
-            return ` <a id='download_link' class=' btn btn-primary bookclick download_link' href='` + url + `' download>
+            return ` <a id='download_link' class=' btn btn-primary bookclick download_link' onclick="removeBtn(this)" href='` + url + `' download>
                                            Download </a>
                                         `
+        }
+
+        function removeBtn(e){
+            setTimeout(function(){
+                $('#download_link').remove();    
+            },2000)
         }
 
     </script>
