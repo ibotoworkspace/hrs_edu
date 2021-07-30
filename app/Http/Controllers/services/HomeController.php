@@ -15,7 +15,7 @@ class HomeController extends Controller
 
         try {
             $user = $request->get('user');
-            $items_count = $request->items_count ?? '10';
+            $items_count = $request->items_count ?? '10000';
             $search = $request->course_name ?? '';
             $courses=Courses::where('title', 'like', '%' . $search . '%')->with(['registerCourse'=> function($q) use($user){
                 $q->where('user_id',$user->id);
