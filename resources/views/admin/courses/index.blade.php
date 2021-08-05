@@ -103,6 +103,13 @@ use App\Models\Lecturer;
                 <?php if (!$crs->avatar) {
                 $crs->avatar = asset('images/mediallogo.png');
                 } ?>
+                   <?php
+                 
+                   $total_quizes = Quiz::where('course_id', $crs->id)->count('id');
+                   $total_videos = Course_Video::where('course_id', $crs->id)->count('id');
+                   $total_lecturer = Lecturer::with('user')->count('id');
+   
+                   ?>
 
                 <td><img width="100px" src="{!! $crs->avatar !!}" class="show-product-img imgshow"></td>
 
@@ -111,13 +118,7 @@ use App\Models\Lecturer;
                     <div class="bestnbr" name="hours">{!! $crs->hours !!}</div>
                 </td>
                 
-                <?php
-                 
-                $total_quizes = Quiz::where('course_id', $crs->id)->count('id');
-                $total_videos = Course_Video::where('course_id', $crs->id)->count('id');
-                $total_lecturer = Lecturer::with('user')->count('id');
-
-                ?>
+             
 
                 <td class="myquiz">
                 
