@@ -5,6 +5,7 @@ use App\Models\Course_Video;
 use App\Models\Courses;
 use App\Models\Lecturer;
 
+
 ?>
 
 @extends('layouts.default_module')
@@ -111,13 +112,7 @@ use App\Models\Lecturer;
                     <div class="bestnbr" name="hours">{!! $crs->hours !!}</div>
                 </td>
                 
-                <?php
-                 
-                $total_quizes = Quiz::where('course_id', $crs->id)->count('id');
-                $total_videos = Course_Video::where('course_id', $crs->id)->count('id');
-                $total_lecturer = Lecturer::with('user')->count('id');
 
-                ?>
 
                 <td class="myquiz">
                 

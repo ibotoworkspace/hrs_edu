@@ -24,7 +24,7 @@ else{
     <div class="col-md-5 pull-left">
         <div class="form-group text-center">
             <div>
-                {!! Form::open(['method' => 'get', 'route' => ['admin.quizes']]) !!}
+                {!! Form::open(['method' => 'get', 'url' => ['admin/quizes/'.$course_id]]) !!}
                 {!! Form::submit('Cancel', ['class' => 'btn btn-default btn-block btn-lg btn-parsley']) !!}
                 {!! Form::close() !!}
             </div>

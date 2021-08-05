@@ -18,8 +18,7 @@ class ListofQuizController extends Controller
     public function index($id)
     {
 
-        //  dd($request->all());
-        // $listofquiz = Quiz::paginate(10);
+     
         $couse_id = $id;
         $listofquiz = Quiz::where('course_id', $id)->paginate(10);
         return view('admin.listofquiz.index', compact('listofquiz', 'couse_id'));
@@ -29,9 +28,7 @@ class ListofQuizController extends Controller
     {
         $quiz = new Quiz();
         $control = 'create';
-        return \View::make(
-            'admin.listofquiz.create',
-            compact('control', 'course_id','quiz')
+        return view('admin.listofquiz.create',compact('control', 'course_id','quiz')
         );
     }
 
