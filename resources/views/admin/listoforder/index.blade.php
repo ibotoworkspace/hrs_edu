@@ -78,7 +78,7 @@
                 </td>
 
                 <td class="mynbr">
-                    <div class="bestnbr">${{ $ord->registerCourse->course->price }}</div>
+                    <div class="bestnbr">${{ $ord->registerCourse->course->price ??'' }}</div>
                 </td>
                 <td class="mynbr">
                     <div class="bestnbr">{{ $ord->created_at }}</div>
