@@ -107,33 +107,31 @@ class AdminController extends Controller
 
         ];
 
-        // $total_count = Quiz::count('id');
-        // $active_count = Quiz::count('id'); // where is_active == 1
-        // $modules[] = [
+        $total_count = CourseRequest::count('id');
+        $modules[] = [
 
-        //     'url' => '#',
-        //     'title' => 'Total Quizzes',
-        //     'total' => $total_count,
-        //     'active' => $active_count,
-        //     'image' => 'images/icon-22.png',
-        //     'background-color'=>'lightblue',
-
-
-        // ];
-        
-        // $total_count = Course_Video::count('id');
-        // $active_count = Course_Video::count('id'); // where is_active == 1
-        // $modules[] = [
-
-        //     'url' => '#',
-        //     'title' => 'Total Videos',
-        //     'total' => $total_count,
-        //     'active' => $active_count,
-        //     'image' => 'images/icon-23.png',
-        //     'background-color'=>'red',
+            'url' => 'admin/courserequest',
+            'title' => 'Request For Course PDF',
+            'total' => $total_count,
+            'active' => $total_count,
+            'image' => 'images/icon-20.png',
+            'background-color'=>'red',
 
 
-        // ];
+        ];
+        $total_count = Ebooks::count('id');
+        $active_count = Ebooks::count('id'); // where is_active == 1
+        $modules[] = [
+
+            'url' => 'admin/ebooks',
+            'title' => 'EBooks',
+            'total' => $total_count,
+            'active' => $active_count,
+            'image' => 'images/icon-22.png',
+            'background-color'=>'pink',
+
+
+        ];
         $total_count = PromoCode::count('id');
         $active_count = PromoCode::count('id'); // where is_active == 1
         $modules[] = [
@@ -158,19 +156,18 @@ class AdminController extends Controller
 
 
         ];
-        // $total_count = Lecturer::count('id');
-        // $active_count = Lecturer::count('id'); // where is_active == 1
-        // $modules[] = [
+        $total_test = Test::count('id');
+        $modules[] = [
 
-        //     'url' => 'admin/lecturer',
-        //     'title' => 'Total Lecturer',
-        //     'total' => $total_count,
-        //     'active' => $active_count,
-        //     'image' => 'images/icon-26.png',
-        //     'background-color'=>'brown',
+            'url' => 'admin/test',
+            'title' => 'Test',
+            'total' => $total_test,
+            'active' => $total_test,
+            'image' => 'images/icon-20.png',
+            'background-color'=>'blue',
 
 
-        // ];
+        ];
         $total_count = SkillAdvisor::count('id');
         $active_count = SkillAdvisor::where('status','approved')->count('id'); // where is_active == 1
         $modules[] = [
@@ -197,18 +194,18 @@ class AdminController extends Controller
 
 
         ];
-        $total_test = Test::count('id');
-        $modules[] = [
+        // $total_test = Test::count('id');
+        // $modules[] = [
 
-            'url' => 'admin/test',
-            'title' => 'Test',
-            'total' => $total_test,
-            'active' => $total_test,
-            'image' => 'images/icon-20.png',
-            'background-color'=>'blue',
+        //     'url' => 'admin/test',
+        //     'title' => 'Test',
+        //     'total' => $total_test,
+        //     'active' => $total_test,
+        //     'image' => 'images/icon-20.png',
+        //     'background-color'=>'blue',
 
 
-        ];
+        // ];
 
         $test_result = Test_result::count('id');
         $modules[] = [
@@ -222,31 +219,31 @@ class AdminController extends Controller
 
 
         ];
-        $total_count = CourseRequest::count('id');
-        $modules[] = [
+        // $total_count = CourseRequest::count('id');
+        // $modules[] = [
 
-            'url' => 'admin/courserequest',
-            'title' => 'Request For Course PDF',
-            'total' => $total_count,
-            'active' => $total_count,
-            'image' => 'images/icon-20.png',
-            'background-color'=>'red',
-
-
-        ];
-        $total_count = Ebooks::count('id');
-        $active_count = Ebooks::count('id'); // where is_active == 1
-        $modules[] = [
-
-            'url' => 'admin/ebooks',
-            'title' => 'EBooks',
-            'total' => $total_count,
-            'active' => $active_count,
-            'image' => 'images/icon-22.png',
-            'background-color'=>'pink',
+        //     'url' => 'admin/courserequest',
+        //     'title' => 'Request For Course PDF',
+        //     'total' => $total_count,
+        //     'active' => $total_count,
+        //     'image' => 'images/icon-20.png',
+        //     'background-color'=>'red',
 
 
-        ];
+        // ];
+        // $total_count = Ebooks::count('id');
+        // $active_count = Ebooks::count('id'); // where is_active == 1
+        // $modules[] = [
+
+        //     'url' => 'admin/ebooks',
+        //     'title' => 'EBooks',
+        //     'total' => $total_count,
+        //     'active' => $active_count,
+        //     'image' => 'images/icon-22.png',
+        //     'background-color'=>'pink',
+
+
+        // ];
 
         $myvar = [];
         $myvar['modules'] = $modules;
