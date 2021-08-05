@@ -24,6 +24,9 @@ span.error{
 .checkbox-text{
 	float:right;
 }
+.mysubmitquiz {
+    color: #bfb18e;
+}
 .date-range-review-btn{
 	position: absolute!important;
     top: 125%!important;

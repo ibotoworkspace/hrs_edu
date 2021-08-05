@@ -152,7 +152,7 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     /////listofquiz
     Route::get('/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin.listofquiz');
     Route::get('/edit/quiz/{id}', 'Admin\ListofQuizController@edit')->name('edit.quiz');
-    Route::get('/quizes', 'Admin\ListofQuizController@index')->name('admin.quizes');
+    Route::get('/quizes/{id}', 'Admin\ListofQuizController@index')->name('admin.quizes');
     Route::get('/quiz/create/{id}', 'Admin\ListofQuizController@create')->name('quiz.create');
     Route::post('quizlist/save', 'Admin\ListofQuizController@save')->name('quizlist.save');
     Route::post('quizlist/update/{id}', 'Admin\ListofQuizController@update')->name('quizlist.update');
