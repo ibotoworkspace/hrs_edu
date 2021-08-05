@@ -82,8 +82,9 @@
 
 
         @foreach ($courses as $key => $crs)
+        
 
-            <tr class="myarrow myarrow_{{ $crs->id }}">
+            <tr class="myarrow myarrow_{{ $crs->id ?? '' }}">
                 <td class="mynbr">
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
