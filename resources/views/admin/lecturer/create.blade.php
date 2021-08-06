@@ -1,14 +1,31 @@
 <?php
-if ($control == 'edit') {
-$heading = 'Edit';
-} else {
-$heading = 'Add';
-} ?>
+if($control == 'edit'){
+    $heading = 'Edit';
+}
+else{
+    $heading = 'Add';
+}
+?>
 @extends('layouts.default_edit')
 @section('heading')
     {!! $heading !!}
 @endsection
+
+
+
 @section('leftsideform')
+@if ($messages = Session::get('error'))
+<div class="alert alert-danger alert-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+        <ul>
+            @foreach($messages->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    {{-- <strong>{{ $message }}</strong> --}}
+</div>
+@endif
+
     @if ($control == 'edit')
         {!! Form::model($lecture, ['id' => 'my_form', 'method' => 'POST', 'route' => ['lecturer.update', $lecture->id], 'files' => true]) !!}
     @else

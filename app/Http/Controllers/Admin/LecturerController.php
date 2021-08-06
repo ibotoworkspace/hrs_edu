@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Auth;
+
+use Illuminate\Support\Facades\Validator;
 use PDF;
 
 class LecturerController extends Controller
@@ -70,7 +73,29 @@ class LecturerController extends Controller
 
 
     public function add_or_update($request, $lecturer, $user)
+
+
     {
+        
+        $validate = $this->validate($request, [
+            'email' => 'required|email|unique:users',
+            
+        ]);
+
+        
+
+
+    // $validator =  Validator::make(['email' => $request->email], [
+    //     'email' => ['required', \Illuminate\Validation\Rule::unique('users')->ignore($user->id)] //
+    // ]);
+
+
+    // if ($validator->fails()) {
+    //     return back()->with('error', $validator->errors());
+    // }
+
+     
+   
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
