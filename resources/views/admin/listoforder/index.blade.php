@@ -98,12 +98,10 @@
             </tr>
         @endforeach
 
-
-
-
-
-    </tbody>
-
+</tbody>
+    @section('pagination')
+    <span class="pagination pagination-md pull-right">{!! $orders->render() !!}</span>
+@endsection
 
 
 
