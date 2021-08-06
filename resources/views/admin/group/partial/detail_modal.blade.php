@@ -13,7 +13,7 @@
                             <h4 class="myAnnuaal"> Registerd User</h4>
                             <ul class="point">
                                 @foreach ($gr->groupUser as $u )
-                                      <li>{{$u->user->name}}</li>
+                                      <li>{{$u->user->name ?? ''}}</li>
                                 @endforeach
                                   
                                   
