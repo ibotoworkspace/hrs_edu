@@ -71,7 +71,7 @@
                     <div class="besthrs">HRS-{{ $ord->user->id ??'' }}</div>
                 </td>
                 <td class="mynbr">
-                    <div class="bestnbr">{{ $ord->user->name }}</div>
+                    <div class="bestnbr">{{ $ord->user->name ??'' }}</div>
                 </td>
                 <td class="mynbr">
                     <div class="bestnbr">--</div>
