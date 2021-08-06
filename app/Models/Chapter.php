@@ -9,4 +9,9 @@ class Chapter extends Model
 {
     use SoftDeletes;
     protected $table='chapter';
+
+
+    public function course(){
+        return $this->hasOne('App\Models\Courses','id','course_id');
+    }
 }

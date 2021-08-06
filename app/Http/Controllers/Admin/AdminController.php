@@ -9,6 +9,7 @@ use App\Models\CourseRequest;
 use App\Models\Courses;
 use App\Models\Lecturer;
 use App\Models\PromoCode;
+use App\Models\Chapter;
 use App\Models\Ebooks;
 use App\Models\Test_result;
 use App\Models\Quiz;
@@ -158,8 +159,8 @@ class AdminController extends Controller
 
 
         ];
-        $total_count = Lecturer::count('id');
-        $active_count = Lecturer::count('id'); // where is_active == 1
+        $total_count = Chapter::wherehas('course')->count('id');
+        $active_count = $total_count;
         $modules[] = [
 
             'url' => 'admin/lecturer',
