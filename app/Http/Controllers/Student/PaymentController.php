@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course_Registered;
+use App\Models\Courses;
 use App\Models\Payment;
 use App\Models\PromoCode;
 use App\User;
@@ -43,11 +44,12 @@ class PaymentController extends Controller
         $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
         $user = User::where('access_token', $header)->first();
         $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
+        $course = Courses::find($request->course_id);
         if (!$user_course) {
             $registration = new Course_Registered();
             $registration->course_id =  $request->course_id;
             $registration->user_id =  $user->id;
-            $registration->name = $request->course_name;
+            $registration->name = $course->title;
             $registration->save();
             
             $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
