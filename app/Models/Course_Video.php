@@ -9,5 +9,9 @@ class Course_Video extends Model
 {
     use SoftDeletes;
     protected $table='course_video';
+
+    public function course(){
+        return $this->hasOne('App\Models\Courses','id','course_id');
+    }
     
 }

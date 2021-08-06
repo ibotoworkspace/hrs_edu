@@ -107,11 +107,11 @@ class AdminController extends Controller
 
         ];
 
-        $total_count = Quiz::count('id');
-        $active_count = Quiz::count('id'); // where is_active == 1
+        $total_count = Quiz::wherehas('course')->count('id');
+        $active_count = $total_count;
         $modules[] = [
 
-            'url' => '#',
+            'url' => 'admin/courses',
             'title' => 'Total Quizzes',
             'total' => $total_count,
             'active' => $active_count,
@@ -121,11 +121,11 @@ class AdminController extends Controller
 
         ];
         
-        $total_count = Course_Video::count('id');
-        $active_count = Course_Video::count('id'); // where is_active == 1
+        $total_count = Course_Video::wherehas('course')->count('id');
+        $active_count = $total_count; // where is_active == 1
         $modules[] = [
 
-            'url' => '#',
+            'url' => 'admin/courses',
             'title' => 'Total Videos',
             'total' => $total_count,
             'active' => $active_count,

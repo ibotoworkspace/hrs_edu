@@ -61,8 +61,24 @@
 
     <span id="err" class="error-product"></span>
 
+    <?php
+    $avatar = asset('images/courses1.png');
+    $popular_check = '';
+    // dd($courses);
+    if (isset($courses)) {
+    if ($courses->is_popular) {
+        $popular_check = 'checked';
 
-    <div class="form-group col-md-12">
+    }
+    }
+    ?>
+    
+    <div class="form-check">
+        <input type="checkbox" name="is_popular" {!!$popular_check!!} value="1" class="form-check-input">
+        <label class="form-check-label" for="exampleCheck1"> Popular Courses</label>
+    </div>
+
+      <div class="form-group col-md-12">
     </div>
 
     <div class="form-group">
@@ -103,6 +119,7 @@
                 name="learning_path">{!! $courses->learning_path ??'' !!}</textarea>
         </div>
     </div>
+
 
 
 

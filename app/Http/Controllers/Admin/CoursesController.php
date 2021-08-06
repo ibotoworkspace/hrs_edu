@@ -102,6 +102,7 @@ class CoursesController extends Controller
 
     public function save(Request $request)
     {
+        // dd($request->all());
         $courses = new Courses();
 
         $this->add_or_update($request, $courses);
@@ -113,7 +114,7 @@ class CoursesController extends Controller
 
         $control = 'edit';
         $courses = Courses::find($id);
-        return \View::make('admin.courses.create', compact(
+        return view('admin.courses.create', compact(
             'control',
             'courses'
 
@@ -140,6 +141,15 @@ class CoursesController extends Controller
         if ($request->learning_path) {
             $courses->learning_path  = $request->learning_path;
         }
+        if ($request->is_popular) {
+            $courses->is_popular  = $request->is_popular;
+        }
+        else{
+
+            $courses->is_popular  =0;
+
+        }
+        
         $courses->hours = $request->hours;
         $courses->overview = $request->overview;
         // $courses->lectures = $request->lectures;
