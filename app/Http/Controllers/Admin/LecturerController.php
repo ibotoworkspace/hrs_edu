@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use PDF;
 
@@ -23,10 +23,7 @@ class LecturerController extends Controller
 {
 
     public function index()
-    {
-
-        $lecturer = Lecturer::with('user')->orderBy('created_at', 'desc')->paginate(10);
-
+    {   $lecturer = Lecturer::with('user')->orderBy('created_at', 'desc')->paginate(10);
         return view('admin.lecturer.index', compact('lecturer'));
     }
 
@@ -53,7 +50,7 @@ class LecturerController extends Controller
     }
     public function edit($id)
     {
-
+// dd('i am edit');
         $control = 'edit';
         $lecture = Lecturer::with('user')->find($id);
         return \View::make('admin.lecturer.create', compact(
@@ -77,24 +74,20 @@ class LecturerController extends Controller
 
     {
         
-        $validate = $this->validate($request, [
-            'email' => 'required|email|unique:users',
+        // $validate = $this->validate($request, [
+        //     'email' => 'required|email|unique:users',
             
-        ]);
+        // ]);
 
         
 
 
-    // $validator =  Validator::make(['email' => $request->email], [
-    //     'email' => ['required', \Illuminate\Validation\Rule::unique('users')->ignore($user->id)] //
-    // ]);
+    $validator =  $this->validate($request, [
+        'email' => ['required', \Illuminate\Validation\Rule::unique('users')->ignore($user->id)] //
+    ],['Email already in use']);
 
 
-    // if ($validator->fails()) {
-    //     return back()->with('error', $validator->errors());
-    // }
-
-     
+        // dd('passed');
    
         $user->name = $request->name;
         $user->email = $request->email;
@@ -106,6 +99,8 @@ class LecturerController extends Controller
         $lecturer->save();
 
         return redirect()->back();
+    
+
     }
 
     public function destroy_undestroy($id)

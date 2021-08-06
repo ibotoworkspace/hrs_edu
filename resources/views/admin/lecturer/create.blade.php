@@ -14,11 +14,13 @@ else{
 
 
 @section('leftsideform')
-@if ($messages = Session::get('error'))
+
+{{-- {!!dd($errors)!!} --}}
+@if (count($errors) > 0)
 <div class="alert alert-danger alert-block">
     <button type="button" class="close" data-dismiss="alert">×</button>
         <ul>
-            @foreach($messages->all() as $error)
+            @foreach($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>

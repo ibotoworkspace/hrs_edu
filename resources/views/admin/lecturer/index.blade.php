@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
 @section('table')
     {{-- {!! Form::open(['method' => 'get', 'route' => ['courses.search'], 'files' => true]) !!}
     @include('admin.courses.partial.searchfilters')

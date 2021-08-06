@@ -4,6 +4,7 @@ use App\Models\Quiz;
 use App\Models\Course_Video;
 use App\Models\Courses;
 use App\Models\Lecturer;
+use App\Models\Chapter;
 
 
 ?>
@@ -118,6 +119,7 @@ use App\Models\Lecturer;
                 $total_quizes = Quiz::where('course_id', $crs->id)->count('id');
                 $total_videos = Course_Video::where('course_id', $crs->id)->count('id');
                 $total_lecturer = Lecturer::with('user')->count('id');
+                $total_chapter = Chapter::where('course_id', $crs->id)->count('id');
 
                 ?>
 
@@ -142,7 +144,7 @@ use App\Models\Lecturer;
 
                     <div class="vide">
                         <a href="{{ url('/admin/chapter/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
-                            id="myvide">Lectures</a>
+                            id="myvide">{!!$total_chapter!!} Lectures</a>
                     </div>
                 </td>
                 <td class="optionss">
