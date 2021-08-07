@@ -159,7 +159,7 @@ class AdminController extends Controller
 
 
         ];
-        $total_count = Chapter::wherehas('course')->count('id');
+        $total_count = Lecturer::count('id');
         $active_count = $total_count;
         $modules[] = [
 
@@ -226,7 +226,7 @@ class AdminController extends Controller
         $total_count = CourseRequest::count('id');
         $modules[] = [
 
-            'url' => 'admin/courserequest',
+            'url' => 'admin/reports/courserequest',
             'title' => 'Request For Course PDF',
             'total' => $total_count,
             'active' => $total_count,

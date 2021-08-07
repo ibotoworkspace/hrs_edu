@@ -67,10 +67,10 @@
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! strtoupper($eb->name)  !!}</div>
+                    <div class="besthrs" name="mytitle">{!! strtoupper($eb->name ??'')  !!}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs" name="mytitle">{!! strtoupper($eb->course->title)  !!}</div>
+                    <div class="besthrs" name="mytitle">{!! strtoupper($eb->course->title ??'')  !!}</div>
                 </td>
                 <?php if (!$eb->avatar) {
                 $eb->avatar = asset('images/mediallogo.png');
