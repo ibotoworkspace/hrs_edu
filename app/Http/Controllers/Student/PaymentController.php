@@ -38,7 +38,23 @@ class PaymentController extends Controller
         $page_layout->token = $request->_token;
         session(['page_layout' => $page_layout]);
 
-        $register_course = Course_Registered::with('course')->find($request->course_id);
+        // $register_course = Course_Registered::with('course')->find($request->course_id);
+
+        $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
+        $user = User::where('access_token', $header)->first();
+        $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
+        if (!$user_course) {
+            $registration = new Course_Registered();
+            $registration->course_id =  $request->course_id;
+            $registration->user_id =  $user->id;
+            $registration->name = $request->course_name;
+            $registration->save();
+            
+            $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
+        }
+
+
+
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
 
