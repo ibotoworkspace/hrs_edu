@@ -10,6 +10,7 @@ use App\Models\Courses;
 use App\Models\Lecturer;
 use App\Models\PromoCode;
 use App\Models\Chapter;
+use App\Models\Payment;
 use App\Models\Ebooks;
 use App\Models\Test_result;
 use App\Models\Quiz;
@@ -19,6 +20,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+
 
 class AdminController extends Controller
 {
@@ -148,12 +150,15 @@ class AdminController extends Controller
 
 
         ];
+
+        $total_count = Payment::count('id');
+        $active_count = $total_count;
         $modules[] = [
 
             'url' => 'admin/listoforder',
             'title' => 'Order',
-            'total' => '3',
-            'active' => '5',
+            'total' => $total_count,
+            'active' => $total_count,
             'image' => 'images/icon-25.png',
             'background-color'=>'green',
 
@@ -211,7 +216,7 @@ class AdminController extends Controller
 
         ];
 
-        $test_result = Test_result::count('id');
+        $test_result = Test::count('id');
         $modules[] = [
 
             'url' => 'admin/test_result',
@@ -226,7 +231,7 @@ class AdminController extends Controller
         $total_count = CourseRequest::count('id');
         $modules[] = [
 
-            'url' => 'admin/reports/courserequest',
+            'url' => 'admin/report/courserequest',
             'title' => 'Request For Course PDF',
             'total' => $total_count,
             'active' => $total_count,
