@@ -1,20 +1,13 @@
-{{-- <style type="text/css">
-    @font-face {
-        font-family: THE_GONjURING;
-        src: url('/fonts/THE_GONjURING.ttf');
-    }
-
-</style> --}}
 <html>
 
 <head>
-    <link rel="stylesheet" href="{{ asset('theme/vendor/bootstrap-daterangepicker/daterangepicker-bs3.css') }}">
-    <link rel="stylesheet" href="{{ asset('theme/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('cssjs/myapp.css') }}">
+    <link rel="stylesheet" href="http://localhost/hrs_backend/public/theme/vendor/bootstrap-daterangepicker/daterangepicker-bs3.css">
+    <link rel="stylesheet" href="http://localhost/hrs_backend/public/theme/vendor/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://localhost/hrs_backend/public/cssjs/myapp.css">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    {{-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> --}}
+    
 </head>
 
 
@@ -37,23 +30,22 @@
         </thead>
     <tbody>
 
-        @foreach ($chapters as $key => $ch)
-
+        
             <tr class="myarrow">
 
                 <td class="hrs">
-                    <div class="besthrs" name="title">{!! $key + 1 !!}</div>
+                    <div class="besthrs" name="title">1</div>
                 </td>
 
                 
                 <td class="hrs">
-                    <div class="besthrs" name="title">{!! $ch->title !!}</div>
+                    <div class="besthrs" name="title">bayanat</div>
                 </td>
 
    
 
                 <td class="mylectures">
-                    <div class="quizes"  id="myquizes">{!! $ch->course_level !!}</div>
+                    <div class="quizes" class="onquizes" id="myquizes">basic</div>
 
                 </td>
               
@@ -61,8 +53,7 @@
 
             </tr>
 
-            @endforeach
-
+            
         </tbody>
     </table>
 </body>

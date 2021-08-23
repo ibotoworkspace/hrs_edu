@@ -11,15 +11,17 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
-use Maatwebsite\Excel\Facades\Excel;
 use App\libraries\ExportToExcel;
+use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+
 
 
 class ChapterController extends Controller
 {
     public function index(Request $request, $id)
     {
+        // dd($id);
         $name = $request->name ?? '';
 
         $chapter = Chapter::where('title', 'like', '%' . $name . '%')->where('course_id', $id)->paginate(10);
@@ -105,9 +107,10 @@ class ChapterController extends Controller
 
     public function index_excel(Request $request)
     {
-        $chapter = Chapter::orderBy('id', 'DESC')->get();
+        $chapters = Chapter::orderBy('id', 'DESC')->get();
         // dd( $quiz);
-        $view =  view('admin.chapter.export', compact('chapter'));
+        // dd($chapters);
+        $view =  view('admin.chapter.export', compact('chapters'));
         //  dd( $view);
 
         $export_data = new ExportToExcel($view);
@@ -118,8 +121,8 @@ class ChapterController extends Controller
     }
     public function index_csv(Request $request)
     {
-        $chapter = Chapter::orderBy('id', 'DESC')->get();
-        $view =  view('admin.chapter.export', compact('chapter'));
+        $chapters = Chapter::orderBy('id', 'DESC')->get();
+        $view =  view('admin.chapter.export', compact('chapters'));
 
         $export_data = new ExportToExcel($view);
 
@@ -131,8 +134,8 @@ class ChapterController extends Controller
     public function generatePDF()
     {
         $type = 'pdf';
-        $chapter = Chapter::orderBy('id', 'DESC')->get();
-        $pdf = PDF::loadView('admin.chapter.export', compact('chapter', 'type'));
+        $chapters = Chapter::orderBy('id', 'DESC')->get();
+        $pdf = PDF::loadView('admin.chapter.export', compact('chapters', 'type'));
 
         return $pdf->download('HRS-course-list.pdf');
     }

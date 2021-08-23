@@ -1,5 +1,5 @@
 <?php
-namespace App\Libraries;
+namespace App\libraries;
 
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\Exportable;
