@@ -109,7 +109,7 @@ class ChapterController extends Controller
     {
         $chapters = Chapter::where('course_id', $id)->orderBy('id', 'DESC')->get();
         // dd( $quiz);
-        dd($chapters);
+        // dd($chapters);
         $view =  view('admin.chapter.export', compact('chapters'));
         //  dd( $view);
 
