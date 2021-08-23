@@ -5,11 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use COM;
-
 use App\Models\Chapter;
 use App\Models\Courses;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
+use App\libraries\ExportToExcel;
+use Maatwebsite\Excel\Facades\Excel;
+use PDF;
+
+
 
 class ChapterController extends Controller
 {
@@ -19,6 +23,7 @@ class ChapterController extends Controller
 
         $chapter = Chapter::where('title', 'like', '%' . $name . '%')->where('course_id', $id)->paginate(10);
         $courses = Courses::find($id);
+        // dd( $courses);
         return view('admin.chapter.index', compact('chapter', 'courses'));
     }
 
@@ -48,7 +53,7 @@ class ChapterController extends Controller
         $chapter = Chapter::find($id);
 
 
-        return \View::make('admin.chapter.create', compact(
+        return view('admin.chapter.create', compact(
             'control',
             'chapter',
 
@@ -94,5 +99,40 @@ class ChapterController extends Controller
             'new_value' => $new_value
         ]);
         return $response;
+    }
+
+
+    public function index_excel(Request $request)
+    {
+        $chapter = Chapter::orderBy('id', 'DESC')->get();
+        // dd( $quiz);
+        $view =  view('admin.chapter.export', compact('chapter'));
+        //  dd( $view);
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.xlsx');
+
+        return $excel;
+    }
+    public function index_csv(Request $request)
+    {
+        $chapter = Chapter::orderBy('id', 'DESC')->get();
+        $view =  view('admin.chapter.export', compact('chapter'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.csv');
+
+        return $excel;
+    }
+
+    public function generatePDF()
+    {
+        $type = 'pdf';
+        $chapter = Chapter::orderBy('id', 'DESC')->get();
+        $pdf = PDF::loadView('admin.chapter.export', compact('chapter', 'type'));
+
+        return $pdf->download('HRS-course-list.pdf');
     }
 }

@@ -27,9 +27,9 @@ Question : {{ $choice[0]->quiz->question}}
                         <th class="mycourse">
                             <div class="bestcourse">S.NO.</div>
                         </th>
-                        <th class="mycourse">
+                        {{-- <th class="mycourse">
                             <div class="bestcourse">Choice</div>
-                        </th> 
+                        </th>  --}}
                         <th class="mycourse">
                             <div class="bestcourse">Choice text</div>
                         </th>
@@ -63,11 +63,11 @@ Question : {{ $choice[0]->quiz->question}}
                             {{-- <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>    --}}
 
                         </td>
-                        <td class="hrs">
+                        {{-- <td class="hrs">
                             <div class="besthrs">{{ $c->id }}</div>
                             {{-- <a href="{{ url('/admin/choices/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">choices</a>    --}}
 
-                        </td>
+                        </td> --}}
 
                         <td class="hrs">
                             <div class="besthrs">{{ $c->choice }}</div>

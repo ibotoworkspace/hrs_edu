@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Libraries\ExportToExcel;
+use App\libraries\ExportToExcel;
 use App\Mail\CourseCode;
 use App\Models\CourseRequest;
 use COM;
