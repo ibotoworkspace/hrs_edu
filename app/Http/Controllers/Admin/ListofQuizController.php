@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use App\Models\Courses;
 use App\Models\Quiz;
-use App\libraries\ExportToExcel;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 
