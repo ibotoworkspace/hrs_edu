@@ -42,21 +42,28 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($chapters as $key => $ch)
+            @foreach ($courses as $key => $cr)
                 <tr class="myarrow">
                     <td class="mynbr">
                         <div class="bestnbr">{{ $key + 1 }}</div>
                     </td>
                     <td class="hrs">
-                        <div class="besthrs">{!! $ch->title ??'' !!}</div>
+                        <div class="besthrs">{{ $cr->title }}</div>
 
                     </td>
                     <td class="hrs">
-                        <div class="besthrs">{!! $ch->course_level ??'' !!}</div>
+                        <div class="besthrs">{{ $cr->hours }}</div>
 
                     </td>
 
-              
+                    <td class="hrs">
+                        <div class="besthrs">{{ $cr->lectures }}</div>
+
+                    </td>
+                    <td class="hrs">
+                        <div class="besthrs">{{ $cr->price }}</div>
+
+                    </td>
 
                 </tr>
 
