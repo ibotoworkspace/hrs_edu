@@ -37,23 +37,23 @@
         </thead>
     <tbody>
 
-      
+        @foreach ($chapters as $key => $ch)
 
             <tr class="myarrow">
 
                 <td class="hrs">
-                    <div class="besthrs" >121</div>
+                    <div class="besthrs" >{!! $key + 1 !!}</div>
                 </td>
 
                 
                 <td class="hrs">
-                    <div class="besthrs" >hy</div>
+                    <div class="besthrs" >{!! $ch->title ??'' !!}</div>
                 </td>
 
    
 
                 <td class="mylectures">
-                    <div class="quizes"  >good</div>
+                    <div class="quizes"  >{!! $ch->course_level ??'' !!}</div>
 
                 </td>
               
@@ -61,7 +61,7 @@
 
             </tr>
 
-         
+            @endforeach
 
         </tbody>
     </table>
