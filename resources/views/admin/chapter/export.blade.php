@@ -28,44 +28,38 @@
                     <div class="bestcourse">S.NO</div>
                 </th>
                 <th class="mycourse">
-                    <div class="bestcourse">Course Name</div>
+                    <div class="bestcourse">Title</div>
                 </th>
                 <th class="mycourse">
-                    <div class="bestcourse">Hours</div>
-                </th>
-                <th class="mycourse">
-                    <div class="bestcourse">Lectures</div>
-                </th>
-                <th class="mycourse">
-                    <div class="bestcourse">Price</div>
+                    <div class="bestcourse">Level</div>
                 </th>
             </tr>
         </thead>
-        <tbody>
-            @foreach ($chapters as $key => $cr)
-                <tr class="myarrow">
-                    <td class="mynbr">
-                        <div class="bestnbr">{{ $key + 1 }}</div>
-                    </td>
-                    <td class="hrs">
-                        <div class="besthrs">{{ $cr->title }}</div>
+    <tbody>
 
-                    </td>
-                    <td class="hrs">
-                        <div class="besthrs">{{ $cr->hours }}</div>
+        @foreach ($chapters as $key => $ch)
 
-                    </td>
+            <tr class="myarrow">
 
-                    <td class="hrs">
-                        <div class="besthrs">{{ $cr->lectures }}</div>
+                <td class="hrs">
+                    <div class="besthrs" >{!! $key + 1 !!}</div>
+                </td>
 
-                    </td>
-                    <td class="hrs">
-                        <div class="besthrs">{{ $cr->price }}</div>
+                
+                <td class="hrs">
+                    <div class="besthrs" >{!! $ch->title ??'' !!}</div>
+                </td>
 
-                    </td>
+   
 
-                </tr>
+                <td class="mylectures">
+                    <div class="quizes"  >{!! $ch->course_level ??'' !!}</div>
+
+                </td>
+              
+            
+
+            </tr>
 
             @endforeach
 
