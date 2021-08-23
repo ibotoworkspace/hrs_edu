@@ -30,27 +30,27 @@
             <th class="mycourse">
                 <div class="bestcourse">Question</div>
             </th>
-
-
-
-      
-
-         
-
-
-
-
-
         </tr>
     </thead>
     <tbody>
         @foreach ($quiz as $key => $q)
+
+        <?php 
+            //if($key == 382){
+               //  dd($q);
+               // break;
+           // }
+        
+        
+        ?>
             <tr class="myarrow myarrow_{{ $q->id }}">
                 <td class="mynbr">
                     <div class="bestnbr"> {!! $key + 1 !!}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs">{{ $q->question ?? 'healthy life' }}</div>
+                    
+                    <div class="besthrs">{!! htmlentities($q->question, ENT_QUOTES, 'UTF-8')  !!}</div>
+                   
 
                 </td>
             
