@@ -42,18 +42,18 @@
             <tr class="myarrow">
 
                 <td class="hrs">
-                    <div class="besthrs" >{!! $key + 1 !!}</div>
+                    <div class="besthrs" >121</div>
                 </td>
 
                 
                 <td class="hrs">
-                    <div class="besthrs" >{!! $ch->title !!}</div>
+                    <div class="besthrs" >hy</div>
                 </td>
 
    
 
                 <td class="mylectures">
-                    <div class="quizes"  >{!! $ch->course_level !!}</div>
+                    <div class="quizes"  >good</div>
 
                 </td>
               
