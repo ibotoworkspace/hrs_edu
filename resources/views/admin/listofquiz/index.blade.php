@@ -12,14 +12,14 @@
 @stop
 
 @section('table')
-  <div class="ableclick">
+  {{-- <div class="ableclick">
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
             <a href="{{ asset('admin/quiz/excel/'.$couse_id) }}" style="color: #fff"> Excel</a> </button>
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
             <a href="{{ asset('admin/quiz/csv/'.$couse_id) }}" style="color: #fff">CSV</a> </button>
         <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/quiz/pdf/'. $couse_id) }}"
                 style="color: #fff">PDF</a> </button>
-    </div>
+    </div> --}}
 
 
 
