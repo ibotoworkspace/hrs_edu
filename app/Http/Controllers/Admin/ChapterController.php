@@ -105,11 +105,11 @@ class ChapterController extends Controller
     }
 
 
-    public function index_excel(Request $request)
+    public function index_excel(Request $request ,$id)
     {
-        $chapters = Courses::orderBy('id', 'DESC')->get();
+        $chapters = Chapter::where('course_id', $id)->orderBy('id', 'DESC')->get();
         // dd( $quiz);
-        // dd($chapters);
+        dd($chapters);
         $view =  view('admin.chapter.export', compact('chapters'));
         //  dd( $view);
 
@@ -119,9 +119,9 @@ class ChapterController extends Controller
 
         return $excel;
     }
-    public function index_csv(Request $request)
+    public function index_csv(Request $request,$id)
     {
-        $chapters = Courses::orderBy('id', 'DESC')->get();
+        $chapters = Chapter::where('course_id', $id)->orderBy('id', 'DESC')->get();
         $view =  view('admin.chapter.export', compact('chapters'));
 
         $export_data = new ExportToExcel($view);
