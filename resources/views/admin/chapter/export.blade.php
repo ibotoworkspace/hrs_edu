@@ -27,12 +27,10 @@
                 <th class="myso">
                     <div class="bestcourse">S.NO</div>
                 </th>
+             
                 <th class="mycourse">
-                    <div class="bestcourse">Title</div>
-                </th>
-                {{-- <th class="mycourse">
                     <div class="bestcourse">Level</div>
-                </th> --}}
+                </th>
             </tr>
         </thead>
     <tbody>
@@ -46,16 +44,14 @@
                 </td>
 
                 
-                <td class="hrs">
-                    <div class="besthrs" >{!! $ch->title ??'' !!}</div>
-                </td>
+             
 
    
 
-                {{-- <td class="mylectures">
+                <td class="mylectures">
                     <div class="quizes"  >{!! $ch->course_level ??'' !!}</div>
 
-                </td> --}}
+                </td>
               
             
 
