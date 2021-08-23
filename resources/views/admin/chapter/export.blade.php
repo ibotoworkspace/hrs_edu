@@ -37,7 +37,7 @@
         </thead>
     <tbody>
 
-        @foreach ($chapters as $key => $ch)
+      
 
             <tr class="myarrow">
 
@@ -61,7 +61,7 @@
 
             </tr>
 
-            @endforeach
+         
 
         </tbody>
     </table>
