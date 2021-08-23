@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\libraries\ExportToExcel;
 use App\Mail\CourseCode;
 use App\Models\CourseRequest;
 use COM;
@@ -13,6 +12,7 @@ use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
+use App\libraries\ExportToExcel;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
 

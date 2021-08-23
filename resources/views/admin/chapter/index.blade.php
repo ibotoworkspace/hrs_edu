@@ -23,10 +23,10 @@
 
    <div class="ableclick">
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
-            <a href="{{ asset('admin/chapter/excel') }}" style="color: #fff"> Excel</a> </button>
+            <a href="{{ asset('admin/chapter/excel/'. $courses->id ?? '') }}" style="color: #fff"> Excel</a> </button>
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
-            <a href="{{ asset('admin/chapter/csv') }}" style="color: #fff">CSV</a> </button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/chapter/pdf') }}"
+            <a href="{{ asset('admin/chapter/csv/'. $courses->id ?? '') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/chapter/pdf/'. $courses->id ?? '') }}"
                 style="color: #fff">PDF</a> </button>
     </div>
 
@@ -104,7 +104,7 @@
 
 
                                 <li>
-                                    <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$ch->id}}" hit_url="{{ url('/admin/chapter/delete/' . $ch->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                    <a href="" data-toggle="modal" hit_method="post" remove_parent="myarrow_{{$ch->id}}" hit_url="{{ url('/admin/chapter/delete/' . $ch->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                                         <span class="badge bg-info btn-danger ">                                                
                                             {!! $ch->deleted_at ? 'Activate' : 'Delete' !!}</span>
                                     </a>

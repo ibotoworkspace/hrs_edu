@@ -225,9 +225,9 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.search');
 
       // course export files
-      Route::get('chapter/csv', 'Admin\ChapterController@index_csv')->name('chapter.csv');
-      Route::get('chapter/excel', 'Admin\ChapterController@index_excel')->name('chapter.excel');
-      Route::get('chapter/pdf', 'Admin\ChapterController@generatePDF')->name('chapter.pdf');
+      Route::get('/chapter/csv/{id}', 'Admin\ChapterController@index_csv')->name('chapter.csv');
+      Route::get('/chapter/excel/{id}', 'Admin\ChapterController@index_excel')->name('chapter.excel');
+      Route::get('/chapter/pdf/{id}', 'Admin\ChapterController@generatePDF')->name('chapter.pdf');
 
 
     // Lecturer Routes  lecturer
