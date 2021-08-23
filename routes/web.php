@@ -159,9 +159,9 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     Route::get('quizlist/delete/{id}', 'Admin\ListofQuizController@destroy_undestroy')->name('quizlist.delete');
 
      // course export files
-     Route::get('quiz/csv', 'Admin\ListofQuizController@index_csv')->name('quiz.csv');
-     Route::get('quiz/excel', 'Admin\ListofQuizController@index_excel')->name('quiz.excel');
-     Route::get('quiz/pdf', 'Admin\ListofQuizController@generatePDF')->name('quiz.pdf');
+     Route::get('quiz/csv/{id}', 'Admin\ListofQuizController@index_csv')->name('quiz.csv');
+     Route::get('quiz/excel/{id}', 'Admin\ListofQuizController@index_excel')->name('quiz.excel');
+     Route::get('quiz/pdf/{id}', 'Admin\ListofQuizController@generatePDF')->name('quiz.pdf');
 
     Route::get('/addmaincourse', 'Admin\CoursesController@addmaincourse')->name('admin/addmaincourse');
     Route::get('/newquizquestion', 'Admin\CoursesController@newquizquestion')->name('admin/newquizquestion');

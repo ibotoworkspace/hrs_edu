@@ -107,9 +107,9 @@ class ListofQuizController extends Controller
 
 
 
-    public function index_excel(Request $request)
+    public function index_excel(Request $request ,$id)
     {
-        $quiz = Quiz::orderBy('id', 'DESC')->get();
+        $quiz = Quiz::where('course_id', $id)->orderBy('id', 'DESC')->get();
         // dd( $quiz);
         $view =  view('admin.listofquiz.export', compact('quiz'));
         //  dd( $view);
@@ -120,9 +120,9 @@ class ListofQuizController extends Controller
 
         return $excel;
     }
-    public function index_csv(Request $request)
+    public function index_csv(Request $request ,$id)
     {
-        $quiz = Quiz::orderBy('id', 'DESC')->get();
+        $quiz = Quiz::where('course_id', $id)->orderBy('id', 'DESC')->get();
         $view =  view('admin.listofquiz.export', compact('quiz'));
 
         $export_data = new ExportToExcel($view);
