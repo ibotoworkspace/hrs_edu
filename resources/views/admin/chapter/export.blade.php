@@ -28,38 +28,37 @@
                     <div class="bestcourse">S.NO</div>
                 </th>
                 <th class="mycourse">
-                    <div class="bestcourse">Title</div>
+                    <div class="bestcourse">Course Name</div>
                 </th>
                 <th class="mycourse">
-                    <div class="bestcourse">Level</div>
+                    <div class="bestcourse">Hours</div>
+                </th>
+                <th class="mycourse">
+                    <div class="bestcourse">Lectures</div>
+                </th>
+                <th class="mycourse">
+                    <div class="bestcourse">Price</div>
                 </th>
             </tr>
         </thead>
-    <tbody>
+        <tbody>
+            @foreach ($courses as $key => $cr)
+                <tr class="myarrow">
+                    <td class="mynbr">
+                        <div class="bestnbr">{{ $key + 1 }}</div>
+                    </td>
+                    <td class="hrs">
+                        <div class="besthrs">{!! $ch->title ??'' !!}</div>
 
-        @foreach ($chapters as $key => $ch)
+                    </td>
+                    <td class="hrs">
+                        <div class="besthrs">{!! $ch->course_level ??'' !!}</div>
 
-            <tr class="myarrow">
+                    </td>
 
-                <td class="hrs">
-                    <div class="besthrs" >{!! $key + 1 !!}</div>
-                </td>
-
-                
-                <td class="hrs">
-                    <div class="besthrs" >{!! $ch->title ??'' !!}</div>
-                </td>
-
-   
-
-                <td class="mylectures">
-                    <div class="quizes"  >{!! $ch->course_level ??'' !!}</div>
-
-                </td>
               
-            
 
-            </tr>
+                </tr>
 
             @endforeach
 
