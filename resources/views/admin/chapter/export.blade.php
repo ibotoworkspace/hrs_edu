@@ -42,7 +42,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($courses as $key => $cr)
+            @foreach ($chapter as $key => $cr)
                 <tr class="myarrow">
                     <td class="mynbr">
                         <div class="bestnbr">{{ $key + 1 }}</div>
