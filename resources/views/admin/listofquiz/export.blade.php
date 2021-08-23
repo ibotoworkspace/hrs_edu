@@ -27,9 +27,9 @@
             <th class="myso">
                 <div class="bestcso">S. No.</div>
             </th>
-            {{-- <th class="mycourse">
+            <th class="mycourse">
                 <div class="bestcourse">Question</div>
-            </th> --}}
+            </th>
 
 
 
@@ -49,10 +49,10 @@
                 <td class="mynbr">
                     <div class="bestnbr"> {!! $key + 1 !!}</div>
                 </td>
-                {{-- <td class="hrs">
-                    <div class="besthrs">{{ $q->question }}</div>
+                <td class="hrs">
+                    <div class="besthrs">{{ $q->question ?? 'healthy life' }}</div>
 
-                </td> --}}
+                </td>
             
 
             </tr>
