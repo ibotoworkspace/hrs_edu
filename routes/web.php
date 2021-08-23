@@ -158,6 +158,11 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     Route::post('quizlist/update/{id}', 'Admin\ListofQuizController@update')->name('quizlist.update');
     Route::get('quizlist/delete/{id}', 'Admin\ListofQuizController@destroy_undestroy')->name('quizlist.delete');
 
+     // course export files
+     Route::get('quiz/csv', 'Admin\ListofQuizController@index_csv')->name('quiz.csv');
+     Route::get('quiz/excel', 'Admin\ListofQuizController@index_excel')->name('quiz.excel');
+     Route::get('quiz/pdf', 'Admin\ListofQuizController@generatePDF')->name('quiz.pdf');
+
     Route::get('/addmaincourse', 'Admin\CoursesController@addmaincourse')->name('admin/addmaincourse');
     Route::get('/newquizquestion', 'Admin\CoursesController@newquizquestion')->name('admin/newquizquestion');
     Route::get('/listofpromocode', 'Admin\CoursesController@listofpromocode')->name('admin/listofpromocode');
@@ -218,6 +223,11 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     Route::post('/chapter/update/{id}', 'Admin\ChapterController@update')->name('chapter.update');
     Route::post('/chapter/delete/{id}', 'Admin\ChapterController@destroy_undestroy')->name('chapter.delete');
     Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.search');
+
+      // course export files
+      Route::get('chapter/csv', 'Admin\ChapterController@index_csv')->name('chapter.csv');
+      Route::get('chapter/excel', 'Admin\ChapterController@index_excel')->name('chapter.excel');
+      Route::get('chapter/pdf', 'Admin\ChapterController@generatePDF')->name('chapter.pdf');
 
 
     // Lecturer Routes  lecturer

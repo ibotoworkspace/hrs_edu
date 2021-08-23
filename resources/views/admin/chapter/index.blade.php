@@ -21,10 +21,13 @@
     @include('admin.chapter.partial.searchfilters')
     {!! Form::close() !!}
 
-    <div class="ableclick">
-        <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
-        <button type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
+   <div class="ableclick">
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/chapter/excel') }}" style="color: #fff"> Excel</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/chapter/csv') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/chapter/pdf') }}"
+                style="color: #fff">PDF</a> </button>
     </div>
 
 
@@ -37,9 +40,9 @@
             <th class="myso">
                 <div class="bestcso">Title</div>
             </th>
-            <th class="mycourse">
+            {{-- <th class="mycourse">
                 <div class="bestcourse">Decriptions</div>
-            </th>
+            </th> --}}
 
             </th>
             <th class="option">
@@ -70,9 +73,9 @@
                     <div class="besthrs" name="title">{!! $ch->title !!}</div>
                 </td>
 
-                <td class="myquiz">
+                {{-- <td class="myquiz">
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->description !!}</div>
-                </td>
+                </td> --}}
 
                 {{-- <td class="mylectures">
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->is_paid == 0 ? 'No' : 'Yes' !!}</div>
@@ -102,7 +105,7 @@
 
                                 <li>
                                     <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$ch->id}}" hit_url="{{ url('/admin/chapter/delete/' . $ch->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
-                                        <span class="badge bg-info btn-danger ">
+                                        <span class="badge bg-info btn-danger ">                                                
                                             {!! $ch->deleted_at ? 'Activate' : 'Delete' !!}</span>
                                     </a>
                                 </li>
