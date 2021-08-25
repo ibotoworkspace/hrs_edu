@@ -68,10 +68,10 @@ class CoursesController extends Controller
     }
 
 
-    function  newpromocode()
-    {
-        return view('admin.newpromocode.index');
-    }
+    // function  newpromocode()
+    // {
+    //     return view('admin.newpromocode.index');
+    // }
 
 
     function    userperformance()
