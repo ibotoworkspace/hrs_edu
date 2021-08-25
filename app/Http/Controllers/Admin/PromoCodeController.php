@@ -24,9 +24,10 @@ class PromoCodeController extends Controller
     public function create()
     {
         $control = 'create';
+        $new_date = '';
         return \View::make(
             'admin.promocode.create',
-            compact('control')
+            compact('control','new_date')
         );
     }
 
@@ -48,7 +49,7 @@ class PromoCodeController extends Controller
 
         $control = 'edit';
         $promocode = PromoCode::find($id);
-        $new_date = Carbon::parse($promocode->validity)->format('m/d/Y');
+        $new_date = Carbon::parse($promocode->validity)->format('Y-m-d');//m/d/Y
         // dd(  $new_date);
       
 

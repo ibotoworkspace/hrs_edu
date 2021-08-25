@@ -112,7 +112,7 @@
 </div>
 <?php
      
-
+//dd($new_date); 
   
     ?>
 
@@ -133,14 +133,14 @@
                 aria-describedby="emailHelp" placeholder="mm/dd/yyyy">
         </div>
     </div> --}}
-    {{-- {!!dd($newdate)!!} --}}
+    {{-- {!!dd($newdate)!!}  $new_date ?? --}}
     
           <div class="col-sm-6">
 
 
  
         <div class="maininput">
-            {!! Form::date('validity', $new_date ??'', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change',  'required', 'maxlength' => '100']) !!}
+            {!! Form::date('validity', $new_date, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change',  'required', 'maxlength' => '100']) !!}
     </div> 
         </div>
 
