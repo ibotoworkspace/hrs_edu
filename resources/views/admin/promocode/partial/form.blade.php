@@ -85,7 +85,7 @@
          <div class="col-sm-6">
  
         <div class="maininput">
-            {!! Form::number('code', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'code', 'required', 'maxlength' => '100']) !!}
+            {!! Form::text('code', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'code', 'required', 'maxlength' => '100']) !!}
     </div> 
         </div>
 
@@ -141,7 +141,7 @@
  
         <div class="maininput">
          {{-- <div class="maininput"> --}}
-            {!! Form::date('validity', $new_date, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change',  'required', 'maxlength' => '100']) !!}
+            {!! Form::date('validity', $new_date ??'', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change',  'required', 'maxlength' => '100']) !!}
     </div> 
         </div>
 
