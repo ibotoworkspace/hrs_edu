@@ -50,8 +50,7 @@ class PromoCodeController extends Controller
         $control = 'edit';
         $promocode = PromoCode::find($id);
         $new_date = Carbon::parse($promocode->validity)->format('Y-m-d');//m/d/Y;
-        $new_date = '';
-
+       
         // dd(  $new_date);
       
 
