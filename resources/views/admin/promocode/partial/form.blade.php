@@ -4,7 +4,10 @@
     <div>
         {!! Form::text('title', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
     </div> --}}
- 
+   <?php
+   use Illuminate\Support\Carbon;
+
+   ?>
 
 <div class="row">
 
@@ -138,7 +141,7 @@
  
         <div class="maininput">
          {{-- <div class="maininput"> --}}
-            {!! Form::date('validity', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change',  'required', 'maxlength' => '100']) !!}
+            {!! Form::date('validity', $new_date ??'', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change',  'required', 'maxlength' => '100']) !!}
     </div> 
         </div>
 
