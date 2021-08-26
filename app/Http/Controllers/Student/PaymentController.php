@@ -51,16 +51,16 @@ class PaymentController extends Controller
 
         // $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
         $user = User::where('access_token', $request->_token)->first();
-        $register_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
-        $course = Courses::find($request->course_id);
+        $register_course = Course_Registered::where('course_id', $request->mobile_course_id)->where('user_id', $user->id)->first();
+        $course = Courses::find($request->mobile_course_id);
         if (!$register_course) {
             $registration = new Course_Registered();
-            $registration->course_id =  $request->course_id;
+            $registration->course_id =  $request->mobile_course_id;
             $registration->user_id =  $user->id;
             $registration->name = $course->title;
             $registration->save();
             
-            $register_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
+            $register_course = Course_Registered::where('course_id', $request->mobile_course_id)->where('user_id', $user->id)->first();
         }
 
 
