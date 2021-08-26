@@ -4,6 +4,8 @@
     <div>
         {!! Form::text('title', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
     </div>
+   
+    
 
 
 
