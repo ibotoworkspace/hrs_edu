@@ -25,10 +25,18 @@ class PaymentController extends Controller
         $page_layout->header = true;
         session(['page_layout' => $page_layout]);
 
-        $course_id = decrypt($request->course_id);
+        if($request->mobile_course_id){
+            $course_id = $request->mobile_course_id;
+        }
+        else{
+            $course_id = decrypt($request->course_id);
+        }
+                
+        $user = User::where('access_token',$request->_token)->first();
 
-
-        $register_course = Course_Registered::with('course')->find($course_id);
+        $register_course = Course_Registered::with('course')
+                        ->where('course_id',$course_id)
+                        ->where('user_id',$user->id)->first();
 
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
