@@ -172,7 +172,7 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
 
     Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket');
     Route::get('/ticketstatus/{id}', 'Admin\TicketController@status')->name('ticket.status');
-    Route::get('/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
+    // Route::get('/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
 
     Route::get('/userperformance', 'Admin\CoursesController@userperformance')->name('admin/userperformance');
     // admin/choices

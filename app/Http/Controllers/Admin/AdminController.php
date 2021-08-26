@@ -141,7 +141,7 @@ class AdminController extends Controller
         $active_count = PromoCode::count('id'); // where is_active == 1
         $modules[] = [
 
-            'url' => 'admin/newpromocode',
+            'url' => 'admin/promocode',
             'title' => 'Promo code',
             'total' => $total_count,
             'active' => $active_count,
