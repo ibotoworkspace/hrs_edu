@@ -35,10 +35,10 @@
     <thead>
         <tr>
             <th class="myso">
-                <div class="bestcso">S.No.</div>
+                <div class="bestcso">Lecturer No.</div>
             </th>
             <th class="myso">
-                <div class="bestcso">Title</div>
+                <div class="bestcso">Chapter Title</div>
             </th>
             {{-- <th class="mycourse">
                 <div class="bestcourse">Decriptions</div>
@@ -65,9 +65,10 @@
         @foreach ($chapter as $key => $ch)
 
             <tr class="myarrow">
+ 
 
                 <td class="hrs">
-                    <div class="besthrs" name="title">{!! $key + 1 !!}</div>
+                    <div class="besthrs" name="title">{!! $ch->lecture !!}</div>
                 </td>
                 <td class="hrs">
                     <div class="besthrs" name="title">{!! $ch->title !!}</div>

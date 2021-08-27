@@ -26,7 +26,8 @@ width="400px" style="table-layout:fixed;"
     <tr>
             
     <th>Title</th>
-    <th>Videos</th>
+    <th>videos</th>
+   
     <th>Edit</th>
                     
     <th>Delete</th>  
@@ -40,10 +41,34 @@ width="400px" style="table-layout:fixed;"
                 <tr>
             
                     <td>{!! $video->title!!}</td>
-        <td class="mediaaa"> <iframe width="80px" height="50px" src="{{ $video->url }}" frameborder="0" allowfullscreen>  
-        </iframe></td>
+        {{-- <td class="mediaaa"> <iframe width="80px" height="50px" src="{{ $video->url }}" frameborder="0" allowfullscreen>  
+        </iframe></td> --}}
+         {{-- <td>
 
-        <td>
+        <a href="" data-toggle="modal" name=""
+                                data-target=".inprogress_request_{!! $video->id !!}">
+                                <span class=" badge bg-info btn-success ">
+                                ssfsd
+                                </span>
+                            </a>
+                            @include('admin.coursesvideos.partial.video_modal',['video'=>$video]) 
+                            </td> --}}
+
+                    <td>
+                        <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!! $video->id !!}">
+                            <span class=" badge bg-info btn-success">
+                                Videos</span></a>
+                        @include('admin.coursesvideos.partial.video_modal',['video'=>$video])
+                    </td>
+                         
+        
+                    {{-- <td>
+                        <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!! $order->id !!}">
+                            <span class=" badge bg-info btn-success">
+                                Detail</span></a>
+                        @include('admin.reports.orders.partial.order_modal',['order'=>$order])
+                    </td> --}}
+                    <td>
 			{!! link_to_action('Admin\CourseVideosController@edit',
 			'Edit', array($video->id), array('class' => 'badge bg-info')) !!}
              {{-- <input type="hidden" name="course_id" value="{!! $course->id !!}"> --}}

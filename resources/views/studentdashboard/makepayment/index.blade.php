@@ -78,7 +78,7 @@ $layout = 'studentdashboard.layouts.index';
                         <input name="price" class="price" value="{{ $register_course->course->price }}" hidden>
 
 
-                        <input name=" course_id" value="{{ $register_course->id }}" hidden>
+                        <input name=" register_course_id" value="{{ $register_course->id }}" hidden>
                         {{-- <div class="form-group row mypayment">
                             <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
                             <div class="col-sm-10">
@@ -138,13 +138,12 @@ $layout = 'studentdashboard.layouts.index';
 
 
 
-
     </div>
 
     <script>
         function promoCode() {
             var promo_code = $('#promocode').val();
-            var current_amount = {{ $register_course->course->price }};
+            var current_amount = {{$register_course->course->price}};
             console.log('value !!!!!!', promo_code);
             console.log('current_amount !!!!!!', current_amount);
 

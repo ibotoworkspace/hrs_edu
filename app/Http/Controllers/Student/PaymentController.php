@@ -21,22 +21,26 @@ class PaymentController extends Controller
 {
     public function make_payment(Request $request)
     {
+       
         $page_layout = new \stdClass();
         $page_layout->header = true;
         session(['page_layout' => $page_layout]);
 
         if($request->mobile_course_id){
-            $course_id = $request->mobile_course_id;
+            $register_course_id = $request->mobile_course_id;
         }
         else{
-            $course_id = decrypt($request->course_id);
+            $register_course_id = decrypt($request->course_id);
         }
+      
                 
-        $user = User::where('access_token',$request->_token)->first();
+        $user = Auth::user();
 
-        $register_course = Course_Registered::with('course')
-                        ->where('course_id',$course_id)
-                        ->where('user_id',$user->id)->first();
+        $register_course = Course_Registered::with('course')->find($register_course_id);
+        // $course = Courses::find($register_course_id);
+        // dd(  $course );
+                        // ->where('user_id',$user->id)->first();
+                        // dd($register_course_id);
 
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
@@ -70,7 +74,8 @@ class PaymentController extends Controller
 
     public function paymentMethod(Request $request)
     {
-        $register_course = Course_Registered::with('course')->find($request->course_id);
+        // dd($request->all());
+        $register_course = Course_Registered::with('course')->find($request->register_course_id);
         $payment_common = new \stdClass();
         $payment_common->register_course = $register_course;
         $payment_common->actual_price = $request->actual_price ?? 0;

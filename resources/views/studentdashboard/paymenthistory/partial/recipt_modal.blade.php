@@ -1,4 +1,4 @@
-
+    
 <div class="modal   detail_{{ $payment_detail->id }}" tabindex="-1" role="dialog" aria-hidden="true"
     data-backdrop="false">
     <div class="modal-dialog modal-mg ">
@@ -37,7 +37,7 @@
                 <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Course</th>
+                                        <th class="col-md-9">Course</th>
                                         <th>#</th>
                                         <th class="text-center">Promo Code</th>
                                         <th class="text-center">Price</th>
