@@ -48,6 +48,7 @@ class CourseController extends Controller
     }
 
     public function courseDetail(Request $request)
+    
     {
 
         $course_id = decrypt($request->course_id);
@@ -131,6 +132,7 @@ class CourseController extends Controller
     }
     public function readChapter(Request $request)
     {
+        // dd($request->all());
 
         $chapter = Chapter::find($request->chap_id);
 

@@ -19,7 +19,7 @@
                         <div class="dummydata">
                             <h2>{{$chapter->title}}</h2>
                             <p>
-                                {!!$chapter->description !!}
+                           {!! html_entity_decode($chapter->description)  !!}
                             </p>
                         </div>
                     </div>                  
