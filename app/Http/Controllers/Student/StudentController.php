@@ -145,7 +145,7 @@ class StudentController extends Controller
         if (Auth::attempt($user_data)) {
 
             $user = User::where('email', $user_data['email'])->first();
-           
+
             if ($user->role_id == Config::get('constants.role_id.student')) {
                 return redirect('student/dashboard');
             } elseif ($user->role_id == Config::get('constants.role_id.skilladvisor')) {

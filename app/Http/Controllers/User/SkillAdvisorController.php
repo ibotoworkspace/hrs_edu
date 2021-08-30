@@ -18,6 +18,7 @@ class SkillAdvisorController extends Controller
 
     public function add(Request $request)
     {
+        // dd($request->all());
 
       if ($request->isMethod('post')) {
 
@@ -30,7 +31,7 @@ class SkillAdvisorController extends Controller
                 }
                 else{
                     return back()->with('error', 'Email already exist ');
-                }                
+                }
             } else {
 
                 $user = new User();

@@ -174,12 +174,36 @@
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
 
+
                         </ul>
-                        <div class="crbtngroup">
-                            <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
-                                    Account</button></a>
-                            <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
-                                    class="btn btn-primary portal">Join us as SDA</button></a>
+                        <?php
+                        use App\User;
+                        $user_data = Auth::user();
+                        // dd($user_data);
+                        if(!$user_data){
+                            $user_data = new \stdClass();
+                            $user_data->role_id = 0;
+                        }
+
+                        ?>
+
+                        @if ( $user_data->role_id == 2)
+
+                                            @else
+                                            <div class="crbtngroup">
+                                                <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
+                                                        Account</button></a>
+                                            @endif
+
+
+                                            @if ( $user_data->role_id == 3)
+
+                                            @else
+                                            <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
+                                                class="btn btn-primary portal">Join us as SDA</button></a>
+
+
+                                    @endif
                         </div>
 
                         <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button>  -->
