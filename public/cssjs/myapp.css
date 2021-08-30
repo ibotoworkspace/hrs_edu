@@ -6,12 +6,12 @@
 	float: right;
 	margin-top: 11px;
 }
-.show-table{	
+.show-table{
 	width:100%;
 }
 
 .render-pagination{
-	float:right;	
+	float:right;
 }
 
 span.error{
@@ -20,6 +20,10 @@ span.error{
 .error-product{
 	color: red;
 	padding-left: 211px;
+}
+div#confirm {
+    height: fit-content;
+    width: max-content;
 }
 .checkbox-text{
 	float:right;
@@ -174,7 +178,7 @@ li.mysrch.row.justify-content-center {
 
 .app > .header .brand {
 	background-color: #172022;
-    
+
 }
 /* h3.myheading {
     margin-left: 307px;
@@ -190,7 +194,7 @@ nav.main-navigation {
 
 
 .fa-3x {
-	
+
 		font-size: 3em;
 		width: 39px;
 		float: right;
@@ -248,7 +252,7 @@ img.myicon {
 
 .bg-success:hover {
 	background-color: #bfb18e;
-   
+
 }
 
 .dash-tile.bg-success {
@@ -257,7 +261,7 @@ img.myicon {
 
 
 .container-fluid.bigbord {
-	border: 1px solid;	
+	border: 1px solid;
     padding: 0px;
 }
 
@@ -420,7 +424,7 @@ button#mystatus\ lateststatus {
     width: 61%;
     border-radius: 6px;
     margin-left: 42px;
-   
+
     font-size: 17px;
 }
 
@@ -509,7 +513,7 @@ button#dropdownMenu1 {
     margin-left: 50px;
     font-size: 33px;
     color: #bfb18e;
-    
+
 }
 .myuser {
     font-size: 18px;
@@ -542,7 +546,7 @@ a#myvide {
     border-radius: 6px;
     margin-left: 33px;
     text-align: center;
-  
+
 }
 
 button#mylectur {
@@ -627,9 +631,9 @@ button#mycomonbtn{
     width: 21%;
     border-radius: 6px;
     margin-bottom: 25px;
- 
 
-    
+
+
 }
 
 button#plsbtn{
@@ -644,7 +648,7 @@ button#plsbtn{
     padding-top: 13px;
     padding-bottom: 12px;
     font-size: 15px;
- 
+
 }
 
 
@@ -658,9 +662,9 @@ button#mysave{
     width:7%;
     border-radius: 6px;
     margin-bottom: 25px;
- 
 
-    
+
+
 }
 
 button#mysaveer{
@@ -671,9 +675,9 @@ button#mysaveer{
     width:8%;
     border-radius: 6px;
     margin-bottom: 25px;
- 
 
-    
+
+
 }
 
 .mysaveer {
@@ -686,7 +690,7 @@ button#mysaveer{
 }
 
 button#mystatus{
- 
+
         background-color: #233438;
         border-color: #233438;
         width: 165%;
@@ -695,16 +699,16 @@ button#mystatus{
         margin-left: 194px;
         /* text-align: center; */
         font-size: 17px;
-  
 
 
-        
+
+
 }
 
 
 @media only screen and (max-width: 600px) {
     .mmyimg {
-        
+
         padding-right: 255px;
     }
 

@@ -1,4 +1,4 @@
-    
+
 <div class="modal fade detail_{!! $video->id!!} in" tabindex="-1" role="dialog" aria-hidden="true"
     data-backdrop="false">
     <div class="modal-dialog modal-mg ">
@@ -13,22 +13,22 @@
                     <thead>
                     <tr>
                         <th> Name</th>
-                       
+
                     </tr>
-                    </thead> 
+                    </thead>
                     <tbody id="my-modal-table">
-                 
-                      
+
+
                         <tr>
-                             <td class="mediaaa"> <iframe width="500px" height="350px" src="{{ $video->url }}" frameborder="0" allowfullscreen>  
+                             <td class="mediaaa"> <iframe width="1100px" height="650px" src="{{ $video->url }}" frameborder="0" allowfullscreen>
         </iframe></td>
-                            
+
                         </tr>
-                     
-                    
+
+
                     </tbody>
                 </table>
-               
+
 
             </div>
             <div class="modal-footer">
@@ -56,7 +56,7 @@
 
 <script>
 
-  
+
 function closeModal(){
 $('.modal').modal('hide');
 $('body').removeClass('modal-open');
@@ -67,6 +67,6 @@ $(".modal iframe").attr("src", $(".modal iframe").attr("src"));
 }
 
 
-  
+
 
 </script>
