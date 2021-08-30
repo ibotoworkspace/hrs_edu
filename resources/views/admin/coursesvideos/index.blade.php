@@ -9,7 +9,7 @@
 
 
 @section('add_btn')
-{!! Form::open(['method' => 'get', 'url' => ['admin/coursesvideos/create/'.$course->id ?? ''], 'files'=>true]) !!}  
+{!! Form::open(['method' => 'get', 'url' => ['admin/coursesvideos/create/'.$course->id ?? ''], 'files'=>true]) !!}
 
 <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
 {!! Form::close() !!}
@@ -24,24 +24,24 @@ width="400px" style="table-layout:fixed;"
 {!!Form::close() !!} --}}
 <thead>
     <tr>
-            
+
     <th>Title</th>
-    <th>videos</th>
-   
+    <th>Video</th>
+
     <th>Edit</th>
-                    
-    <th>Delete</th>  
+
+    <th>Delete</th>
 
 </tr>
             </thead>
             <tbody>
-            
+
                 @foreach($coursevideos as $video)
-            
+
                 <tr>
-            
-                    <td>{!! $video->title!!}</td>
-        {{-- <td class="mediaaa"> <iframe width="80px" height="50px" src="{{ $video->url }}" frameborder="0" allowfullscreen>  
+
+                    <td>{!! ucwords($video->title)!!}</td>
+        {{-- <td class="mediaaa"> <iframe width="80px" height="50px" src="{{ $video->url }}" frameborder="0" allowfullscreen>
         </iframe></td> --}}
          {{-- <td>
 
@@ -51,17 +51,17 @@ width="400px" style="table-layout:fixed;"
                                 ssfsd
                                 </span>
                             </a>
-                            @include('admin.coursesvideos.partial.video_modal',['video'=>$video]) 
+                            @include('admin.coursesvideos.partial.video_modal',['video'=>$video])
                             </td> --}}
 
                     <td>
                         <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!! $video->id !!}">
                             <span class=" badge bg-info btn-success">
-                                Videos</span></a>
+                                Video</span></a>
                         @include('admin.coursesvideos.partial.video_modal',['video'=>$video])
                     </td>
-                         
-        
+
+
                     {{-- <td>
                         <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!! $order->id !!}">
                             <span class=" badge bg-info btn-success">
@@ -81,9 +81,9 @@ width="400px" style="table-layout:fixed;"
 					{!! $video->deleted_at?'Activate':'Delete' !!}</span></a>
 			{!! Form::close() !!}
 		</td>
-    
+
         </tr>
-   
+
                     @endforeach
             </tbody>
             @section('pagination')
@@ -99,4 +99,3 @@ width="400px" style="table-layout:fixed;"
             </div>
             @endsection
             @stop
-            

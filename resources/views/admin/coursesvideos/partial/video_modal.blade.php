@@ -5,7 +5,7 @@
 
         <div class="modal-content" id="confirm">
             <div class="modal-header">
-                <h4 class="modal-title">DETAIL </h4>
+                <h4 class="modal-title">{{ ucwords($video->title)}} Video </h4>
             </div>
             <div class="modal-body">
                  <table class="table table-bordered table-striped mg-t editable-datatable">
@@ -61,5 +61,12 @@ function closeModal(){
 $('.modal').modal('hide');
 $('body').removeClass('modal-open');
 $('.modal-backdrop').remove();
+$(".modal iframe").attr("src", $(".modal iframe").attr("src"));
+
+
 }
+
+
+  
+
 </script>
