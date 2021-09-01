@@ -73,7 +73,7 @@
     </div>
 </div>
 <input name="course_id" value="{!! $courses->id ?? $chapter->course_id !!}" hidden />
-<div class="row">
+{{-- <div class="row">
 
     <div class="col-sm-4">
         <div class="maincourse">
@@ -89,7 +89,7 @@
         </select>
 
     </div>
-</div>
+</div> --}}
 
 
 
