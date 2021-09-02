@@ -4,8 +4,8 @@
     <div>
         {!! Form::text('title', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
     </div>
-   
-    
+
+
 
 
 
@@ -25,6 +25,46 @@
         </div>
 
     </div>
+<?php
+$paid = '';
+if(isset($courses)){
+if($courses->is_paid){
+
+    $paid = $courses->is_paid;
+
+}
+
+
+}
+
+
+
+
+?>
+
+    {{-- <div class="form-group">
+
+        <select class="form-control" name="product_id">
+            <option>Select Item</option>
+            @foreach ($items as $key => $value)
+            <option value="1">1</option>
+            <option value="0">0</option>
+                    {{ $value }}
+                </option>
+            @endforeach
+        </select>
+
+    </div> --}}
+
+    {!! Form::label('is_paid', 'Is Paid') !!}
+    <div class="form-group">
+        {!! Form::select('is_paid', array('1' => 'True', '0' => 'False'), null,['çlass'=>'form-control']); !!}
+
+    </div>
+</div>
+
+
+
     <div class="form-group">
         {!! Form::label('Course Badge', 'Course Badge') !!}
         <div>
@@ -74,7 +114,7 @@
     }
     }
     ?>
-    
+
     <div class="form-check">
         <input type="checkbox" name="is_popular" {!!$popular_check!!} value="1" class="form-check-input">
         <label class="form-check-label" for="exampleCheck1"> Popular Courses</label>
