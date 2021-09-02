@@ -23,7 +23,7 @@ else{
 
     <div class="col-md-5 pull-left">
         <div class="form-group text-center">
-            <?php 
+            <?php
                 $course_id =  $courses->id ?? $chapter->course_id ;
                 ?>
             <div>

@@ -103,6 +103,7 @@ class CoursesController extends Controller
     public function save(Request $request)
     {
         // dd($request->all());
+
         $courses = new Courses();
 
         $this->add_or_update($request, $courses);
@@ -111,18 +112,22 @@ class CoursesController extends Controller
     }
     public function edit($id)
     {
+        // dd($id);
 
         $control = 'edit';
         $courses = Courses::find($id);
+        // dd($courses);
         return view('admin.courses.create', compact(
             'control',
             'courses'
 
         ));
+
     }
 
     public function update(Request $request, $id)
     {
+        // dd($request->all());
         $courses = Courses::find($id);
 
         $this->add_or_update($request, $courses);
@@ -135,6 +140,7 @@ class CoursesController extends Controller
 
         $courses->title = $request->title;
         $courses->price = $request->price;
+       $courses->is_paid = $request->is_paid;
         if ($request->requirments) {
             $courses->requirments = $request->requirments;
         }
@@ -149,7 +155,7 @@ class CoursesController extends Controller
             $courses->is_popular  =0;
 
         }
-        
+
         $courses->hours = $request->hours;
         $courses->overview = $request->overview;
         // $courses->lectures = $request->lectures;

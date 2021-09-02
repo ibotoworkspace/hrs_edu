@@ -16,6 +16,7 @@ class AddIsPaidToCoursesTable extends Migration
         Schema::table('courses', function (Blueprint $table) {
             $table->boolean('is_paid')->default(1);
         });
+
     }
 
     /**
