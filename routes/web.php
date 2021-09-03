@@ -56,6 +56,11 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('course/excel', 'Admin\CoursesController@index_excel')->name('group.excel');
     Route::get('course/pdf', 'Admin\CoursesController@generatePDF')->name('group.pdf');
 
+    ///////admin dashboard excel
+    Route::get('dashboard/courses/csv', 'Admin\CoursesController@admin_index_csv')->name('group.csv');
+    Route::get('dashboard/courses/excel', 'Admin\CoursesController@admin_index_excel')->name('group.excel');
+    Route::get('dashboard/courses/pdf', 'Admin\CoursesController@admin_generatePDF')->name('group.pdf');
+
     // REPORTS
 
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');
