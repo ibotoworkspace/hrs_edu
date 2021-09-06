@@ -290,4 +290,36 @@ class CoursesController extends Controller
 
         return $pdf->download('HRS-course-list.pdf');
     }
+
+    public function admin_index_excel(Request $request)
+    {
+        $courses = Courses::orderBy('id', 'DESC')->get();
+        $view =  view('admin.courses.dashboardexport', compact('courses'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.xlsx');
+
+        return $excel;
+    }
+    public function admin_index_csv(Request $request)
+    {
+        $courses = Courses::orderBy('id', 'DESC')->get();
+        $view =  view('admin.courses.dashboardexport', compact('courses'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.csv');
+
+        return $excel;
+    }
+
+    public function admin_generatePDF()
+    {
+        $type = 'pdf';
+        $courses = Courses::orderBy('id', 'DESC')->get();
+        $pdf = PDF::loadView('admin.courses.dashboardexport', compact('courses', 'type'));
+
+        return $pdf->download('HRS-course-list.pdf');
+    }
 }
