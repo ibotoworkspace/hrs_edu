@@ -35,7 +35,7 @@
                 <div class="topheader">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div     class="col-sm-9">
                                 <div class="topheaderdata">
                                     <div class="topbox">
                                         <div class="topboxicon">
