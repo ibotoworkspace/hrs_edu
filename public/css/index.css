@@ -8,6 +8,8 @@ body,html {
 h1,h2,h3,h4{
 	font-family: 'Manjari', sans-serif;
 }
+
+
 /* .btn-primary {
     color: #fff;
     background-color: #ca0000;
@@ -20,6 +22,21 @@ h1,h2,h3,h4{
 } */
 .topheaderdata{
     display: flex;
+}
+button#\38 {
+    margin-left: 1041px;
+    width: 55px;
+    background-color: black;
+    border-radius: 83px;
+    border-bottom-left-radius: 76px;
+    border-bottom-right-radius: 72px;
+    border-color: black;
+    margin-top: -2px;
+    border-width: medium;
+    border-block-width: 9px;
+}
+span.edit {
+    color: white;
 }
 
 button.btn.btn-primary.hrsclicks {
@@ -367,7 +384,7 @@ p.smallright {
     font-size: 35px !important;
     color: white;
     margin: 0px 5px;
-} 
+}
 .newssign {
     background: #e2e2e2 !important;
     border-color: #e2e2e2 !important;
