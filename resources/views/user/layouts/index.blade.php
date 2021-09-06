@@ -173,9 +173,12 @@
                             <li id="7">
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
-
-
                         </ul>
+
+
+
+
+
                         <?php
                         use App\User;
                         $user_data = Auth::user();
@@ -188,6 +191,26 @@
                         ?>
 
                         @if ( $user_data->role_id == 2)
+
+
+
+
+                            <button id="8" class="oo" >
+                                <a href="{{ asset('student/profile') }}">
+                                    <img src="{{ asset('images/icon-26.png') }}" class="img-responsive">
+
+                                </a>
+
+
+                            </button >
+
+
+
+
+
+
+
+
 
                                             @else
                                             <div class="crbtngroup">
