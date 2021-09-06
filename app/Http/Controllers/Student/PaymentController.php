@@ -152,7 +152,7 @@ class PaymentController extends Controller
 
         $user_id = Auth::id();
         $payment_details = Payment::with('registerCourse.course','promocode')->where('user_id', $user_id)->get();
-        dd( $payment_details);
+        // dd( $payment_details);
 
         return view('studentdashboard.paymenthistory.index', compact('payment_details'));
     }
