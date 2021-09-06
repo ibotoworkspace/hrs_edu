@@ -43,7 +43,7 @@
         <div class="topheader hidden-xs">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <div class="topheaderdata">
                             <div class="topbox">
                                 <div class="topboxicon">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-2">
+                    <div class="col-sm-1">
                         <div class="topheaderclick">
                             <a href="{{ url('student/registration') }}" class="btn btn-primary leadrning">LEARNING
                                 PORTAL</a>
@@ -82,9 +82,37 @@
                             </button> -->
                         </div>
                     </div>
+
+                            <?php
+                            // use App\User;
+                            $user_data = Auth::user();
+                            // dd($user_data);
+                            if(!$user_data){
+                                $user_data = new \stdClass();
+                                $user_data->role_id = 0;
+                            }
+
+                            ?>
+
+                            @if ( $user_data->role_id == 2)
+                            <div class="col-sm-2">
+                             <button id="8" class="oo" >
+                                    <a href="{{ asset('student/profile') }}">
+                                        <img src="{{ asset('images/icon-26.png') }}" class="img-responsive">
+
+                                    </a>
+
+
+                                </button>
+                            </div>
+                                @else
+                                @endif
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            {{-- </div> --}}
+        {{-- </div> --}}
 
 
 
@@ -195,20 +223,15 @@
 
 
 
-                            <button id="8" class="oo" >
+
+                            {{-- <button id="8" class="oo" >
                                 <a href="{{ asset('student/profile') }}">
                                     <img src="{{ asset('images/icon-26.png') }}" class="img-responsive">
 
                                 </a>
 
 
-                            </button >
-
-
-
-
-
-
+                            </button > --}}
 
 
 
