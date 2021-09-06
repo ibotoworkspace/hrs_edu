@@ -66,7 +66,7 @@
                                         @foreach ($payment_details as $pd)
 
                                             <tr class="mycolareadata">
-                                                <td>HRS{{ $pd->registerCourse->name  ?? ''}}</td>
+                                                <td>HRS{{ $pd->registerCourse->name }}</td>
                                                 <td>HRS {{ $pd->registerCourse->id }}</td>
                                                 <td>USD {{ $pd->registerCourse->course->price }}</td>
                                                 <td>{{ $pd->card_type }}</td>
