@@ -23,9 +23,9 @@ h1,h2,h3,h4{
 .topheaderdata{
     display: flex;
 }
-button#\38 {
-    /* margin-left: 1041px; */
-    width: 55px;
+button.oo {
+
+    /* width: 55px;
     background-color: black;
     border-radius: 83px;
     border-bottom-left-radius: 76px;
@@ -34,7 +34,23 @@ button#\38 {
     margin-top: -2px;
     border-width: medium;
     border-block-width: 9px;
-    border-block-start-width: 11px;
+
+    margin-left: 60px; */
+
+    width: 47px;
+    background-color: black;
+    border-radius: 66px;
+    border-bottom-left-radius: 68px;
+    border-bottom-right-radius: 76px;
+    border-color: black;
+    margin-top: -2px;
+    border-width: inherit;
+    /* border-block-width: 8px; */
+    margin-left: 66px;
+    border-block-start-width: 5px;
+    /* border-block-end-width: 3px; */
+    border-block-end-width: 10px;
+
 }
 span.edit {
     color: white;
