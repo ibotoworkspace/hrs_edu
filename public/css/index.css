@@ -37,20 +37,39 @@ button.oo {
 
     margin-left: 60px; */
 
-    width: 47px;
-    background-color: black;
+    width: 54px;
+    background: grey;
+    border-color: #243439 !important;
     border-radius: 66px;
-    border-bottom-left-radius: 68px;
-    border-bottom-right-radius: 76px;
-    border-color: black;
+    border-bottom-left-radius: -13px;
+    border-bottom-right-radius: -12px;
     margin-top: -2px;
     border-width: inherit;
-    /* border-block-width: 8px; */
     margin-left: 66px;
-    border-block-start-width: 5px;
-    /* border-block-end-width: 3px; */
-    border-block-end-width: 10px;
+    /* border-block-start-width: 5px;
 
+    border-block-end-width: 10px; */
+
+}
+a.com {
+    margin-left: 101px;
+    background-color: red;
+}
+a.test {
+
+
+}
+span.headpadcom {
+
+    font-size: 21px;
+    color: white;
+    font-weight: 500;
+}
+span.headpadtest {
+    font-size: 21px;
+    color: white;
+    font-weight: 500;
+    color: lemonchiffon;
 }
 span.edit {
     color: white;
