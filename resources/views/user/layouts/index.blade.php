@@ -219,23 +219,7 @@
                         ?>
 
                         @if ( $user_data->role_id == 2)
-
-
-
-
-
-                            {{-- <button id="8" class="oo" >
-                                <a href="{{ asset('student/profile') }}">
-                                    <img src="{{ asset('images/icon-26.png') }}" class="img-responsive">
-
-                                </a>
-
-
-                            </button > --}}
-
-
-
-                                            @else
+                               @else
                                             <div class="crbtngroup">
                                                 <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
                                                         Account</button></a>
