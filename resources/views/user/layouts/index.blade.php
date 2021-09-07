@@ -43,7 +43,7 @@
         <div class="topheader hidden-xs">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-8">
                         <div class="topheaderdata">
                             <div class="topbox">
                                 <div class="topboxicon">
@@ -73,7 +73,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-1">
+                    <div class="col-sm-2">
                         <div class="topheaderclick">
                             <a href="{{ url('student/registration') }}" class="btn btn-primary leadrning">LEARNING
                                 PORTAL</a>

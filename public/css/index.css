@@ -24,7 +24,7 @@ h1,h2,h3,h4{
     display: flex;
 }
 button#\38 {
-    margin-left: 1041px;
+    /* margin-left: 1041px; */
     width: 55px;
     background-color: black;
     border-radius: 83px;
@@ -34,6 +34,7 @@ button#\38 {
     margin-top: -2px;
     border-width: medium;
     border-block-width: 9px;
+    border-block-start-width: 11px;
 }
 span.edit {
     color: white;
