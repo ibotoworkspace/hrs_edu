@@ -199,6 +199,13 @@
                             <li id="7">
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
+                            <li id="8">
+                                <a href="https://w3.testout.com/" class="com"><span class="headpadcom">CompTIA</span> </a>
+                            </li>
+                            <li id="9">
+                                <a href="https://www.comptia.org/" class="test"><span class="headpadtest">TestOut</span> </a>
+
+                            </li>
                         </ul>
 
 
