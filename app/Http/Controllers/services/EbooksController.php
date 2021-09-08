@@ -26,7 +26,11 @@ class EbooksController extends Controller
                 $ebooks = Ebooks::where('course_id',$request->course_id)->get(['id','name','avatar']);
             }
             else{
-                $ebooks = Ebooks::where('name','like','%'.$course_name.'%')->get(['id','name','avatar']);
+                $ebooks = Ebooks::where('name','like','%'.$course_name.'%')
+                ->orwhereHas('course',function($q)use($course_name){
+                    $q->where('title','like','%'.$course_name.'%');
+                })
+                ->get(['id','name','avatar']);
             }
             $ebooks = $ebooks->items();
             return $this->sendResponse(200, $ebooks);
