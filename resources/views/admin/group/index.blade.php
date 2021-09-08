@@ -77,7 +77,7 @@
                 </td>
 
                 <td class="hrs">
-                    <div class="besthrs">{{ $gr->course->title }}</div>
+                    <div class="besthrs">{{ $gr->course->title??'' }}</div>
                     {{-- <a href="{{ url('/admin/groupss/' . $q->id ) }}"   type="button" class="btn btn-primary onquizes" id="myvide">groupss</a> --}}
 
                 </td>

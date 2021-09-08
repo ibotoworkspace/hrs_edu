@@ -75,11 +75,16 @@
         </tr>
     </thead>
     <tbody>
+    
         {{-- admin/listofquiz --}}
 
 
         @foreach ($promocode as $key => $p)
-
+<?php
+ $nw_date= date('d/m/Y ', $p->validity);   //date('m/d/Y H:i:s', $p->validity);
+ 
+ 
+ ?>
             <tr class="myarrow myarrow_{{$p->id}}">
                 <td class="mynbr">
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
@@ -98,7 +103,7 @@
                     <div class="bestnbr" name="hours">{!! $p->code !!}</div>
                 </td>
                 <td class="mynbr">
-                    <div class="bestnbr" name="hours">{!! $p->validity !!}</div>
+                    <div class="bestnbr" name="hours">{!!  $nw_date!!}</div>
                 </td>
 
                 <td class="mynbr">
@@ -107,7 +112,7 @@
 
          
             
-            
+{{--             
                 <td class="optionss">
                     <div class="myoptionss">
 
@@ -128,6 +133,33 @@
 
                         </div>
                         <i class="fa fa-cog settings" aria-hidden="true"></i>
+
+                    </div>
+                </td> --}}
+
+                    <td class="optionss">
+                    <div class="myoptionss">
+
+                        <div class="dropdown">
+                            <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                               
+                                </button>
+                                    
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ url('/admin/promocode/edit/' . $p->id) }}">Edit</a></li>
+
+
+                                <li>
+                                    <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$p->id}}" hit_url="{{ url('/admin/promocode/delete/' . $p->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                        <span class="badge bg-info btn-danger ">
+                                             {!! $p->deleted_at ? 'Activate' : 'Delete' !!}</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                       
 
                     </div>
                 </td>

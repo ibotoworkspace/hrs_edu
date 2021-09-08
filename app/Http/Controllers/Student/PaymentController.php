@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Student;
 
 use App\Http\Controllers\Controller;
 use App\Models\Course_Registered;
+use App\Models\Courses;
 use App\Models\Payment;
 use App\Models\PromoCode;
 use App\User;
@@ -20,14 +21,26 @@ class PaymentController extends Controller
 {
     public function make_payment(Request $request)
     {
+
         $page_layout = new \stdClass();
         $page_layout->header = true;
         session(['page_layout' => $page_layout]);
 
-        $course_id = decrypt($request->course_id);
+        if($request->mobile_course_id){
+            $register_course_id = $request->mobile_course_id;
+        }
+        else{
+            $register_course_id = decrypt($request->course_id);
+        }
 
 
-        $register_course = Course_Registered::with('course')->find($course_id);
+        $user = Auth::user();
+
+        $register_course = Course_Registered::with('course')->find($register_course_id);
+        // $course = Courses::find($register_course_id);
+        // dd(  $course );
+                        // ->where('user_id',$user->id)->first();
+                        // dd($register_course_id);
 
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
@@ -38,13 +51,31 @@ class PaymentController extends Controller
         $page_layout->token = $request->_token;
         session(['page_layout' => $page_layout]);
 
-        $register_course = Course_Registered::with('course')->find($request->course_id);
+        // $register_course = Course_Registered::with('course')->find($request->course_id);
+
+        // $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
+        $user = User::where('access_token', $request->_token)->first();
+        $register_course = Course_Registered::where('course_id', $request->mobile_course_id)->where('user_id', $user->id)->first();
+        $course = Courses::find($request->mobile_course_id);
+        if (!$register_course) {
+            $registration = new Course_Registered();
+            $registration->course_id =  $request->mobile_course_id;
+            $registration->user_id =  $user->id;
+            $registration->name = $course->title;
+            $registration->save();
+
+            $register_course = Course_Registered::where('course_id', $request->mobile_course_id)->where('user_id', $user->id)->first();
+        }
+
+
+
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
 
     public function paymentMethod(Request $request)
     {
-        $register_course = Course_Registered::with('course')->find($request->course_id);
+        // dd($request->all());
+        $register_course = Course_Registered::with('course')->find($request->register_course_id);
         $payment_common = new \stdClass();
         $payment_common->register_course = $register_course;
         $payment_common->actual_price = $request->actual_price ?? 0;
@@ -57,7 +88,7 @@ class PaymentController extends Controller
         if ($request->payment_type == 'paypal') {
             return view('studentdashboard.paypal.index');
         } else {
-            // for stripe 
+            // for stripe
             return view('studentdashboard.proceedpayment.index');
         }
     }
@@ -78,7 +109,7 @@ class PaymentController extends Controller
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
             $stripe =  Stripe\Charge::create([
-                "amount" => ceil($course_register->course->price) * 100, // value pass in cent 
+                "amount" => ceil($course_register->course->price) * 100, // value pass in cent
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from HRS Acedmey."
@@ -108,7 +139,7 @@ class PaymentController extends Controller
         } catch (\Exception $e) {
             // Session::flash('error', "Error! Please Try again.");
             // return redirect('user/payment')->with('success','Payment successful!');
-            // return back()->with('error', "Error!" . $e); 
+            // return back()->with('error', "Error!" . $e);
             Log::info('Error');
             Log::info($e);
             return view('studentdashboard.proceedpayment.index')->with('error', $e);
@@ -121,6 +152,7 @@ class PaymentController extends Controller
 
         $user_id = Auth::id();
         $payment_details = Payment::with('registerCourse.course','promocode')->where('user_id', $user_id)->get();
+        // dd( $payment_details);
 
         return view('studentdashboard.paymenthistory.index', compact('payment_details'));
     }
@@ -141,7 +173,7 @@ class PaymentController extends Controller
 
         // dd($request->all());
         $current_date_time = Carbon::now()->toDateTimeString();
-        // check code from database 
+        // check code from database
 
         $promocode = PromoCode::where('code', $request->code)
             ->where('is_active', 1)
@@ -179,5 +211,5 @@ class PaymentController extends Controller
         return $response;
     }
 
- 
+
 }

@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
-use App\Libraries\ExportToExcel;
+use App\libraries\ExportToExcel;
 
 class UserController extends Controller
 {

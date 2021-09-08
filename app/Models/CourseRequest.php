@@ -15,9 +15,9 @@ class CourseRequest extends Model
     {
         return $this->hasOne('App\User', 'id', 'user_id');
     }
-    public function course()
+    public function ebook()
     {
-        return $this->hasOne('App\Models\Courses', 'id','course_id');
+        return $this->hasOne('App\Models\Ebooks', 'id','ebook_id');
     }
 
 }

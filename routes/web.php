@@ -56,6 +56,11 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('course/excel', 'Admin\CoursesController@index_excel')->name('group.excel');
     Route::get('course/pdf', 'Admin\CoursesController@generatePDF')->name('group.pdf');
 
+    ///////admin dashboard excel
+    Route::get('dashboard/courses/csv', 'Admin\CoursesController@admin_index_csv')->name('group.csv');
+    Route::get('dashboard/courses/excel', 'Admin\CoursesController@admin_index_excel')->name('group.excel');
+    Route::get('dashboard/courses/pdf', 'Admin\CoursesController@admin_generatePDF')->name('group.pdf');
+
     // REPORTS
 
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');
@@ -73,6 +78,19 @@ Route::post('/test/save', 'Admin\TestController@save')->name('test.save');
 Route::get('/test/edit/{id}', 'Admin\TestController@edit')->name('test.edit');
 Route::post('/test/update/{id}', 'Admin\TestController@update')->name('test.update');
 Route::get('test/delete/{id}', 'Admin\TestController@destroy_undestroy')->name('test.delete');
+
+
+///Ebooks
+
+
+
+Route::get('/ebooks', 'Admin\EbooksController@index')->name('admin.ebooks');
+Route::get('/ebooks/create/', 'Admin\EbooksController@create')->name('ebooks.create');
+Route::post('/ebooks/save', 'Admin\EbooksController@save')->name('ebooks.save');
+Route::get('/ebooks/edit/{id}', 'Admin\EbooksController@edit')->name('ebooks.edit');
+Route::post('/ebooks/update/{id}', 'Admin\EbooksController@update')->name('ebooks.update');
+Route::get('ebooks/delete/{id}', 'Admin\EbooksController@destroy_undestroy')->name('ebooks.delete');
+
 
 // test_assigned and test id
 
@@ -139,11 +157,16 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     /////listofquiz
     Route::get('/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin.listofquiz');
     Route::get('/edit/quiz/{id}', 'Admin\ListofQuizController@edit')->name('edit.quiz');
-    Route::get('/quizes', 'Admin\ListofQuizController@index')->name('admin.quizes');
+    Route::get('/quizes/{id}', 'Admin\ListofQuizController@index')->name('admin.quizes');
     Route::get('/quiz/create/{id}', 'Admin\ListofQuizController@create')->name('quiz.create');
     Route::post('quizlist/save', 'Admin\ListofQuizController@save')->name('quizlist.save');
     Route::post('quizlist/update/{id}', 'Admin\ListofQuizController@update')->name('quizlist.update');
     Route::get('quizlist/delete/{id}', 'Admin\ListofQuizController@destroy_undestroy')->name('quizlist.delete');
+
+     // course export files
+     Route::get('quiz/csv/{id}', 'Admin\ListofQuizController@index_csv')->name('quiz.csv');
+     Route::get('quiz/excel/{id}', 'Admin\ListofQuizController@index_excel')->name('quiz.excel');
+     Route::get('quiz/pdf/{id}', 'Admin\ListofQuizController@generatePDF')->name('quiz.pdf');
 
     Route::get('/addmaincourse', 'Admin\CoursesController@addmaincourse')->name('admin/addmaincourse');
     Route::get('/newquizquestion', 'Admin\CoursesController@newquizquestion')->name('admin/newquizquestion');
@@ -154,14 +177,14 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
 
     Route::get('/ticket', 'Admin\TicketController@ticket')->name('admin/ticket');
     Route::get('/ticketstatus/{id}', 'Admin\TicketController@status')->name('ticket.status');
-    Route::get('/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
+    // Route::get('/newpromocode', 'Admin\CoursesController@newpromocode')->name('admin/newpromocode');
 
     Route::get('/userperformance', 'Admin\CoursesController@userperformance')->name('admin/userperformance');
     // admin/choices
     Route::get('/choices/{id}', 'Admin\ChoiceController@index')->name('admin.choices');
     Route::get('/choices', 'Admin\ChoiceController@index')->name('admin.choices');
 
-    Route::get('/courserequest', 'Admin\CoursesController@courseRequest')->name('admin.courserequest');
+    Route::get('/report/courserequest', 'Admin\CoursesController@courseRequest')->name('admin.courserequest');
     Route::get('/coursesrequest/status/{id}', 'Admin\CoursesController@status')->name('coursesrequest.status');
 
     //admin advisor
@@ -205,6 +228,11 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     Route::post('/chapter/update/{id}', 'Admin\ChapterController@update')->name('chapter.update');
     Route::post('/chapter/delete/{id}', 'Admin\ChapterController@destroy_undestroy')->name('chapter.delete');
     Route::get('chapter/search', 'Admin\ChapterController@search')->name('chapter.search');
+
+      // course export files
+      Route::get('/chapter/csv/{id}', 'Admin\ChapterController@index_csv')->name('chapter.csv');
+      Route::get('/chapter/excel/{id}', 'Admin\ChapterController@index_excel')->name('chapter.excel');
+      Route::get('/chapter/pdf/{id}', 'Admin\ChapterController@generatePDF')->name('chapter.pdf');
 
 
     // Lecturer Routes  lecturer

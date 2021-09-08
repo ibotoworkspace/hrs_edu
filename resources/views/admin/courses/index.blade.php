@@ -1,3 +1,14 @@
+
+<?php
+use App\Models\Quiz;
+use App\Models\Course_Video;
+use App\Models\Courses;
+use App\Models\Lecturer;
+use App\Models\Chapter;
+
+
+?>
+
 @extends('layouts.default_module')
 @section('module_name')
     Courses
@@ -82,8 +93,9 @@
 
 
         @foreach ($courses as $key => $crs)
+        
 
-            <tr class="myarrow myarrow_{{ $crs->id }}">
+            <tr class="myarrow myarrow_{{ $crs->id ?? '' }}">
                 <td class="mynbr">
                     <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
                 </td>
@@ -93,6 +105,7 @@
                 <?php if (!$crs->avatar) {
                 $crs->avatar = asset('images/mediallogo.png');
                 } ?>
+                  
 
                 <td><img width="100px" src="{!! $crs->avatar !!}" class="show-product-img imgshow"></td>
 
@@ -100,25 +113,38 @@
                 <td class="mynbr">
                     <div class="bestnbr" name="hours">{!! $crs->hours !!}</div>
                 </td>
+                
+                <?php
+                 
+                $total_quizes = Quiz::where('course_id', $crs->id)->count('id');
+                $total_videos = Course_Video::where('course_id', $crs->id)->count('id');
+                $total_lecturer = Lecturer::with('user')->count('id');
+                $total_chapter = Chapter::where('course_id', $crs->id)->count('id');
+
+                ?>
+
                 <td class="myquiz">
-                    {{-- <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div> --}}
-                    <a href="{{ url('/admin/listofquiz/' . $crs->id) }}" type="button" class="btn btn-primary onquizes"
-                        id="myvide">quizzes</a>
+                
+                  
+                    <a href="{{ url('/admin/listofquiz/' . $crs->id) }}" type="button"   class="btn btn-primary onquizes"
+                        id="myvide">  {!!$total_quizes!!} Quizzes</a>
                 </td>
                 <td class="myvideos">
+                 
                     <div class="vide">
 
                         <a href="{{ url('admin/courses/videos/' . $crs->id) }}" type="button"
-                            class="btn btn-primary onvideos" id="myvide">videos</a>
+                            class="btn btn-primary onvideos" id="myvide"> {!!$total_videos!!} Videos</a>
                         {{-- <button href="{{ route('courses.videos') }}" type="button" class="btn btn-primary onvideos" id="myvide">1830 --}}
 
                     </div>
                 </td>
                 <td class="myvideos">
+                    
 
                     <div class="vide">
                         <a href="{{ url('/admin/chapter/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
-                            id="myvide">Lectures</a>
+                            id="myvide">{!!$total_chapter!!} Lectures</a>
                     </div>
                 </td>
                 <td class="optionss">
@@ -148,19 +174,7 @@
                     </div>
                 </td>
             </tr>
-
-
-
-
             </tr>
-
-
-
-
-
-
-
-
         @endforeach
     </tbody>
 @section('pagination')

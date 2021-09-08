@@ -35,7 +35,7 @@
                 <div class="topheader">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-sm-9">
+                            <div     class="col-sm-9">
                                 <div class="topheaderdata">
                                     <div class="topbox">
                                         <div class="topboxicon">
@@ -65,14 +65,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            {{-- <div class="col-sm-3">
                                 <div class="topheaderclick">
-                                    {{-- <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button> --}}
-                                    <a href="{{ asset('admin/courses') }}"><button type="button"
+
+                                    <a ><button type="button"
                                         class="btn btn-primary leadrning">LEARNING PORTAL</button></a>
                                 </div>
-                                
-                            </div>
+
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -80,11 +80,11 @@
 
             <section>
                 <div class="twoheader">
-                    <div class="container-fluid">
+
                         <div class="row">
-                            <div class="col-sm-2 col-xs-12">
+                            <div class="col-sm-1 col-xs-12">
                                 <div class="logoArea">
-                                    <a href="/"><img src="{{ asset('images/logo.png') }}" class="img-responsive"></a>
+                                    <a href="/"><img src="{{ asset('images/newlogo.png') }}" class="img-responsive"></a>
                                 </div>
                             </div>
                             <div class="col-sm-10 col-xs-12">
@@ -131,7 +131,7 @@
                                         </div>
                                     </div>
                                 </nav>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
 
 
 
-
+<div class="container-fluid">
         <ul class="nav navbar-nav side-nav mysidemenu">
             <li>
                 <a href="{{ asset('student/dashboard') }}"> Dashboard</a>
@@ -175,7 +175,7 @@
             <li>
                 <a href="{{ asset('student/course/testlist') }}">Test List </a>
             </li>
-            
+
             <li>
                 <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
                 <ul id="submenu-1" class="collapse">
@@ -197,6 +197,7 @@
                 <a href="{{ asset('student/logout') }}"> Logout</a>
             </li>
         </ul>
+</div>
 
 
 

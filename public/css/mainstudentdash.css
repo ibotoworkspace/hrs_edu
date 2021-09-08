@@ -2,7 +2,7 @@
 html,body,h1,h2,h3,h4,h5,h6 {font-family: 'Manjari', sans-serif;}
 .w3-sidebar {
   z-index: 3;
-  width: 250px; 
+  width: 250px;
   top: 135px;
   bottom: 0;
   height: inherit;
@@ -95,7 +95,9 @@ ul.nav.navbar-nav.side-nav.mysidemenu {
     padding: 10px 0px !important;
 }
 .logoArea img {
-    margin: 0 auto;
+    margin: -13px auto;
+    height: 78px;
+    width: 76px;
 }
 .portal {
     float: right !important;
@@ -395,7 +397,7 @@ p.smallright {
     margin: 0px 5px;
 
     margin-top: 10px !important;
-} 
+}
 .msgcss {
     width: 84% !important;
     float: right !important;

@@ -43,7 +43,7 @@ class User extends Authenticatable
         // 'name' => 'required|max:255',
         'email' => 'required|email|unique:users',
         'password' => 'required',
-        'phone_no' =>'required|phone_number|unique:users'
+        'mobileno' =>'required'//|mobileno|unique:users
     ];
 
    

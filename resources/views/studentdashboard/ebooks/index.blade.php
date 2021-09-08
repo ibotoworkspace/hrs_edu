@@ -56,8 +56,11 @@
                                     @csrf --}}
                                 <input type="text" name="code" class="form-control shdata" id="download-code"
                                     placeholder="Enter Code here...">
-                                <button type="submit" onclick="getCode()" class="btn btn-primary bookclick"> Download
-                                    Book</button>
+                                <button type="submit" onclick="getCode()" class="btn btn-primary bookclick"> Get
+                                    Book </button>
+                                    <div class="pdf-download">
+
+                                    </div>
                                 {{-- </form> --}}
                             </div>
 
@@ -68,8 +71,8 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <?php $thumnail_book = '';?>
-                                <img src="{!! $c_pdf->book_avatar ?? asset('images/mypdf.png') !!}" class="show-product-img img-responsive">
-                                <p>{{ $c_pdf->title }}</p>
+                                <img src="{!! $c_pdf->avatar ?? asset('images/mypdf.png') !!}" class="show-product-img img-responsive">
+                                <p>{{ $c_pdf->name }}</p>
                             </div>
                             {{-- @if (isset($c_pdf->requestCourse->can_download) && $c_pdf->requestCourse->can_download == 1) --}}
 
@@ -80,7 +83,7 @@
                                 @else --}}
                                 <form method="post" action="{{ asset('student/downloadpdf') }}">
                                     @csrf()
-                                    <input name="course_id" value="{{ $c_pdf->id }}" hidden>
+                                    <input name="ebook_id" value="{{ $c_pdf->id }}" hidden>
                                     <button type="submit" class="btn btn-primary for">Request for Download</button>
                                 </form>
 
@@ -104,9 +107,9 @@
 
                         </div>
                     </div>
-                    <div class="pdf-download">
+                    {{-- <div class="pdf-download">
 
-                    </div>
+                    </div> --}}
                 </div>
             </div>
     </div>
@@ -132,7 +135,7 @@
                         $('.success-modal').css("display", "none")
                         $('#err-msg').html('Your code is invalid or expired !')
                     } else {
-                        url = response.response.course.download_pdf
+                        url = response.response.ebook.book_url
                         $('.success-modal').css("display", "block")
                         $('.error-modal').css("display", "none")
                         $('#suc-msg').html('Your PDF is Downloaded !')
@@ -140,9 +143,7 @@
                         $('.pdf-download').append(downloadPdfhtml(url));
                         console.log('pdf html ', downloadPdfhtml(url))
                         setTimeout(() => {
-                            $('.pdf-download').click(function() {
                                 $('.download_link').trigger('click');
-                            });
                         }, 2000);
                     }
 
@@ -152,9 +153,15 @@
         // hrs-IdHksu0iBA
 
         function downloadPdfhtml(url) {
-            return ` <a id='download_link' class='download_link' href='` + url + `' target="_blank" download>
-                                            </a>
+            return ` <a id='download_link' class=' btn btn-primary bookclick download_link' onclick="removeBtn(this)" href='` + url + `' download>
+                                           Download </a>
                                         `
+        }
+
+        function removeBtn(e){
+            setTimeout(function(){
+                $('#download_link').remove();    
+            },2000)
         }
 
     </script>

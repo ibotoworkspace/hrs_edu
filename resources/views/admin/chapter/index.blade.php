@@ -21,25 +21,28 @@
     @include('admin.chapter.partial.searchfilters')
     {!! Form::close() !!}
 
-    <div class="ableclick">
-        <button type="button" class="btn btn-primary myopen" id="mybutton">Copy</button>
-        <button type="button" class="btn btn-primary myopen" id="mybutonarea"> CSV</button>
-        <button type="button" class="btn btn-primary myopen" id="mybuttons"> Excel</button>
-    </div>
+   {{-- <div class="ableclick">
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/chapter/excel/'. $courses->id ?? '') }}" style="color: #fff"> Excel</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/chapter/csv/'. $courses->id ?? '') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/chapter/pdf/'. $courses->id ?? '') }}"
+                style="color: #fff">PDF</a> </button>
+    </div> --}}
 
 
 
     <thead>
         <tr>
             <th class="myso">
-                <div class="bestcso">S.No.</div>
+                <div class="bestcso">Lecturer No.</div>
             </th>
             <th class="myso">
-                <div class="bestcso">Title</div>
+                <div class="bestcso">Chapter Title</div>
             </th>
-            <th class="mycourse">
+            {{-- <th class="mycourse">
                 <div class="bestcourse">Decriptions</div>
-            </th>
+            </th> --}}
 
             </th>
             <th class="option">
@@ -62,17 +65,18 @@
         @foreach ($chapter as $key => $ch)
 
             <tr class="myarrow">
+ 
 
                 <td class="hrs">
-                    <div class="besthrs" name="title">{!! $key + 1 !!}</div>
+                    <div class="besthrs" name="title">{!! $ch->lecture !!}</div>
                 </td>
                 <td class="hrs">
                     <div class="besthrs" name="title">{!! $ch->title !!}</div>
                 </td>
 
-                <td class="myquiz">
+                {{-- <td class="myquiz">
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->description !!}</div>
-                </td>
+                </td> --}}
 
                 {{-- <td class="mylectures">
                     <div class="quizes" class="onquizes" id="myquizes">{!! $ch->is_paid == 0 ? 'No' : 'Yes' !!}</div>
@@ -101,8 +105,8 @@
 
 
                                 <li>
-                                    <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$ch->id}}" hit_url="{{ url('/admin/chapter/delete/' . $ch->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
-                                        <span class="badge bg-info btn-danger ">
+                                    <a href="" data-toggle="modal" hit_method="post" remove_parent="myarrow_{{$ch->id}}" hit_url="{{ url('/admin/chapter/delete/' . $ch->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                        <span class="badge bg-info btn-danger ">                                                
                                             {!! $ch->deleted_at ? 'Activate' : 'Delete' !!}</span>
                                     </a>
                                 </li>

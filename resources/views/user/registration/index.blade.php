@@ -82,7 +82,7 @@
 
                                 </div>
                                 <input type="hidden" value="roleid">
-                                <?php 
+                                <?php
                                     if(!isset($registration_code)){
                                         $registration_code = '';
                                     }

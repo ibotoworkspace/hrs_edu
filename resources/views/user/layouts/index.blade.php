@@ -43,7 +43,7 @@
         <div class="topheader hidden-xs">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-sm-10">
+                    <div class="col-sm-9">
                         <div class="topheaderdata">
                             <div class="topbox">
                                 <div class="topboxicon">
@@ -82,9 +82,35 @@
                             </button> -->
                         </div>
                     </div>
+
+                            <?php
+                            $user_data = Auth::user();
+                            if(!$user_data){
+                                $user_data = new \stdClass();
+                                $user_data->role_id = 0;
+                            }
+
+                            ?>
+
+                            @if ( $user_data->role_id == 2)
+                            <div class="col-sm-1">
+                             <button id="8" class="oo" >
+                                    <a href="{{ asset('student/profile') }}">
+                                        <img src="{{ asset('images/icon-26.png') }}" class="img-responsive">
+
+                                    </a>
+
+
+                                </button>
+                            </div>
+                                @else
+                                @endif
+
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            {{-- </div> --}}
+        {{-- </div> --}}
 
 
 
@@ -173,13 +199,46 @@
                             <li id="7">
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
+                            <li id="8">
+                                <a href="https://w3.testout.com/" class="com"><span class="headpadcom">CompTIA</span> </a>
+                            </li>
+                            <li id="9">
+                                <a href="https://www.comptia.org/" class="test"><span class="headpadtest">TestOut</span> </a>
 
+                            </li>
                         </ul>
-                        <div class="crbtngroup">
-                            <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
-                                    Account</button></a>
-                            <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
-                                    class="btn btn-primary portal">Join us as SDA</button></a>
+
+
+
+
+
+                        <?php
+                        use App\User;
+                        $user_data = Auth::user();
+                        // dd($user_data);
+                        if(!$user_data){
+                            $user_data = new \stdClass();
+                            $user_data->role_id = 0;
+                        }
+
+                        ?>
+
+                        @if ( $user_data->role_id == 2)
+                               @else
+                                            <div class="crbtngroup">
+                                                <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
+                                                        Account</button></a>
+                                            @endif
+
+
+                                            @if ( $user_data->role_id == 3)
+
+                                            @else
+                                            <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
+                                                class="btn btn-primary portal">Join us as SDA</button></a>
+
+
+                                    @endif
                         </div>
 
                         <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button>  -->

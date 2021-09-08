@@ -1,157 +1,230 @@
 
+<?php
+use App\Models\Quiz;
+use App\Models\Course_Video;
+use App\Models\Courses;
+use App\Models\Lecturer;
+use App\Models\PromoCode ;
+
+
+?>
+
 @extends('layouts.default_module')
 @section('module_name')
-Add a New Promo Code
-
-
+    Promo Code
 @stop
 
+@section('add_btn')
+
+    {!! Form::open(['method' => 'get', 'route' => ['promocode.create'], 'files' => true]) !!}
+    <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
+    {!! Form::close() !!}
+@stop
+
+
+
+@section('table-properties')
+    width="400px" style="table-layout:fixed;"
+    {{-- @endsection --}}
+
+
+
+
+
+
+
 @section('table')
+    {{-- {!! Form::open(['method' => 'get', 'route' => ['courses.search'], 'files' => true]) !!}
+    @include('admin.courses.partial.searchfilters')
+    {!! Form::close() !!}
+
+    <div class="ableclick">
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/course/excel') }}" style="color: #fff"> Excel</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybutonarea">
+            <a href="{{ asset('admin/course/csv') }}" style="color: #fff">CSV</a> </button>
+        <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/course/pdf') }}"
+                style="color: #fff">PDF</a> </button>
+    </div> --}}
 
 
 
-             
+    <thead>
+        <tr>
+            <th class="myso">
+                <div class="bestcso">Promo Code Title</div>
+            </th>
+            <th class="mycourse">
+                <div class="bestcourse">Promo Code Percentage</div>
+            </th>
+            <th class="option">
+                <div class="bestoption">Promo Code</div>
 
-     
-<div class="row">
+            </th>
 
-   <div class="col-sm-4">
-<div class="maincourse">
-Promo Code Title
-</div>
-  </div>
+            <th class="option">
+                <div class="bestoption">Description</div>
 
+            </th>
+            <th class="option">
+                <div class="bestoption">Promo Code Validity</div>
 
-<div class="col-sm-6">
-<div class="maininput">
- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Promo Code Title">
-</div>
-</div>
+            </th>
+            <th class="option">
+                <div class="bestoption">Videos</div>
 
+            </th>
+            <th class="option">
+                <div class="bestoption">Lectures</div>
 
-    </div>
-      
+            </th>
+            <th class="option">
+                <div class="bestoption">Option</div>
 
-    <div class="row">
-
-   <div class="col-sm-4">
-<div class="maincourse">
-Promo Code Percentage
-</div>
-  </div>
-
-
-<div class="col-sm-6">
-<div class="maininput">
- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Promo Code Percentage">
-</div>
-</div>
+            </th>
 
 
-    </div>
 
 
- 
-  
-<div class="row">
-
-   <div class="col-sm-4">
-<div class="maincourse">
-Promo Code
-</div>
-  </div>
+        </tr>
+    </thead>
+    <tbody>
+        {{-- admin/listofquiz --}}
 
 
-<div class="col-sm-6">
-<div class="maininput">
- <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Promo Code">
-</div>
-</div>
-
-
-    </div>
-
-
-    <div class="row">
-
-<div class="col-sm-4">
-<div class="maincourse">
-Description
-</div>
-</div>
-
-
-<div class="col-sm-6">
-<div class="maininput">
-<textarea class="ckeditor form-control"  id="summary-ckeditor" name="summary-ckeditor"></textarea> 
-</div>
-</div>
-</div>
-
-
- 
- <div class="row">
-
-<div class="col-sm-4">
-<div class="maincourse">
-Promo Code Validity
-</div>
-</div>
-
-
-<div class="col-sm-6">
-<div class="maininput">
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="mm/dd/yyyy">
-</div>
-</div>
-
-
- </div> 
-
- <div class="row">
-
-<div class="col-sm-4">
-<div class="maincourse">
-Promo Code Use Time
-</div>
-</div>
-
-
-<div class="col-sm-6">
-<div class="maininput">
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter Use Times">
-</div>
-</div>
-
-
- </div>  
-
- <div class="row">
-
-<div class="col-sm-4">
-<div class="maincourse">
-Is Active
-</div>
-</div>
-
-
-<div class="col-sm-6">
-<div class="maininput">
-<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="YES">
-</div>
-<div class="commonbtn"><button type="button" class="btn btn-primary " id="mycomonbtn">submit</button></div>
-</div>
-
-
- </div>  
-
- 
-
-
-@section('app_jquery')
+        @foreach ($courses as $key => $crs)
         
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
-        @endsection
+            <tr class="myarrow myarrow_{{ $crs->id ?? '' }}">
+                <td class="mynbr">
+                    <div class="bestnbr" name="sno"> {{ $key + 1 }}</div>
+                </td>
+                <td class="hrs">
+                    <div class="besthrs" name="mytitle">{!! strtoupper($crs->title)  !!}</div>
+                </td>
+                <?php if (!$crs->avatar) {
+                $crs->avatar = asset('images/mediallogo.png');
+                } ?>
+                  
 
-        @stop
+                <td><img width="100px" src="{!! $crs->avatar !!}" class="show-product-img imgshow"></td>
+
+
+                <td class="mynbr">
+                    <div class="bestnbr" name="hours">{!! $crs->hours !!}</div>
+                </td>
+                
+                <?php
+                 
+                $total_quizes = Quiz::where('course_id', $crs->id)->count('id');
+                $total_videos = Course_Video::where('course_id', $crs->id)->count('id');
+                $total_lecturer = Lecturer::with('user')->count('id');
+                $total_chapter = Chapter::where('course_id', $crs->id)->count('id');
+
+                ?>
+
+                <td class="myquiz">
+                
+                  
+                    <a href="{{ url('/admin/listofquiz/' . $crs->id) }}" type="button"   class="btn btn-primary onquizes"
+                        id="myvide">  {!!$total_quizes!!} Quizzes</a>
+                </td>
+                <td class="myvideos">
+                 
+                    <div class="vide">
+
+                        <a href="{{ url('admin/courses/videos/' . $crs->id) }}" type="button"
+                            class="btn btn-primary onvideos" id="myvide"> {!!$total_videos!!} Videos</a>
+                        {{-- <button href="{{ route('courses.videos') }}" type="button" class="btn btn-primary onvideos" id="myvide">1830 --}}
+
+                    </div>
+                </td>
+
+                
+                 
+                <td class="myvideos">
+                    
+
+                    <div class="vide">
+                        <a href="{{ url('/admin/chapter/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
+                            id="myvide">{!!$total_chapter!!} Lectures</a>
+                    </div>
+                </td>
+                <td class="optionss">
+                    <div class="myoptionss">
+
+                        <div class="dropdown">
+                            <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                               
+                                </button>
+                                    
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                <li><a href="{{ url('/admin/courses/edit/' . $crs->id) }}">Edit</a></li>
+
+
+                                <li>
+                                    <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$crs->id}}" hit_url="{{ url('/admin/course/delete/' . $crs->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                        <span class="badge bg-info btn-danger ">
+                                            {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span>
+                                    </a>
+                                </li>
+                            </ul>
+
+                        </div>
+                       
+
+                    </div>
+                </td>
+            </tr>
+            </tr>
+        @endforeach
+    </tbody>
+@section('pagination')
+    <span class="pagination pagination-md pull-right">{!! $courses->render() !!}</span>
+@endsection
+{{-- modal open --}}
+
+
+
+
+
+
+
+
+{{-- <div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Choose Product <span class="caret"></span></button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#" data-toggle="modal" data-target="#modal1">Open modal 1</a></li>
+    <li><a href="#" data-toggle="modal" data-target="#modal2">Open modal 2</a></li>
+  </ul>
+</div> --}}
+
+<!--Modal code -->
+{{-- <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="modal1-label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title">Modal 1</h2>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="modal2" tabindex="-1" role="dialog" aria-labelledby="modal1-label">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h2 class="modal-title">Modal 2</h2>
+      </div>
+    </div>
+  </div>
+</div> --}}
+
+
+
+
+
+{{-- modal close --}}
+@stop

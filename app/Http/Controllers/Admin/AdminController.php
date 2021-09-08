@@ -9,6 +9,9 @@ use App\Models\CourseRequest;
 use App\Models\Courses;
 use App\Models\Lecturer;
 use App\Models\PromoCode;
+use App\Models\Chapter;
+use App\Models\Payment;
+use App\Models\Ebooks;
 use App\Models\Test_result;
 use App\Models\Quiz;
 use App\Models\SkillAdvisor;
@@ -17,7 +20,6 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Validator;
-
 
 
 class AdminController extends Controller
@@ -108,11 +110,11 @@ class AdminController extends Controller
 
         ];
 
-        $total_count = Quiz::count('id');
-        $active_count = Quiz::count('id'); // where is_active == 1
+        $total_count = Quiz::wherehas('course')->count('id');
+        $active_count = $total_count;
         $modules[] = [
 
-            'url' => '#',
+            'url' => 'admin/courses',
             'title' => 'Total Quizzes',
             'total' => $total_count,
             'active' => $active_count,
@@ -121,11 +123,12 @@ class AdminController extends Controller
 
 
         ];
-        $total_count = Course_Video::count('id');
-        $active_count = Course_Video::count('id'); // where is_active == 1
+        
+        $total_count = Course_Video::wherehas('course')->count('id');
+        $active_count = $total_count; // where is_active == 1
         $modules[] = [
 
-            'url' => '#',
+            'url' => 'admin/courses',
             'title' => 'Total Videos',
             'total' => $total_count,
             'active' => $active_count,
@@ -138,7 +141,7 @@ class AdminController extends Controller
         $active_count = PromoCode::count('id'); // where is_active == 1
         $modules[] = [
 
-            'url' => 'admin/newpromocode',
+            'url' => 'admin/promocode',
             'title' => 'Promo code',
             'total' => $total_count,
             'active' => $active_count,
@@ -147,19 +150,22 @@ class AdminController extends Controller
 
 
         ];
+
+        $total_count = Payment::count('id');
+        $active_count = $total_count;
         $modules[] = [
 
             'url' => 'admin/listoforder',
             'title' => 'Order',
-            'total' => '3',
-            'active' => '5',
+            'total' => $total_count,
+            'active' => $total_count,
             'image' => 'images/icon-25.png',
             'background-color'=>'green',
 
 
         ];
         $total_count = Lecturer::count('id');
-        $active_count = Lecturer::count('id'); // where is_active == 1
+        $active_count = $total_count;
         $modules[] = [
 
             'url' => 'admin/lecturer',
@@ -210,7 +216,7 @@ class AdminController extends Controller
 
         ];
 
-        $test_result = Test_result::count('id');
+        $test_result = Test::count('id');
         $modules[] = [
 
             'url' => 'admin/test_result',
@@ -225,12 +231,25 @@ class AdminController extends Controller
         $total_count = CourseRequest::count('id');
         $modules[] = [
 
-            'url' => 'admin/courserequest',
+            'url' => 'admin/report/courserequest',
             'title' => 'Request For Course PDF',
             'total' => $total_count,
             'active' => $total_count,
             'image' => 'images/icon-20.png',
             'background-color'=>'red',
+
+
+        ];
+        $total_count = Ebooks::count('id');
+        $active_count = Ebooks::count('id'); // where is_active == 1
+        $modules[] = [
+
+            'url' => 'admin/ebooks',
+            'title' => 'EBooks',
+            'total' => $total_count,
+            'active' => $active_count,
+            'image' => 'images/icon-22.png',
+            'background-color'=>'pink',
 
 
         ];

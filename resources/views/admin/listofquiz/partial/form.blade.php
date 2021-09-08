@@ -43,6 +43,26 @@
     </div>
     <input type="hidden" name="course_id" value="{!! $course_id !!}">
 </div>
+<?php
+
+// dd($test);
+
+?>
+
+<div class="form-group">
+    {!! Form::label('test', 'Test') !!}
+    <div>
+        <div >
+            {!! Form::select('test',$test ?? '',["placeholder"=>"Select
+            test","class"=>"form-control","required"]) !!}
+            </select>
+        </div>
+        </div>
+        </div>
+
+
+
+
 <div class="form-group">
 
     <div class="form-group">
@@ -96,7 +116,7 @@
 
 @section('app_jquery')
 
-  
+
 
     <script>
         function validateForm() {

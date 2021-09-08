@@ -8,7 +8,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use App\Models\Courses;
+use App\Models\Test;
 use App\Models\Quiz;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
+use Maatwebsite\Excel\Facades\Excel;
+use App\libraries\ExportToExcel;
+use PDF;
 
 
 class ListofQuizController extends Controller
@@ -17,9 +23,6 @@ class ListofQuizController extends Controller
 
     public function index($id)
     {
-
-        //  dd($request->all());
-        // $listofquiz = Quiz::paginate(10);
         $couse_id = $id;
         $listofquiz = Quiz::where('course_id', $id)->paginate(10);
         return view('admin.listofquiz.index', compact('listofquiz', 'couse_id'));
@@ -29,9 +32,12 @@ class ListofQuizController extends Controller
     {
         $quiz = new Quiz();
         $control = 'create';
-        return \View::make(
-            'admin.listofquiz.create',
-            compact('control', 'course_id','quiz')
+        // $test =  Quiz::with('test')->find($course_id)->pluck('name');
+        $test =  Quiz::with('choice')->find($course_id)->pluck('test_id');
+
+        // dd( $test);
+
+        return view('admin.listofquiz.create',compact('control', 'course_id','quiz','test')
         );
     }
 
@@ -48,10 +54,12 @@ class ListofQuizController extends Controller
         $control = 'edit';
         $quiz = Quiz::with('choice')->find($id);
         $course_id  =  $quiz->course_id;
-        return \View::make('admin.listofquiz.create', compact(
+        $test =  Quiz::with('choice')->find($id)->pluck('test_id');
+        return view('admin.listofquiz.create', compact(
             'control',
             'quiz',
-            'course_id'
+            'course_id',
+            'test',
         ));
     }
 
@@ -101,5 +109,43 @@ class ListofQuizController extends Controller
             'new_value' => $new_value
         ]);
         return $response;
+    }
+
+
+
+
+
+    public function index_excel(Request $request ,$id)
+    {
+        $quiz = Quiz::where('course_id', $id)->orderBy('id', 'DESC')->get();
+        // dd( $quiz);
+        $view =  view('admin.listofquiz.export', compact('quiz'));
+        //  dd( $view);
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.xlsx');
+
+        return $excel;
+    }
+    public function index_csv(Request $request ,$id)
+    {
+        $quiz = Quiz::where('course_id', $id)->orderBy('id', 'DESC')->get();
+        $view =  view('admin.listofquiz.export', compact('quiz'));
+
+        $export_data = new ExportToExcel($view);
+
+        $excel = Excel::download($export_data, 'course.csv');
+
+        return $excel;
+    }
+
+    public function generatePDF()
+    {
+        $type = 'pdf';
+        $quiz = Quiz::orderBy('id', 'DESC')->get();
+        $pdf = PDF::loadView('admin.listofquiz.export', compact('quiz', 'type'));
+
+        return $pdf->download('HRS-course-list.pdf');
     }
 }

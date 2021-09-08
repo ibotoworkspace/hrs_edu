@@ -68,17 +68,17 @@
                     <div class="bestnbr">{{ $key + 1 }}</div>
                 </td>
                 <td class="hrs">
-                    <div class="besthrs">HRS-{{ $ord->user->id }}</div>
+                    <div class="besthrs">HRS-{{ $ord->user->id ??'' }}</div>
                 </td>
                 <td class="mynbr">
-                    <div class="bestnbr">{{ $ord->user->name }}</div>
+                    <div class="bestnbr">{{ $ord->user->name ??'' }}</div>
                 </td>
                 <td class="mynbr">
                     <div class="bestnbr">--</div>
                 </td>
 
                 <td class="mynbr">
-                    <div class="bestnbr">${{ $ord->registerCourse->course->price }}</div>
+                    <div class="bestnbr">${{ $ord->registerCourse->course->price ??'' }}</div>
                 </td>
                 <td class="mynbr">
                     <div class="bestnbr">{{ $ord->created_at }}</div>
@@ -98,12 +98,10 @@
             </tr>
         @endforeach
 
-
-
-
-
-    </tbody>
-
+</tbody>
+    @section('pagination')
+    <span class="pagination pagination-md pull-right">{!! $orders->render() !!}</span>
+@endsection
 
 
 

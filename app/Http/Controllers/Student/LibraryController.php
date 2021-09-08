@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Course_Registered;
 use App\Models\CourseRequest;
 use App\Models\Courses;
+use App\Models\Ebooks;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,11 +16,8 @@ class LibraryController extends Controller
 {
     public function index(Request $request)
     {
-
         $user_id = Auth::id();
-
-        // $course_pdf = Course_Registered::with('course')->where('user_id',$user_id)->get();
-        $course_pdf = Courses::with(['requestCourse' => function ($q) use ($user_id) {
+        $course_pdf = Ebooks::with(['requestCourse' => function ($q) use ($user_id) {
             $q->where('user_id', $user_id);
         }])->get();
 
@@ -32,20 +30,17 @@ class LibraryController extends Controller
         $user_id = Auth::id();
         $course_request = new CourseRequest();
         $course_request->user_id = $user_id;
-        $course_request->course_id = $request->course_id;
+        $course_request->ebook_id = $request->ebook_id;
         $course_request->save();
-
-
         // return view('studentdashboard.ebooks.index');
         return  back()->with('success', 'Your course request is submited');
     }
 
     public function verifyCode(Request $request)
     {
-
         $user_id = Auth::id();
-        $request_course = CourseRequest::with('course')->where('download_code', $request->code)->where('is_expired', 0)->where('user_id', $user_id)->first();
-
+        $request_course = CourseRequest::with('ebook')->where('download_code', $request->code)->where('is_expired', 0)->where('user_id', $user_id)->first();
+// dd($request_course );
         if ($request_course) {
             $request_course->is_expired = 1;
             $request_course->save();

@@ -39,11 +39,11 @@ class StudentRegistrationController extends Controller
       $userlist = User::find($id);
         if ($userlist) {
          $user =    User::destroy($id);
-      } 
+      }
         $response = Response::json([
             "status" => true,
             'action' => Config::get('constants.ajax_action.delete'),
-          
+
         ]);
         return $response;
     }

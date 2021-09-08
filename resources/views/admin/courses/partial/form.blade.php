@@ -7,6 +7,8 @@
 
 
 
+
+
     <div class="form-group">
 
         {!! Form::label('hours', 'Hours') !!}
@@ -23,6 +25,46 @@
         </div>
 
     </div>
+<?php
+$paid = '';
+if(isset($courses)){
+if($courses->is_paid){
+
+    $paid = $courses->is_paid;
+
+}
+
+
+}
+
+
+
+
+?>
+
+    {{-- <div class="form-group">
+
+        <select class="form-control" name="product_id">
+            <option>Select Item</option>
+            @foreach ($items as $key => $value)
+            <option value="1">1</option>
+            <option value="0">0</option>
+                    {{ $value }}
+                </option>
+            @endforeach
+        </select>
+
+    </div> --}}
+
+    {!! Form::label('is_paid', 'Is Paid') !!}
+    <div class="form-group">
+        {!! Form::select('is_paid', array('1' => 'True', '0' => 'False'), null,['çlass'=>'form-control']); !!}
+
+    </div>
+</div>
+
+
+
     <div class="form-group">
         {!! Form::label('Course Badge', 'Course Badge') !!}
         <div>
@@ -61,8 +103,24 @@
 
     <span id="err" class="error-product"></span>
 
+    <?php
+    $avatar = asset('images/courses1.png');
+    $popular_check = '';
+    // dd($courses);
+    if (isset($courses)) {
+    if ($courses->is_popular) {
+        $popular_check = 'checked';
 
-    <div class="form-group col-md-12">
+    }
+    }
+    ?>
+
+    <div class="form-check">
+        <input type="checkbox" name="is_popular" {!!$popular_check!!} value="1" class="form-check-input">
+        <label class="form-check-label" for="exampleCheck1"> Popular Courses</label>
+    </div>
+
+      <div class="form-group col-md-12">
     </div>
 
     <div class="form-group">
@@ -71,7 +129,7 @@
             <textarea class="ckeditor form-control" id="overview" name="overview">{!! $courses->overview ??'' !!}</textarea>
         </div>
     </div>
-    <div class="form-group">
+    {{-- <div class="form-group">
         {!! Form::label('PDF File', 'PDF File') !!}
         <div>
 
@@ -83,17 +141,17 @@
         <div>
             <input type="file" class="form-control-file" id="book_avatar" name="book_avatar">
         </div>
-    </div>
+    </div> --}}
 
 
-    <div class="form-group">
+    {{-- <div class="form-group">
 
         {!! Form::label('pdf url', 'PDF Url') !!}
         <div>
             {!! Form::text('pdf_url', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'PDF Url']) !!}
         </div>
 
-    </div>
+    </div> --}}
 
 
     <div class="form-group">
@@ -103,6 +161,7 @@
                 name="learning_path">{!! $courses->learning_path ??'' !!}</textarea>
         </div>
     </div>
+
 
 
 

@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth.client_token','prefix'=>'user'], function ()
     Route::get('/showScore', 'services\TestController@showScore');
     Route::post('/saveTest', 'services\TestController@testSave');
 
-    //payment 
+    //payment
     // Route::get('/makepayment', 'Student\PaymentController@make_payment')
     //
 

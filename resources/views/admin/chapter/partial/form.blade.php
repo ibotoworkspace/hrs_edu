@@ -41,7 +41,7 @@
 
     <div class="col-sm-4">
         <div class="maincourse">
-            Total Lecture
+            Lecture Number
         </div>
     </div>
 
@@ -49,7 +49,7 @@
     <div class="col-sm-6">
         <div class="maininput">
             <input type="number" class="form-control" id="lecture" name="lecture" value="{{ $chapter->lecture ?? '' }}"
-                aria-describedby="emailHelp" placeholder="Enter total lecture here">
+                aria-describedby="emailHelp" placeholder="Enter lecture number here">
         </div>
     </div>
 
@@ -73,7 +73,7 @@
     </div>
 </div>
 <input name="course_id" value="{!! $courses->id ?? $chapter->course_id !!}" hidden />
-<div class="row">
+{{-- <div class="row">
 
     <div class="col-sm-4">
         <div class="maincourse">
@@ -89,7 +89,7 @@
         </select>
 
     </div>
-</div>
+</div> --}}
 
 
 

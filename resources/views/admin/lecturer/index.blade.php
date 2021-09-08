@@ -18,23 +18,19 @@
 
 
 
-
-
-
-
 @section('table')
     {{-- {!! Form::open(['method' => 'get', 'route' => ['courses.search'], 'files' => true]) !!}
     @include('admin.courses.partial.searchfilters')
     {!! Form::close() !!} --}}
 
-    <div class="ableclick">
+    {{-- <div class="ableclick">
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
             <a href="{{ asset('admin/lecturer/excel') }}" style="color: #fff"> Excel</a> </button>
         <button type="button" class="btn btn-primary myopen" id="mybutonarea">
             <a href="{{ asset('admin/lecturer/csv') }}" style="color: #fff">CSV</a> </button>
         <button type="button" class="btn btn-primary myopen" id="mybuttoner"> <a href="{{ asset('admin/lecturer/pdf') }}"
                 style="color: #fff">PDF</a> </button>
-    </div>
+    </div> --}}
 
 
 

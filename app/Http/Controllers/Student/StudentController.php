@@ -120,7 +120,7 @@ class StudentController extends Controller
     function dashboard()
     {
         $student = Auth::user();
-        $student_courses = Course_Registered::where('user_id', $student->id)->with('course.test')->get();
+        $student_courses = Course_Registered::wherehas('course')->where('user_id', $student->id)->with('course.test')->get();
         $student_common = new \stdClass();
         $student_common->student = $student;
         $student_common->courses = $student_courses;
@@ -145,7 +145,7 @@ class StudentController extends Controller
         if (Auth::attempt($user_data)) {
 
             $user = User::where('email', $user_data['email'])->first();
-           
+
             if ($user->role_id == Config::get('constants.role_id.student')) {
                 return redirect('student/dashboard');
             } elseif ($user->role_id == Config::get('constants.role_id.skilladvisor')) {

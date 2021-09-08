@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Config;
 use App\Models\PromoCode;
 use Maatwebsite\Excel\Facades\Excel;
 use PDF;
+use Illuminate\Support\Carbon;
 use App\Libraries\ExportToExcel;
 
 class PromoCodeController extends Controller
@@ -23,9 +24,10 @@ class PromoCodeController extends Controller
     public function create()
     {
         $control = 'create';
+        $new_date = '';
         return \View::make(
             'admin.promocode.create',
-            compact('control')
+            compact('control','new_date')
         );
     }
 
@@ -43,22 +45,30 @@ class PromoCodeController extends Controller
     }
     public function edit($id)
     {
+        // dd($id);
 
         $control = 'edit';
         $promocode = PromoCode::find($id);
+        // $new_date = Carbon::parse($promocode->validity)->format('Y-m-d');//m/d/Y;
+
+        $new_date = date('Y-m-d', $promocode->validity);
+       
+        // dd($new_date);
+      
 
         return \View::make('admin.promocode.create', compact(
             'control',
-            'promocode'
+            'promocode',
+            'new_date'
 
         ));
     }
 
     public function update(Request $request, $id)
     {
+      
         $promocode = PromoCode::find($id);
         // $courses = Courses::find($id);
-
         $this->add_or_update($request, $promocode);
         return Redirect('admin/promocode');
     }
@@ -71,7 +81,7 @@ class PromoCodeController extends Controller
         $promocode->percentage =   $request->percentage;
         $promocode->code =   $request->code;
         $promocode->validity =   strtotime($request->validity);
-        $promocode->used_times =   $request->usedtimes;
+        $promocode->used_times =   $request->used_times;
         $promocode->is_active =   $request->is_active;
         $promocode->save();
 
