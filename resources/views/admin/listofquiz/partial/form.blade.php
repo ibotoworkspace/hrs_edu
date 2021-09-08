@@ -53,12 +53,19 @@
     {!! Form::label('test', 'Test') !!}
     <div>
         <div >
-            {!! Form::select('test',$test ?? '',["placeholder"=>"Select
+            {!! Form::select('test',$test,["placeholder"=>"Select
             test","class"=>"form-control","required"]) !!}
             </select>
         </div>
         </div>
         </div>
+        {{-- <div class="form-group">
+            {!! Form::label('test', 'Test') !!}
+            <div>
+                {!! Form::text('test', $test->name, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Question', 'required', 'maxlength' => '100']) !!}
+            </div>
+
+        </div> --}}
 
 
 
