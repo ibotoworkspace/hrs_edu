@@ -53,7 +53,7 @@
     {!! Form::label('test', 'Test') !!}
     <div>
         <div >
-            {!! Form::select('test',$test,["placeholder"=>"Select
+            {!! Form::select('test',$test ?? '',["placeholder"=>"Select
             test","class"=>"form-control","required"]) !!}
             </select>
         </div>
@@ -116,7 +116,7 @@
 
 @section('app_jquery')
 
-  
+
 
     <script>
         function validateForm() {

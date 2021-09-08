@@ -20,7 +20,7 @@ else{
     @include('admin.listofquiz.partial.form')
     {!!Form::close()!!}
 
-   
+
     <div class="col-md-5 pull-left">
         <div class="form-group text-center">
             <div>
