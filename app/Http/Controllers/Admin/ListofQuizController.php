@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use App\Models\Courses;
-use App\Models\Test;
 use App\Models\Quiz;
+use App\Models\Test;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Maatwebsite\Excel\Facades\Excel;
@@ -32,11 +32,8 @@ class ListofQuizController extends Controller
     {
         $quiz = new Quiz();
         $control = 'create';
-        // $test =  Quiz::with('test')->find($course_id)->pluck('name');
-        $test =  Quiz::with('choice')->find($course_id)->pluck('test_id');
-
+        $test = Test::where('course_id',$course_id)->get()->pluck('name');
         // dd( $test);
-
         return view('admin.listofquiz.create',compact('control', 'course_id','quiz','test')
         );
     }
@@ -54,12 +51,15 @@ class ListofQuizController extends Controller
         $control = 'edit';
         $quiz = Quiz::with('choice')->find($id);
         $course_id  =  $quiz->course_id;
-        $test =  Quiz::with('choice')->find($id)->pluck('test_id');
+        $test = Test::where('course_id',$course_id)->get()->pluck('name');
+
         return view('admin.listofquiz.create', compact(
             'control',
             'quiz',
             'course_id',
             'test',
+
+
         ));
     }
 
