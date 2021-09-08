@@ -46,6 +46,7 @@ Route::group(['middleware' => 'auth.client_token','prefix'=>'user'], function ()
     Route::get('/startTest', 'services\TestController@start_test');
     Route::get('/showScore', 'services\TestController@showScore');
     Route::post('/saveTest', 'services\TestController@testSave');
+    Route::post('/ebooksList', 'services\EbooksController@get_ebooks');
 
     //payment
     // Route::get('/makepayment', 'Student\PaymentController@make_payment')
