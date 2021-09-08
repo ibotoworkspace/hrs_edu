@@ -32,7 +32,7 @@ class ListofQuizController extends Controller
     {
         $quiz = new Quiz();
         $control = 'create';
-        $test = Test::where('course_id',$course_id)->get()->pluck('name');
+        $test = Test::where('course_id',$course_id)->get()->pluck('name','id');
         // dd( $test);
         return view('admin.listofquiz.create',compact('control', 'course_id','quiz','test')
         );
@@ -51,7 +51,10 @@ class ListofQuizController extends Controller
         $control = 'edit';
         $quiz = Quiz::with('choice')->find($id);
         $course_id  =  $quiz->course_id;
-        $test = Test::where('course_id',$course_id)->get()->pluck('name');
+        // $test_id  =  $quiz->test;
+        // // $test = Quiz::where('course_id',$course_id)->get();
+        $test = Test::where('course_id',$course_id)->get()->pluck('name','id');
+        // dd( $id);
 
         return view('admin.listofquiz.create', compact(
             'control',
@@ -79,7 +82,9 @@ class ListofQuizController extends Controller
 
         $quiz = new Quiz();
         $quiz->question = $request->question;
-        $quiz->course_id = $request->course_id;
+        $test = Test::find($request->test_id);
+        $quiz->test_id = $request->test_id;
+        $quiz->course_id = $test->course_id;
         $quiz->save();
         //    dd($request->all());
         foreach ($request->choices as $key => $ch) {
@@ -89,6 +94,11 @@ class ListofQuizController extends Controller
             $choice->is_correct = $key == $ch[$request->correct_choice - 1] ? 1 : 0;
             $choice->save();
         }
+        $test = new Test();
+        $test->course_id = $test->course_id;
+        // $test->id = $request->test_id;
+        $test->save();
+
     }
 
 

@@ -73,14 +73,14 @@ class QuestionController extends Controller
 
         $quiz->question_type = $request->question_type;
         $quiz->save();
-        
+
         if($quiz->choice){
             $ids = [];
             foreach($quiz->choice as $c){
                $ids []= $c->id;
             }
             $choice = Choices::destroy($ids);
-        }        
+        }
         //    dd($request->all());
         foreach ($request->choices as $key => $ch) {
             $choice = new Choices();

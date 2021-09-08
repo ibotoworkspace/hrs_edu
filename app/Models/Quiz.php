@@ -16,4 +16,7 @@ class Quiz extends Model
     public function course(){
         return $this->hasOne('App\Models\Courses','id','course_id');
     }
+    public function test(){
+        return $this->hasOne('App\Models\Test','id','test_id');
+    }
 }

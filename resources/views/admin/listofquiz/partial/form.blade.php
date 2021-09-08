@@ -53,7 +53,8 @@
     {!! Form::label('test', 'Test') !!}
     <div>
         <div >
-            {!! Form::select('test', $test,null, ['class' => 'form-control',  'required', 'maxlength' => '100']) !!}
+            {!! Form::select('test_id', $test,null, ['class' => 'form-control',  'required', 'maxlength' => '100']) !!}
+
             </select>
         </div>
         </div>
