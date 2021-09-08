@@ -21,7 +21,13 @@ class EbooksController extends Controller
     {
 
         try {
-            $ebooks = Ebooks::paginate(10,['id','name','avatar']);
+            $course_name = $request->course_name?? '';
+            if($request->course_id){
+                $ebooks = Ebooks::where('course_id',$request->course_id)->get(['id','name','avatar']);
+            }
+            else{
+                $ebooks = Ebooks::where('name','like','%'.$course_name.'%')->get(['id','name','avatar']);
+            }
             $ebooks = $ebooks->items();
             return $this->sendResponse(200, $ebooks);
         } catch (\Exception $e) {
