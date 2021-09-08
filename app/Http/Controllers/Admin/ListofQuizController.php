@@ -32,10 +32,11 @@ class ListofQuizController extends Controller
     {
         $quiz = new Quiz();
         $control = 'create';
-        $test =  Test::find($course_id)->pluck('name');
-      
+        // $test =  Quiz::with('test')->find($course_id)->pluck('name');
+        $test =  Quiz::with('choice')->find($course_id)->pluck('test_id');
+
         // dd( $test);
-        
+
         return view('admin.listofquiz.create',compact('control', 'course_id','quiz','test')
         );
     }
@@ -53,7 +54,7 @@ class ListofQuizController extends Controller
         $control = 'edit';
         $quiz = Quiz::with('choice')->find($id);
         $course_id  =  $quiz->course_id;
-        $test =  Test::find($course_id)->pluck('name');
+        $test =  Quiz::with('choice')->find($id)->pluck('test_id');
         return view('admin.listofquiz.create', compact(
             'control',
             'quiz',
