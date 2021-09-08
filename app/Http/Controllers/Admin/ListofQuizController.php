@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Config;
 use App\Models\Courses;
+use App\Models\Test;
 use App\Models\Quiz;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -31,7 +32,10 @@ class ListofQuizController extends Controller
     {
         $quiz = new Quiz();
         $control = 'create';
-        return view('admin.listofquiz.create',compact('control', 'course_id','quiz')
+        $test =  Test::find($course_id)->pluck('name');
+        // dd( $test);
+        
+        return view('admin.listofquiz.create',compact('control', 'course_id','quiz','test')
         );
     }
 
