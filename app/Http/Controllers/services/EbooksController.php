@@ -32,7 +32,7 @@ class EbooksController extends Controller
                 })
                 ->get(['id','name','avatar']);
             }
-            $ebooks = $ebooks->items();
+            // $ebooks = $ebooks->items();
             return $this->sendResponse(200, $ebooks);
         } catch (\Exception $e) {
             return [
