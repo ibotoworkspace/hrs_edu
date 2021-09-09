@@ -61,6 +61,7 @@
     </thead>
     <tbody>
         @foreach ($groups as $key => $gr)
+
             <tr class="myarrow">
                 <td class="mynbr">
                     <div class="bestnbr">{{ $key + 1 }}</div>

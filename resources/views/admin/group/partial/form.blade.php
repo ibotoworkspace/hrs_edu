@@ -82,7 +82,7 @@ $selected_users = $group->groupUser->pluck('user_id')->toArray();
         {!! Form::label('lecturers', 'Select lecturers') !!}
         <div>
             <div >
-                {!! Form::select('lecturers', $lecturers ,null, ['class' => 'form-control',  'required']) !!}
+                {!! Form::select('lecturer_id', $lecturers ,null, ['class' => 'form-control',  'required']) !!}
 
                 </select>
             </div>

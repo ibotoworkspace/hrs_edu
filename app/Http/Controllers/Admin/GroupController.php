@@ -26,6 +26,7 @@ class GroupController extends Controller
 
         $groups = Group::with('groupUser.user', 'course', 'lecturer.user')->orderBy('id', 'DESC')->paginate(10);
 
+
         return view('admin.group.index', compact('groups'));
     }
     public function create()
@@ -63,9 +64,14 @@ class GroupController extends Controller
         $control = 'edit';
         $group = Group::with('groupUser.user', 'course', 'lecturer','skilladvisor')->find($id);
         $users = User::where('role_id', 2)->get();
-        $lecturers = Lecturer::with('user')->where('is_approve',1)->get();
+        $lecturers_obj = Lecturer::with('user')->where('is_approve',1)->get();
         $skilladvisors = SkillAdvisor::where('status','approved')->pluck('name','id');
         $courses = Courses::get();
+        $lecturers = [];
+
+        foreach($lecturers_obj as $lec){
+            $lecturers[$lec->id] = $lec->user->name;
+        }
         return \View::make('admin.group.create', compact(
             'control',
             'courses',
