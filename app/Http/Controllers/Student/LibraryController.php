@@ -33,7 +33,7 @@ class LibraryController extends Controller
         $course_request->ebook_id = $request->ebook_id;
         $course_request->save();
         // return view('studentdashboard.ebooks.index');
-        return  back()->with('success', 'Your course request is submited');
+        return  back()->with('success', 'Your course request is submited',);
     }
 
     public function verifyCode(Request $request)
