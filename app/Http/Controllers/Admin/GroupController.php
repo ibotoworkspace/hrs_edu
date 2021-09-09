@@ -32,10 +32,20 @@ class GroupController extends Controller
     {
         $control = 'create';
         $users = User::where('role_id', 2)->get();
-        $lecturers = Lecturer::with('user')->where('is_approve',1)->get();
+        $lecturers_obj = Lecturer::with('user')->where('is_approve',1)->get();
         $courses = Courses::get();
+        $skilladvisors = SkillAdvisor::where('status','approved')->pluck('name','id');
 
-        return view('admin.group.create', compact('control', 'users', 'lecturers', 'courses'));
+        $lecturers = [];
+
+        foreach($lecturers_obj as $lec){
+            $lecturers[$lec->id] = $lec->user->name;
+        }
+
+
+        // dd($lecturers);
+
+        return view('admin.group.create', compact('control', 'users', 'lecturers', 'courses','skilladvisors'));
     }
 
     public function save(Request $request)
@@ -51,9 +61,10 @@ class GroupController extends Controller
     public function edit($id)
     {
         $control = 'edit';
-        $group = Group::with('groupUser.user', 'course', 'lecturer')->find($id);
+        $group = Group::with('groupUser.user', 'course', 'lecturer','skilladvisor')->find($id);
         $users = User::where('role_id', 2)->get();
-        $lecturers = Lecturer::with('user')->get();
+        $lecturers = Lecturer::with('user')->where('is_approve',1)->get();
+        $skilladvisors = SkillAdvisor::where('status','approved')->pluck('name','id');
         $courses = Courses::get();
         return \View::make('admin.group.create', compact(
             'control',
@@ -61,6 +72,7 @@ class GroupController extends Controller
             'group',
             'lecturers',
             'users',
+            'skilladvisors',
 
         ));
     }
@@ -85,6 +97,7 @@ class GroupController extends Controller
         $group->start_date = strtotime($request->start_date);
         $group->end_date = strtotime($request->end_date);
         $group->is_active = $request->is_active;
+        $group->sda_id = $request->sda_id;
         $group->save();
 
         foreach ($request->user_check as $user) {

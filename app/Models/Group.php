@@ -23,4 +23,8 @@ class Group extends Model
     {
         return $this->hasMany('App\Models\GroupUser', 'group_id', 'id');
     }
+    public function skilladvisor()
+    {
+        return $this->hasOne('App\Models\SkillAdvisor', 'id', 'sda_id');
+    }
 }
