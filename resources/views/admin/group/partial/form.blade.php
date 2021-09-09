@@ -47,27 +47,56 @@ $selected_users = $group->groupUser->pluck('user_id')->toArray();
             </select>
         </div>
     </div>
+ <?php
+ $skill = '';
+ if (isset($group)){
+    //  dd($group);
+ if ($group->skilladvisor){
+    $skill = $group->skilladvisor->id;
+    // dd( $skill);
+
+ }
+}
+
+
+
+ ?>
+
+ {{-- {{dd($group->skilladvisor->name)}}; --}}
     <div class="form-group">
 
-        <div>
-            <label for="sda">Select Skill Advisor</label>
+                {!! Form::label('skilladvisor', 'Select Skill Advisor') !!}
+                <div>
+                    <div >
+                        {!! Form::select('sda_id', $skilladvisors ,null, ['class' => 'form-control',  'required']) !!}
 
-            <select id="lecturer_id" name="lecturer_id" class='form-control' required>
+                        </select>
+                    </div>
 
-                @if (isset($group->skilladvisor))
 
-                    <option value="{{ $group->skilladvisor->id }}" selected>{{ $group->skilladvisor->name }}
-                    </option>
-                @endif
-                
-                @foreach ($lecturers as $lec)
-                    <option value="{{ $lec->id }}">{{ $lec->user->name }}</option>
-                @endforeach
-
-            </select>
-        </div>
 
     </div>
+    </div>
+    <div class="form-group">
+
+        {!! Form::label('lecturers', 'Select lecturers') !!}
+        <div>
+            <div >
+                {!! Form::select('lecturers', $lecturers ,null, ['class' => 'form-control',  'required']) !!}
+
+                </select>
+            </div>
+
+
+
+</div>
+</div>
+
+
+
+    {{-- @foreach ($lecturers as $lec)
+    <option value="{{ $lec->id }}">{{ $lec->user->name }}</option>
+@endforeach --}}
     <div class="form-group">
 
         {!! Form::label('link', 'Class Link') !!}
