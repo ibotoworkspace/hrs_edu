@@ -85,10 +85,29 @@ ul.nav.navbar-nav.side-nav.mysidemenu {
     height: 43px;
     width: 43px;
 }
+div#fixmodal {
+    /* background-color: slategrey; */
+    background-color: black;
+}
+span#close {
+    font-size: 39px;
+    color: red;
+}
+button#closerbtnn {
+    float: unset;
+    margin-left: 1507px;
+    background-color: antiquewhite;
+}
+
+
 .leadrning:hover {
     background: #bfb28e !important;
     border-color: #bfb28e !important;
     color: white !important;
+}
+div#confirmmodalss {
+    margin-left: -402px;
+    width: 1615px;
 }
 .twoheader {
     background: #BFB28E !important;
