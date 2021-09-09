@@ -60,9 +60,9 @@ $courses = $student_common->courses;
                             <div class="infoboxdata row">
                                 <div class="infoboxdatatext col-sm-8">
                                     <h4>Ticket</h4>
-                               
+
                                     <h3>Need help? Check out our help desk</h3>
-                                  
+
                                        <a href="{{ asset('student/viewticket') }}"><button type="button"
                                         class="btn btn-primary desk">HELP DESK</button></a>
                                 </div>
@@ -115,18 +115,18 @@ $courses = $student_common->courses;
                                                     </form>
                                                 @else
                                                     <td>
-                                                        <button type="button" class="btn btn-primary payment"
+                                                        <button type="button" class="btn btn-primary mypayment"
                                                             onclick="window.location.href='{{ asset('student/course/detail?course_id=' . $course_id) }}';">View
                                                             Course</button>
                                                     </td>
-                                                    
+
                                                     @if ($r_course->test)
                                                     <td>
                                                         <button type="button" class="btn btn-primary payment"
                                                             onclick="window.location.href='{{ asset('student/course/detail?course_id=' . $course_id) }}';">Start test</button>
                                                     </td>
                                                     @endif
-                                                   
+
 
                                                 @endif
                                             </tr>

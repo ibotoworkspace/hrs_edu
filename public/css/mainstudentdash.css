@@ -81,6 +81,12 @@ ul.nav.navbar-nav.side-nav.mysidemenu {
     padding-top: 8px;
     margin-top: 2px;
 }
+button.btn.btn-primary.mypayment {
+    padding-right: 38px;
+    background: #243439 !important;
+    border-color: #243439 !important;
+    padding-left: 16px;
+}
 .show-product-img {
     height: 43px;
     width: 43px;

@@ -34,7 +34,7 @@
 
                     <div class="row subrow">
                         <div class="col-sm-12">
-                            <h3>View a Ticket</h3>
+                            <h3>View  Ticket</h3>
                         </div>
                     </div>
 
