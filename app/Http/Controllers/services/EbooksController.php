@@ -30,7 +30,7 @@ class EbooksController extends Controller
                 ->orwhereHas('course',function($q)use($course_name){
                     $q->where('title','like','%'.$course_name.'%');
                 })
-                ->get(['id','name','avatar']);
+                ->get(['id','name','avatar','book_url']);
             }
             // $ebooks = $ebooks->items();
             return $this->sendResponse(200, $ebooks);
