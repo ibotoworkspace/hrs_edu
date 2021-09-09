@@ -23,7 +23,7 @@ class EbooksController extends Controller
         try {
             $course_name = $request->course_name?? '';
             if($request->course_id){
-                $ebooks = Ebooks::where('course_id',$request->course_id)->get(['id','name','avatar']);
+                $ebooks = Ebooks::where('course_id',$request->course_id)->get(['id','name','avatar','book_url']);
             }
             else{
                 $ebooks = Ebooks::where('name','like','%'.$course_name.'%')
