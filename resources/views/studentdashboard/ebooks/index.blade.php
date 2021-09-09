@@ -58,6 +58,7 @@
                                     placeholder="Enter Code here...">
                                 <button type="submit" onclick="getCode()" class="btn btn-primary bookclick"> Get
                                     Book </button>
+
                                     <div class="pdf-download">
 
                                     </div>
@@ -67,16 +68,25 @@
                         </div>
                     </div>
                     @foreach ($course_pdf as $c_pdf)
+                    <?php
+
+// dd($c_pdf);
+
+
+
+?>
                         {{-- @endif --}}
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="myheader">
+                            <div class="col-sm-5">
                                 <?php $thumnail_book = '';?>
                                 <img src="{!! $c_pdf->avatar ?? asset('images/mypdf.png') !!}" class="show-product-img img-responsive">
                                 <p>{{ $c_pdf->name }}</p>
                             </div>
+                            </div>
                             {{-- @if (isset($c_pdf->requestCourse->can_download) && $c_pdf->requestCourse->can_download == 1) --}}
 
-                            <div class="col-sm-6">
+                            <div class="col-sm-2">
                                 {{-- @if (isset($c_pdf->requestCourse->can_download) && $c_pdf->requestCourse->can_download == 1)
                                     <button type="button" class="btn btn-primary down"><i
                                             class="fa fa-long-arrow-down arrow" aria-hidden="true"></i>Download</button>
@@ -85,10 +95,21 @@
                                     @csrf()
                                     <input name="ebook_id" value="{{ $c_pdf->id }}" hidden>
                                     <button type="submit" class="btn btn-primary for">Request for Download</button>
+                                    {{-- <button type="submit" class="btn btn-primary for">View</button> --}}
                                 </form>
+
+
 
                                 {{-- @endif --}}
                             </div>
+                            <div class="col-sm-3">
+                                {{-- <button type="submit" class="btn btn-primary for">View</button> --}}
+                                <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!!  $c_pdf->id !!}">
+                                    <span  class="btn btn-primary for">
+                                        View</span></a>
+                                @include('studentdashboard.ebooks.partial.pdf_modal',['video'=>$c_pdf])
+                            </div>
+
                             {{-- <div class="col-sm-4">
                                 @if (isset($c_pdf->requestCourse->can_download) && $c_pdf->requestCourse->can_download == 0)
                                     <button type="button" class="btn btn-primary for">Request for Download</button>
@@ -160,7 +181,7 @@
 
         function removeBtn(e){
             setTimeout(function(){
-                $('#download_link').remove();    
+                $('#download_link').remove();
             },2000)
         }
 
