@@ -63,6 +63,7 @@ class StudentController extends Controller
     }
     public function add_lecturer($user, $request)
     {
+
         if ($request->name) {
             $user->name = $request->name;
         }

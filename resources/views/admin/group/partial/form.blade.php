@@ -63,7 +63,7 @@ $selected_users = $group->groupUser->pluck('user_id')->toArray();
  ?>
 
  {{-- {{dd($group->skilladvisor->name)}}; --}}
-    <div class="form-group">
+    {{-- <div class="form-group">
 
                 {!! Form::label('skilladvisor', 'Select Skill Advisor') !!}
                 <div>
@@ -76,7 +76,7 @@ $selected_users = $group->groupUser->pluck('user_id')->toArray();
 
 
     </div>
-    </div>
+    </div> --}}
     <div class="form-group">
 
         {!! Form::label('lecturers', 'Select lecturers') !!}
