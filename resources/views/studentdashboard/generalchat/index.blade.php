@@ -119,7 +119,7 @@
                 </footer>
             </div>
         </div>
-
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
     @section('app_jquery')
         <script>
             let last_msg_id = '{!! $last_msg_id !!}';
@@ -152,27 +152,27 @@
             setTimeout(page_scroll_bottom, 500);
 
             function user_chat_html(msg) {
-                return `<div class="chatbox-user">
-                                                                                <a href="javascript:;" class="chat-avatar pull-right">
-                                                                                 <img src="https://picsum.photos/200/300/?blur"
-                                                                                  class="img-circle"
-                                                                                  title="{!! $student_common->student->name !!}" alt="">
-                                                                                </a>
-                                                                                <div class="message ">
-                                                                                 <div id="last_msg" class="panel">
-                                                                                  <div class="panel-body">
-                                                                                   <p>` + msg + `</p>
-                                                                                  </div>
-                                                                                 </div>
-                                                                                 <small class="chat-time">
-                                                                                  <i class="ti-time mr5"></i>
-                                                                                  <b>0 minutes ago</b>
-                                                                                  <input type="checkbox" class="ti-check text-success no-borders">
-                                                                                  <span class="ti-check text-success" > </span>
-                                                                                 </small>
-                                                                                </div>
-                                                                               </div>`;
-            }
+            return `<div class="chatbox-user">
+                                <a href="javascript:;" class="chat-avatar pull-right">
+                                 <img src="https://picsum.photos/200/300/?blur"
+                                  class="img-circle"
+                                  title="{!! $student_common->student->name !!}" alt="">
+                                </a>
+                                <div class="message">
+                                 <div id="last_msg" class="panel">
+                                  <div class="panel-body">
+                                   <p>` + msg + `</p>
+                                  </div>
+                                 </div>
+                                 <small class="chat-time">
+                                  <i class="ti-time mr5"></i>
+                                  <b>0 minutes ago</b>
+                                  <input type="checkbox" class="ti-check text-success no-borders">
+                                  <span class="ti-check text-success" > </span>
+                                 </small>
+                                </div>
+                               </div>`;
+        }
 
             function page_scroll_bottom() {
                 var checkFocus = $(".no-borders");
@@ -205,29 +205,26 @@
                         data = JSON.parse(data);
                         console.log("data :", data)
                         //append
-                        var html = `
-
-
-                        <div class="chatbox-user right">
-                            <a href="javascript:;" class="chat-avatar pull-right">
-                                <img src="https://picsum.photos/200/300/?blur" class="img-circle" title="{!! $student_common->student->name !!}" alt="">
-                            </a>
-                            <div class="chatMessage">
-                                <div class="panel">
-                                    <div class="panel-body">
-                                        <p>` + msg + `</p>
-                                    </div>
+                        var html = `<div class="chatbox-user right">
+                                <a href="javascript:;" class="chat-avatar pull-right">
+                                 <img src="https://picsum.photos/200/300/?blur"
+                                  class="img-circle"
+                                  title="{!! $student_common->student->name !!}" alt="">
+                                </a>
+                                <div class="message">
+                                 <div id="last_msg" class="panel">
+                                  <div class="panel-body">
+                                   <p>` + msg + `</p>
+                                  </div>
+                                 </div>
+                                 <small class="chat-time">
+                                  <i class="ti-time mr5"></i>
+                                  <b>0 minutes ago</b>
+                                  <input type="checkbox" class="ti-check text-success no-borders">
+                                  <span class="ti-check text-success" > </span>
+                                 </small>
                                 </div>
-                                <small class="chat-time">
-                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
-                                    <b>0 minutes ago</b>
-
-                                    <i class="fa fa-check text-success no-borders" aria-hidden="true"></i>
-                                </small>
-                            </div>
-                        </div>
-                                                                               
-                                                                               `;
+                               </div>`;
                         $('#chating').append(html);
                         $('#text_msg').val('');
                         var checkFocus = $(".no-borders");

@@ -12,7 +12,9 @@ class DiscussionController extends Controller
     public function generalchatList()
     {
         $admin_common = session()->get('admin_common');
+        // dd( $admin_common);
         $chat = Discussion::with('user')->where('is_general', 1)->orderBy('created_at', 'DESC')->paginate(10);
+            //   dd( $chat);
         foreach ($chat as $c) {
             $c->created_on = $this->created_at_msg_time($c->created_at);
         }

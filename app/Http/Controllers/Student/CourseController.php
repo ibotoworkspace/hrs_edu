@@ -48,7 +48,7 @@ class CourseController extends Controller
     }
 
     public function courseDetail(Request $request)
-    
+
     {
 
         $course_id = decrypt($request->course_id);
@@ -157,6 +157,7 @@ class CourseController extends Controller
     public function generalchatList()
     {
         $student_common = session()->get('student_common');
+        // dd(  $student_common);
         $chat = Discussion::with('user')->where('is_general', 1)->orderBy('created_at', 'DESC')->paginate(10);
         foreach ($chat as $c) {
             $c->created_on = $this->created_at_msg_time($c->created_at);
@@ -213,7 +214,7 @@ class CourseController extends Controller
         return redirect('student/discussion/' . $request->group_id);
     }
 
-    // is class methoods start 
+    // is class methoods start
 
     public function chatList($id)
     {
@@ -248,6 +249,7 @@ class CourseController extends Controller
 
     public function latestChat(Request $request)
     {
+        // dd($request->all());
 
         $chat = Discussion::where('group_id', $request->group_id)
             // ->where('sender','user')
