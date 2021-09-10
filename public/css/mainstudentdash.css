@@ -87,6 +87,9 @@ button.btn.btn-primary.mypayment {
     border-color: #243439 !important;
     padding-left: 16px;
 }
+div#generals {
+    margin-bottom: 20px;
+}
 .show-product-img {
     height: 43px;
     width: 43px;
