@@ -103,7 +103,7 @@ class GroupController extends Controller
         $group->start_date = strtotime($request->start_date);
         $group->end_date = strtotime($request->end_date);
         $group->is_active = $request->is_active;
-        $group->sda_id = $request->sda_id;
+        $group->sda_id = 0;
         $group->save();
 
         foreach ($request->user_check as $user) {

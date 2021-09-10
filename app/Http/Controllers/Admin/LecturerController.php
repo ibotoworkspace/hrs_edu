@@ -73,13 +73,13 @@ class LecturerController extends Controller
 
 
     {
-        
+
         // $validate = $this->validate($request, [
         //     'email' => 'required|email|unique:users',
-            
+
         // ]);
 
-        
+
 
 
     $validator =  $this->validate($request, [
@@ -88,7 +88,7 @@ class LecturerController extends Controller
 
 
         // dd('passed');
-   
+
         $user->name = $request->name;
         $user->email = $request->email;
         $user->save();
@@ -99,7 +99,7 @@ class LecturerController extends Controller
         $lecturer->save();
 
         return redirect()->back();
-    
+
 
     }
 

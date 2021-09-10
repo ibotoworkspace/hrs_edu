@@ -7,6 +7,7 @@
         opacity: 0;
     }
 
+
     .no-borders:focus {}
 
 </style>
