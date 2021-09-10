@@ -188,7 +188,7 @@ class CourseController extends Controller
     public function generallatestChat(Request $request)
     {
 
-        $chat = Discussion::where('group_id', $request->group_id)
+        $chat = Discussion::where('is_general', 1)
             // ->where('sender','user')
             ->where('id', '>', $request->msg_id)
             ->orderBy('created_at', 'DESC')->get();

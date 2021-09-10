@@ -8,17 +8,22 @@
             margin-top: 135px;
             margin-bottom: 200px;
         }
+        .mainChatArea .panel-body {
+    padding: 15px;
+    background: darkgrey;
+    font-size: 14px;
+}
 
         .chatMessage {
             position: relative;
             margin-left: 60px;
         }
 
-        .mainChatArea .panel-body {
+        /* .mainChatArea .panel-body {
             padding: 15px;
             background: #eee;
             font-size: 14px;
-        }
+        } */
 
         .mainChatArea .right .panel-body {
             padding: 15px;
@@ -119,7 +124,7 @@
                 </footer>
             </div>
         </div>
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
     @section('app_jquery')
         <script>
             let last_msg_id = '{!! $last_msg_id !!}';
@@ -167,7 +172,7 @@
                                  <small class="chat-time">
                                   <i class="ti-time mr5"></i>
                                   <b>0 minutes ago</b>
-                                  <input type="checkbox" class="ti-check text-success no-borders">
+
                                   <span class="ti-check text-success" > </span>
                                  </small>
                                 </div>
