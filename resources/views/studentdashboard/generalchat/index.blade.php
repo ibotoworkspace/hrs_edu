@@ -225,7 +225,7 @@
                                  <small class="chat-time">
                                   <i class="ti-time mr5"></i>
                                   <b>0 minutes ago</b>
-                                  <input type="checkbox" class="ti-check text-success no-borders">
+
                                   <span class="ti-check text-success" > </span>
                                  </small>
                                 </div>
