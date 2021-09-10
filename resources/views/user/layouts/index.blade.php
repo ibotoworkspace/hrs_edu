@@ -25,6 +25,17 @@
         textarea#GnTcomment {
     color: burlywood;
 }
+input#GnTName {
+    color: bisque;
+}
+input#GnTemail {
+    color: burlywood;
+}
+input#GnTPhone {
+    color: burlywood;
+}
+/* input#GnTName {
+} */
 
         /* .contactarea {
             background-image: url(images/contactbg.jpg);
