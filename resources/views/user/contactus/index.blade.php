@@ -84,7 +84,7 @@
 
                             {{ csrf_field() }}
                             <div class="myform">
-                                <div class="form-group paddown">
+                                <div class="form-group paddown area">
                                     <input type="text" class="form-control myformdata" id="GnTName" placeholder="Enter Name"
                                         name="name" required>
                                 </div>
