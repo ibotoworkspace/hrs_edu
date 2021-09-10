@@ -22,6 +22,9 @@
             background-position: 50% 50%;
             padding: 50px 10px;
         }
+        textarea#GnTcomment {
+    color: burlywood;
+}
 
         /* .contactarea {
             background-image: url(images/contactbg.jpg);
