@@ -42,7 +42,7 @@
                         <strong id="suc-msg">{{ $message ?? '' }}</strong>
                     </div>
                     <div class="row courseside">
-                        <div class="col-sm-12">
+                        <div class="col-sm-12" id="generals">
                             <a class="btn-primary" href="{{ asset('student/generaldiscussion') }}"><button type="button"
                                     class="btn btn-info">General Discussion</button></a>
                         </div>
