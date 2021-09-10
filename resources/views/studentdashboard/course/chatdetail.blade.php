@@ -14,11 +14,11 @@
             margin-left: 60px;
         }
 
-        .mainChatArea .panel-body {
+        /* .mainChatArea .panel-body {
             padding: 15px;
             background: #eee;
             font-size: 14px;
-        }
+        } */
 
         .mainChatArea .right .panel-body {
             padding: 15px;
@@ -26,6 +26,12 @@
             color: #fff;
             font-size: 14px;
         }
+        .mainChatArea .panel-body {
+    padding: 15px;
+    /* background: #eee; */
+    font-size: 14px;
+    background-color: darkgrey;
+}
 
         .mainChatArea {
             padding: 30px;
@@ -139,7 +145,7 @@
                     if (res.response[0] != null) {
 
                         for (let i = (res.response.length - 1); i > -1; i--) {
-                            var user_msg = user_chat_html(res.response[i].msg);
+                            var user_msg = user_chat_html(res.response[i].chat);
 
                             last_msg_id = res.response[i].id
                             $('#chating').append(user_msg);
@@ -226,7 +232,7 @@
                             </small>
                         </div>
                     </div>
-                                                                           
+
                                                                            `;
                         $('#chating').append(html);
                         $('#text_msg').val('');
