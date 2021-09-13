@@ -57,6 +57,20 @@ class CourseController extends Controller
 
         return view('studentdashboard.course.detail', compact('course_detail'));
     }
+    public function coursevideos(Request $request)
+
+    {
+
+        $course_id = decrypt($request->course_id);
+        $course_detail = Courses::with('chapters', 'videos', 'registerCourse')->find($course_id);
+        // dd( $course_detail);
+
+
+        return view('studentdashboard.course.course_detail', compact('course_detail'));
+    }
+
+
+
     public function testList(Request $request)
     {
 
