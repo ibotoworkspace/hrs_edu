@@ -86,6 +86,10 @@
                                                                 target="_blank">
                                                                 <span class="btn btn-primary">View</span>
                                                             </a>
+                                                            <a href="{{ asset('student/course/videos?course_id=' . $course_id) }}"
+                                                            target="_blank">
+                                                            <span class="btn btn-primary">View Course Videos</span>
+                                                        </a>
                                                             @if ($group_id)
                                                                 <a href="{{ asset('student/course/discussion/' . $group_id) }}"
                                                                     target="_blank">

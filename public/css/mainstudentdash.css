@@ -19,6 +19,9 @@ footer#myFooter {
     width: 100%;
     z-index: 999;
 }
+.modal.faded.detail_5.in {
+    background-color: black;
+}
 .modalfix {
     min-height: 20px im !important;
     padding: 19px im !important;
@@ -89,6 +92,12 @@ button.btn.btn-primary.mypayment {
 }
 div#generals {
     margin-bottom: 20px;
+}
+div#confirmation {
+    width: 1136px;
+    /* margin-left: -181px; */
+    text-align: center;
+    margin-left: -157px;
 }
 .show-product-img {
     height: 43px;
