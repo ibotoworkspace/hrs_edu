@@ -28,9 +28,9 @@ width="400px" style="table-layout:fixed;"
     <th>Title</th>
     <th>Video</th>
 
-    <th>Edit</th>
+    <th>Options</th>
 
-    <th>Delete</th>
+
 
 </tr>
             </thead>
@@ -38,7 +38,7 @@ width="400px" style="table-layout:fixed;"
 
                 @foreach($coursevideos as $video)
 
-                <tr>
+                <tr class="myarrow myarrow_{{ $video->id ?? '' }}">
 
                     <td>{!! ucwords($video->title)!!}</td>
         {{-- <td class="mediaaa"> <iframe width="80px" height="50px" src="{{ $video->url }}" frameborder="0" allowfullscreen>
@@ -68,19 +68,32 @@ width="400px" style="table-layout:fixed;"
                                 Detail</span></a>
                         @include('admin.reports.orders.partial.order_modal',['order'=>$order])
                     </td> --}}
-                    <td>
-			{!! link_to_action('Admin\CourseVideosController@edit',
-			'Edit', array($video->id), array('class' => 'badge bg-info')) !!}
-             {{-- <input type="hidden" name="course_id" value="{!! $course->id !!}"> --}}
-        </td>
+                    <td class="optionss">
+                        <div class="myoptionss">
+
+                            <div class="dropdown">
+                                <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+
+                                    </button>
+
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li><a href="{{ url('/admin/coursesvideos/edit/' . $video->id) }}">Edit</a></li>
 
 
-        <td>{!! Form::open(['method' => 'POST', 'route' => ['coursesvideos.delete', $video->id]]) !!}
-			<a href="" data-toggle="modal" name="activate_delete" data-target=".delete">
-				<span class="badge bg-info btn-danger ">
-					{!! $video->deleted_at?'Activate':'Delete' !!}</span></a>
-			{!! Form::close() !!}
-		</td>
+                                    <li>
+                                        <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$video->id}}" hit_url="{{ url('/admin/coursesvideos/delete/' . $video->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                            <span class="badge bg-info btn-danger ">
+                                                {!! $video->deleted_at ? 'Activate' : 'Delete' !!}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+
+                        </div>
+                    </td>
 
         </tr>
 
