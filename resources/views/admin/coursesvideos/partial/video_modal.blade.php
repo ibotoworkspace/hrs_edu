@@ -1,5 +1,5 @@
 
-<div class="modal fade detail_{!! $video->id!!} in" tabindex="-1" role="dialog" aria-hidden="true"
+<div class="modal  detail_{!! $video->id!!} " tabindex="-1" role="dialog" aria-hidden="true"
     data-backdrop="false">
     <div class="modal-dialog modal-mg ">
 
@@ -17,11 +17,14 @@
                     </tr>
                     </thead>
                     <tbody id="my-modal-table">
+                        {{-- {{dd($)}} --}}
 
 
                         <tr>
                              <td class="mediaaa"> <iframe width="1100px" height="650px" src="{{ $video->url }}" frameborder="0" allowfullscreen>
         </iframe></td>
+
+
 
                         </tr>
 
