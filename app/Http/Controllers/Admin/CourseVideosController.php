@@ -39,6 +39,7 @@ class CourseVideosController extends Controller
 
     public function save(Request $request)
     {
+        //    dd($request->all());
         $coursesvideos = new Course_Video();
         $coursesvideos->course_id = $request->course_id;
 
@@ -77,7 +78,7 @@ class CourseVideosController extends Controller
 
     public function add_or_update($request, $coursesvideos)
     {
-        $coursesvideos->url = $request->avatar;
+        // $coursesvideos->url = $request->avatar;
         $coursesvideos->title = $request->title;
 
         if ($request->hasFile('avatar')) {

@@ -22,6 +22,7 @@ width="400px" style="table-layout:fixed;"
 {{-- {!! Form::open(['method' => 'get', 'route' => ['coursesvideos.search'], 'files'=>true]) !!}
 @include('admin.Coursesvideos.partial.searchfilters')
 {!!Form::close() !!} --}}
+@include('admin.coursesvideos.video_modal')
 <thead>
     <tr>
 
@@ -35,6 +36,7 @@ width="400px" style="table-layout:fixed;"
 </tr>
             </thead>
             <tbody>
+                     {{-- {{dd($coursevideos)}} --}}
 
                 @foreach($coursevideos as $video)
 
@@ -42,32 +44,21 @@ width="400px" style="table-layout:fixed;"
 
                     <td>{!! ucwords($video->title)!!}</td>
         {{-- <td class="mediaaa"> <iframe width="80px" height="50px" src="{{ $video->url }}" frameborder="0" allowfullscreen>
-        </iframe></td> --}}
-         {{-- <td>
+        </iframe></td>
+       <td>  --}}
 
-        <a href="" data-toggle="modal" name=""
-                                data-target=".inprogress_request_{!! $video->id !!}">
-                                <span class=" badge bg-info btn-success ">
-                                ssfsd
-                                </span>
-                            </a>
-                            @include('admin.coursesvideos.partial.video_modal',['video'=>$video])
-                            </td> --}}
+
 
                     <td>
-                        <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!! $video->id !!}">
+                        <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_video"
+                        onclick="open_video('{!!$video->url!!}','{!!$video->title!!}')">
                             <span class=" badge bg-info btn-success">
                                 Video</span></a>
-                        @include('admin.coursesvideos.partial.video_modal',['video'=>$video])
+                        {{-- @include('admin.coursesvideos.video_modal',['video'=>$video]) --}}
                     </td>
 
 
-                    {{-- <td>
-                        <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!! $order->id !!}">
-                            <span class=" badge bg-info btn-success">
-                                Detail</span></a>
-                        @include('admin.reports.orders.partial.order_modal',['order'=>$order])
-                    </td> --}}
+
                     <td class="optionss">
                         <div class="myoptionss">
 
