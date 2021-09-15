@@ -23,6 +23,7 @@ width="400px" style="table-layout:fixed;"
 @include('admin.Coursesvideos.partial.searchfilters')
 {!!Form::close() !!} --}}
 @include('admin.coursesvideos.video_modal')
+@include('admin.coursesvideos.partial.delete_modal')
 <thead>
     <tr>
 
@@ -50,7 +51,7 @@ width="400px" style="table-layout:fixed;"
 
 
                     <td>
-                        <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_video"
+                        <a href="" data-toggle="modal" data-target=".detail_video"
                         onclick="open_video('{!!$video->url!!}','{!!$video->title!!}')">
                             <span class=" badge bg-info btn-success">
                                 Video</span></a>
@@ -60,7 +61,7 @@ width="400px" style="table-layout:fixed;"
 
 
                     <td class="optionss">
-                        <div class="myoptionss">
+                        {{-- <div class="myoptionss">
 
                             <div class="dropdown">
                                 <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
@@ -73,17 +74,38 @@ width="400px" style="table-layout:fixed;"
 
 
                                     <li>
-                                        <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$video->id}}" hit_url="{{ url('/admin/coursesvideos/delete/' . $video->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
-                                            <span class="badge bg-info btn-danger ">
-                                                {!! $video->deleted_at ? 'Activate' : 'Delete' !!}</span>
+
+                                        <a href="{{ url('/admin/coursesvideos/delete/' . $video->id) }}" data-toggle="modal" hit_method="post"
+                                            hit_url="{{ url('/admin/coursesvideos/delete/' . $video->id) }}"
+                                            name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                                <span class="badge bg-info btn-danger ">
+                                                    {!! $video->deleted_at ? 'Activate' : 'Delete' !!}
+                                                </span>
                                         </a>
-                                    </li>
-                                </ul>
+
+                                        <a href="" data-toggle="modal" hit_method="post"
+                                            hit_url="{{ url('/admin/coursesvideos/delete/' . $video->id) }}"
+                                            name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
+                                                <span class="badge bg-info btn-danger ">
+                                                    {!! $video->deleted_at ? 'Activate' : 'Delete' !!}
+                                                </span>
+                                        </a>
+                                    </li> --}}
+
+
+                                    <a href="#" data-toggle="modal"  name="activate_delete_link" data-target=".delete_video">
+                                        <span class=" badge bg-info btn-danger"
+                                         onclick="set_video_url('{!! $video->id!!}')">
+                                            Delete
+                                        </span>
+                                    </a>
+
+                                {{-- </ul>
 
                             </div>
 
 
-                        </div>
+                        </div> --}}
                     </td>
 
         </tr>

@@ -101,7 +101,7 @@ class CourseVideosController extends Controller
             $new_value = 'Activate';
         } else {
             Course_Video::withTrashed()->find($id)->restore();
-            $new_value = 'Delete';
+            $new_value = 'Deactivate';
         }
         $response = Response::json([
             "status" => true,
