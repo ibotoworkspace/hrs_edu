@@ -15,9 +15,9 @@
     <div>
         {!!Form::select('question_type',['single'=>'Single Choice','multiple'=>'Muliple Choice'],null,
         ['class'=>'form-group', 'class'=>'form-control','onchange'=>'select_question_type()'])!!}
-        
+
     </div>
-</div> 
+</div>
 
 
 
@@ -32,9 +32,9 @@
             <div class="overSelect"></div>
         </div>
 
-     
+
         <div id="checkboxes">
-            <?php 
+            <?php
             if($quiz->question_type == 'single'){
                 $question_type = 'radio';
             }
@@ -98,7 +98,7 @@
 @section('app_jquery')
 
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
 
     <script>
         function validateForm() {

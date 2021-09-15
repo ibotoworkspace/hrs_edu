@@ -215,7 +215,7 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     Route::post('/coursesvideos/save', 'Admin\CourseVideosController@save')->name('coursesvideos.save');
     Route::get('/coursesvideos/edit/{id}', 'Admin\CourseVideosController@edit')->name('coursesvideos.edit');
     Route::post('/coursesvideos/update/{id}', 'Admin\CourseVideosController@update')->name('coursesvideos.update');
-    Route::get('/coursesvideos/delete/{id}', 'Admin\CourseVideosController@destroy_undestroy')->name('coursesvideos.delete');
+    Route::post('/coursesvideos/delete/{id}', 'Admin\CourseVideosController@destroy_undestroy')->name('coursesvideos.delete');
     Route::get('coursesvideos/search', 'Admin\CourseVideosController@search')->name('coursesvideos.search');
 
 

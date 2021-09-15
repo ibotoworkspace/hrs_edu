@@ -14,9 +14,9 @@ if(isset($coursesvideos)){
 ?>
 
 
-    
+
     <div class="form-group">
-  
+
         {!! Form::label('title','Title') !!}
         <div>
             {!! Form::text('title', null, ['class' => 'form-control',
@@ -44,7 +44,7 @@ if(isset($coursesvideos)){
         'maxlength'=>"225"]) !!}
         {!!Form::hidden('video')!!}
 
-    </div> 
+    </div>
 
 @include('admin.coursesvideos.partial.image_modal')
 

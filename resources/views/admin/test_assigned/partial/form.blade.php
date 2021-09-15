@@ -44,14 +44,14 @@
 
 </div>
 <div class="form-group">
-    <?php 
+    <?php
         $start_date = '';
         $start_time = '';
         if(isset($test_assigned)){
             $start_date_time = $test_assigned->start_date_time;
             $start_date = date("Y-m-d", $start_date_time);
             $start_time = date("H:i", $start_date_time);
-        }    
+        }
     ?>
     {!! Form::label('startdate', 'Start Test Date') !!}
     <div>
@@ -105,7 +105,7 @@
 @section('app_jquery')
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
     <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
 
     <!-- JS & CSS library of MultiSelect plugin -->
     <script src="multiselect/jquery.multiselect.js"></script>
