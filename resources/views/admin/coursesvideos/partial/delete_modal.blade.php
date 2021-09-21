@@ -1,7 +1,7 @@
 <div class="modal delete_video" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-lg">
 
-        <div class="modal-content">
+        <div class="modal-content" >
             <div class="modal-header">
                 <h4 class="modal-title" id="modal_video_title"> Confirmation </h4>
 
@@ -61,18 +61,19 @@
                     });
 
     }
-    function closeModal() {
-        $('.modal').modal('hide');
-        $('body').removeClass('modal-open');
-        $('.modal-backdrop').remove();
 
-
-    }
     // width="1100px" height="650px
 
     function set_video_url(id){
         console.log('set_video_url',);
         $('.deletevideoconfirm').attr('id_delete',id)
+
+    }
+
+    function closeModal() {
+        $('.modal').modal('hide');
+        $('body').removeClass('modal-open');
+        $('.modal-backdrop').remove();
 
     }
 </script>
