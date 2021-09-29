@@ -48,7 +48,7 @@
                                 <h3> {{ucwords($b->title)}}   </h3>
                                 {{-- <h3>Investing in Behavioral Development</h3> --}}
                                 <h5>
-                                 {{ strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'}}
+                                 {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
 
                                  <a href="{{ url('/student/read/' . $b->id) }}" type="button" onclick="myFunction()" id="myBtner">Read more</a>
                                  {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
@@ -72,7 +72,7 @@
                             <div class="blogdatas">
                                 <h3 class="myh33"> {{ucwords($b->title)}}   </h3>
                                 <h5>
-                                    {{ strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'}}
+                                    {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
 
                                     <a href="{{ url('/student/read/' . $b->id) }}"   type="button" onclick="myFunction()" id="myBtnero">Read more</a>
                                     {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
