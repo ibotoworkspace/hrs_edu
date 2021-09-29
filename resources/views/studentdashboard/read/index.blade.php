@@ -37,31 +37,29 @@
                     </div>
                 </div>
 
-                <div class="blogback">
+                <div class="blogbackER">
 
 
                     @foreach ($blogpageread as $key=> $b)
-                    <h5 class="mydes">
-                        {{ ucwords($b->title)}} Desription
 
-
-                        </h5>
-
-                    <div class="row pararow">
+                    <div class="row pararow ppp">
 
                         <div class="col-sm-6">
                             <div class="blogdata">
 
                                 <h5>
-                                 {{ $b->description}}
+                                 {!! $b->description!!}
 
 
                                 </h5>
                             </div>
                         </div>
-                        <div class="col-sm-6">
 
+                    <div class="col-sm-6">
+                        <div class="blogdataimg">
+                            <img src="{{$b->avatar}}" class="img-responsive">
                         </div>
+                    </div>
                     </div>
 
 

@@ -67,12 +67,25 @@ h5.mydes {
     background-color: blanchedalmond;
     color: black;
 }
+.row.pararow.ppp {
+    background-color: #243439 !important;
+}
 a#myBtnero {
     background-color:#BFB28E  ;
 }
 
 .blogdata {
     margin-top: 94px;
+}
+.blogback {
+    background: #bfb28e;
+    padding: 25px 50px;
+    margin-bottom: 100px;
+}
+.blogbackER {
+    background: #243439;
+    padding: 25px 50px;
+    margin-bottom: 100px;
 }
 /* .navbar-collapse.nav-collapse.collapse.my {
     margin-bottom: 53px;
