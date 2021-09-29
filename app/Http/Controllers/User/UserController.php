@@ -7,6 +7,7 @@ use App\Models\Courses;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 use validator;
+use App\Models\Blog;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -206,7 +207,8 @@ class UserController extends Controller
 
     public function resourse()
     {
-        return view('user.resourse.index');
+        $blogpage = Blog::paginate(10);
+        return view('user.resourse.index',compact('blogpage'));
     }
 
     public function skilladvisor()

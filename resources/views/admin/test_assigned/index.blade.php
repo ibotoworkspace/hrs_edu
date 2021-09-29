@@ -4,7 +4,7 @@ Test Assigned
 @stop
 
 @section('add_btn')
- 
+
     {!! Form::open(['method' => 'get', 'url' => ['admin/test_assigned/create/' . $test_id], 'files' => true]) !!}
     {{-- <input type="hidden" name="course_id" value="{!!$listofquiz->course_id!!}"> --}}
     <span>{!! Form::submit('Add', ['class' => 'btn btn-success pull-right']) !!}</span>
@@ -42,7 +42,7 @@ Test Assigned
     <thead>
         <tr>
 
-       
+
             <th class="option">
                 <div class="bestoption"> Test Name</div>
 
@@ -59,12 +59,12 @@ Test Assigned
                 <div class="bestoption">Test Result</div>
 
             </th>
-          
+
             <th class="option">
                 <div class="bestoption">Option</div>
 
             </th>
-           
+
         </tr>
     </thead>
     <tbody>
@@ -86,32 +86,32 @@ Test Assigned
                     </td>
                 @endif --}}
 
-  
+
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! ucwords($t->group->name) !!}</div>
                 </td>
 
-                
+
                 <td class="hrs">
                     <div class="besthrs" name="mytitle">{!! ucwords($t->start_date_time) !!}</div>
-                </  td>
-       
+                </td>
 
-                 
+
+
 
                 <td class="myquizerr">
                     {{-- <div class="quizes"><button type="button" class="btn btn-primary onquizes" id="myquizes">{!! $crs->detail !!}</button></div> --}}
                     <a href="{{ url('/admin/test_result/details/' . $t->id) }}" type="button" class="btn btn-primary onquizes"
                         id="myvide"> Test Result</a>
                 </td>
-               
+
                 <td class="optionss">
                     <div class="myoptionss">
 
                         <div class="dropdown">
                             <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                           
+
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li><a href="{{ url('/admin/test_assigned/edit/' . $t->id) }}">Edit</a></li>
@@ -128,7 +128,7 @@ Test Assigned
                             </ul>
 
                         </div>
-                      
+
 
                     </div>
                 </td>

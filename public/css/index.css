@@ -23,6 +23,21 @@ h1,h2,h3,h4{
 .topheaderdata{
     display: flex;
 }
+li#mydropeer {
+    background-color: #bfb28e;
+}
+ul.dropdown-menu.my {
+    background-color: white;
+}
+a.myblogarea {
+    font-size: revert;
+    font-family: -webkit-body;
+}
+span.headpader {
+    font-size: 21px;
+    color: white;
+    font-weight: 500;
+}
 button.oo {
 
     /* width: 55px;

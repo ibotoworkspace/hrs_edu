@@ -80,6 +80,17 @@
 
             <section>
                 <div class="twoheader">
+                    <?php
+                    use App\User;
+                    $user_data = Auth::user();
+                    if(!$user_data){
+                        $user_data = new \stdClass();
+                        $user_data->role_id = 0;
+                    }
+
+                    ?>
+
+
 
                         <div class="row">
                             <div class="col-sm-1 col-xs-12">
@@ -87,35 +98,34 @@
                                     <a href="/"><img src="{{ asset('images/newlogo.png') }}" class="img-responsive"></a>
                                 </div>
                             </div>
+                            @if ( $user_data->role_id == 2)
                             <div class="col-sm-10 col-xs-12">
                                 <nav>
                                     <div class="jump">
-                                        <div class="navbar-collapse nav-collapse collapse">
+                                        <div class="navbar-collapse nav-collapse collapse my">
                                             <ul class="nav navbar-nav">
                                                 <li id="11">
-                                                    <a href="{{ asset('user/home') }}"><span
-                                                            class="headpad">Home</span>
-                                                    </a>
+
                                                 </li>
                                                 <li id="4">
-                                                    <a href="{{ asset('user/aboutus') }}"><span class="headpad">About
-                                                            us</span> </a>
+
                                                 </li>
                                                 <li id="5">
-                                                    <a href="{{ asset('user/courses') }}"><span
-                                                            class="headpad">Courses</span> </a>
+
                                                 </li>
-                                                <li id="6">
-                                                    <a href="{{ asset('user/resource') }}"><span
-                                                            class="headpad">Resource</span> </a>
+
+                                                <li class="dropdown" id="mydropeer">
+
+
+
+
+                                           </li>
+
+                                                <li id="7">
+
                                                 </li>
                                                 <li id="7">
-                                                    <a href="{{ asset('user/contactus') }}"><span
-                                                            class="headpad">Contact</span> </a>
-                                                </li>
-                                                <li id="7">
-                                                    <a href="{{ asset('student/courseregistration') }}"><span
-                                                            class="headpad">Course Registration</span> </a>
+
                                                 </li>
                                             </ul>
                                             @if (Auth::check())
@@ -127,12 +137,78 @@
                                             @endif
 
 
-                                            <button type="button" class="btn btn-primary portal">Join us as SDA</button>
+
                                         </div>
                                     </div>
                                 </nav>
 
                         </div>
+                        @else
+                        {{-- <div class="col-sm-1 col-xs-12">
+                            <div class="logoArea">
+                                <a href="/"><img src="{{ asset('images/newlogo.png') }}" class="img-responsive"></a>
+                            </div>
+                        </div> --}}
+                        <div class="col-sm-10 col-xs-12">
+                            <nav>
+                                <div class="jump">
+                                    <div class="navbar-collapse nav-collapse collapse my">
+                                        <ul class="nav navbar-nav">
+                                            <li id="11">
+                                                <a href="{{ asset('user/home') }}"><span
+                                                        class="headpad">Home</span>
+                                                </a>
+                                            </li>
+                                            <li id="4">
+                                                <a href="{{ asset('user/aboutus') }}"><span class="headpad">About
+                                                        us</span> </a>
+                                            </li>
+                                            <li id="5">
+                                                <a href="{{ asset('user/courses') }}"><span
+                                                        class="headpad">Courses</span> </a>
+                                            </li>
+                                            {{-- <li id="6">
+                                                <a href="{{ asset('user/resource') }}"><span
+                                                        class="headpad">Resource</span> </a>
+                                            </li> --}}
+                                            <li class="dropdown" id="mydropeer">
+
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                   aria-expanded="false"> <span class="headpader"> Resource</span>
+                    </a>
+                                     <ul class="dropdown-menu my">
+
+                                          <li><a href="{{ asset('student/blogpage') }}" class="myblogarea">Blog </a></li>
+                                      <li><a href="{{ asset('student/library') }}"  class="myblogarea">Library</a></li>
+                                        </ul>
+
+                                       </li>
+
+                                            <li id="7">
+                                                <a href="{{ asset('user/contactus') }}"><span
+                                                        class="headpad">Contact</span> </a>
+                                            </li>
+                                            <li id="7">
+                                                <a href="{{ asset('student/courseregistration') }}"><span
+                                                        class="headpad">Course Registration</span> </a>
+                                            </li>
+                                        </ul>
+                                        @if (Auth::check())
+                                            <a href="{{ asset('student/logout') }}"><button type="button"
+                                                    class="btn btn-primary portal">Logout</button></a>
+                                        @else
+                                            <a href="{{ asset('login') }}"><button type="button"
+                                                    class="btn btn-primary portal">Login Account</button></a>
+                                        @endif
+
+
+                                        <button type="button" class="btn btn-primary portal">Join us as SDA</button>
+                                    </div>
+                                </div>
+                            </nav>
+
+                    </div>
+                    @endif
                     </div>
                 </div>
             </section>
@@ -232,14 +308,12 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="copydata">
-                            <p>Copyright © 2020 HRS Academy | All Rights Reserved | <a
-                                    href="{{ asset('user/privacy&policy') }}" target="_blank">Privacy Policy </a> |
-                                <a href="{{ asset('user/terms&condition') }}" target="_blank">Term & Condition </a>|
-                                Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a>
+                            <p>Copyright © 2020 HRS Academy | All Rights Reserved |
+
                             </p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
+                    {{-- <div class="col-sm-4">
                         <div class="socilaicon">
                             <a href=""><img src="{{ asset('images/twitter.png') }}" class="img-responsive"></a>
                             <a href=""><img src="{{ asset('images/printerst.png') }}" class="img-responsive"></a>
@@ -248,7 +322,7 @@
                             <a href=""><img src="{{ asset('images/facebook.png') }}" class="img-responsive"></a>
 
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

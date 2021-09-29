@@ -4,8 +4,8 @@
 @section('default')
 
 <style>
-.resourcebanner {    
-    background-image:url({{asset('images/rbanner.jpg')}}) ; 
+.resourcebanner {
+    background-image:url({{asset('images/rbanner.jpg')}}) ;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
@@ -25,7 +25,7 @@
                         <h2>RESOURCE CENTER</h2>
                         <h3><span class="resspan">THE</span> HRS ACADEMY BLOG</h3>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
@@ -43,7 +43,7 @@
                             relationships, manage teams. All these things are going to be taxing for someone who is no...
                         </p>
                     </div>
-                </div> 
+                </div>
                 <div class="col-sm-6">
                     <div class="investingbannerimg">
                         <img src="{{asset('images/resourcea.jpg')}}" class="img-responsive">
@@ -57,7 +57,7 @@
 <section>
     <div class="developmentbanner">
         <div class="container">
-            <div class="row">                
+            <div class="row">
                 <div class="col-sm-6">
                     <div class="developmentbannerimg">
                         <img src="{{asset('images/resourceb.jpg')}}" class="img-responsive">
@@ -71,7 +71,7 @@
                             an era where dealing with ambiguity and disruptive trends are pivo...
                         </p>
                     </div>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
