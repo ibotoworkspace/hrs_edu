@@ -206,7 +206,7 @@
                     <div class="col-sm-8">
                         <div class="copydata">
                             <p>Copyright © 2020 HRS Academy | All Rights Reserved | <a
-                                    href="{{ asset('user/privacy&policy') }}" target="_blank">Privacy Policy </a> |
+                                    href="{{ asset('user/privacy&policy') }}" target="">Privacy Policy </a> |
                                 <a href="{{ asset('user/terms&condition') }}" target="_blank">Term & Condition </a>|
                                 Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a>
                             </p>

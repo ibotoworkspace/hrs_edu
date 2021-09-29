@@ -53,6 +53,76 @@ footer#myFooter {
 .socilaicon {
     display: flex;
 }
+/* /////// */
+
+
+li#mydropeer {
+    background-color: #bfb28e;
+}
+a#myBtner {
+    background-color:#243439 ;
+}
+h5.mydes {
+    font-size: x-large;
+    background-color: blanchedalmond;
+    color: black;
+}
+.row.pararow.ppp {
+    background-color: #243439 !important;
+}
+a#myBtnero {
+    background-color:#BFB28E  ;
+}
+
+.blogdata {
+    margin-top: 94px;
+}
+.blogback {
+    background: #bfb28e;
+    padding: 25px 50px;
+    margin-bottom: 100px;
+}
+.blogbackER {
+    background: #243439;
+    padding: 25px 50px;
+    margin-bottom: 100px;
+}
+/* .navbar-collapse.nav-collapse.collapse.my {
+    margin-bottom: 53px;
+} */
+/* ul.dropdown-menu.my {
+    background-color: black;
+} */
+.row.pararowUU {
+    BACKGROUND-COLOR: #243439 !important;
+    margin-top: 100px;
+
+}
+h3.myh33 {
+    margin-top: 84px;
+}
+a.myblogarea {
+    font-size: revert;
+    font-family: -webkit-body;
+}
+span.headpader {
+    font-size: 21px;
+    color: white;
+    font-weight: 500;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* /////////// */
 .topheader {
     background: #243439;
     color: white;

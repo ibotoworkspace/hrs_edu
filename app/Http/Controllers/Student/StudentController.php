@@ -7,6 +7,7 @@ use App\Models\Course_Registered;
 use App\Models\Courses;
 use App\Models\Lecturer;
 use App\Models\SkillAdvisor;
+use App\Models\Blog;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +35,15 @@ class StudentController extends Controller
 
         $registration_code = $request->registration_code;
         return view('user.registration.index',compact('registration_code'));
+    }
+
+    public function read($id){
+
+    $blogpageread = Blog::where('id',$id)->get();
+    return view('studentdashboard.read.index',compact('blogpageread'));
+    // dd($blogpageread);
+
+
     }
 
 

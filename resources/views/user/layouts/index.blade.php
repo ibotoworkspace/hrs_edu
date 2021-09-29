@@ -87,6 +87,32 @@ input#GnTPhone {
                             </div>
                         </div>
                     </div>
+                    <?php
+                    $user_data = Auth::user();
+                    if(!$user_data){
+                        $user_data = new \stdClass();
+                        $user_data->role_id = 0;
+                    }
+
+                    ?>
+                     @if ( $user_data->role_id == 2)
+                     <div class="col-sm-2">
+                        <div class="topheaderclick">
+
+                        </div>
+                    </div>
+
+                     @elseif( $user_data->role_id == 3)
+                     <div class="col-sm-2">
+                        <div class="topheaderclick">
+
+
+                        </div>
+                    </div>
+
+                     @else
+
+
                     <div class="col-sm-2">
                         <div class="topheaderclick">
                             <a href="{{ url('student/registration') }}" class="btn btn-primary leadrning">LEARNING
@@ -96,15 +122,9 @@ input#GnTPhone {
                             </button> -->
                         </div>
                     </div>
+                    @endif
 
-                            <?php
-                            $user_data = Auth::user();
-                            if(!$user_data){
-                                $user_data = new \stdClass();
-                                $user_data->role_id = 0;
-                            }
 
-                            ?>
 
                             @if ( $user_data->role_id == 2)
                             <div class="col-sm-1">
@@ -207,9 +227,24 @@ input#GnTPhone {
                                 <a href="{{ asset('user/courses') }}"><span class="headpad">Courses</span>
                                 </a>
                             </li>
-                            <li id="6">
-                                <a href="{{ asset('user/resource') }}"><span class="headpad">Resource</span> </a>
+
+                            @if ( $user_data->role_id == 2)
+                                 <li class="dropdown" id="mydropeer">
+                                      <a href="#" class="dropdown-toggle"
+                                      data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false"> <span class="headpader"> Resource</span>
+                                    </a>
+                                                <ul class="dropdown-menu my">
+                                                  <li><a href="{{ asset('user/resource') }}" class="myblogarea">Blog </a></li>
+                                                  <li><a href="{{ asset('student/library') }}"  class="myblogarea">Library</a></li>
+                                                </ul>
+
+                                 </li>
+                                 @else
+                                  <li id="6">
+
                             </li>
+                            @endif
                             <li id="7">
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
@@ -348,23 +383,12 @@ input#GnTPhone {
                     <div class="col-sm-8">
                         <div class="copydata">
                             <p>Copyright © 2020 HRS Academy | All Rights Reserved |
-                                <a href="{{ asset('user/privacy&policy') }}" target="_blank">Privacy Policy </a> |
-                                <a href="{{ asset('user/terms&condition') }}" target="_blank">Term & Condition </a>|
+
                                 Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a>
                             </p>
                         </div>
                     </div>
-                    <div class="col-sm-4">
-                        <div class="socilaicon">
-                            <a href=""><img src="{{ asset('images/twitter.png') }}" class="img-responsive"></a>
-                            <a href=""><img src="{{ asset('images/printerst.png') }}" class="img-responsive"></a>
-                            <a href=""><img src="{{ asset('images/linkedin.png') }}" class="img-responsive"></a>
-                            <a href=""><img src="{{ asset('images/instagram.png') }}" class="img-responsive"></a>
-                            <a href=""><img src="{{ asset('images/facebook.png') }}" class="img-responsive"></a>
 
-
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

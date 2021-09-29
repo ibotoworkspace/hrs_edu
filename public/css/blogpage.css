@@ -55,7 +55,7 @@
     color: white;
     font-size: 20px;
     line-height: 31px;
-    text-align: end;
+
 }
 .blogdatas h3 {
     color: white;
@@ -63,8 +63,9 @@
     border-bottom: 3px solid;
     margin-bottom: 16px;
     margin-top: -5px;
-    text-align: end;
+
 }
+
 .blogdatas p {
     color: white;
     font-size: 20px;

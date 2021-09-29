@@ -123,7 +123,7 @@ class AdminController extends Controller
 
 
         ];
-        
+
         $total_count = Course_Video::wherehas('course')->count('id');
         $active_count = $total_count; // where is_active == 1
         $modules[] = [

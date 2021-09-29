@@ -38,45 +38,64 @@
                 </div>
 
                 <div class="blogback">
+
+                    @foreach ($blogpage as $key=> $b)
+                    @if($key%2 == 0)
                     <div class="row pararow">
+
                         <div class="col-sm-6">
                             <div class="blogdata">
-                                <p>Article | Dec 14, 2020</p>
-                                <h3>Investing in Behavioral Development</h3>
-                                <h5>As one starts climbing the career ladder, complexity
-                                    increases. You have to manage the dynamics, build
-                                    relationships, manage teams. All these things are
-                                    going to be taxing for someone who is no...
+                                <h3> {{ucwords($b->title)}}   </h3>
+                                {{-- <h3>Investing in Behavioral Development</h3> --}}
+                                <h5>
+                                 {{ strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'}}
+
+                                 <a href="{{ url('/student/read/' . $b->id) }}" type="button" onclick="myFunction()" id="myBtner">Read more</a>
+                                 {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
                                 </h5>
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="blogdataimg">
-                                <img src="{{asset('images/fds.jpg')}}" class="img-responsive">
+                                <img src="{{$b->avatar}}" class="img-responsive">
                             </div>
                         </div>
                     </div>
-
-                    <div class="row pararow">
+                    @else
+                    <div class="row pararowUU">
                         <div class="col-sm-6">
                             <div class="blogdataimg">
-                                <img src="{{asset('images/fsf.jpg')}}" class="img-responsive">
+                                <img src="{{$b->avatar}}" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="blogdatas">
-                                <p>Article | Dec 15, 2020</p>
-                                <h3>What Skill Development Really Means <br> and Why It’s Important for Success</h3>
-                                <h5>Skill development is no longer a matter of choice. It is
-                                    imperative to adapt, survive and succeed. We work in
-                                    an era where dealing with ambiguity and disruptive
-                                    trends are pivo...
-                                </h5>
+                                <h3 class="myh33"> {{ucwords($b->title)}}   </h3>
+                                <h5>
+                                    {{ strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'}}
+
+                                    <a href="{{ url('/student/read/' . $b->id) }}"   type="button" onclick="myFunction()" id="myBtnero">Read more</a>
+                                    {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
+                                   </h5>
                             </div>
                         </div>
                     </div>
+                    @endif
+
+                    @endforeach
+
+
                 </div>
             </div>
         </div>
     </section>
+    @endsection
+    @section('app_jquery')
+
+<script>
+
+
+    </script>
+
+
     @endsection

@@ -15,6 +15,19 @@ class BlogController extends Controller
     public function save(Request $request)
     {
 
+
+        // foreach($list as $key=>$value){
+
+        //     if($key%2 == 0){
+        //         $color = 'bvlack';
+        //         $heading = 'white';
+        //     }
+        //     else{
+        //         $color = 'yellow';
+        //         $heading = 'yellow';
+        //     }
+
+        // }
         $blog = new Blog();
         $blog->title = $request->title;
         $blog->description = $request->description;

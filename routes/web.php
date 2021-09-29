@@ -322,6 +322,7 @@ Route::post('user/courseregistered', 'Student\CourseRegistrationController@regis
 
 Route::get('student/registration', 'Student\StudentController@index')->name('student.registration');
 Route::post('student/registration/save', 'Student\StudentController@save')->name('student.save');
+Route::get('student/read/{id}', 'Student\StudentController@read')->name('student.read');
 Route::get('login', 'Student\StudentController@login');
 Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
