@@ -322,12 +322,29 @@ Route::post('user/courseregistered', 'Student\CourseRegistrationController@regis
 
 Route::get('student/registration', 'Student\StudentController@index')->name('student.registration');
 Route::post('student/registration/save', 'Student\StudentController@save')->name('student.save');
-Route::get('student/read/{id}', 'Student\StudentController@read')->name('student.read');
+// Route::get('student/read/{id}', 'Student\StudentController@read')->name('student.read');
 Route::get('login', 'Student\StudentController@login');
 Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 
+////////////////
+Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
+
+//
+
+
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
+
+    Route::get('blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
+Route::get('changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
+// Route::get('courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
+Route::get('read/{id}', 'Student\StudentController@read')->name('student.read');
+
+
+
+
+
+
     // request for certificate
 
     Route::post('certificate_req', 'Student\RequestController@certificateRequest')->name('certificate_req');
@@ -398,9 +415,9 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
 
 
 Route::get('student/layouts', 'Student\BlogPageController@layouts')->name('student/layouts');
-Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
-Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
-Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
+// Route::get('student/blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
+// Route::get('student/changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
+// Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
 
 
 // student payment route
