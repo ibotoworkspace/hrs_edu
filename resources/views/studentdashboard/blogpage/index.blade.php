@@ -33,63 +33,76 @@
 
                 <div class="row blogrow">
                     <div class="col-sm-12">
-                        <h3>THE HRS ACADEMY - BLOG</h3>
+                        <h3 class="hrs">THE HRS ACADEMY - BLOG</h3>
                     </div>
                 </div>
 
-                <div class="blogback">
+                <div class="blogbackages">
 
                     @foreach ($blogpage as $key=> $b)
                     @if($key%2 == 0)
-                    <div class="row pararow">
-
+                    <div class="row pararowUU">
                         <div class="col-sm-6">
-                            <div class="blogdata">
-                                <h3> {{ucwords($b->title)}}   </h3>
-                                {{-- <h3>Investing in Behavioral Development</h3> --}}
-                                <h5>
-                                 {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
-
-                                 <a href="{{ url('/student/read/' . $b->id) }}" type="button" onclick="myFunction()" id="myBtner">Read more</a>
-                                 {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
-                                </h5>
+                            <div class="blogdataimgop">
+                                <img src="{{$b->avatar}}" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="blogdataimg">
-                                <img src="{{$b->avatar}}" class="img-responsive">
+                            <div class="blogdatao">
+                                <h3 class="myh33"> {{ucwords($b->title)}}   </h3>
+                            <p class="blackpara">
+                                    {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
+                            </p>
+
+                                    <a href="{{ url('/student/read/' . $b->id) }}"   type="button" onclick="myFunction()" id="myBtnero">Read more</a>
+                                    {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
+
                             </div>
                         </div>
                     </div>
                     @else
-                    <div class="row pararowUU">
+                    <div class="row pararowUUwhite">
                         <div class="col-sm-6">
-                            <div class="blogdataimg">
+                            <div class="blogdataimgop">
                                 <img src="{{$b->avatar}}" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-sm-6">
-                            <div class="blogdatas">
+                            <div class="blogdatao">
                                 <h3 class="myh33"> {{ucwords($b->title)}}   </h3>
-                                <h5>
+                                <p class="blackpara">
                                     {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
+                                </p>
 
-                                    <a href="{{ url('/student/read/' . $b->id) }}"   type="button" onclick="myFunction()" id="myBtnero">Read more</a>
-                                    {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
-                                   </h5>
+                                    <a href="{{ url('/student/read/' . $b->id) }}"   type="button" onclick="myFunction()" id="myBtnerowhu">Read more</a>
+
+
                             </div>
                         </div>
                     </div>
+
                     @endif
 
                     @endforeach
+                    <span class="pagination my pagination-md pull-right">{!! $blogpage->render() !!}</span>
+
+
 
 
                 </div>
+
             </div>
+
         </div>
-    </section>
+        {{-- <span class="pagination my pagination-md pull-right">{!! $blogpage->render() !!}</span> --}}
+
+</section>
+{{-- <span class="pagination my pagination-md pull-right">{!! $blogpage->render() !!}</span> --}}
+
     @endsection
+
+
+
     @section('app_jquery')
 
 <script>

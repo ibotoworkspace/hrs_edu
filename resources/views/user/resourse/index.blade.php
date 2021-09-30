@@ -1,16 +1,13 @@
 @extends('user.layouts.index')
 
 <link href="{{asset('css/resourse.css')}}" rel="stylesheet">
+<link href="{{asset('css/blogpage.css')}}" rel="stylesheet">
+<link href="{{asset('css/mainstudentdash.css')}}" rel="stylesheet">
+
 @section('default')
 
 <style>
-.resourcebanner {
-    background-image:url({{asset('images/rbanner.jpg')}}) ;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 50% 50%;
-    padding: 100px 10px;
-}
+
 </style>
 
 <section>
@@ -32,50 +29,63 @@
 </section>
 
 <section>
-    <div class="investingbanner">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="investingbannerdata">
-                        <h4>Article | Dec 14, 2020</h4>
-                        <h3>Investing in Behavioral Development</h3>
-                        <p>As one starts climbing the career ladder, complexity increases. You have to manage the dynamics, build
-                            relationships, manage teams. All these things are going to be taxing for someone who is no...
-                        </p>
-                    </div>
+
+    <div class="blogbackages">
+
+        @foreach ($blogpage as $key=> $b)
+        @if($key%2 == 0)
+        <div class="row pararowUU">
+            <div class="col-sm-6">
+                <div class="blogdataimgop">
+                    <img src="{{$b->avatar}}" class="img-responsive">
                 </div>
-                <div class="col-sm-6">
-                    <div class="investingbannerimg">
-                        <img src="{{asset('images/resourcea.jpg')}}" class="img-responsive">
-                    </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="blogdatao">
+                    <h3 class="myh33"> {{ucwords($b->title)}}   </h3>
+                <p class="blackpara">
+                        {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
+                </p>
+
+                        <a href="{{ url('/student/read/' . $b->id) }}"   type="button" onclick="myFunction()" id="myBtnero">Read more</a>
+                        {{-- <button type="button" class="btn btn-primary portal">Logout</button> --}}
+
                 </div>
             </div>
         </div>
+        @else
+        <div class="row pararowUUwhite">
+            <div class="col-sm-6">
+                <div class="blogdataimgop">
+                    <img src="{{$b->avatar}}" class="img-responsive">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="blogdatao">
+                    <h3 class="myh33"> {{ucwords($b->title)}}   </h3>
+                    <p class="blackpara">
+                        {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
+                    </p>
+
+                        <a href="{{ url('/student/read/' . $b->id) }}"   type="button" onclick="myFunction()" id="myBtnerowhu">Read more</a>
+
+
+                </div>
+            </div>
+        </div>
+
+        @endif
+
+        @endforeach
+        <span class="pagination my pagination-md pull-right">{!! $blogpage->render() !!}</span>
+
+
+
+
     </div>
 </section>
 
-<section>
-    <div class="developmentbanner">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="developmentbannerimg">
-                        <img src="{{asset('images/resourceb.jpg')}}" class="img-responsive">
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="developmentbannerdata">
-                        <h4>Article | Dec 15, 2020</h4>
-                        <h3>What Skill Development Really Means <br> and Why It’s Important for Success</h3>
-                        <p>Skill development is no longer a matter of choice. It is imperative to adapt, survive and succeed. We work in
-                            an era where dealing with ambiguity and disruptive trends are pivo...
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+
 
 
 
