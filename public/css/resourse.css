@@ -20,6 +20,13 @@ span.resspan {
     background: #243439;
     padding: 45px 10px;
 }
+.resourcebanner {
+    background-image:url({{asset('images/rbanner.jpg')}}) ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    padding: 100px 10px;
+}
 .developmentbanner {
     background: #bfb28e;
     padding: 45px 10px;

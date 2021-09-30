@@ -65,7 +65,7 @@
         @foreach ($chapter as $key => $ch)
 
             <tr class="myarrow">
- 
+
 
                 <td class="hrs">
                     <div class="besthrs" name="title">{!! $ch->lecture !!}</div>
@@ -98,7 +98,7 @@
                         <div class="dropdown">
                             <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                           
+
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li><a href="{{ url('/admin/chapter/edit/' . $ch->id) }}">Edit</a></li>
@@ -106,14 +106,14 @@
 
                                 <li>
                                     <a href="" data-toggle="modal" hit_method="post" remove_parent="myarrow_{{$ch->id}}" hit_url="{{ url('/admin/chapter/delete/' . $ch->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
-                                        <span class="badge bg-info btn-danger ">                                                
+                                        <span class="badge bg-info btn-danger ">
                                             {!! $ch->deleted_at ? 'Activate' : 'Delete' !!}</span>
                                     </a>
                                 </li>
                             </ul>
 
                         </div>
-                      
+
 
                     </div>
                 </td>

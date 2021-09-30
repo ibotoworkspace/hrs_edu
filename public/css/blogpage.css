@@ -25,8 +25,13 @@
     padding: 25px 50px;
     margin-bottom: 100px;
 }
-.blogdataimg img {
-    width: 100%;
+/* .blogdataimgop img {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+} */
+.blogdataimgop img {
+    width: 46%;
     height: auto;
     margin: 0 auto;
 }
@@ -51,25 +56,25 @@
     line-height: 31px;
     text-align: left;
 }
-.blogdatas h5 {
+.blogdatao h5 {
     color: white;
     font-size: 20px;
     line-height: 31px;
 
 }
-.blogdatas h3 {
+.blogdatao h3 {
     color: white;
     font-size: 30px;
-    border-bottom: 3px solid;
+    border-bottom: 1px solid;
     margin-bottom: 16px;
     margin-top: -5px;
 
 }
 
-.blogdatas p {
+.blogdatao p {
     color: white;
     font-size: 20px;
     font-weight: 300;
-    text-align: end;
+
     margin-top: 70px;
 }

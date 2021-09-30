@@ -70,8 +70,38 @@ h5.mydes {
 .row.pararow.ppp {
     background-color: #243439 !important;
 }
+.blogdataimgop {
+    margin-top: 52px;
+    margin-bottom: 52px;
+}
 a#myBtnero {
-    background-color:#BFB28E  ;
+    background-color: #BFB28E;
+    padding-left: 17px;
+    padding-right: 18px;
+    padding-top: 3px;
+    border-radius: 21px;
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
+    margin-bottom: 46px;
+}
+a#myBtnerowhu {
+    background-color: #243439;
+    padding-left: 17px;
+    padding-right: 18px;
+    padding-top: 3px;
+    border-radius: 21px;
+    /* margin-top: auto; */
+    /* margin-bottom: auto; */
+    margin-bottom: 46px;
+    color: aliceblue;
+}
+.blogdataimg {
+    margin-top: 165px;
+}
+.blogbackages {
+    background: white;
+    padding: 25px 50px;
+    margin-bottom: 100px;
 }
 
 .blogdata {
@@ -95,11 +125,23 @@ a#myBtnero {
 } */
 .row.pararowUU {
     BACKGROUND-COLOR: #243439 !important;
+    margin-top: 43px;
+
+}
+.pagination.my {
+    /* background-color: aliceblue; */
+    /* display: list-item; */
+    margin-top: -18px;
+}
+
+.row.pararowUUwhite {
+    BACKGROUND-COLOR: #bfb28e !important;
     margin-top: 100px;
 
 }
+
 h3.myh33 {
-    margin-top: 84px;
+    margin-top: 56px;
 }
 a.myblogarea {
     font-size: revert;
