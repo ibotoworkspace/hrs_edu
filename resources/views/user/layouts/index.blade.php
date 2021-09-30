@@ -228,7 +228,7 @@ input#GnTPhone {
                                 </a>
                             </li>
 
-                            @if ( $user_data->role_id == 2)
+
                                  <li class="dropdown" id="mydropeer">
                                       <a href="#" class="dropdown-toggle"
                                       data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -236,15 +236,19 @@ input#GnTPhone {
                                     </a>
                                                 <ul class="dropdown-menu my">
                                                   <li><a href="{{ asset('user/resource') }}" class="myblogarea">Blog </a></li>
+                                                  @if ( $user_data->role_id == 2)
                                                   <li><a href="{{ asset('student/library') }}"  class="myblogarea">Library</a></li>
+                                                  @else
+                                                  <li></li>
+                                                  @endif
                                                 </ul>
 
                                  </li>
-                                 @else
+                                 {{-- @else
                                   <li id="6">
 
                             </li>
-                            @endif
+                            @endif --}}
                             <li id="7">
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
