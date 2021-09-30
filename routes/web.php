@@ -146,8 +146,15 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
 
     Route::get('/dashboard', 'Admin\AdminController@dashboard')->name('dashboard');
     // Add BLog
-    Route::get('/addblog', 'Admin\BlogController@index')->name('addblog');
-    Route::post('/saveblog', 'Admin\BlogController@save')->name('saveblog');
+    // Route::get('/addblog', 'Admin\BlogController@index')->name('addblog');
+    // Route::post('/saveblog', 'Admin\BlogController@save')->name('saveblog');
+
+    Route::get('/addblog', 'Admin\BlogController@index')->name('addblog.index');
+Route::get('/addblog/create/', 'Admin\BlogController@create')->name('addblog.create');
+Route::post('/addblog/save', 'Admin\BlogController@save')->name('addblog.save');
+Route::get('/addblog/edit/{id}', 'Admin\BlogController@edit')->name('addblog.edit');
+Route::post('/addblog/update/{id}', 'Admin\BlogController@update')->name('addblog.update');
+Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->name('addblog.delete');
 
     //     Route::get('admin/courses', 'Admin\CoursesController@list')->name('admin/courses');
 

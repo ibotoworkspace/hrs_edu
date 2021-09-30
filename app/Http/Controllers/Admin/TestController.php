@@ -71,9 +71,9 @@ class TestController extends Controller
         $test->name = $request->name;
         $test->is_assignable =   $request->is_assignable;
         $test->course_id =   $request->courses_id;
-       
-        
-   
+
+
+
         $test->save();
 
         return redirect()->back();
@@ -99,5 +99,5 @@ class TestController extends Controller
     }
 
 
-   
+
 }
