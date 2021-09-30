@@ -252,6 +252,18 @@ input#GnTPhone {
                             <li id="7">
                                 <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
                             </li>
+                            <li class="dropdown" id="mydropeer">
+                                <a href="#" class="dropdown-toggle"
+                                data-toggle="dropdown" role="button" aria-haspopup="true"
+                                 aria-expanded="false"> <span class="headpader"> Partners</span>
+                              </a>
+                                          <ul class="dropdown-menu my">
+                                            <li><a href="{{ url('https://hatinco.com/') }}" class="myblogarea">Hatinco </a></li>
+
+
+                                          </ul>
+
+                           </li>
                             <li id="8">
                                 <a href="https://www.comptia.org/" class="com"><span class="headpadcom">CompTIA</span> </a>
                             </li>
