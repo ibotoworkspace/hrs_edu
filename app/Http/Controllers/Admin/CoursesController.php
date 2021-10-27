@@ -84,7 +84,7 @@ class CoursesController extends Controller
 
     public function index(Request $request)
     {
-        $courses = Courses::orderBy('created_at', 'DESC')->paginate(10);
+        $courses = Courses::where('is_deleted','0')->withTrashed()->orderBy('created_at', 'DESC')->paginate(10);
         return view('admin.courses.index', compact('courses'));
     }
 
@@ -200,20 +200,37 @@ class CoursesController extends Controller
         return view('admin.courses.index', compact('courses', 'name'));
     }
 
-    public function destroy_undestroy($id)
+    public function delete ($id)//delete destroy_undestroy
     {
+        // dd($id);
+        $course = Courses::withTrashed()->find($id);
+        $course->is_deleted = 1;
+        $course->save();
+        if(!$course->deleted_at){
+            Courses::destroy($id);
+        }
 
+        $response = Response::json([
+            "status" => true,
+            'action' => Config::get('constants.ajax_action.delete')
+        ]);
+        return $response;
+    }
+    public function activate($id)//destroy_undestroy
+    {
         $courses = Courses::find($id);
         if ($courses) {
             Courses::destroy($id);
             $new_value = 'Activate';
+
         } else {
-            Courses::withTrashed()->find($id)->restore();
-            $new_value = 'Delete';
+            $courses = Courses::withTrashed()->find($id)->restore();
+            $new_value = 'Deactivate';
         }
+
         $response = Response::json([
             "status" => true,
-            'action' => Config::get('constants.ajax_action.delete'),
+            'action' => Config::get('constants.ajax_action.update'),
             'new_value' => $new_value
         ]);
         return $response;

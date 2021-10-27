@@ -19,7 +19,7 @@ Route::get('user/aboutus', 'User\UserController@aboutUs');
 
 //                           *********************** ADMIN ROUTE START ****************************
 
-Route::get('admin/login', 'Admin\AdminController@index');
+Route::get('admin/login', 'Admin\AdminController@index')->name('admin.login');;
 Route::post('admin/checklogin', 'Admin\AdminController@checklogin');
 Route::get('admin/logout', 'Admin\AdminController@logout')->name('logout');
 
@@ -159,7 +159,7 @@ Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->nam
     //     Route::get('admin/courses', 'Admin\CoursesController@list')->name('admin/courses');
 
     Route::get('/listofcourses', 'Admin\CoursesController@listofcourses')->name('admin/listofcourses');
-    Route::get('/course/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('course.delete');
+    Route::get('/course/delete/{id}', 'Admin\CoursesController@delete')->name('course.delete');
 
     /////listofquiz
     Route::get('/listofquiz/{id}', 'Admin\ListofQuizController@index')->name('admin.listofquiz');
@@ -319,7 +319,8 @@ Route::get('courses/search', 'Admin\CoursesController@search')->name('courses.se
 Route::get('admin/courses/edit/{id}', 'Admin\CoursesController@edit')->name('courses.edit');
 Route::post('admin/courses/update/{id}', 'Admin\CoursesController@update')->name('courses.update');
 
-Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@destroy_undestroy')->name('courses.delete');
+Route::post('admin/courses/delete/{id}', 'Admin\CoursesController@delete')->name('courses.delete');
+Route::post('admin/courses/activate/{id}', 'Admin\CoursesController@activate')->name('courses.delete');
 Route::post('user/courseregistered', 'Student\CourseRegistrationController@registeredsave')->name('user.courseregistered');
 
 //                              *********************** USER ROUTE END ****************************

@@ -124,7 +124,8 @@ class PaymentController extends Controller
             $payment->actual_amount = $request->actual_price;
             $payment->discount_amount = $request->discount_price;
             $payment->promocode_id = $request->promo_code_id;
-            $payment->payment_response = $stripe->status;
+            $payment->payment_response = json_encode($stripe);
+            $payment->payment_status = $stripe->status;
             $payment->card_type = $stripe->payment_method_details->card->brand;
             $payment->save();
 
