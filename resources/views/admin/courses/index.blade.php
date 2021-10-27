@@ -89,11 +89,17 @@ use App\Models\Chapter;
         </tr>
     </thead>
     <tbody>
+        @if ($message = Session::get('error'))
+                        <div class="alert alert-success alert-block">
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <strong>{{ $message }}</strong>
+                        </div>
+                    @endif
         {{-- admin/listofquiz --}}
 
 
         @foreach ($courses as $key => $crs)
-        
+
 
             <tr class="myarrow myarrow_{{ $crs->id ?? '' }}">
                 <td class="mynbr">
@@ -105,7 +111,7 @@ use App\Models\Chapter;
                 <?php if (!$crs->avatar) {
                 $crs->avatar = asset('images/mediallogo.png');
                 } ?>
-                  
+
 
                 <td><img width="100px" src="{!! $crs->avatar !!}" class="show-product-img imgshow"></td>
 
@@ -113,9 +119,9 @@ use App\Models\Chapter;
                 <td class="mynbr">
                     <div class="bestnbr" name="hours">{!! $crs->hours !!}</div>
                 </td>
-                
+
                 <?php
-                 
+
                 $total_quizes = Quiz::where('course_id', $crs->id)->count('id');
                 $total_videos = Course_Video::where('course_id', $crs->id)->count('id');
                 $total_lecturer = Lecturer::with('user')->count('id');
@@ -124,13 +130,13 @@ use App\Models\Chapter;
                 ?>
 
                 <td class="myquiz">
-                
-                  
+
+
                     <a href="{{ url('/admin/listofquiz/' . $crs->id) }}" type="button"   class="btn btn-primary onquizes"
                         id="myvide">  {!!$total_quizes!!} Quizzes</a>
                 </td>
                 <td class="myvideos">
-                 
+
                     <div class="vide">
 
                         <a href="{{ url('admin/courses/videos/' . $crs->id) }}" type="button"
@@ -140,12 +146,19 @@ use App\Models\Chapter;
                     </div>
                 </td>
                 <td class="myvideos">
-                    
+
 
                     <div class="vide">
+
                         <a href="{{ url('/admin/chapter/' . $crs->id) }}" type="button" class="btn btn-primary onvideos"
                             id="myvide">{!!$total_chapter!!} Lectures</a>
+
                     </div>
+
+
+
+
+
                 </td>
                 <td class="optionss">
                     <div class="myoptionss">
@@ -153,9 +166,9 @@ use App\Models\Chapter;
                         <div class="dropdown">
                             <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                               
+
                                 </button>
-                                    
+
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li><a href="{{ url('/admin/courses/edit/' . $crs->id) }}">Edit</a></li>
 
@@ -163,13 +176,22 @@ use App\Models\Chapter;
                                 <li>
                                     <a href="" data-toggle="modal" hit_method="get" remove_parent="myarrow_{{$crs->id}}" hit_url="{{ url('/admin/course/delete/' . $crs->id) }}" name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                                         <span class="badge bg-info btn-danger ">
-                                            {!! $crs->deleted_at ? 'Activate' : 'Delete' !!}</span>
+                                            Delete</span>
                                     </a>
+                                </li>
+
+                                <li>
+                                    <a href="#" hit_method="post" hit_url="{!!asset('admin/courses/activate/'.$crs->id)!!}" data-toggle="modal"
+                                        name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do you want to proceed?">
+                                        <span class="badge bg-info btn-primary ">
+                                            {!! $crs->deleted_at?'Activate':'Deactivate' !!}</span></a>
                                 </li>
                             </ul>
 
+
+
                         </div>
-                       
+
 
                     </div>
                 </td>

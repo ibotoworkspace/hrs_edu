@@ -40,6 +40,35 @@
                     <p class="loginpara">WELCOME TO THE HRS ACADEMY</p>
                         <form method="post" action="{{ url('/student/checklogin') }}">
                             {{ csrf_field() }}
+                            <?php
+
+                    // $user_data = Auth::user();
+                    // if(!$user_data){
+                    //     $user_data = new \stdClass();
+                    //     $user_data->role_id = 0;
+                    // }
+
+
+
+// else($user->role_id == 1){
+
+// return redirect()->back('admin/login');
+
+// }
+
+?>
+
+   <?php
+    $user_data = Auth::user();
+//     if ( $user_data->role_id == 1){
+
+//         return redirect('admin/login');
+
+//    }
+
+
+
+?>
                             <div class="form-group">
                                 <label style="color: #fff;">Enter Email</label>
                                 <input type="email" name="email" class="form-control " />

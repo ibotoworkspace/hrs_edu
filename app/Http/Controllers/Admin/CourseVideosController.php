@@ -14,7 +14,12 @@ class CourseVideosController extends Controller
 {
     public function index($id)
     {
+        $course_id = Courses::find($id);
+        // dd(  $course_id);
+        if(!$course_id){
+            return redirect()->back()->with('error','Please firstly activate course');
 
+        }
         $coursevideos = Course_Video::where('course_id', $id)->paginate(10);
         $course = Courses::find($id);
 

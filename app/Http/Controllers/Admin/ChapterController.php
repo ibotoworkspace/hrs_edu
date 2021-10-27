@@ -21,7 +21,12 @@ class ChapterController extends Controller
 {
     public function index(Request $request, $id)
     {
-        // dd($id);
+        $course_id = Courses::find($id);
+        // dd(  $course_id);
+        if(!$course_id){
+            return redirect()->back()->with('error','Please firstly activate course');
+
+        }
         $name = $request->name ?? '';
 
         $chapter = Chapter::where('title', 'like', '%' . $name . '%')->where('course_id', $id)->paginate(10);
