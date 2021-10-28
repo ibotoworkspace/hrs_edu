@@ -21,6 +21,9 @@ span.error{
 	color: red;
 	padding-left: 211px;
 }
+a.btn.btn-primary.onvideos.activated {
+    margin-left: 80px;
+}
 div#confirm {
     height: fit-content;
     width: max-content;
