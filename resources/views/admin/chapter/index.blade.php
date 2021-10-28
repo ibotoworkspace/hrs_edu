@@ -121,21 +121,29 @@
             </tr>
 
 
+            @endforeach
 
 
 
-
-    </tbody>
+        </tbody>
 
 
 
     @section('pagination')
         <span class="pagination pagination-md pull-right">{!! $chapter->render() !!}</span>
-
+        <div class="col-md-3 pull-left">
+            <div class="form-group text-center">
+                <div>
+                    {!! Form::open(['method' => 'get', 'route' => ['courses.index']]) !!}
+                    {!! Form::submit('Cancel', ['class' => 'btn btn-default btn-block btn-lg btn-parsley']) !!}
+                    {!! Form::close() !!}
+                </div>
+            </div>
+        </div>
     @endsection
 
 
 
 
-    @endforeach
+
 @stop

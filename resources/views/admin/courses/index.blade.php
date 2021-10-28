@@ -79,6 +79,10 @@ use App\Models\Chapter;
 
             </th>
             <th class="option">
+                <div class="bestoption">Activate/Deactivate</div>
+
+            </th>
+            <th class="option">
                 <div class="bestoption">Option</div>
 
             </th>
@@ -160,6 +164,40 @@ use App\Models\Chapter;
 
 
                 </td>
+
+                <td class="myvideos">
+
+
+                    <div class="vide">
+
+                        {{-- <a href="#" type="button" class="btn btn-primary onvideos activated"
+                            id="myvide"> --}}
+
+
+                            <a href="#"  class="btn btn-primary onvideos activated" id="myvide"
+                            hit_method="post" hit_url="{!!asset('admin/courses/activate/'.$crs->id)!!}" data-toggle="modal"
+                                name="activate_delete_link"
+                                extra_function="call_fun"
+                                extra_fun_params="param1|,|param2|,|param3"
+                                data-target=".delete" modal_heading="Alert" modal_msg="Do you want to proceed?">
+                                <span class="badge bg-info btn-primary" >
+                                    {!! $crs->deleted_at?'Activate':'Deactivate' !!}</span></a>
+
+
+
+
+
+
+
+
+
+                    </div>
+
+
+
+
+
+                </td>
                 <td class="optionss">
                     <div class="myoptionss">
 
@@ -180,12 +218,15 @@ use App\Models\Chapter;
                                     </a>
                                 </li>
 
-                                <li>
+                                {{-- <li>
                                     <a href="#" hit_method="post" hit_url="{!!asset('admin/courses/activate/'.$crs->id)!!}" data-toggle="modal"
-                                        name="activate_delete_link" data-target=".delete" modal_heading="Alert" modal_msg="Do you want to proceed?">
+                                        name="activate_delete_link"
+                                        extra_function="call_fun"
+                                        extra_fun_params="param1|,|param2|,|param3"
+                                        data-target=".delete" modal_heading="Alert" modal_msg="Do you want to proceed?">
                                         <span class="badge bg-info btn-primary ">
                                             {!! $crs->deleted_at?'Activate':'Deactivate' !!}</span></a>
-                                </li>
+                                </li> --}}
                             </ul>
 
 
@@ -201,6 +242,36 @@ use App\Models\Chapter;
     </tbody>
 @section('pagination')
     <span class="pagination pagination-md pull-right">{!! $courses->render() !!}</span>
+
+
+
+@endsection
+
+
+@section('app_jquery')
+
+<script>
+    function validateForm(){
+return true;
+}
+
+function call_fun(arg1, arg2,arg3){
+    console.log('working',arg1, arg2, arg3);
+}
+
+
+//     function activate(){
+//             console.log('sdsd=========');
+
+
+// var active= $('.activated').html('hjh');
+
+// }
+
+</script>
+
+
+
 @endsection
 {{-- modal open --}}
 

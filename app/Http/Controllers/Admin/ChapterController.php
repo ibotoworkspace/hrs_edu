@@ -21,16 +21,16 @@ class ChapterController extends Controller
 {
     public function index(Request $request, $id)
     {
-        $course_id = Courses::find($id);
+        // $course_id = Courses::find($id);
         // dd(  $course_id);
-        if(!$course_id){
-            return redirect()->back()->with('error','Please firstly activate course');
+        // if(!$course_id){
+        //     return redirect()->back()->with('error','Please firstly activate course');
 
-        }
+        // }
         $name = $request->name ?? '';
 
         $chapter = Chapter::where('title', 'like', '%' . $name . '%')->where('course_id', $id)->paginate(10);
-        $courses = Courses::find($id);
+        $courses = Courses::withTrashed()->find($id);
         // dd( $courses);
         return view('admin.chapter.index', compact('chapter', 'courses'));
     }
