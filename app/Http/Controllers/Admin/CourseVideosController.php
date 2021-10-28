@@ -14,14 +14,15 @@ class CourseVideosController extends Controller
 {
     public function index($id)
     {
-        $course_id = Courses::find($id);
-        // dd(  $course_id);
-        if(!$course_id){
-            return redirect()->back()->with('error','Please firstly activate course');
+           // dd(  $course_id);
+        // $course_id = Courses::find($id);
 
-        }
+        // if(!$course_id){
+        //     return redirect()->back()->with('error','Please firstly activate course');
+
+        // }
         $coursevideos = Course_Video::where('course_id', $id)->paginate(10);
-        $course = Courses::find($id);
+        $course = Courses::withTrashed()->find($id);
 
         return view('admin.coursesvideos.index', compact('coursevideos', 'course'));
     }

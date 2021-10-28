@@ -51,7 +51,9 @@
             var hit_url = $(this).attr('hit_url');
             var hit_method = $(this).attr('hit_method');
             var remove_parent = $(this).attr('remove_parent');
-            console.log('in modal !!!', this);
+            var extra_function=$(this).attr('extra_function');
+            var extra_fun_params =$(this).attr('extra_fun_params').split('|,|');
+            console.log('extra_fun_params  !!!', extra_fun_params);
 
             if (modal_heading != '' || modal_heading != undefined) {
                 $('#modal-heading').html(modal_heading);
@@ -66,10 +68,15 @@
                 })
                 .one('click', '#delete', function() {
 
+                    var arg1 = 100, arg2 = 'abc';
+
+                    // window['call_fun'].apply(null,[arg1, arg2]);
+                    window[extra_function].apply(null,extra_fun_params);
+
                     var my_url = hit_url;
                     var my_method = hit_method;
-                    console.log('my_url my_url', my_url)
-                    console.log('my_method my_method', my_method)
+                    console.log('my_url my_url 1233', my_url)
+                    console.log('my_method my_method 1233', my_method)
                     $.ajax({
                         url: my_url,
                         method: my_method,
