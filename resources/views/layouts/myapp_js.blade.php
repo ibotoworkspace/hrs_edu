@@ -52,8 +52,17 @@
             var hit_method = $(this).attr('hit_method');
             var remove_parent = $(this).attr('remove_parent');
             var extra_function=$(this).attr('extra_function');
-            var extra_fun_params =$(this).attr('extra_fun_params').split('|,|');
+            var extra_fun_params = $(this).attr('extra_fun_params');
             console.log('extra_fun_params  !!!', extra_fun_params);
+
+            if (extra_fun_params == '' || extra_fun_params == undefined) {
+                extra_fun_params = [];
+            }
+            else{
+                console.log('extra_fun_params sadsadsad',extra_fun_params);
+                extra_fun_params = extra_fun_params.split('|,|');
+
+            }
 
             if (modal_heading != '' || modal_heading != undefined) {
                 $('#modal-heading').html(modal_heading);
@@ -71,7 +80,7 @@
                     var arg1 = 100, arg2 = 'abc';
 
                     // window['call_fun'].apply(null,[arg1, arg2]);
-                    window[extra_function].apply(null,extra_fun_params);
+
 
                     var my_url = hit_url;
                     var my_method = hit_method;
@@ -86,6 +95,11 @@
                         },
                         success: function(data) {
                             console.log('current  !!!!!!!!!', current);
+                            if (extra_function != '' && extra_function != undefined) {
+                                console.log('extra_fun_param dds',extra_fun_params);
+                                window[extra_function].apply(null,extra_fun_params);
+                            }
+
                             if (data.action == 'update') {
                                 $(current).find('span').html(data.new_value);
                             } else if (data.action == 'delete') {

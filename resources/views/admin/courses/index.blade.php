@@ -174,7 +174,7 @@ use App\Models\Chapter;
                             id="myvide"> --}}
 
 
-                            <a href="#"  class="btn btn-primary onvideos activated" id="myvide"
+                            <a href="#"  class="btn btn-primary onvideos activated"
                             hit_method="post" hit_url="{!!asset('admin/courses/activate/'.$crs->id)!!}" data-toggle="modal"
                                 name="activate_delete_link"
                                 extra_function="call_fun"
