@@ -174,8 +174,11 @@ class StudentController extends Controller
                         Auth::login($user);
                         return redirect('skilladvisor/dashboard');
                     }
+                    else {
+                        return back()->with('error', 'Your profile is under verification');
+                    }
                 } else {
-                    return back()->with('error', 'Your profile is under verification');
+                    return back()->with('error', 'Wrong Login Details');
                 }
             } elseif ($user->role_id == Config::get('constants.role_id.lecturer')) {
                 $lecturer = Lecturer::where('user_id', $user->id)->where('is_approve', 1)->first();
