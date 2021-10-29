@@ -165,12 +165,17 @@ class StudentController extends Controller
                 return redirect('student/dashboard');
             } elseif ($user->role_id == Config::get('constants.role_id.skilladvisor')) {
                 // dd($user);
-                $skilladvisor = SkillAdvisor::where('user_id', $user->id)->where('status', 'approved')->first();
+                $skilladvisor = SkillAdvisor::where('user_id', $user->id)->first();
                 if ($skilladvisor) {
-                    Auth::login($user);
-                    return redirect('skilladvisor/dashboard');
+                    if(!$skilladvisor->is_verified){
+                        return back()->with('error', 'Email not verfied');
+                    }
+                    else if($skilladvisor->status == 'approved'){
+                        Auth::login($user);
+                        return redirect('skilladvisor/dashboard');
+                    }
                 } else {
-                    return back()->with('error', 'Your profile is under verification .');
+                    return back()->with('error', 'Your profile is under verification');
                 }
             } elseif ($user->role_id == Config::get('constants.role_id.lecturer')) {
                 $lecturer = Lecturer::where('user_id', $user->id)->where('is_approve', 1)->first();
