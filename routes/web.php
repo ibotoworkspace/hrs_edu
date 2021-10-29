@@ -2,24 +2,13 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Route::post('student/paymentmethood', 'Student\PaymentController@paymentMethod');
 Route::get('user/aboutus', 'User\UserController@aboutUs');
-
+Route::get('user/verify_advisor/{reg_code}', 'User\SkillAdvisorController@verify_advisor');
 
 //                           *********************** ADMIN ROUTE START ****************************
 
-Route::get('admin/login', 'Admin\AdminController@index')->name('admin.login');;
+Route::get('admin/login', 'Admin\AdminController@index')->name('admin.login');
 Route::post('admin/checklogin', 'Admin\AdminController@checklogin');
 Route::get('admin/logout', 'Admin\AdminController@logout')->name('logout');
 
@@ -62,7 +51,6 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('dashboard/courses/pdf', 'Admin\CoursesController@admin_generatePDF')->name('group.pdf');
 
     // REPORTS
-
     Route::get('/report/course', 'Admin\Report\CourseController@index')->name('report.course');
     Route::get('/report/user', 'Admin\Report\UserController@index')->name('report.course');
     Route::get('/report/user/certificate/{id}/{user_id}', 'Admin\Report\UserController@certificate')->name('report.course');
@@ -70,59 +58,46 @@ Route::group(['middleware' => 'admin_auth', 'prefix' => 'admin'], function () {
     Route::get('/report/user/voucher/{id}/{user_id}', 'Admin\Report\VoucherController@index')->name('report.voucher');
     Route::post('/report/user/voucher/save', 'Admin\Report\VoucherController@save')->name('admin.voucher.save');
 
-/////TEST
-
-Route::get('/test', 'Admin\TestController@index')->name('admin.test');
-Route::get('/test/create', 'Admin\TestController@create')->name('test.create');
-Route::post('/test/save', 'Admin\TestController@save')->name('test.save');
-Route::get('/test/edit/{id}', 'Admin\TestController@edit')->name('test.edit');
-Route::post('/test/update/{id}', 'Admin\TestController@update')->name('test.update');
-Route::get('test/delete/{id}', 'Admin\TestController@destroy_undestroy')->name('test.delete');
-
-
-///Ebooks
+    /////TEST
+    Route::get('/test', 'Admin\TestController@index')->name('admin.test');
+    Route::get('/test/create', 'Admin\TestController@create')->name('test.create');
+    Route::post('/test/save', 'Admin\TestController@save')->name('test.save');
+    Route::get('/test/edit/{id}', 'Admin\TestController@edit')->name('test.edit');
+    Route::post('/test/update/{id}', 'Admin\TestController@update')->name('test.update');
+    Route::get('test/delete/{id}', 'Admin\TestController@destroy_undestroy')->name('test.delete');
 
 
-
-Route::get('/ebooks', 'Admin\EbooksController@index')->name('admin.ebooks');
-Route::get('/ebooks/create/', 'Admin\EbooksController@create')->name('ebooks.create');
-Route::post('/ebooks/save', 'Admin\EbooksController@save')->name('ebooks.save');
-Route::get('/ebooks/edit/{id}', 'Admin\EbooksController@edit')->name('ebooks.edit');
-Route::post('/ebooks/update/{id}', 'Admin\EbooksController@update')->name('ebooks.update');
-Route::get('ebooks/delete/{id}', 'Admin\EbooksController@destroy_undestroy')->name('ebooks.delete');
-
-
-// test_assigned and test id
-
-Route::get('/test_assigned/{id}','Admin\Test_assignedController@index')->name('admin.test.assigned');;
-
-Route::get('/test_assigned','Admin\Test_assignedController@index')->name('test.assigned');
-Route::get('/test_assigned/create/{id}','Admin\Test_assignedController@create')->name('test_assigned.create');
-Route::post('/test_assigned/save','Admin\Test_assignedController@save')->name('test_assigned.save');
-Route::get('/test_assigned/edit/{id}', 'Admin\Test_assignedController@edit')->name('test_assigned.edit');
-Route::post('/test_assigned/update/{id}', 'Admin\Test_assignedController@update')->name('test_assigned.update');
-Route::get('test_assigned/delete/{id}', 'Admin\Test_assignedController@destroy_undestroy')->name('test_assigned.delete');
+    ///Ebooks
+    Route::get('/ebooks', 'Admin\EbooksController@index')->name('admin.ebooks');
+    Route::get('/ebooks/create/', 'Admin\EbooksController@create')->name('ebooks.create');
+    Route::post('/ebooks/save', 'Admin\EbooksController@save')->name('ebooks.save');
+    Route::get('/ebooks/edit/{id}', 'Admin\EbooksController@edit')->name('ebooks.edit');
+    Route::post('/ebooks/update/{id}', 'Admin\EbooksController@update')->name('ebooks.update');
+    Route::get('ebooks/delete/{id}', 'Admin\EbooksController@destroy_undestroy')->name('ebooks.delete');
 
 
-// admin/test_result
-Route::get('/test_result','Admin\Test_resultController@index');
-Route::get('/test_result/details/{id}','Admin\Test_resultController@details');
-// admin/testresult/details/
+    // test_assigned and test id
+    Route::get('/test_assigned/{id}','Admin\Test_assignedController@index')->name('admin.test.assigned');
+    Route::get('/test_assigned','Admin\Test_assignedController@index')->name('test.assigned');
+    Route::get('/test_assigned/create/{id}','Admin\Test_assignedController@create')->name('test_assigned.create');
+    Route::post('/test_assigned/save','Admin\Test_assignedController@save')->name('test_assigned.save');
+    Route::get('/test_assigned/edit/{id}', 'Admin\Test_assignedController@edit')->name('test_assigned.edit');
+    Route::post('/test_assigned/update/{id}', 'Admin\Test_assignedController@update')->name('test_assigned.update');
+    Route::get('test_assigned/delete/{id}', 'Admin\Test_assignedController@destroy_undestroy')->name('test_assigned.delete');
 
+    // admin/test_result
+    Route::get('/test_result','Admin\Test_resultController@index');
+    Route::get('/test_result/details/{id}','Admin\Test_resultController@details');
+    // admin/testresult/details/
 
-
-/////questions list and test id
-Route::get('/question/{id}', 'Admin\QuestionController@index')->name('admin.question');
-Route::get('/question', 'Admin\QuestionController@index')->name('admin.question');
-Route::get('/question/create/{id}', 'Admin\QuestionController@create')->name('question.create');
-Route::post('/question/save', 'Admin\QuestionController@save')->name('question.save');
-Route::get('/edit/questions/{id}', 'Admin\QuestionController@edit')->name('question.edit');
-Route::post('/question/update/{id}', 'Admin\QuestionController@update')->name('question.update');
-Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy')->name('question.delete');
-
-
-
-
+    /////questions list and test id
+    Route::get('/question/{id}', 'Admin\QuestionController@index')->name('admin.question');
+    Route::get('/question', 'Admin\QuestionController@index')->name('admin.question');
+    Route::get('/question/create/{id}', 'Admin\QuestionController@create')->name('question.create');
+    Route::post('/question/save', 'Admin\QuestionController@save')->name('question.save');
+    Route::get('/edit/questions/{id}', 'Admin\QuestionController@edit')->name('question.edit');
+    Route::post('/question/update/{id}', 'Admin\QuestionController@update')->name('question.update');
+    Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy')->name('question.delete');
 
     // general discussion
 
@@ -150,11 +125,11 @@ Route::get('/question/delete/{id}', 'Admin\QuestionController@destroy_undestroy'
     // Route::post('/saveblog', 'Admin\BlogController@save')->name('saveblog');
 
     Route::get('/addblog', 'Admin\BlogController@index')->name('addblog.index');
-Route::get('/addblog/create/', 'Admin\BlogController@create')->name('addblog.create');
-Route::post('/addblog/save', 'Admin\BlogController@save')->name('addblog.save');
-Route::get('/addblog/edit/{id}', 'Admin\BlogController@edit')->name('addblog.edit');
-Route::post('/addblog/update/{id}', 'Admin\BlogController@update')->name('addblog.update');
-Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->name('addblog.delete');
+    Route::get('/addblog/create/', 'Admin\BlogController@create')->name('addblog.create');
+    Route::post('/addblog/save', 'Admin\BlogController@save')->name('addblog.save');
+    Route::get('/addblog/edit/{id}', 'Admin\BlogController@edit')->name('addblog.edit');
+    Route::post('/addblog/update/{id}', 'Admin\BlogController@update')->name('addblog.update');
+    Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->name('addblog.delete');
 
     //     Route::get('admin/courses', 'Admin\CoursesController@list')->name('admin/courses');
 
@@ -209,10 +184,7 @@ Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->nam
     Route::post('/promocode/save', 'Admin\PromoCodeController@save')->name('promocode.save');
     Route::get('/promocode/edit/{id}', 'Admin\PromoCodeController@edit')->name('promocode.edit');
     Route::post('/promocode/update/{id}', 'Admin\PromoCodeController@update')->name('promocode.update');
-
-    // admin/courses/delete' .$crs->id
     Route::get('/promocode/delete/{id}', 'Admin\PromoCodeController@destroy_undestroy')->name('promocode.delete');
-
 
     /////////coursesvideos
 
@@ -224,7 +196,6 @@ Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->nam
     Route::post('/coursesvideos/update/{id}', 'Admin\CourseVideosController@update')->name('coursesvideos.update');
     Route::post('/coursesvideos/delete/{id}', 'Admin\CourseVideosController@destroy_undestroy')->name('coursesvideos.delete');
     Route::get('coursesvideos/search', 'Admin\CourseVideosController@search')->name('coursesvideos.search');
-
 
     // lectures button clicking in course page
     Route::get('/chapter/{id}', 'Admin\ChapterController@index')->name('chapters.index');
@@ -241,7 +212,6 @@ Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->nam
       Route::get('/chapter/excel/{id}', 'Admin\ChapterController@index_excel')->name('chapter.excel');
       Route::get('/chapter/pdf/{id}', 'Admin\ChapterController@generatePDF')->name('chapter.pdf');
 
-
     // Lecturer Routes  lecturer
 
     Route::get('/lecturer/link/{id}', 'Admin\LecturerController@sendLink')->name('lecturer.link');
@@ -255,8 +225,6 @@ Route::get('addblog/delete/{id}', 'Admin\BlogController@destroy_undestroy')->nam
 });
 
 //                              *********************** ADMIN ROUTE END ****************************
-
-
 //                              *********************** USER ROUTE START ****************************
 
 Route::group(['prefix' => 'user'], function () {
@@ -289,25 +257,16 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/phpdeveloper', 'User\UserController@phpdeveloper')->name('user/phpdeveloper');
 
     /////user/registration
-
     Route::get('/list', 'User\StudentRegistrationController@list')->name('user.list');
     Route::get('/list/delete/{id}', 'User\StudentRegistrationController@delete')->name('user.delete');
-
-    ////////userlist.search
     Route::get('/list/search', 'User\StudentRegistrationController@search')->name('userlist.search');
-
-
 
     Route::get('privacy&policy', 'User\UserController@privacyAndPolicy')->name('privacy');
     Route::get('terms&condition', 'User\UserController@termsAndCondition')->name('privacy');
     Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
     Route::get('/resource', 'User\UserController@resourse')->name('user/resourse');
-
     Route::match(['get', 'post'], 'add/skilladvisor', 'User\SkillAdvisorController@add')->name('add.skilladvisor');
 
-    // Route::get('/skilladvisor', 'User\SkillAdvisorController@index')->name('user/skilladvisor');
-    // Route::get('/advisorlist', 'User\SkillAdvisorController@list')->name('user/advisorlist');
-    // Route::post('/advisor/status_update/{id}', 'User\SkillAdvisorController@status_update')->name('advisor.status_update');
 });
 
 Route::get('user/index', 'User\UserController@index')->name('user/index');
@@ -334,24 +293,13 @@ Route::post('student/registration/save', 'Student\StudentController@save')->name
 Route::get('login', 'Student\StudentController@login');
 Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
-
-////////////////
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
-
-//
-
 
 Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function () {
 
     Route::get('blogpage', 'Student\BlogPageController@blogpage')->name('student/blogpage');
-Route::get('changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
-// Route::get('courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
-Route::get('read/{id}', 'Student\StudentController@read')->name('student.read');
-
-
-
-
-
+    Route::get('changepassword', 'Student\ChangePasswordController@index')->name('student/changepassword');
+    Route::get('read/{id}', 'Student\StudentController@read')->name('student.read');
 
     // request for certificate
 
@@ -377,7 +325,6 @@ Route::get('read/{id}', 'Student\StudentController@read')->name('student.read');
     Route::get('/library', 'Student\LibraryController@index')->name('library');
     Route::post('/downloadpdf', 'Student\LibraryController@downloadRequest')->name('downloadpdf');
 
-
     Route::post('/applypromocode', 'Student\PaymentController@applyPromocode')->name('applypromocode');
     Route::post('/forgetpassword', 'Student\StudentController@forgetPassword')->name('forgetpassword');
 
@@ -389,18 +336,14 @@ Route::get('read/{id}', 'Student\StudentController@read')->name('student.read');
     Route::post('/makepayment', 'Student\PaymentController@make_payment')->name('student.makepayment');   // send course_id in request
     Route::get('/payment/detail', 'Student\PaymentController@details')->name('payment.detail');
     Route::get('/paymenthistory', 'Student\PaymentHistoryController@index')->name('student/paymenthistory');
-    // Route::get('/proceedpayment', 'Student\ProceedPaymentController@index')->name('student/proceedpayment');
 
     Route::get('/stripepayment', 'Student\PaymentController@stripePayment')->name('stripepayment');
     Route::get('/paypalpayment', 'Student\PaymentController@payPal')->name('paypalpayment');
     Route::get('/profile', 'Student\StudentController@profile')->name('student/profile');
     // Route::get('/submitrequest', 'Student\SubmitRequestController@index')->name('student/submitrequest');
     Route::get('/viewticket', 'Student\ViewTicketController@index')->name('student.viewticket');
-
     Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
-
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
-
 
     Route::match(['get', 'post'], 'ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 
@@ -460,10 +403,8 @@ Route::group(['middleware' => 'lecturer_auth', 'prefix' => 'lecturer'], function
 Route::group(['middleware' => 'skilladvisor_auth', 'prefix' => 'skilladvisor'], function () {
 
     Route::get('/dashboard', 'SkillAdvisor\DashboardController@index');
-
     Route::get('/profile', 'SkillAdvisor\DashboardController@profile');
     Route::post('/profileupdate', 'SkillAdvisor\DashboardController@updateProfile');
-    //course list
     Route::get('/course', 'SkillAdvisor\CourseController@index');
     Route::get('/logout', 'SkillAdvisor\DashboardController@logout');
 });

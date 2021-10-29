@@ -69,8 +69,6 @@
                             data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                             <span class="badge bg-info btn-danger ">
                                 Pending</span></a>
-
-
                     @else
                         <span class="badge bg-info btn-primary ">
                             Approve
