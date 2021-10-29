@@ -2,15 +2,14 @@
 <html>
 
 <head>
-    <title>Virtual Class Link from HRS Acedamy</title>
+    <title>HRS Acedamy</title>
 </head>
 
 <body>
 
-    <img src="{!! $details['class_link'] !!}">
+    {{-- <img src="{!! $details['class_link'] !!}"> --}}
 
-
-
+    Please <a href="{!! $details['class_link'] !!}"> Click </a> to join class
     <p>Thank you</p>
 </body>
 

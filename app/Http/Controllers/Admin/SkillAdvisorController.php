@@ -12,8 +12,7 @@ class SkillAdvisorController extends Controller
     public function index(Request $request)
     {
         $search_text = $request->name ?? '';
-        $advisor = SkillAdvisor::where('name', 'like', '%' . $search_text . '%')->paginate(10);
-
+        $advisor = SkillAdvisor::where('is_verified','1')->where('name', 'like', '%' . $search_text . '%')->paginate(10);
 
         return view('admin.advisor.index', compact('advisor'));
     }
