@@ -22,6 +22,11 @@
     border-radius: 0px;
     height: 40px;
 }
+input.btn.btn-md.btn-primary.myyuu {
+    margin-top: 23px
+;
+    background-color: black;
+}
 input.form-control.reformbox {
     background: transparent;
     border: none;

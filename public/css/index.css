@@ -579,4 +579,7 @@ p.smallright {
     .crbtngroup{
         float: left;
     }
+    a.com {
+        margin-left: 20px;
+    }
 }

@@ -54,7 +54,7 @@ $student = $student_common->student;
 
 
                                             </div>
-                                            
+
 
 
                                         </div>
@@ -83,7 +83,8 @@ $student = $student_common->student;
                                             value="{{ $student->mobileno ?? '' }}" placeholder="Phone No " required>
                                         <input type="text" class="form-control stuform" id="address" name="address"
                                             value="{{ $student->address ?? '' }}" placeholder="Contact Address" required>
-                                        <input type="text" class="form-control stuform" id="region" name="region" value=""
+                                        <input type="text" class="form-control stuform" id="region" name="region"
+                                        value="{{ $student->region ?? '' }}"
                                             placeholder="Region ">
                                     </div>
                                     <div class="stufomclick">

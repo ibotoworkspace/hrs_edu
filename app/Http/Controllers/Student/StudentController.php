@@ -110,6 +110,9 @@ class StudentController extends Controller
         if ($request->phone) {
             $student->mobileno = $request->phone;
         }
+        if ($request->region) {
+            $student->region = $request->region;
+        }
         if ($request->password) {
             $student->password = Hash::make($request->password);
         }
@@ -143,6 +146,7 @@ class StudentController extends Controller
 
     function checklogin(Request $request)
     {
+        // dd('sdsd');
         $this->validate($request, [
             'email'   => 'required|email',
             'password'  => 'required|min:3'
@@ -223,7 +227,7 @@ class StudentController extends Controller
     public function forgetPassword(Request $request)
     {
 
-
+dd('asas');
         $user_detail = Auth::user();
         $user = User::find($user_detail->id);
         $user->password = Hash::make($request->password);
