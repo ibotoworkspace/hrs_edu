@@ -24,6 +24,21 @@ h1,h2,h3,h4{
     font-size: 35px;
     font-weight: 600;
 }
+div#confirm {
+    background-color: beige;
+}
+
+a.btn.btn-md.btn-primary.myyuu {
+    margin-top: 11px
+;
+}
+a.btn.btn-md.btn-primary.myyop {
+    background-color: #bfb28e;
+}
+
+input.form-control.myyyyema {
+    background-color: azure;
+}
 .contactareadata h3 {
     text-align: center;
     color: white;
@@ -146,5 +161,5 @@ h1,h2,h3,h4{
 
 @media only screen and (max-width : 768px) {
 
-   
+
 }

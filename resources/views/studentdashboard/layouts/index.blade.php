@@ -310,7 +310,7 @@
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="copydata">
-                            <p>Copyright © 2020 HRS Academy | All Rights Reserved |
+                            <p>Copyright © 2021 HRS Academy | All Rights Reserved |
 
                             </p>
                         </div>

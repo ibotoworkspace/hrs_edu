@@ -81,9 +81,21 @@
                                 <input type="submit" name="login" class="btn loginbtn" value="Login to Your Account" />
                             </div>
                         </form>
+
                         <div class="form-group">
-                                <a href="" style="color: #fff;">Forgot your Password?</a>
-                            </div>
+                   {{-- <a href=""  style="color: #fff;">Forgot your Password?</a>
+                   @include('studentdashboard.login.forget_modal') --}}
+
+                   <a href="" type="button" class="btn btn-md btn-primary myyop"
+                        data-toggle="modal" data-target=".forget_password">
+                        Forgot your Password?
+                   </a>
+
+                   @include('studentdashboard.login.forget_modal')
+
+
+                    </div>
+
                     </div>
                 </div>
             </div>

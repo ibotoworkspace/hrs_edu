@@ -333,12 +333,47 @@ input#GnTPhone {
                             <div class="companyarea">
                                 <h4>COMPANY</h4>
                                 <ul>
-                                    <li>About Us</li>
-                                    <li>Why Choose Us</li>
-                                    <li>Become Our SDA</li>
-                                    <li>Terms of Service</li>
-                                    <li>Privacy Policies</li>
-                                    <li>Career & Jobs</li>
+                                    <li>
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">About Us
+                                        </a>
+
+                                        </li>
+                                    <li>
+
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">  Why Choose Us
+                                        </a>
+
+
+
+                                    </li>
+                                    <li>
+
+
+                                        <a href={{asset('user/add/skilladvisor')}} class="footerlinks">      Become Our SDA
+                                        </a>
+
+
+                                    </li>
+                                    <li>
+
+
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">      Terms of Service
+                                        </a>
+
+                                    </li>
+                                    <li>
+
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">      Privacy Policies
+                                        </a>
+
+                                    </li>
+                                    <li>
+
+
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">     Career & Jobs
+                                        </a>
+
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -349,11 +384,31 @@ input#GnTPhone {
                             <div class="companyarea">
                                 <h4>COURSES</h4>
                                 <ul>
-                                    <li>HRS Server Pro</li>
-                                    <li>HRS Network Pro</li>
-                                    <li>HRS Linux Pro</li>
-                                    <li>HRS Ethical Hacking</li>
-                                    <li>HRS Security Pro</li>
+
+                                    <li>
+                                        <a href={{asset('user/courses')}} class="footerlinks">    HRS Network Pro
+                                        </a>
+
+
+                                    </li>
+                                    <li>
+
+                                        <a href={{asset('user/courses')}} class="footerlinks">     HRS Linux Pro
+                                        </a>
+
+                                    </li>
+                                    <li>
+
+                                        <a href={{asset('user/courses')}} class="footerlinks">      HRS Ethical Hacking
+                                        </a>
+
+                                    </li>
+                                    <li>
+
+
+                                        <a href={{asset('user/courses')}} class="footerlinks">   HRS Security Pro
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -364,9 +419,21 @@ input#GnTPhone {
                             <div class="companyarea">
                                 <h4>TRAINING SERVICES</h4>
                                 <ul>
-                                    <li>Corporate Training</li>
-                                    <li>Online Training</li>
-                                    <li>Certifications</li></a>
+                                    <li>
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">  Corporate Training
+                                        </a>
+
+                                    </li>
+                                    <li>
+
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">  Online Training
+                                        </a>
+                                    </li>
+                                    <li>
+
+                                        <a href={{asset('user/aboutus')}} class="footerlinks">  Certifications
+                                        </a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -378,7 +445,11 @@ input#GnTPhone {
                                 <h4>HELP & SUPPORT</h4>
                                 <ul>
                                     <li>Help Cente</li>
-                                    <li>Contact Us</li></a>
+                                    <li>
+                                        <a href={{asset('user/contactus')}} class="footerlinks">  Contact Us
+                                        </a>
+
+                                    </li>
                                 </ul>
                                 <a href=""><img src="{{ asset('images/googleplay.png') }}"
                                         class="img-responsive"></a>
@@ -398,7 +469,7 @@ input#GnTPhone {
                 <div class="row">
                     <div class="col-sm-8">
                         <div class="copydata">
-                            <p>Copyright © 2020 HRS Academy | All Rights Reserved |
+                            <p>Copyright © 2021 HRS Academy | All Rights Reserved |
 
                                 Designed by <a href="https://hatinco.com/" target="_blank"> HATINC.</a>
                             </p>
