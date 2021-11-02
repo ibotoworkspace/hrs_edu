@@ -43,7 +43,7 @@
             <div class="col-sm-6">
                 <div class="blogdatao">
                     <h3 class="myh33"> {{ucwords($b->title)}}   </h3>
-                <p class="blackpara">
+                <p class="blackpara" style="color: #fff !important">
                         {!! strlen($b->description) < 500 ? $b->description : substr($b->description, 0, 500).'...'!!}
                 </p>
 
