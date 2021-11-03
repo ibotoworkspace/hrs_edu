@@ -9,7 +9,7 @@
 
     <p>
 
-        {!! $forget_password !!}>
+        {!! $forget_password ['subject']!!}>
 
 
     </p>
