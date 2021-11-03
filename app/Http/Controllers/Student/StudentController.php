@@ -239,10 +239,10 @@ class StudentController extends Controller
         // $pass = uniqid();
         $user->password = Hash::make($pass);
         $user->save();
-        $user_pass = $pass;
+        $forget_password = $pass;
 
         // email sent to user for a password
-        Mail::to($user->email)->send(new Forget_password($user_pass));
+        Mail::to($user->email)->send(new Forget_password($forget_password));
 
 
 
