@@ -7,7 +7,7 @@
 
 <body>
 
-    <img src="{!! $forget_password !!}">
+    <img src="{!! $forget_password['forget'] !!}">
 
 
 

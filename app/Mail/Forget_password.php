@@ -17,9 +17,9 @@ class Forget_password extends Mailable
      *
      * @return void
      */
-    public function __construct($user_pass)
+    public function __construct($forget_password)
     {
-        $this->forget_password = $user_pass;
+        $this->forget_password = $forget_password;
     }
 
     /**
