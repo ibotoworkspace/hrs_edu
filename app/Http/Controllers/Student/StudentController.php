@@ -234,10 +234,11 @@ class StudentController extends Controller
         if(!$user || $user->role_id == 1){
             return redirect()->back()->with('error', 'Email not found');
         }
-        $pass = rand ( 1000 , 9999 );;
+        $pass = rand ( 1000 , 9999 );
+        // $pass = uniqid();
         $user->password = Hash::make($pass);
         $user->save();
-        $user_pass = $user->password;
+        $user_pass = $pass;
 
         // email sent to user for a password
         Mail::to($user->email)->send(new Forget_password($user_pass));
