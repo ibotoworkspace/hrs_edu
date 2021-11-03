@@ -231,6 +231,7 @@ class StudentController extends Controller
 
 // dd('forgetPassword');
         $user = User::where('email',$request->email)->first();
+        dd($user);
         if(!$user || $user->role_id == 1){
             return redirect()->back()->with('error', 'Email not found');
         }
@@ -241,7 +242,7 @@ class StudentController extends Controller
         $user_pass = $pass;
 
         // email sent to user for a password
-        Mail::to($user)->send(new Forget_password($user_pass));
+        Mail::to($user->email)->send(new Forget_password($user_pass));
 
 
 

@@ -29,6 +29,6 @@ class Forget_password extends Mailable
      */
     public function build()
     {
-        return $this->markdown('admin.mail.forgetpassword')->from($this->forget_password);
+        return $this->markdown('admin.mail.forgetpassword')->from($this->forget_password['from']);
     }
 }
