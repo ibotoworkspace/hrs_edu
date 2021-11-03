@@ -14,12 +14,13 @@ class CourseRegistrationController extends Controller
 {
     function index()
     {
-      
+
         $courses = Courses::paginate(10);
         $userlist = User::where('role_id',2)->get();
+        $currentURL = url()->current();
         // dd($courses);
         return view('studentdashboard.courseregistration.index',compact('courses'));
-    
+
 }
 
 
@@ -45,7 +46,7 @@ public function list($id){
 
     // dd($registered);
     return view('user.registeredlist.index',compact('registered'));
-      
+
     }
 
 

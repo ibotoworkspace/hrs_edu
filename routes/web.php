@@ -291,6 +291,8 @@ Route::get('student/registration', 'Student\StudentController@index')->name('stu
 Route::post('student/registration/save', 'Student\StudentController@save')->name('student.save');
 // Route::get('student/read/{id}', 'Student\StudentController@read')->name('student.read');
 Route::get('login', 'Student\StudentController@login');
+
+Route::post('student/forgetpassword', 'Student\StudentController@forgetPassword')->name('student_forgetpassword');
 Route::post('student/checklogin', 'Student\StudentController@checklogin');
 Route::get('student/logout', 'Student\StudentController@logout')->name('logout');
 Route::get('student/courselist/{id}', 'Student\CourseRegistrationController@list')->name('student.courselist');
@@ -326,7 +328,6 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::post('/downloadpdf', 'Student\LibraryController@downloadRequest')->name('downloadpdf');
 
     Route::post('/applypromocode', 'Student\PaymentController@applyPromocode')->name('applypromocode');
-    Route::post('/forgetpassword', 'Student\StudentController@forgetPassword')->name('forgetpassword');
 
     Route::post('/getpaymentdetail', 'Student\PaymentController@paymentDetail')->name('getpaymentdetail');
 
@@ -357,6 +358,8 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::get('/mycourse', 'Student\CourseController@index')->name('student.mycourse');
     Route::post('/coursebadge', 'Student\CourseController@courseBadge')->name('student.mycourse');
     Route::match(['get', 'post'], '/courseregistration', 'Student\CourseController@registerCourse')->name('course.registration');
+    Route::match(['get', 'post'], '/coursereslisted', 'Student\CourseController@registerCourse')->name('course.registration');
+    Route::post('/search_course_registration',  'Student\CourseController@search_course_registered')->name('course.registration');
 
     // paypal route
     Route::get('payment', 'Student\PayPalController@payment')->name('payment');

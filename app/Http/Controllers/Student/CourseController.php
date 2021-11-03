@@ -24,6 +24,7 @@ class CourseController extends Controller
         $method = $request->method();
 
         if ($method == 'POST') {
+            // dd($request->all());
             $course = Courses::find($request->course_id);
             $user_id = Auth::id();
             $register_course = new Course_Registered();
@@ -35,6 +36,8 @@ class CourseController extends Controller
             return Redirect('student/dashboard');
         } else {
             $courses = Courses::get();
+            // $currenturl = url()->current();
+            // // dd($currentURL);
             return view('studentdashboard.courseregistration.index', compact('courses'));
         }
     }
@@ -45,6 +48,15 @@ class CourseController extends Controller
         $register_courses = Course_Registered::with('course.group', 'course.test.test_assign', 'course.test.test_result')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
 
         return view('studentdashboard.course.index', compact('register_courses'));
+    }
+    public function search_course_registered(Request $request)
+    {
+        // dd($request->all());
+       $search_text = $request->search_text;
+
+        $courses = Courses::where('title','like','%'.$search_text.'%')->paginate(10);
+
+        return view('studentdashboard.courseregistration.index', compact('courses','search_text'));
     }
 
     public function courseDetail(Request $request)

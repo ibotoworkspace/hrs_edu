@@ -21,14 +21,14 @@
             </title>
             <div class="serchsite">
                 <div class="container-fluid">
-                    <div class="row serchbox">
+                    {{-- <div class="row serchbox">
                         <div class="col-sm-12">
                             <div class="serchsitedata">
                                 <input type="text" class="form-control shdata" id="exampleFormControlInput1"
                                     placeholder="Serch here...">
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="row subrow">
                         <div class="col-sm-12">
@@ -57,7 +57,7 @@
                                                 <tr class="mycolareadata">
                                                     <td class="tdcenter">HRS-test 00{!! $at->test->id !!}</td>
                                                     <td class="tdcenter">{!! $at->test->name !!}</td>
-                                                    <td class="tdcenter">{!! $at->test->course->title !!}</td>
+                                                    <td class="tdcenter">{!! $at->test->course->title ?? '' !!}</td>
                                                     <?php
                                                     $current_time = Carbon\Carbon::now()->timestamp;
                                                     $start_time = $at->start_date_time ?? 0;

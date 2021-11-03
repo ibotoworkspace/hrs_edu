@@ -99,7 +99,7 @@
         <div class="col-sm-6">
           <div class="founddata">
             <h2>WHY FOUNDED MISSION</h2>
-            <p>To create and build human strategic capacity solutions;
+            <p class="brighttext">To create and build human strategic capacity solutions;
               solutions that not only promote self-improvement, but
               that also advance individual development- thus
               enabling individuals to achieve their set goals and

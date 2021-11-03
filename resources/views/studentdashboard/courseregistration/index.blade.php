@@ -22,12 +22,25 @@
             <div class="serchsite">
                 <div class="container-fluid">
                     <div class="row serchbox">
-                        <div class="col-sm-12">
+                        <form method="post" action="{{ url('/student/search_course_registration') }}">
+                            {{ csrf_field() }}
+
+                        <div class="col-sm-8">
                             <div class="serchsitedata">
                                 <input type="text" class="form-control shdata" id="exampleFormControlInput1"
-                                    placeholder="Serch here...">
+                                    placeholder="Serch here..." name="search_text" value="{{$search_text ?? ''}}">
+
+
                             </div>
                         </div>
+                        <div class="col-sm-4">
+
+
+                        <button type="submit" class="btn btn-primary applynowoo">Search Here</button>
+
+
+                        </div>
+                        </form>
                     </div>
 
                     <div class="row courseregarea">
@@ -63,6 +76,56 @@
                                     <button type="submit" class="btn btn-primary applynow">APPLY NOW</button>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+
+                    <div class="row courseside">
+                        <div class="col-sm-12">
+                            <div class="coursesidedata">
+                                <h3> COURSES</h3>
+                                <table class="table mytables">
+                                    <thead class="coursesidehead">
+                                        <tr>
+                                            {{-- <th>Course Code </th> --}}
+                                            <th>Course Title</th>
+                                            <th>Apply Now</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody class="mycolarea">
+                                        {{-- <form method="post" action="{{ url('/student/coursereslisted') }}">
+                                            {{ csrf_field() }} --}}
+
+                                        @foreach ($courses as $key => $r_course)
+
+                                        <form method="post" action="{{ url('/student/coursereslisted') }}">
+                                            {{ csrf_field() }}
+                                            <tr class="mycolareadata">
+
+
+
+                                                <td>{{ $r_course->title }}
+
+                                           <input type="hidden" name="course_id"  value="{!!$r_course->id!!}">
+                                                </td>
+
+                                                <td>
+
+                                                    <button type="submit" class="btn btn-primary applynowwe">APPLY NOW</button>
+
+                                                    </td>
+
+
+
+
+                                            </tr>
+                                        </form>
+                                        @endforeach
+
+
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
 

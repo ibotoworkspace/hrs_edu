@@ -229,36 +229,139 @@
             <i class="fa fa-remove"></i>
         </a>
 
+<?php
+  $currenturl = url()->current();
+            // dd($currenturl);
 
+?>
 
 <div class="container-fluid">
-        <ul class="nav navbar-nav side-nav mysidemenu">
-            <li>
-                <a href="{{ asset('student/dashboard') }}"> Dashboard</a>
-            </li>
-            <li>
-                <a href="{{ asset('student/profile') }}"> Profile</a>
-            </li>
-            <li>
-                <a href="{{ asset('student/courseregistration') }}"> Apply for Course</a>
-            </li>
-            <li>
-                <a href="{{ asset('student/mycourse') }}"> My Courses</a>
-            </li>
-            <li>
-                <a href="{{ asset('student/payment/detail') }}"> Payments</a>
-            </li>
-            <li>
-                <a href="{{ asset('student/course/testlist') }}">Test List </a>
-            </li>
+    <ul class="nav navbar-nav side-nav mysidemenu">
+         @if ($currenturl == "https://localhost/hrs_backend/public/student/dashboard")
+     <li>
+<a href="{{ asset('student/dashboard') }}" class="active" >
 
-            <li>
+ Dashboard
+</a>
+</li>
+
+@else
+<li><a href="{{ asset('student/dashboard') }}">Dashboard</a>
+</li>
+@endif
+@if ($currenturl == "https://localhost/hrs_backend/public/student/profile")
+<li>
+
+<a href="{{ asset('student/profile') }}" class="active">Profile</a>
+</li>
+
+@else
+<li>
+    <a href="{{ asset('student/profile') }}"> Profile</a>
+</li>
+@endif
+
+
+@if ($currenturl == "https://localhost/hrs_backend/public/student/courseregistration")
+<li>
+<a href="{{ asset('student/courseregistration') }}" class="active" > Apply for Course</a>
+</li>
+@else
+<li>
+<a href="{{ asset('student/courseregistration') }}"> Apply for Course</a>
+</li>
+@endif
+@if ($currenturl == "https://localhost/hrs_backend/public/student/mycourse")
+<li>
+    <a href="{{ asset('student/mycourse') }}" class="active"> My Courses</a>
+</li>
+
+@else
+<li>
+    <a href="{{ asset('student/mycourse') }}"> My Courses</a>
+</li>
+@endif
+
+@if ($currenturl == "https://localhost/hrs_backend/public/student/course/testlist")
+<li>
+    <a href="{{ asset('student/course/testlist') }}" class="active">Test List </a>
+</li>
+
+@else
+<li>
+    <a href="{{ asset('student/course/testlist') }}">Test List </a>
+</li>
+@endif
+
+
+
+@if ($currenturl == "https://localhost/hrs_backend/public/student/library" )
+<li>
+    <a href="#" data-toggle="collapse" data-target="#submenu-1" class="active"> Resource Center</a>
+    <ul id="submenu-1" class="collapse">
+        <li><a href="{{ asset('student/library') }}"> Library</a></li>
+        <li><a href="{{ asset('student/blogpage') }}"> Blog</a></li>
+    </ul>
+</li>
+@elseif($currenturl == "https://localhost/hrs_backend/public/student/blogpage" )
+<li>
+    <a href="#" data-toggle="collapse" data-target="#submenu-1" class="active"> Resource Center</a>
+    <ul id="submenu-1" class="collapse">
+        <li><a href="{{ asset('student/library') }}"> Library</a></li>
+        <li><a href="{{ asset('student/blogpage') }}"> Blog</a></li>
+    </ul>
+</li>
+
+@else
+<li>
+    <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
+    <ul id="submenu-1" class="collapse">
+        <li><a href="{{ asset('student/library') }}"> Library</a></li>
+        <li><a href="{{ asset('student/blogpage') }}"> Blog</a></li>
+    </ul>
+</li>
+@endif
+
+
+            {{-- <li>
                 <a href="#" data-toggle="collapse" data-target="#submenu-1"> Resource Center</a>
                 <ul id="submenu-1" class="collapse">
                     <li><a href="{{ asset('student/library') }}"> Library</a></li>
                     <li><a href="{{ asset('student/blogpage') }}"> Blog</a></li>
                 </ul>
-            </li>
+            </li> --}}
+
+
+            {{-- @if ($currenturl == "https://localhost/hrs_backend/public/student/ticket/add" )
+
+           <li>
+            <a href="#" data-toggle="collapse" data-target="#submenu-2" class="active"> Enquiry &amp; Support</a>
+            <ul id="submenu-2" class="collapse">
+                <li><a href="{{ asset('student/ticket/add') }}"> Submit a request</a> </li>
+                <li><a href="{{ asset('student/ticket') }}">View Tickets</a> </li>
+            </ul>
+        </li> --}}
+        @if ($currenturl == "https://localhost/hrs_backend/public/student/ticket/add" )
+
+        <li>
+         <a href="#" data-toggle="collapse" data-target="#submenu-2" class="active"> Enquiry &amp; Support</a>
+         <ul id="submenu-2" class="collapse">
+             <li><a href="{{ asset('student/ticket/add') }}"> Submit a request</a> </li>
+             <li><a href="{{ asset('student/ticket') }}">View Tickets</a> </li>
+         </ul>
+     </li>
+
+     @elseif ($currenturl == "https://localhost/hrs_backend/public/student/ticket" )
+
+     <li>
+      <a href="#" data-toggle="collapse" data-target="#submenu-2" class="active"> Enquiry &amp; Support</a>
+      <ul id="submenu-2" class="collapse">
+          <li><a href="{{ asset('student/ticket/add') }}"> Submit a request</a> </li>
+          <li><a href="{{ asset('student/ticket') }}">View Tickets</a> </li>
+      </ul>
+  </li>
+
+            @else
             <li>
                 <a href="#" data-toggle="collapse" data-target="#submenu-2"> Enquiry &amp; Support</a>
                 <ul id="submenu-2" class="collapse">
@@ -266,9 +369,53 @@
                     <li><a href="{{ asset('student/ticket') }}">View Tickets</a> </li>
                 </ul>
             </li>
-            <li>
-                <a href="{{ asset('student/changepassword') }}"> Change Password</a>
-            </li>
+    @endif
+
+
+
+
+
+
+
+
+
+
+
+            {{-- <li>
+                <a href="#" data-toggle="collapse" data-target="#submenu-2"> Enquiry &amp; Support</a>
+                <ul id="submenu-2" class="collapse">
+                    <li><a href="{{ asset('student/ticket/add') }}"> Submit a request</a> </li>
+                    <li><a href="{{ asset('student/ticket') }}">View Tickets</a> </li>
+                </ul>
+            </li> --}}
+
+
+
+
+
+@if ($currenturl == "https://localhost/hrs_backend/public/student/changepassword")
+<li>
+    <a href="{{ asset('student/changepassword') }}" class="active"> Change Password</a>
+</li>
+
+@else
+<li>
+    <a href="{{ asset('student/changepassword') }}"> Change Password</a>
+</li>
+@endif
+
+
+
+
+
+
+
+
+
+
+
+
+
             <li>
                 <a href="{{ asset('student/logout') }}"> Logout</a>
             </li>
