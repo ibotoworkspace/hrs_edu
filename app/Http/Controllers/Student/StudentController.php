@@ -231,7 +231,7 @@ class StudentController extends Controller
 
 // dd('forgetPassword');
         $user = User::where('email',$request->email)->first();
-        dd($user);
+        // dd($user);
         if(!$user || $user->role_id == 1){
             return redirect()->back()->with('error', 'Email not found');
         }
