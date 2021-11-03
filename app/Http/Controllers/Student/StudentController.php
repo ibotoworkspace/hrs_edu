@@ -8,12 +8,14 @@ use App\Models\Courses;
 use App\Models\Lecturer;
 use App\Models\SkillAdvisor;
 use App\Models\Blog;
+use App\Mail\Forget_password;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
 
 class StudentController extends Controller
 {
@@ -146,7 +148,7 @@ class StudentController extends Controller
 
     function checklogin(Request $request)
     {
-        // dd('sdsd');
+        // dd('checklogin');
         $this->validate($request, [
             'email'   => 'required|email',
             'password'  => 'required|min:3'
@@ -227,11 +229,20 @@ class StudentController extends Controller
     public function forgetPassword(Request $request)
     {
 
-dd('asas');
-        $user_detail = Auth::user();
-        $user = User::find($user_detail->id);
-        $user->password = Hash::make($request->password);
+// dd('forgetPassword');
+        $user = User::where('email',$request->email)->first();
+        if(!$user || $user->role_id == 1){
+            return redirect()->back()->with('error', 'Email not found');
+        }
+        $pass = rand ( 1000 , 9999 );;
+        $user->password = Hash::make($pass);
         $user->save();
+        $user_pass = $user->password;
+
+        // email sent to user for a password
+        Mail::to($user->email)->send(new Forget_password($user_pass));
+
+
 
         return redirect()->back()->with('success', 'your password has been reset');
     }

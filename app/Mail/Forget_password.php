@@ -7,9 +7,9 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Certificate extends Mailable
+class Forget_password extends Mailable
 {
-    public $details;
+    public $forget_password;
     use Queueable, SerializesModels;
 
     /**
@@ -17,9 +17,9 @@ class Certificate extends Mailable
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($user_pass)
     {
-        $this->details = $details;
+        $this->forget_password = $user_pass;
     }
 
     /**
@@ -29,6 +29,6 @@ class Certificate extends Mailable
      */
     public function build()
     {
-        return $this->markdown('admin.mail.certificate')->from($this->details['from']);
+        return $this->markdown('admin.mail.forgetpassword')->from($this->forget_password);
     }
 }
