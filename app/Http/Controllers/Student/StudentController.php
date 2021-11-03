@@ -241,7 +241,7 @@ class StudentController extends Controller
         $user_pass = $pass;
 
         // email sent to user for a password
-        Mail::to($user->email)->send(new Forget_password($user_pass));
+        Mail::to($user)->send(new Forget_password($user_pass));
 
 
 
