@@ -89,7 +89,7 @@
 
 </style>
 <body>
-    <div>
+    <div style="background-color:#bfb28e !important">
 
 <img src="https://hrsedu.com/hrs_backend/public/images/logo.png" class="img-responsive">
     </div>
@@ -120,6 +120,18 @@
 <br>
 <p class="smaller" id='cert-issued'>
     <b>Issued on:</b> {!! $details['dated'] !!}.
+</p>
+
+<p class="smaller" id='cert-issued'>
+    <b>
+ThankYou
+
+    </b>
+    <br>
+    <b>
+      HrsAdmin
+
+            </b>
 </p>
 
 {{-- <div id="cert-footer">
