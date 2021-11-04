@@ -46,6 +46,12 @@ class CourseController extends Controller
     {
         $user_id = Auth::id();
         $register_courses = Course_Registered::with('course.group', 'course.test.test_assign', 'course.test.test_result')->where('user_id', $user_id)->where('is_paid', 1)->paginate(10);
+        // dd($register_courses);
+         //
+        // $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
+
+
+        //
 
         return view('studentdashboard.course.index', compact('register_courses'));
     }

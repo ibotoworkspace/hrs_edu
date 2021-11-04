@@ -9,7 +9,7 @@ use Illuminate\Queue\SerializesModels;
 
 class Forget_password extends Mailable
 {
-    public $forget_password;
+    public $details;
     use Queueable, SerializesModels;
 
     /**
@@ -17,9 +17,9 @@ class Forget_password extends Mailable
      *
      * @return void
      */
-    public function __construct($forget_password)
+    public function __construct($details)
     {
-        $this->forget_password = $forget_password;
+        $this->details = $details;
     }
 
     /**
@@ -29,6 +29,6 @@ class Forget_password extends Mailable
      */
     public function build()
     {
-        return $this->markdown('admin.mail.forgetpassword')->from($this->forget_password['subject']);
+        return $this->markdown('admin.mail.forgetpassword')->from($this->details);
     }
 }

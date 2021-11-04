@@ -9,7 +9,7 @@
 
     <p>
 
-        {!! $forget_password ['subject']!!}>
+        You new password is {!!$details['new_password']!!}>
 
 
     </p>

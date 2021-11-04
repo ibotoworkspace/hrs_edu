@@ -239,10 +239,17 @@ class StudentController extends Controller
         // $pass = uniqid();
         $user->password = Hash::make($pass);
         $user->save();
-        $forget_password = $pass;
+        $details = [
+            'to' => $request->email,
+            'from' => 'contactus@hrsedu.com',
+            'title' => 'HRS Academy',
+            'subject' => 'Reset passwords Request From HRS Academy ',
+            'new_password' => $pass,
+            "dated"  => date('d F, Y (l)'),
+        ];
 
         // email sent to user for a password
-        Mail::to($user->email)->send(new Forget_password($forget_password));
+        Mail::to($user->email)->send(new Forget_password($details));
 
 
 
