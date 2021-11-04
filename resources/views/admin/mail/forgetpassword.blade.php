@@ -60,8 +60,8 @@
         background-size: 100%;
     }
 
-    h1#cert-holder {
-        font-size: 50px;
+    h1#cert-holderup {
+        font-size:20px;
         color: #be2d24;
     }
 
@@ -88,10 +88,13 @@
     }
 
 </style>
+<body>
+    <div>
 
+<img src="https://hrsedu.com/hrs_backend/public/images/logo.png" class="img-responsive">
+    </div>
 
-
-<h1 id="cert-holder">
+<h1 id="cert-holderup">
     Your new password is   {!! $details['new_password'] !!}
 </h1>
 
@@ -138,3 +141,4 @@
     Verify at companywebsite.ai/verify/XYZ12ER56129F. <br>
     Company has confirmed the participation of this individual in the course.
 </div> --}}
+</body>
