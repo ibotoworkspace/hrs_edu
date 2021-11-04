@@ -137,6 +137,8 @@ class StudentController extends Controller
     {
         $student = Auth::user();
         $student_courses = Course_Registered::wherehas('course')->where('user_id', $student->id)->with('course.test')->get();
+
+         // $user_course = Course_Registered::where('course_id', $request->course_id)->where('user_id', $user->id)->first();
         $student_common = new \stdClass();
         $student_common->student = $student;
         $student_common->courses = $student_courses;

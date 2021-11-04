@@ -57,7 +57,7 @@ input#GnTPhone {
         <div class="topheader hidden-xs">
             <div class="container-fluid ">
                 <div class="row">
-                    <div class="col-sm-9">
+                    <div class="col-sm-9 col-md-9" >
                         <div class="topheaderdata">
                             <div class="topbox">
                                 <div class="topboxicon">
@@ -197,128 +197,73 @@ input#GnTPhone {
                 <!-- </div>
                 </div> -->
 
-                <nav class="navbar navbar-default navbg" role="navigation">
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse"
-                            data-target=".navbar-ex1-collapse">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                <nav class="navbar navbar-inverse navbar-md " style="background-color: #bfb28e !important;color:#fff;border:0px">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
+                          <span class="icon-bar"></span>
                         </button>
-                        <a href="{{ asset('user/home') }}">
+                        <a class="navbar-brand" href="#">
                             <img src="{{ asset('images/logo.png') }}" class="img-responsive">
                         </a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-                        <ul class="nav navbar-nav mUL">
-                            <li id="11">
-                                <a href="{{ asset('user/home') }}"><span class="headpad">Home</span> </a>
-                            </li>
-                            <li id="4">
-                                <a href="{{ asset('user/aboutus') }}"><span class="headpad">About us</span>
-                                </a>
-                            </li>
-                            <li id="5">
-                                <a href="{{ asset('user/courses') }}"><span class="headpad">Courses</span>
-                                </a>
-                            </li>
-
-
-                                 <li class="dropdown" id="mydropeer">
-                                      <a href="#" class="dropdown-toggle"
-                                      data-toggle="dropdown" role="button" aria-haspopup="true"
-                                       aria-expanded="false"> <span class="headpader"> Resource</span>
-                                    </a>
-                                                <ul class="dropdown-menu my">
-                                                  <li><a href="{{ asset('user/resource') }}" class="myblogarea">Blog </a></li>
-                                                  @if ( $user_data->role_id == 2)
-                                                  <li><a href="{{ asset('student/library') }}"  class="myblogarea">Library</a></li>
-                                                  @else
-                                                  <li></li>
-                                                  @endif
-                                                </ul>
-
-                                 </li>
-                                 {{-- @else
-                                  <li id="6">
-
-                            </li>
-                            @endif --}}
-                            <li id="7">
-                                <a href="{{ asset('user/contactus') }}"><span class="headpad">Contact</span> </a>
-                            </li>
-                            <li class="dropdown" id="mydropeer">
-                                <a href="#" class="dropdown-toggle"
-                                data-toggle="dropdown" role="button" aria-haspopup="true"
-                                 aria-expanded="false"> <span class="headpader"> Partners</span>
-                              </a>
-                                          <ul class="dropdown-menu my">
-                                            <li><a href="{{ url('https://hatinco.com/') }}" class="myblogarea">Hatinco </a></li>
-
-
-                                          </ul>
-
-                           </li>
-                            <li id="8">
-                                <a href="https://www.comptia.org/" class="com"><span class="headpadcom">CompTIA</span> </a>
-                            </li>
-                            <li id="9">
-                                <a href="https://w3.testout.com/" class="test"><span class="headpadtest">TestOut</span> </a>
-
-                            </li>
+                      </div>
+                      <div class="collapse navbar-collapse" id="myNavbar" style="margin-top: 10px !important; font-size: 20px !important">
+                        <ul class="nav navbar-nav" style="display: flex; flex-direction: row">
+                          <li class=""><a style="color: #fff; flex: 1" href="#">Home</a></li>
+                          <li><a style="color: #fff; flex: 1" href="#">About Us</a></li>
+                          <li><a style="color: #fff; flex: 1" href="#">Courses</a></li>
+                          <li><a style="color: #fff; flex: 1" href="#">Resource</a></li>
+                          <li><a style="color: #fff; flex: 1" href="#">Contact</a></li>
+                          <li><a style="color: #fff; flex: 1" href="#">Partners</a></li>
+                          <li><a style="color: #fff; flex: 1;background-color: red !important" href="#" style="margin-left: 100px">CompTIA</a></li>
+                          <li><a style="color: #fff; flex: 1" href="#">TestOut</a></li>
                         </ul>
-
-
-
-
-
-                        <?php
-                        use App\User;
-                        $user_data = Auth::user();
-                        // dd($user_data);
-                        if(!$user_data){
-                            $user_data = new \stdClass();
-                            $user_data->role_id = 0;
-                        }
-
-                        ?>
-
-                        @if ( $user_data->role_id == 2)
-                               @else
-                                            <div class="crbtngroup">
-                                                <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
-                                                        Account</button></a>
-                                            @endif
-
-
-                                            @if ( $user_data->role_id == 3)
-
-                                            @else
-                                            <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
-                                                class="btn btn-primary portal">Join us as SDA</button></a>
-
-
-                                    @endif
-                        </div>
-
-                        <!-- <button type="button" class="btn btn-primary portal">Join us as SDA</button>  -->
-                        <!-- {{ asset('user/skilladvisor') }} -->
-                    </div><!-- /.navbar-collapse -->
-                </nav>
+                        <ul class="nav navbar-nav navbar-right">
+                          <li><a style="color: #fff; background-color: #222;border-radius: 5px; padding-top: 10px !important;padding-bottom: 10px !important;padding-left: 20px !important;padding-right: 20px !important;}" href="#">Join as SDA</a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </nav>
 
             </div>
+
         </div>
     </section>
 
+    {{-- @if ( $user_data->role_id == 2)
+    @else
+                 <div class="crbtngroup">
+                     <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
+                             Account</button></a>
+                 @endif
 
 
+                 @if ( $user_data->role_id == 3)
+
+                 @else
+                 <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
+                     class="btn btn-primary portal">Join us as SDA</button></a>
 
 
+         @endif --}}
+
+         {{-- @if ( $user_data->role_id == 2)
+         <li><a href="{{ asset('student/library') }}"  class="myblogarea">Library</a></li>
+         @else
+         <li></li>
+         @endif --}}
+         <?php
+        //  use App\User;
+        //  $user_data = Auth::user();
+        //  // dd($user_data);
+        //  if(!$user_data){
+        //      $user_data = new \stdClass();
+        //      $user_data->role_id = 0;
+        //  }
+
+         ?>
     <!-- </body>
 </html> -->
 
