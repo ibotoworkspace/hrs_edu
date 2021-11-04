@@ -60,8 +60,8 @@
         background-size: 100%;
     }
 
-    h1#cert-holder {
-        font-size: 50px;
+    h1#cert-holderi {
+        font-size: 20px;
         color: #be2d24;
     }
 
@@ -91,7 +91,7 @@
 
 
 
-<h1 id="cert-holder">
+<h1 id="cert-holderi">
     Please <a href="{!! $details['class_link'] !!}"> Click </a> to join class
 </h1>
 
