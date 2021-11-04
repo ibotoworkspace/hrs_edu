@@ -94,23 +94,9 @@
 <img src="https://hrsedu.com/hrs_backend/public/images/logo.png" class="img-responsive">
     </div>
 
-<h1 id="cert-holderup">
+<b>
     Your new password is   {!! $details['new_password'] !!}
-</h1>
-
-{{-- <p class="smaller" id='cert-completed-line'>
-    has successfully completed the
-</p>
-
-<h2 id="cert-course">
-    Course in {!! $details['course_name'] !!}
-</h2> --}}
-
-{{-- <div id="cert-desc" <p class="smaller" id='cert-details'>
-    which includes the knowledge of English for Technical Conversations, Applied Mathematics, General Robotics Science,
-    Basic Computing, Web & Mobile Development and Basic User Interface Design.
-    </p>
-</div> --}}
+</b>
 
 <br>
 <p id="cert-from" class="smaller">
@@ -124,12 +110,13 @@
 
 <p class="smaller" id='cert-issued'>
     <b>
-ThankYou
+Thankyou
 
     </b>
     <br>
+    <br>
     <b>
-      HrsAdmin
+      Hrs Admin
 
             </b>
 </p>
