@@ -197,6 +197,7 @@ input#GnTPhone {
                 <!-- </div>
                 </div> -->
 
+
                 <nav class="navbar navbar-inverse navbar-md " style="background-color: #bfb28e !important;color:#fff;border:0px">
                     <div class="container-fluid">
                       <div class="navbar-header">
@@ -209,20 +210,139 @@ input#GnTPhone {
                             <img src="{{ asset('images/logo.png') }}" class="img-responsive">
                         </a>
                       </div>
+                      <?php
+                        // use App\User;
+                        $user_data = Auth::user();
+                        // dd($user_data);
+                        if(!$user_data){
+                            $user_data = new \stdClass();
+                            $user_data->role_id = 0;
+                        }
+
+                        ?>
                       <div class="collapse navbar-collapse" id="myNavbar" style="margin-top: 10px !important; font-size: 20px !important">
                         <ul class="nav navbar-nav" style="display: flex; flex-direction: row">
-                          <li class=""><a style="color: #fff; flex: 1" href="#">Home</a></li>
-                          <li><a style="color: #fff; flex: 1" href="#">About Us</a></li>
-                          <li><a style="color: #fff; flex: 1" href="#">Courses</a></li>
-                          <li><a style="color: #fff; flex: 1" href="#">Resource</a></li>
-                          <li><a style="color: #fff; flex: 1" href="#">Contact</a></li>
-                          <li><a style="color: #fff; flex: 1" href="#">Partners</a></li>
-                          <li><a style="color: #fff; flex: 1;background-color: red !important" href="#" style="margin-left: 100px">CompTIA</a></li>
-                          <li><a style="color: #fff; flex: 1" href="#">TestOut</a></li>
+                          <li class=""><a style="color: #fff; flex: 1" href="{{ asset('user/home') }}">Home</a></li>
+                          <li>
+                              <a style="color: #fff; flex: 1" href="{{ asset('user/aboutus') }}">About Us</a>
+
+
+
+                            </li>
+                          <li><a style="color: #fff; flex: 1" href="{{ asset('user/courses') }}">Courses</a></li>
+
+
+
+                          <li class="dropdown" id="mydropeer">
+
+                            <a style="color: #fff; flex: 1" href="#"
+                            class="dropdown-toggle"   data-toggle="dropdown" role="button" aria-haspopup="true"  aria-expanded="false">
+                            Resource</a>
+
+                            <ul class="dropdown-menu my">
+                                <li><a href="{{ asset('user/resource') }}" class="myblogarea">Blog </a></li>
+                                @if ( $user_data->role_id == 2)
+                                <li><a href="{{ asset('student/library') }}"  class="myblogarea">Library</a></li>
+                                @else
+                                <li></li>
+                                @endif
+                              </ul>
+
+
+
+
+
+
+                        </li>
+
+
+
+
+
+
+
+
+
+                          <li><a style="color: #fff; flex: 1" href="{{ asset('user/contactus') }}">Contact</a></li>
+
+
+                          <li class="dropdown" id="mydropeer">
+
+                            <a   class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true"
+                            aria-expanded="false"
+                               style="color: #fff; flex: 1" href="{{ asset('user/home') }}">Partners</a>
+                               <ul class="dropdown-menu my">
+                                <li><a href="{{ url('https://hatinco.com/') }}" class="myblogarea">Hatinco </a></li>
+                              </ul>
+
+
+                        </li>
+
+
+                          <li>
+                              <a style="color: #fff;
+                          flex: 1;background-color: red !important"
+                            href="https://www.comptia.org/"
+                            style="margin-left: 100px">CompTIA
+
+                        </a>
+                        </li>
+
+
+
+
+
+                          <li>
+                              <a style="color: #fff; flex: 1" href="https://w3.testout.com/">TestOut</a>
+                            </li>
                         </ul>
-                        <ul class="nav navbar-nav navbar-right">
+
+
+
+
+
+
+
+
+
+                        {{-- <ul class="nav navbar-nav navbar-right">
                           <li><a style="color: #fff; background-color: #222;border-radius: 5px; padding-top: 10px !important;padding-bottom: 10px !important;padding-left: 20px !important;padding-right: 20px !important;}" href="#">Join as SDA</a></li>
-                        </ul>
+                        </ul> --}}
+
+                        @if ( $user_data->role_id == 2)
+                        @else
+                                     <div class="crbtngroup">
+                                         <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
+                                                 Account</button></a>
+                                     @endif
+
+
+                                     @if ( $user_data->role_id == 3)
+
+                                     @else
+                                     <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
+                                         class="btn btn-primary portal">Join us as SDA</button></a>
+
+
+                             @endif
+                 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                       </div>
                     </div>
                   </nav>
