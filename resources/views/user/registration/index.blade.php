@@ -61,13 +61,13 @@
                                     <input type="number" class="form-control " id="GnTPhone" placeholder="Enter Phone"
                                         name="phone" required>
                                 </div>
-                                <div class="form-group">
+                                {{-- <div class="form-group">
                                     <select name="role_id" id="role_id" class="form-control" required>
                                         <option value="">Select your role </option>
                                         <option value="2">I am a Student </option>
-                                        {{-- <option value="4">I am a Lecturer</option> --}}
+                                        <option value="4">I am a Lecturer</option>
                                     </select>
-                                </div>
+                                </div> --}}
                                 <div class="form-group">
                                     <input type="password" class="form-control " id="pwd" placeholder="Enter Password"
                                         name="password" required>
