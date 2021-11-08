@@ -2,7 +2,7 @@
     @import url('https://fonts.googleapis.com/css?family=Saira+Condensed:700');
 
     hr {
-        background-color: #be2d24;
+        background-color: grey;
         height: 3px;
         margin: 5px;
     }
@@ -55,7 +55,7 @@
         display: inline-block;
         width: 1024px;
         height: 768px;
-        border: 2px solid red;
+        border: 2px solid grey;
         background: #eee url("https://i.pinimg.com/originals/b3/17/db/b317db24945589699a4ef18150dc5b73.jpg") no-repeat;
         background-size: 100%;
     }
@@ -110,7 +110,7 @@
     Course in {!! $details['course_name'] !!}
 </h2>
 
-<div id="cert-desc" <p class="smaller" id='cert-details'>
+<div id="cert-desc"> <p class="smaller" id='cert-details'>
     which includes the knowledge of English for Technical Conversations, Applied Mathematics, General Robotics Science,
     Basic Computing, Web & Mobile Development and Basic User Interface Design.
     </p>
