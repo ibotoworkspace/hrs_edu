@@ -45,7 +45,6 @@
         position: absolute;
         left: 30px;
         top: 30px;
-        border: 3px solid grey;
     }
 
     p {
@@ -58,7 +57,7 @@
         display: inline-block;
         width: 1024px;
         height: 768px;
-        border: 2px solid grey;
+
         background: #eee url("https://i.pinimg.com/originals/b3/17/db/b317db24945589699a4ef18150dc5b73.jpg") no-repeat;
         background-size: 100%;
     }
@@ -94,8 +93,7 @@
 <body>
     <div style="background-color:#bfb28e !important">
 
-
-<a href="#"><img src="{{ asset('images/logo.png') }}" class="img-responsive"></a>
+        <a href="#"><img src="{{ asset('images/logo.png') }}" class="img-responsive"></a>
     </div>
 
     <p id="cert-from" class="smaller">
@@ -132,25 +130,7 @@ Thankyou
             </b>
 </p>
 
-{{-- <div id="cert-footer">
-    <div id="cert-issued-by">
-        <img id="cert-stamp"
-            src="https://i7.pngguru.com/preview/585/794/452/paper-rubber-stamp-postage-stamps-company-seal-seal-thumbnail.jpg">
-        <hr>
-        <p>Issued by<br>HRS Acedamy</p>
-    </div>
-    <div id="cert-ceo-design">
-        <img id="cert-ceo-sign"
-            src="https://i7.pngguru.com/preview/585/794/452/paper-rubber-stamp-postage-stamps-company-seal-seal-thumbnail.jpg">
-        <hr>
-        <p>Company Ceo<br>CEO of The Company</p>
-    </div>
-</div> --}}
 
-{{-- <div id="cert-verify">
-    Verify at companywebsite.ai/verify/XYZ12ER56129F. <br>
-    Company has confirmed the participation of this individual in the course.
-</div> --}}
 </body>
 
 
