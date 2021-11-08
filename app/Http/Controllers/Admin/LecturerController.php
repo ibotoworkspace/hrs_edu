@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Response;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use PDF;
@@ -73,7 +74,7 @@ class LecturerController extends Controller
 
 
     {
-
+// dd($request->all());
         // $validate = $this->validate($request, [
         //     'email' => 'required|email|unique:users',
 
@@ -91,10 +92,14 @@ class LecturerController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
+        $user->role_id = 4;
+        $user->password = Hash::make($request->password);
         $user->save();
 
         $lecturer->user_id = $user->id;
         $lecturer->details = $request->description;
+        $lecturer->is_approve = 1;
+        $lecturer->password =  $user->password;
 
         $lecturer->save();
 
@@ -180,10 +185,11 @@ class LecturerController extends Controller
             $lecturer->is_approve = 1;
             $lecturer->save();
             $new_value = 'Approve';
-        } else {
-            // Lecturer::withTrashed()->find($id)->restore();
-            $new_value = 'Pending';
         }
+        // } else {
+        //     // Lecturer::withTrashed()->find($id)->restore();
+        //     $new_value = 'Approve';
+        // }
         $response = Response::json([
             "status" => true,
             'action' => Config::get('constants.ajax_action.delete'),

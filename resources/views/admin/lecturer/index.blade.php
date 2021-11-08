@@ -77,14 +77,14 @@
                     <div class="besthrs" name="mytitle">{!! $l->user->email !!}</div>
                 </td>
                 <td class="hrs">
-                    @if ($l->is_approve == 0)
+                    {{-- @if ($l->is_approve == 0)
                         <a href="" data-toggle="modal" hit_method="get"
                             hit_url="{{ url('/admin/lecturer/approval/' . $l->id) }}" name="activate_delete_link"
                             data-target=".delete" modal_heading="Alert" modal_msg="Do You Want to Proceed?">
                             <span class="badge bg-info btn-danger ">Pending</span></a>
-                    @else
+                    @else --}}
                         <span class="badge bg-info btn-success">Approve</span>
-                    @endif
+                    {{-- @endif --}}
 
                 </td>
 
@@ -94,7 +94,7 @@
                         <div class="dropdown">
                             <button  class="fa fa-cog settings" aria-hidden="true" type="button" id="dropdownMenu1"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                           
+
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                                 <li><a href="{{ url('/admin/lecturer/edit/' . $l->id) }}">Edit</a></li>
@@ -112,7 +112,7 @@
                             </ul>
 
                         </div>
-                     
+
 
                     </div>
                 </td>
