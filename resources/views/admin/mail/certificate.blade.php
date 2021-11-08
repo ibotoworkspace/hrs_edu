@@ -42,7 +42,7 @@
         position: absolute;
         left: 30px;
         top: 30px;
-        border: 3px solid red;
+        border: 3px solid grey;
     }
 
     p {

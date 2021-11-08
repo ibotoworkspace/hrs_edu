@@ -277,8 +277,7 @@ input#GnTPhone {
 
 
                                 <li>
-                                    <a style="color: #fff;
-                                flex: 1;"
+                                    <a style="flex: 1;"
                                   href="https://www.comptia.org/"
                                   style="margin-left: 100px">CompTIA
 
