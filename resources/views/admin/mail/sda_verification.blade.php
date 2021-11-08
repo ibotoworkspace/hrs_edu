@@ -5,7 +5,7 @@
     @import url('https://fonts.googleapis.com/css?family=Saira+Condensed:700');
 
     hr {
-        background-color: #be2d24;
+        background-color: grey;
         height: 3px;
         margin: 5px;
     }
@@ -58,7 +58,7 @@
         display: inline-block;
         width: 1024px;
         height: 768px;
-        border: 2px solid red;
+        border: 2px solid grey;
         background: #eee url("https://i.pinimg.com/originals/b3/17/db/b317db24945589699a4ef18150dc5b73.jpg") no-repeat;
         background-size: 100%;
     }
@@ -97,10 +97,10 @@
 <img src="https://hrsedu.com/hrs_backend/public/images/logo.png" class="img-responsive">
     </div>
 
-<b>
+    <p id="cert-from" class="smaller">
     Please <a href="{!! $details['verification_link'] !!}"> Click </a> to Verify
 
-</b>
+    </p>
 <br>
 <br>
 

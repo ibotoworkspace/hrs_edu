@@ -55,7 +55,7 @@
         display: inline-block;
         width: 1024px;
         height: 768px;
-        border: 2px solid red;
+        border: 2px solid grey;
         background: #eee url("https://i.pinimg.com/originals/b3/17/db/b317db24945589699a4ef18150dc5b73.jpg") no-repeat;
         background-size: 100%;
     }
