@@ -56,11 +56,11 @@ $layout = 'studentdashboard.layouts.index';
 
                     <div class="alert alert-danger alert-block" id="error" style="display: none">
                         <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong class="promo_msg">Message heree </strong>
+                        <strong class="promo_msg">Message here </strong>
                     </div>
                     <div class="alert alert-success alert-block" id="success" style="display: none">
                         <button type="button" class="close" data-dismiss="alert">×</button>
-                        <strong class="promo_msg">Message heree </strong>
+                        <strong class="promo_msg">Message here </strong>
                     </div>
                     <form method="post" action="{{ url('/student/paymentmethood') }}">
                         {{ csrf_field() }}
