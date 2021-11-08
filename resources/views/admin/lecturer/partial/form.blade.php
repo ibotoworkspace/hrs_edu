@@ -57,6 +57,37 @@
     </div>
 </div>
 
+<div class="row">
+<div class="form-group">
+    <div class="col-sm-4">
+        <div class="maincourse">
+    {!! Form::label('userpassword','Pharmacy Password') !!}
+        </div>
+    </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="maininput">
+        {!! Form::password('password',['class' => 'form-control',
+        'data-parsley-required'=>'true',
+        'data-parsley-trigger'=>'change',
+        'placeholder'=>'Enter Lecturer Password','id'=>'myInput',
+        'maxlength'=>"100"]) !!}
+    </div>
+</div>
+
+</div>
+<div class="row">
+    <div class="col-sm-12">
+<div class="form-group">
+    <div class="maincourse">
+
+
+    <input type="checkbox" onclick="myFunction()">Show Password
+    </div>
+</div>
+    </div>
+</div>
+
 
 
 
@@ -81,7 +112,17 @@
             return true;
         }
 
+        function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+
     </script>
+
 
     <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 

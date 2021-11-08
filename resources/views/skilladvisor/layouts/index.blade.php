@@ -78,53 +78,52 @@
             <section>
                 <div class="twoheader">
                     <div class="container-fluid">
-
-
-
-                        <nav class="navbar navbar-inverse navbar-md " style="background-color: #bfb28e !important;color:#fff;border:0px">
-                            <div class="container-fluid">
-                              <div class="navbar-header">
-                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                                  <span class="icon-bar"></span>
-                                  <span class="icon-bar"></span>
-                                  <span class="icon-bar"></span>
-                                </button>
-                                <a class="navbar-brand" href="#">
-                                    <img src="{{ asset('images/logo.png') }}" class="img-responsive">
-                                </a>
-                              </div>
-                              <?php
-                                // use App\User;
-                                $user_data = Auth::user();
-                                // dd($user_data);
-                                if(!$user_data){
-                                    $user_data = new \stdClass();
-                                    $user_data->role_id = 0;
-                                }
-
-                                ?>
-                              <div class="collapse navbar-collapse" id="myNavbar" style="margin-top: 10px !important; font-size: 20px !important">
-                                <ul class="nav navbar-nav" style="display: flex; flex-direction: row">
-
-
-
-
-
-
-
-
-
-
-                            </ul>
-                            @if (Auth::check())
-                            <div class="crbtngroup">
-                            <a href="{{ asset('skilladvisor/logout') }}"><button type="button"
-                                    class="btn btn-primary portal">Logout</button></a>
-                            @else
-                            <a href="{{ asset('login') }}"><button type="button"
-                                    class="btn btn-primary portal">Login Account</button></a>
-                            @endif
+                        <div class="row">
+                            <div class="col-sm-2 col-xs-12">
+                                <div class="area">
+                                    <a  href="#">
+                                        <img src="{{ asset('images/logo.png') }}" class="img-responsive">
+                                    </a>
+                                </div>
                             </div>
+                            <div class="col-sm-10 col-xs-12">
+                                <nav>
+                                    <div class="jump">
+                                        <div class="navbar-collapse nav-collapse collapse">
+                                            {{-- <ul class="nav navbar-nav">
+                                                <li id="11">
+                                                    <a href="{{ asset('user/home') }}"><span
+                                                            class="headpad">Home</span>
+                                                    </a>
+                                                </li>
+                                                <li id="4">
+                                                    <a href="{{ asset('user/aboutus') }}"><span class="headpad">About
+                                                            us</span> </a>
+                                                </li>
+                                                <li id="5">
+                                                    <a href="{{ asset('user/courses') }}"><span
+                                                            class="headpad">Courses</span> </a>
+                                                </li>
+                                                <li id="6">
+                                                    <a href="{{ asset('user/resource') }}"><span
+                                                            class="headpad">Resource</span> </a>
+                                                </li>
+                                                <li id="7">
+                                                    <a href="{{ asset('user/contactus') }}"><span
+                                                            class="headpad">Contact</span> </a>
+                                                </li>
+                                                <li id="7">
+                                                    <a href="{{ asset('student/courseregistration') }}"><span
+                                                            class="headpad">Course Registration</span> </a>
+                                                </li>
+                                            </ul> --}}
+                                            @if (Auth::check())
+                                                <a href="{{ asset('skilladvisor/logout') }}"><button type="button"
+                                                        class="btn btn-primary portal">Logout</button></a>
+                                            @else
+                                                <a href="{{ asset('login') }}"><button type="button"
+                                                        class="btn btn-primary portal">Login Account</button></a>
+                                            @endif
 
 
 
@@ -132,28 +131,13 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                              </div>
+                                            {{-- <button type="button" class="btn btn-primary portal">Join us as SDA</button> --}}
+                                        </div>
+                                    </div>
+                                </nav>
                             </div>
-                          </nav>
-
+                        </div>
                     </div>
-
                 </div>
             </section>
 

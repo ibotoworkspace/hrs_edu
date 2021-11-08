@@ -65,11 +65,11 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-3">
+                            {{-- <div class="col-sm-3">
                                 <div class="topheaderclick">
                                     <button type="button" class="btn btn-primary leadrning">LEARNING PORTAL</button>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
@@ -80,15 +80,17 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-2 col-xs-12">
-                                <div class="logoArea">
-                                    <a href="/"><img src="{{ asset('images/logo.png') }}" class="img-responsive"></a>
+                                <div class="area">
+                                    <a  href="#">
+                                        <img src="{{ asset('images/logo.png') }}" class="img-responsive">
+                                    </a>
                                 </div>
                             </div>
                             <div class="col-sm-10 col-xs-12">
                                 <nav>
                                     <div class="jump">
                                         <div class="navbar-collapse nav-collapse collapse">
-                                            <ul class="nav navbar-nav">
+                                            {{-- <ul class="nav navbar-nav">
                                                 <li id="11">
                                                     <a href="{{ asset('user/home') }}"><span
                                                             class="headpad">Home</span>
@@ -110,11 +112,11 @@
                                                     <a href="{{ asset('user/contactus') }}"><span
                                                             class="headpad">Contact</span> </a>
                                                 </li>
-                                                {{-- <li id="7">
+                                                <li id="7">
                                                     <a href="{{ asset('student/courseregistration') }}"><span
                                                             class="headpad">Course Registration</span> </a>
-                                                </li> --}}
-                                            </ul>
+                                                </li>
+                                            </ul> --}}
                                             @if (Auth::check())
                                                 <a href="{{ asset('lecturer/logout') }}"><button type="button"
                                                         class="btn btn-primary portal">Logout</button></a>
@@ -124,7 +126,7 @@
                                             @endif
 
 
-                                            <button type="button" class="btn btn-primary portal">Join us as SDA</button>
+                                            {{-- <button type="button" class="btn btn-primary portal">Join us as SDA</button> --}}
                                         </div>
                                     </div>
                                 </nav>
