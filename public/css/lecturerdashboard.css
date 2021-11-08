@@ -4,11 +4,11 @@ body {
 }
 
 #wrapper {
-    padding-left: 0;    
+    padding-left: 0;
 }
 
 #page-wrapper {
-    width: 100%;        
+    width: 100%;
     padding: 0;
     background-color: #fff;
 }
@@ -115,7 +115,7 @@ ul.nav.navbar-nav {
     padding: 10px 15px 10px 38px;
     text-decoration: none;
     /*color: #999;*/
-    color: #fff;    
+    color: #fff;
 }
 
 .side-nav>li>ul>li>a:hover {
@@ -225,6 +225,9 @@ thead.coursesidehead tr {
 tbody.mycolarea tr {
     color: white;
     font-size: 16px;
+}
+.area {
+    margin-left: 16px;
 }
 tr.mycolareadata td {
     border-bottom: 1px solid;
