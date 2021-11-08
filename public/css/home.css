@@ -61,3 +61,28 @@ a.footerlinks {
 
 
 }
+
+
+@media only screen and (max-width : 1137px) {
+
+    /* h4.myh {
+        margin-left: 10px;
+    } */
+
+    .topboxdata {
+        margin-left: 14px;
+    }
+
+}
+
+@media only screen and (max-width : 1160px) {
+
+    /* h4.myh {
+        margin-left: 10px;
+    } */
+
+    .topboxdata {
+        margin-left: 14px;
+    }
+
+}
