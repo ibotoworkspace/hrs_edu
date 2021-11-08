@@ -35,7 +35,7 @@
                 <div class="topheader">
                     <div class="container-fluid">
                         <div class="row">
-                            <div     class="col-sm-9">
+                            <div  class="col-sm-9">
                                 <div class="topheaderdata">
                                     <div class="topbox">
                                         <div class="topboxicon">
@@ -89,13 +89,14 @@
                     }
 
                     ?>
-
+                   <div class="container-fluid">
 
 
                         <div class="row">
+
                             <div class="col-sm-1 col-xs-12">
-                                <div class="logoArea">
-                                    <a href="/"><img src="{{ asset('images/newlogo.png') }}" class="img-responsive"></a>
+                                <div class="area">
+                                    <a href="#"><img src="{{ asset('images/logo.png') }}" class="img-responsive"></a>
                                 </div>
                             </div>
                             @if ( $user_data->role_id == 2)
@@ -210,6 +211,7 @@
                     </div>
                     @endif
                     </div>
+                </div>
                 </div>
             </section>
 
