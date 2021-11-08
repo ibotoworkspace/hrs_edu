@@ -73,7 +73,7 @@ input#GnTPhone {
                                     <img src="{{ asset('images/email.png') }}" class="img-responsive">
                                 </div>
                                 <div class="topboxdata">
-                                    <h4>contactus@hrsedu.com</h4>
+                                    <h4 class="myh">contactus@hrsedu.com</h4>
                                 </div>
                             </div>
 
@@ -273,59 +273,59 @@ input#GnTPhone {
                                style="color: #fff; flex: 1" href="{{ asset('user/home') }}">Partners</a>
                                <ul class="dropdown-menu my">
                                 <li><a href="{{ url('https://hatinco.com/') }}" class="myblogarea">Hatinco </a></li>
+
+
+
+                                <li>
+                                    <a style="color: #fff;
+                                flex: 1;background-color: red !important"
+                                  href="https://www.comptia.org/"
+                                  style="margin-left: 100px">CompTIA
+
+                              </a>
+                              </li>
+
+
+
+
+
+                                <li>
+                                    <a style="color: rgb(43, 30, 30); flex: 1" href="https://w3.testout.com/">TestOut</a>
+                                  </li>
+
+
                               </ul>
 
 
                         </li>
 
 
-                          <li>
-                              <a style="color: #fff;
-                          flex: 1;background-color: red !important"
-                            href="https://www.comptia.org/"
-                            style="margin-left: 100px">CompTIA
-
-                        </a>
-                        </li>
 
 
+                    </ul>
 
 
-
-                          <li>
-                              <a style="color: #fff; flex: 1" href="https://w3.testout.com/">TestOut</a>
-                            </li>
-                        </ul>
-
-
-
-
-
-
-
-
-
-                        {{-- <ul class="nav navbar-nav navbar-right">
-                          <li><a style="color: #fff; background-color: #222;border-radius: 5px; padding-top: 10px !important;padding-bottom: 10px !important;padding-left: 20px !important;padding-right: 20px !important;}" href="#">Join as SDA</a></li>
-                        </ul> --}}
 
                         @if ( $user_data->role_id == 2)
                         @else
+
                                      <div class="crbtngroup">
                                          <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
                                                  Account</button></a>
+
                                      @endif
 
 
                                      @if ( $user_data->role_id == 3)
 
                                      @else
-                                     <a href="{{ asset('user/add/skilladvisor') }}"><button type="button"
-                                         class="btn btn-primary portal">Join us as SDA</button></a>
+                                     <a href="{{ asset('user/add/skilladvisor') }}" class="mysdaa"><button type="button"
+                                         class="btn btn-primary portal sdas">Join us as SDA</button></a>
 
 
                              @endif
                  </div>
+
 
 
 
