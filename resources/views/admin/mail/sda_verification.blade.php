@@ -45,7 +45,7 @@
         position: absolute;
         left: 30px;
         top: 30px;
-        border: 3px solid red;
+        border: 3px solid grey;
     }
 
     p {
@@ -69,7 +69,7 @@
     }
 
     p.smaller {
-        font-size: 17px !important;
+        font-size: 12px !important;
     }
 
     div#cert-desc {
@@ -94,7 +94,8 @@
 <body>
     <div style="background-color:#bfb28e !important">
 
-<img src="https://hrsedu.com/hrs_backend/public/images/logo.png" class="img-responsive">
+
+<a href="#"><img src="{{ asset('images/logo.png') }}" class="img-responsive"></a>
     </div>
 
     <p id="cert-from" class="smaller">

@@ -42,7 +42,7 @@
         position: absolute;
         left: 30px;
         top: 30px;
-        border: 3px solid red;
+        border: 3px solid grey;
     }
 
     p {
@@ -91,7 +91,7 @@
 <body>
     <div style="background-color:#bfb28e !important">
 
-<img src="https://hrsedu.com/hrs_backend/public/images/logo.png" class="img-responsive">
+        <a href="#"><img src="{{ asset('images/logo.png') }}" class="img-responsive"></a>
     </div>
 
 <b>
