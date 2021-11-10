@@ -126,11 +126,16 @@ input.form-control.myyyyema {
     padding: 30px 10px;
 }
 .contactarea {
-    background-image: url('../images/contactbg.jpg');
+    filter: brightness(0.5);
+    /* background-image: url('../images/contactbg.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: 50% 50%;
     padding: 30px 10px;
+    opacity: 0.7;
+    background-attachment: fixed;
+    /* filter: blur(2px);
+    -webkit-filter: blur(2px); */
 }
 .alert.alert-danger.alert-block.mop {
     margin-top: 21px

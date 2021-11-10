@@ -78,22 +78,26 @@ a#myBtnero {
     background-color: #BFB28E;
     padding-left: 17px;
     padding-right: 18px;
-    padding-top: 3px;
+    /* padding-top: 3px; */
     border-radius: 21px;
     /* margin-top: auto; */
     /* margin-bottom: auto; */
     margin-bottom: 46px;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 a#myBtnerowhu {
     background-color: #243439;
     padding-left: 17px;
     padding-right: 18px;
-    padding-top: 3px;
+    /* padding-top: 3px; */
     border-radius: 21px;
     /* margin-top: auto; */
     /* margin-bottom: auto; */
     margin-bottom: 46px;
     color: aliceblue;
+    padding-top: 7px;
+    padding-bottom: 7px;
 }
 .blogdataimg {
     margin-top: 165px;

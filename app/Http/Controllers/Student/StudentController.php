@@ -66,7 +66,7 @@ class StudentController extends Controller
                 }
                 $this->add_or_update($user, $request);
                 Auth::login($user);
-                return redirect('student/dashboard');
+                return redirect('user/courses');
             }
         } else {
 
@@ -171,7 +171,8 @@ class StudentController extends Controller
 
             else if ($user->role_id == Config::get('constants.role_id.student')) {
                 return redirect('student/dashboard');
-            } elseif ($user->role_id == Config::get('constants.role_id.skilladvisor')) {
+            }
+            elseif ($user->role_id == Config::get('constants.role_id.skilladvisor')) {
                 // dd($user);
                 $skilladvisor = SkillAdvisor::where('user_id', $user->id)->first();
                 if ($skilladvisor) {
@@ -230,14 +231,11 @@ class StudentController extends Controller
 
     public function forgetPassword(Request $request)
     {
-
-// dd('forgetPassword');
         $user = User::where('email',$request->email)->first();
-        // dd($user);
         if(!$user || $user->role_id == 1){
             return redirect()->back()->with('error', 'Email not found');
         }
-        $pass = rand ( 1000 , 9999 );
+        $pass = rand ( 10000 , 99999 );
         // $pass = uniqid();
         $user->password = Hash::make($pass);
         $user->save();
@@ -253,14 +251,11 @@ class StudentController extends Controller
         // email sent to user for a password
         Mail::to($user->email)->send(new Forget_password($details));
 
-
-
         return redirect()->back()->with('success', 'your password has been reset');
     }
 
     public function Library(Request $request)
     {
-
         return view('studentdashboard.ebooks.index');
     }
 }

@@ -5,11 +5,13 @@ namespace App\Http\Controllers\services;
 use App\Http\Controllers\Controller;
 use App\User;
 
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Forget_password;
+use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -56,7 +58,8 @@ class UserController extends Controller
             return $this->sendResponse(
                 500,
                 null,
-                $e->getMessage()
+                [$e->errorInfo[2]],
+                 $e->errorInfo[0]
             );
         }
     }
@@ -149,7 +152,42 @@ class UserController extends Controller
 
     public function forgetpassword(Request $request)
     {
-        return $request;
+        try {
+        $user = User::where('email',$request->email)->first();
+        if(!$user || $user->role_id == 1){
+            return [
+                'status' => Config::get('error.code.INTERNAL_SERVER_ERROR'),
+                'response' => null,
+                'error' => ['Email not found'],
+                'custom_error_code' => 400
+            ];
+        }
+        $pass = rand ( 10000 , 99999 );
+        // $pass = uniqid();
+        $user->password = Hash::make($pass);
+        $user->save();
+        $details = [
+            'to' => $request->email,
+            'from' => 'contactus@hrsedu.com',
+            'title' => 'HRS Academy',
+            'subject' => 'Reset passwords Request From HRS Academy ',
+            'new_password' => $pass,
+            "dated"  => date('d F, Y (l)'),
+        ];
+
+        // email sent to user for a password
+        Mail::to($user->email)->send(new Forget_password($details));
+
+        $response = $this->sendResponse(Config::get('constants.status.OK'));
+        return $response;
+    } catch (\Exception $e) {
+            return $this->sendResponse(
+                Config::get('error.code.INTERNAL_SERVER_ERROR'),
+                null,
+                [$e->errorInfo[2]],
+                $e->errorInfo[0]
+            );
+        }
     }
 
     public function logout(Request $request)
@@ -158,7 +196,7 @@ class UserController extends Controller
             //Log the user out by assigning access_token as null
             $user = $request->attributes->get('user');
             $user->access_token = null;
-            // $user->gcm_token = null; 
+            // $user->gcm_token = null;
             $user->save();
 
             $response = $this->sendResponse(Config::get('constants.status.OK'));
