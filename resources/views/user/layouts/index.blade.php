@@ -221,7 +221,7 @@ input#GnTPhone {
 
                         ?>
                       <div class="collapse navbar-collapse" id="myNavbar" style="margin-top: 10px !important; font-size: 20px !important">
-                        <ul class="nav navbar-nav" style="display: flex; flex-direction: row">
+                        <ul class="nav navbar-nav headerchange" >
                           <li class=""><a style="color: #fff; flex: 1" href="{{ asset('user/home') }}">Home</a></li>
                           <li>
                               <a style="color: #fff; flex: 1" href="{{ asset('user/aboutus') }}">About Us</a>
@@ -231,29 +231,15 @@ input#GnTPhone {
                             </li>
                           <li><a style="color: #fff; flex: 1" href="{{ asset('user/courses') }}">Courses</a></li>
 
-
-
-                          <li class="dropdown" id="mydropeer">
-
-                            <a style="color: #fff; flex: 1" href="#"
-                            class="dropdown-toggle"   data-toggle="dropdown" role="button" aria-haspopup="true"  aria-expanded="false">
-                            Resource</a>
-
-                            <ul class="dropdown-menu my">
-                                <li><a href="{{ asset('user/resource') }}" class="myblogarea">Blog </a></li>
-                                @if ( $user_data->role_id == 2)
-                                <li><a href="{{ asset('student/library') }}"  class="myblogarea">Library</a></li>
-                                @else
-                                <li></li>
-                                @endif
-                              </ul>
-
-
-
-
-
-
-                        </li>
+                          <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
+                            <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                              <li><a href="#">Page 1-1</a></li>
+                              <li><a href="#">Page 1-2</a></li>
+                              <li><a href="#">Page 1-3</a></li>
+                            </ul>
+                          </li>
 
 
 
@@ -308,9 +294,14 @@ input#GnTPhone {
                         @if ( $user_data->role_id == 2)
                         @else
 
-                                     <div class="crbtngroup">
-                                         <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
-                                                 Account</button></a>
+                                     <div class="crbtngroup row">
+                                        <div class="col-sm-6">
+
+                                            <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
+                                                Account</button></a>
+                                                <a href="{{ asset('user/add/skilladvisor') }}" class="mysdaa"><button type="button"
+                                                    class="btn btn-primary portal sdas">Join us as SDA</button></a>
+                                        </div>
 
                                      @endif
 
@@ -318,8 +309,7 @@ input#GnTPhone {
                                      @if ( $user_data->role_id == 3)
 
                                      @else
-                                     <a href="{{ asset('user/add/skilladvisor') }}" class="mysdaa"><button type="button"
-                                         class="btn btn-primary portal sdas">Join us as SDA</button></a>
+
 
 
                              @endif

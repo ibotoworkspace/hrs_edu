@@ -84,5 +84,12 @@ a.footerlinks {
     .topboxdata {
         margin-left: 14px;
     }
+    .headerchange {
+        margin-top: 25px !important;
+        margin-left: 10px !important;
+    }
+    .navbar-brand {
+        padding: 0px !important;
+    }
 
 }
