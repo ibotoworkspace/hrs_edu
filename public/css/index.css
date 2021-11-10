@@ -582,4 +582,8 @@ p.smallright {
     a.com {
         margin-left: 20px;
     }
+    .nav navbar-nav headerchange {
+        margin-top: 25px !important;
+        margin-left: 10px !important;
+    }
 }
