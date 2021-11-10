@@ -127,7 +127,7 @@ input#GnTPhone {
 
 
                             @if ( $user_data->role_id == 2)
-                            <div class="col-sm-1">
+                            <div class="col-sm-2/1" >
                              <button id="8" class="oo" >
                                     <a href="{{ asset('student/profile') }}">
                                         <img src="{{ asset('images/icon-26.png') }}" class="img-responsive">
@@ -508,7 +508,7 @@ input#GnTPhone {
                             <div class="companyarea">
                                 <h4>HELP & SUPPORT</h4>
                                 <ul>
-                                    <li>Help Cente</li>
+                                    <li>Help Center</li>
                                     <li>
                                         <a href={{asset('user/contactus')}} class="footerlinks">  Contact Us
                                         </a>
