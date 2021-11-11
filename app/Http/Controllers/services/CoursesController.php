@@ -20,8 +20,8 @@ class CoursesController extends Controller
             $header = $request->header('authorization-secure') ?? $request->header('Authorization-secure');
             $user = User::where('access_token', $header)->first();
             $items_count = $request->items_count ?? '20';
-            $registred_courses = Course_Registered::wherehas('course')->with('course.chapters', 'course.videos')
-                ->where('user_id', $user->id)
+            $registred_courses = Course_Registered::where('user_id', $user->id)
+                ->wherehas('course')->with('course.chapters', 'course.videos')
                 ->orderBy('created_at', 'desc')->paginate($items_count);
 
             return $this->sendResponse(200, $registred_courses);
