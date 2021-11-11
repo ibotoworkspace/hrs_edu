@@ -100,8 +100,7 @@ class PaymentController extends Controller
             $user = User::where('access_token', $page_layout->token)->first();
         }
         if (!$user) {
-            Session::flash('error', 'Unauthorized request');
-            return view('studentdashboard.proceedpayment.index');
+            return back()->with('error', 'Unauthorized request');
         }
         $course_register = Course_Registered::with('course')->find($request->course_register_id);
 
@@ -109,7 +108,7 @@ class PaymentController extends Controller
             // dd('its paid');
             Session::flash('error', 'Course already paid please reload course list');
             // return back()->with('error', 'Course already paid please reload course list');
-            return view('studentdashboard.proceedpayment.index');
+            return view('studentdashboard.proceedpayment.index')->with('error', 'Course already paid please reload course list');
         }
 
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
@@ -135,6 +134,8 @@ class PaymentController extends Controller
             $payment->payment_status = $stripe->status;
             $payment->card_type = $stripe->payment_method_details->card->brand;
             $payment->save();
+
+
 
             $course_register->is_paid = 1;
             $course_register->save();
