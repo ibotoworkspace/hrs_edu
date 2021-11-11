@@ -41,7 +41,7 @@
                                         <div class="topboxicon">
                                             <img src="{{ asset('images/location.png') }}" class="img-responsive">
                                         </div>
-                                        <div class="topboxdata">
+                                        <div class="topboxdata smalltop">
                                             <h4>416 N.H. Street Suites 5 San, Bernardino CA 92410 USA.</h4>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@
                                         <div class="topboxicon">
                                             <img src="{{ asset('images/email.png') }}" class="img-responsive">
                                         </div>
-                                        <div class="topboxdata">
+                                        <div class="topboxdata smalltop">
                                             <h4>contactus@hrsedu.com</h4>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                         <div class="topboxicon">
                                             <img src="{{ asset('images/call.png') }}" class="img-responsive">
                                         </div>
-                                        <div class="topboxdata">
+                                        <div class="topboxdata smalltop">
                                             <h4>+1(909) 381 9095</h4>
                                         </div>
                                     </div>
