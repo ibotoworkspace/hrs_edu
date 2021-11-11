@@ -67,8 +67,6 @@ class PaymentController extends Controller
             $register_course = Course_Registered::where('course_id', $request->mobile_course_id)->where('user_id', $user->id)->first();
         }
 
-
-
         return view('studentdashboard.makepayment.index', compact('register_course'));
     }
 
@@ -105,6 +103,10 @@ class PaymentController extends Controller
             return back()->with('error', 'Unauthorized request');
         }
         $course_register = Course_Registered::with('course')->find($request->course_register_id);
+        if($course_register->is_paid == 1){
+            return view('studentdashboard.proceedpayment.index')->with('error', 'Course already paid please reload course list');
+        }
+
         // dd(ceil($course_register->course->price));
         Stripe\Stripe::setApiKey(Config::get('services.stripe.STRIPE_SECRET'));
         try {
@@ -116,6 +118,7 @@ class PaymentController extends Controller
             ]);
             Log::info('stripe toekn');
             Log::info($request->stripeToken);
+
             $payment = new Payment();
             $payment->user_id = $user->id;
             $payment->payment_id = $stripe->id;

@@ -231,13 +231,21 @@ input#GnTPhone {
                             </li>
                           <li><a style="color: #fff; flex: 1" href="{{ asset('user/courses') }}">Courses</a></li>
 
+
                           <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1
-                            <span class="caret"></span></a>
+                            <a class="dropdown-toggle" data-toggle="dropdown"  href="#">
+                                <span class="headpader"> Resource</span>
                             <ul class="dropdown-menu">
-                              <li><a href="#">Page 1-1</a></li>
+                              {{-- <li><a href="#">Page 1-1</a></li>
                               <li><a href="#">Page 1-2</a></li>
-                              <li><a href="#">Page 1-3</a></li>
+                              <li><a href="#">Page 1-3</a></li> --}}
+                              <li><a href="{{ asset('user/resource') }}">Blog </a></li>
+
+                              @if ( $user_data->role_id == 2)
+                              <li><a href="{{ asset('student/library') }}" >Library</a></li>
+                              @else
+                              <li></li>
+                              @endif
                             </ul>
                           </li>
 
