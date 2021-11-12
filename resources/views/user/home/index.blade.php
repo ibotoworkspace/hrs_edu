@@ -53,7 +53,7 @@
                             </div>
                             <div class="pointboxdata">
                                 <h3>
-                                    <span class="under">INTENSIVE</span> AND CONVENIENT
+                                    <span class="under">INTENSIVE</span> <span class="under">INTENSIVE</span>
                                 </h3>
                                 <p>
                                     Our training is given intensive approach and conducted in a convenient manner
@@ -72,7 +72,7 @@
                             </div>
                             <div class="pointboxdata">
                                 <h3 class="double">
-                                    <span class="under">INTERESTING</span> QUIZZES
+                                    <span class="under">INTERESTING</span> <span class="under">QUIZZES</span>
                                 </h3>
                                 <p>
                                     Interesting quiz that motivates, excites and enhances your learning on your
@@ -91,7 +91,8 @@
                             </div>
                             <div class="pointboxdata">
                                 <h3 class="doubles">
-                                    <span class="under">PREMIUM</span> MATERIAL
+                                    <span class="under">PREMIUM</span>
+                                    <span class="under">MATERIAL</span>
                                 </h3>
                                 <p>
                                     Study materials from top rated experts. You can be best assured of materials

@@ -587,3 +587,51 @@ p.smallright {
         margin-left: 10px !important;
     }
 }
+
+@media only screen and (max-width : 1166px) {
+
+    .topboxdata {
+        margin-left: 16px;
+    }
+}
+
+@media only screen and (max-width : 1167px) {
+
+    .topboxdata {
+        margin-left: 16px;
+    }
+}
+
+@media only screen and (max-width : 1660px) and (min-width : 758px) {
+
+   .mypp {
+        display: flex;
+        margin-left: 157px
+        ;
+
+    }
+}
+@media only screen and (max-width : 1160px) and (min-width : 770px) {
+
+    .mypp {
+         display: flex;
+         margin-left: 43px
+         ;
+
+     }
+ }
+
+@media only screen and (max-width : 1156px) and (min-width : 770px){
+
+    img.img-responsive.sss {
+        margin-top: 32px
+    ;
+    }
+ }
+ @media only screen and (max-width : 1158px)and (min-width : 770px) {
+
+    img.img-responsive.sss {
+        margin-top: 32px
+    ;
+    }
+ }
