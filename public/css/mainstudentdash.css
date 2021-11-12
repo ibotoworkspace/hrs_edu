@@ -208,10 +208,11 @@ ul.nav.navbar-nav.side-nav.mysidemenu {
     margin-top: 2px;
 }
 button.btn.btn-primary.mypayment {
-    padding-right: 38px;
+    padding-right: 14px;
     background: #243439 !important;
     border-color: #243439 !important;
-    padding-left: 16px;
+    padding-left: 14px;
+
 }
 div#generals {
     margin-bottom: 20px;
@@ -657,4 +658,104 @@ p.smallright {
     border: none;
     background: #fff;
     border-bottom: 1px solid;
+}
+
+@media only screen and (max-width : 765px) {
+
+    .topboxdata.smalltop {
+        margin-left: 16px;
+    }
+
+}
+@media only screen and (max-width : 907px) {
+
+    .topboxdata.smalltop {
+        margin-left: 16px;
+    }
+}
+@media only screen and (max-width : 913px) {
+
+    .topboxdata.smalltop {
+        margin-left: 16px;
+    }
+}
+@media only screen and (max-width : 992px) {
+
+    .topheader {
+        display: none;
+    }
+}
+@media only screen and (max-width : 639px) {
+
+    .recentboxdata h4 {
+
+        /* padding-top: 6px; */
+    }
+}
+@media only screen and (max-width : 1060px)  and (min-width : 554px){
+
+
+
+}
+@media only screen and (max-width : 768px)  {
+
+.hideBtn{
+    display: none;
+}
+.cardText{
+    font-size: 13px;
+}
+h3.cardText {
+    font-size: 13px;
+}
+
+}
+
+@media only screen and (max-width : 400px)  {
+     .smBtn{
+        padding-right: 14px;
+
+        background: #243439 !important;
+        border-color: #243439 !important;
+        padding-left: 14px;
+        font-size: 7px;
+    }
+    button.btn.btn-primary.mypayment {
+        padding-right: 14px;
+        background: #243439 !important;
+        border-color: #243439 !important;
+        padding-left: 14px;
+        font-size: 7px;
+
+    }
+    .smTh{
+        font-size: 10px;
+      }
+    .footerH{
+        font-size: 20px;
+    }
+    .footerP{
+        font-size: 10px;
+    }
+}
+@media only screen and (max-width : 350px)  {
+     .smBtn{
+        padding-right: 5px;
+
+        background: #243439 !important;
+        border-color: #243439 !important;
+        padding-left: 5px;
+        font-size: 5px;
+    }
+    button.btn.btn-primary.mypayment {
+        padding-right: 5px;
+        background: #243439 !important;
+        border-color: #243439 !important;
+        padding-left: 5px;
+        font-size: 5px;
+
+    }
+    .smTh{
+      font-size: 10px;
+    }
 }

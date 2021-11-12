@@ -446,8 +446,10 @@
 
 
 
-
+<div class="main">
     @yield('default')
+</div>
+
 
     <footer id="myFooter">
 

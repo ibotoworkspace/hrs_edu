@@ -207,7 +207,7 @@ input#GnTPhone {
                           <span class="icon-bar"></span>
                         </button>
                         <a class="navbar-brand" href="#">
-                            <img src="{{ asset('images/logo.png') }}" class="img-responsive">
+                            <img src="{{ asset('images/logo.png') }}" class="img-responsive sss">
                         </a>
                       </div>
                       <?php
@@ -303,7 +303,7 @@ input#GnTPhone {
                         @else
 
                                      <div class="crbtngroup row">
-                                        <div class="col-sm-6">
+                                        <div class="col-sm-6 mypp">
 
                                             <a href="{{ asset('login') }}"><button type="button" class="btn btn-primary portal">Login
                                                 Account</button></a>

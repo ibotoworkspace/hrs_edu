@@ -2,6 +2,9 @@
 
 <link href="{{ asset('css/profile.css') }}" rel="stylesheet">
 <link href="{{ asset('css/mainstudentdash.css') }}" rel="stylesheet">
+{{-- <link href="{{ asset('css/index.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/home.css') }}" rel="stylesheet"> --}}
+
 
 <?php
 $student_common = session()->get('student_common');
