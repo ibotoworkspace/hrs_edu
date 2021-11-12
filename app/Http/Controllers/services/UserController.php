@@ -86,6 +86,7 @@ class UserController extends Controller
 
                 $authUser = Auth::attempt([
                     'email' => $request->email,
+                    'role_id' => 2,
                     'password' => $request->password
                 ]);
 
