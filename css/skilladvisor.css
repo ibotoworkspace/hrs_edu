@@ -1,0 +1,86 @@
+.advisordata h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #bfb28e;
+    font-weight: 600;
+    margin-top: 25px;
+}
+/* .advisortop {
+    padding: 10px 0px;
+    background: white;
+} */
+.skillformarea {
+    background: #243439;
+    padding: 50px 0px;
+}
+.col-sm-6.modalform .mpdalpad {
+    background: transparent;
+    border-radius: 0px;
+    height: 50px;
+    width: 100%;
+    color: white;
+    border: none;
+    border-color:white;
+    border-bottom: 2px solid;
+}
+.mpdalpad {
+    margin-bottom: 25px;
+}
+.modalclick {
+    background: #bfb28e !important;
+    border-color: #bfb28e !important;
+    color: white !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    padding: 2px 15px !important;
+    padding-top: 9px !important;
+    height: 45px !important;
+    margin-top: 15px !important;
+}
+.modalclick:hover {
+    background: white;
+    border-color: white;
+    color: black;
+}
+label.checktext {
+    font-size: 18px;
+    color: #ffffff;
+    margin: 5px 10px;
+}
+.checkarea input[type=checkbox] {
+    margin: 4px 0 0;
+    margin-top: 1px\9;
+    line-height: normal;
+    padding: 10px;
+    -ms-transform: scale(2);
+    -moz-transform: scale(2);
+    -webkit-transform: scale(2);
+    -o-transform: scale(2);
+    padding: 10px;
+}
+.formtext h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #bfb28e;
+}
+.formtext p {
+    font-size: 20px;
+    font-weight: 700;
+    color: #bfb28e;
+}
+.checkarea {
+    margin-top: 20px;
+}
+.modalimg img {
+    margin: 0 auto;
+}
+.modalimgdata p {
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    margin-top: 20px;
+}
+.modal-body {
+    background: #243439;
+    padding: 40px 0px;
+}
