@@ -1,0 +1,113 @@
+.coursesareahead h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #bfb28e;
+    font-weight: 600;
+    margin-top: 25px;
+}
+.coursesarea {
+    padding: 10px 0px;
+    background: white;
+}
+.coursesback {
+    background: #243439;
+    padding: 50px 0px;
+}
+.coursesboximg img {
+    margin: 0 auto;
+}
+.coursesboxdata h3 {
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    color: #bfb28e;
+    border-bottom: 3px solid;
+    margin-bottom: 18px;
+}
+.coursesboxdata p {
+    text-align: center;
+    font-size: 20;
+    font-weight: 600;
+    color: white;
+}
+.coursesboxdata p {
+    text-align: center;
+    color: #525252;
+    font-size: 19px;
+    /* min-height: 230px;
+    margin-top: 25px; */
+}
+.coursesbox {
+    background: white;
+    padding: 20px 30px;
+}
+.row.onerow {
+    margin-top: 25px;
+}
+.coursesboxclick {
+    text-align: center;
+}
+.readarea {
+    font-size: 17px !important;
+    font-weight: 500 !important;
+    background: #bfb28e !important;
+    border-color: #bfb28e !important;
+    height: 40px !important;
+    padding: 10px 15px !important;
+    border-radius: 6px !important;
+}
+.max-lines {
+    /* display: block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* word-wrap: break-word; */
+    /* overflow: hidden;
+    max-height: 15.5em;
+    line-height: 1.5em;
+    max-width: 300px;
+    margin: auto; */ 
+    overflow: hidden; 
+    white-space: normal; 
+    margin-bottom: 20px;
+      
+    /* Exactly 2 lines are displayed.  
+        Height of 1 line is 1.2em*/ 
+        height: 7.4em;  
+    text-overflow: -o-ellipsis-lastline; 
+  }
+  .mCARD{
+    background-color: aliceblue;
+    max-width: 33.333333333333333%;
+    margin-bottom: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 410px;
+    padding-bottom: 20px;
+
+  }
+  .cardimg{
+    max-width: 250px;
+    max-height: 150px;
+    min-width: 40px;
+    min-height: 156px;
+    
+  }
+  .cardinner{
+      margin-bottom: 30px;
+      margin-right: 10px;
+  }
+  .max-lines p{
+      text-align: center;
+  }
+
+
+
+@media only screen and (max-width : 768px) {
+.mobolecard{
+    max-width: 100%;
+}
+}   
+ 

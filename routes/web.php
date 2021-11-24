@@ -411,5 +411,5 @@ Route::group(['middleware' => 'skilladvisor_auth', 'prefix' => 'skilladvisor'], 
     Route::get('/course', 'SkillAdvisor\CourseController@index');
     Route::get('/logout', 'SkillAdvisor\DashboardController@logout');
 });
-
+Route::get('/', 'User\UserController@home')->name('user.home');
 //                              *********************** SKILL ADVISOR ROUTE END *****************

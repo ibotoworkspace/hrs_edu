@@ -1,0 +1,73 @@
+.leastfooter {
+    background: #172022;
+    color: white;
+    padding: 15px 5px;
+}
+.copydata p {
+    font-size: 18px;
+    padding: 15px 0px;
+    margin-bottom: -10px;
+    margin-top: -5px;
+}
+.socilaicon img {
+    margin: 0px 5px;
+}
+.first h4 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #bfb28e;
+    border-bottom: 1px solid;
+    width: 50%;
+}
+
+.socilaicon {
+    display: flex;
+}
+.second h4 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #bfb28e;
+    border-bottom: 1px solid;
+    width: 50%;
+}
+.third h4 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #bfb28e;
+    border-bottom: 1px solid;
+    width: 90%;
+}
+.fourth h4 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #bfb28e;
+    border-bottom: 1px solid;
+    width: 80%;
+}
+.companyarea li {
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+}
+.copydata a {
+    color: #bfb28e;
+}
+.companyarea img {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.companyarea ul li:before {
+    content: "\f138";
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: 'FontAwesome';
+    padding-right: 10px;
+    left: 0;
+}
+.companyarea ul {
+    list-style: none;
+    padding: 0px;
+}

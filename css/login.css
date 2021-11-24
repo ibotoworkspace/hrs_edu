@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Manjari:wght@100;400;700&display=swap');
+body,html {
+	font-size: 15px;
+    line-height: 1.4666666667;
+    color: #000;
+    font-family: 'Manjari', sans-serif;
+}
+h1,h2,h3,h4{
+	font-family: 'Manjari', sans-serif;
+}
+/* .btn-primary {
+
+
+    color: #fff;
+    background-color: #ca0000;
+    border-color: #ca0000;
+} */
+.btn-primary:hover {
+    color: #fff;
+    background-color: #2d2c32;
+    border-color: #2d2c32;
+}
+.loginheaddata h2 {
+    text-align: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: #bfb28e;
+    margin-top: 31px;
+}
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
+}
+.formarea {
+    background: #243439;
+    padding: 30px 0px;
+}
+.formareadata h3 {
+    color: #bfb28e;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 32px;
+}
+.acount {
+    background: #bfb28e;
+    color: black;
+    border-color: #bfb28e;
+    padding: 8px 10px;
+    font-size: 20px;
+    height: 44px;
+    font-weight: 400;
+}
+.acount:hover {
+    background: white;
+    color: black;
+    border-color: white;
+}
+.formclick h4 {
+    color: white;
+    text-decoration: underline;
+    margin-top: 15px;
+    font-size: 20px;
+}
+.acount {
+    background: #bfb28e !important;
+    color: black !important;
+    border-color: #bfb28e !important;
+    padding: 8px 10px !important;
+    font-size: 20px !important;
+    height: 44px !important;
+    font-weight: 400 !important;
+}
+.formclick {
+    margin-top: 30px;
+}
+.formareadata {
+    margin-top: 50px;
+}
+.email {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 41px;
+}
+.reformbox {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 40px;
+}
+
+input.form-control.reformbox {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid;
+    border-bottom-color: white;
+    border-radius: 0px;
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width : 768px) {
+
+   
+}

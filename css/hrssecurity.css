@@ -1,0 +1,73 @@
+.hrssecurityheading h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #bfb28e;
+    font-weight: 600;
+    margin-top: 25px;
+}
+.hrssecurityarea {
+    padding: 10px 0px;
+    background: white;
+}
+.hrsclicks {
+    font-size: 19px;
+    padding: 7px 0px;
+    width: 178px;
+    color: white;
+    height: 40px;
+    background: #bfb28e;
+    border-color: #bfb28e;
+}
+
+button.btn.btn-primary.hrsclicks {
+    background-color: #bfb28e;
+}
+.courseoverviewclick {
+    margin-top: 20px;
+    text-align: left;
+}
+.hrssecuritybackdata p {
+    font-size: 22px;
+    color: white;
+    line-height: 35px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+.hrssecuritybackdata ul li:before {
+    content: "\f138";
+    color: #fff;
+    font-size: 22px;
+    font-weight: 400;
+    font-family: 'FontAwesome';
+    padding-right: 10px;
+    line-height: 35px;
+    left: 0;
+}
+.hrssecuritybackdata li {
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 26px;
+    text-align: left;
+}
+.hrssecuritybackdata ul {
+    list-style: none;
+    padding: 0px;
+}
+.hrssecurityback {
+    background: #243439;
+    padding: 50px 0px;
+}
+.hrssecuritybackdata h3 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #bfb28e;
+    border-bottom: 2px solid;
+    width: 100%;
+}
+.hrsofficebackdata h4 {
+    font-size: 25px;
+    font-weight: 500;
+    color: #bfb28e;
+    margin-top: 22px;
+}
