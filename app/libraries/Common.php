@@ -28,7 +28,7 @@ trait Common
         $imgPath = public_path() . '/public/images/' . $type;
         $image->move($imgPath, $name);
         $remove_index = str_replace("index.php", "", $root);
-        return $remove_index . '/images/' . $type . '/' . $name;
+        return $remove_index . '/public/images/' . $type . '/' . $name;
     }
     function get_embeddedyoutube_url($url) {
         return preg_replace(
