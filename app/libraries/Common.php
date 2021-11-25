@@ -24,7 +24,8 @@ trait Common
         $uniqid = time();
         $extension = mb_strtolower($image->getClientOriginalExtension());
         $name = $uniqid . $image_name . '.' . $extension;//.$image->getClientOriginalName();
-        $imgPath = public_path() . '/images/' . $type;
+        // $imgPath = public_path() . '/images/' . $type;
+        $imgPath = public_path() . '/public/images/' . $type;
         $image->move($imgPath, $name);
         $remove_index = str_replace("index.php", "", $root);
         return $remove_index . '/images/' . $type . '/' . $name;
@@ -37,9 +38,9 @@ trait Common
         );
 
     //  "<iframe width=\"420\" height=\"315\" src=\"//www.youtube.com/embed/$2\" allowfullscreen></iframe>",
-       
+
     }
-    
+
 
         public function sort_asc_array($arr,$column){
             usort($arr, function ($a, $b) use ($column) {
