@@ -25,10 +25,13 @@ trait Common
         $extension = mb_strtolower($image->getClientOriginalExtension());
         $name = $uniqid . $image_name . '.' . $extension;//.$image->getClientOriginalName();
         // $imgPath = public_path() . '/images/' . $type;
-        $imgPath = public_path() . '/public/images/' . $type;
+        $imgPath = public_path() . '/images/' . $type;
+
         $image->move($imgPath, $name);
         $remove_index = str_replace("index.php", "", $root);
-        return $remove_index . '/public/images/' . $type . '/' . $name;
+        $saved_path = $remove_index . '/images/' . $type . '/' . $name;
+        // dd('imgPath: '.$imgPath,'savedPath: '.$saved_path);
+        return $saved_path;
     }
     function get_embeddedyoutube_url($url) {
         return preg_replace(
