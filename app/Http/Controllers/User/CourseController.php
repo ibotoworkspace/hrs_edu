@@ -34,6 +34,6 @@ class CourseController extends Controller
         $register_course->save();
 
         return redirect('student/dashboard') ;
-        
+
     }
 }

@@ -18,7 +18,7 @@
 
 
                     <label class="emaillss" >Enter Email</label>
-                    <input type="email"  required   class="form-control myyyyema" name="email" />
+                    <input type="email"  required   class="form-control myyyyema" style="color: black;" name="email" />
 
 
 
