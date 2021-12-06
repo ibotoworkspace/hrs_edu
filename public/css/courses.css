@@ -65,19 +65,19 @@
     max-height: 15.5em;
     line-height: 1.5em;
     max-width: 300px;
-    margin: auto; */ 
-    overflow: hidden; 
-    white-space: normal; 
+    margin: auto; */
+    overflow: hidden;
+    white-space: normal;
     margin-bottom: 20px;
-      
-    /* Exactly 2 lines are displayed.  
-        Height of 1 line is 1.2em*/ 
-        height: 7.4em;  
-    text-overflow: -o-ellipsis-lastline; 
+
+    /* Exactly 2 lines are displayed.
+        Height of 1 line is 1.2em*/
+        height: 7.4em;
+    text-overflow: -o-ellipsis-lastline;
   }
   .mCARD{
     background-color: aliceblue;
-    max-width: 33.333333333333333%;
+    max-width: fit-content;
     margin-bottom: 30px;
     text-align: center;
     justify-content: center;
@@ -93,7 +93,7 @@
     max-height: 150px;
     min-width: 40px;
     min-height: 156px;
-    
+
   }
   .cardinner{
       margin-bottom: 30px;
@@ -109,5 +109,4 @@
 .mobolecard{
     max-width: 100%;
 }
-}   
- 
+}

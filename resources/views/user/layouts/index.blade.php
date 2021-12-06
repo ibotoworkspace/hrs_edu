@@ -235,7 +235,8 @@ input#GnTPhone {
                           <li class="dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown"  href="#">
                                 <span class="headpader"> Resource</span>
-                            <ul class="dropdown-menu">
+                            <ul class="dropdown-menu ppp" style="font-family: ui-rounded;
+                            font-size: 19px;background-color: lightgrey;">
                               {{-- <li><a href="#">Page 1-1</a></li>
                               <li><a href="#">Page 1-2</a></li>
                               <li><a href="#">Page 1-3</a></li> --}}
@@ -266,14 +267,14 @@ input#GnTPhone {
                             aria-expanded="false"
                                style="color: #fff; flex: 1" href="{{ asset('user/home') }}">Partners</a>
                                <ul class="dropdown-menu my">
-                                <li><a href="{{ url('https://hatinco.com/') }}" class="myblogarea">Hatinco </a></li>
+                                <li><a href="{{ url('https://hatinco.com/') }}" target="_blank" class="myblogarea">Hatinco </a></li>
 
 
 
                                 <li>
                                     <a style="flex: 1;"
                                   href="https://www.comptia.org/"
-                                  style="margin-left: 100px">CompTIA
+                                  style="margin-left: 100px" target="_blank">CompTIA
 
                               </a>
                               </li>
@@ -283,7 +284,7 @@ input#GnTPhone {
 
 
                                 <li>
-                                    <a style="color: rgb(43, 30, 30); flex: 1" href="https://w3.testout.com/">TestOut</a>
+                                    <a style="color: rgb(43, 30, 30); flex: 1" href="https://w3.testout.com/" target="_blank">TestOut</a>
                                   </li>
 
 

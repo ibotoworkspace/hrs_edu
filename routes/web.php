@@ -325,6 +325,8 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::post('/checkcode', 'Student\LibraryController@verifyCode')->name('checkcode');
 
     Route::get('/library', 'Student\LibraryController@index')->name('library');
+    Route::post('/search_course_library',  'Student\LibraryController@search_course_library')->name('course.library');
+
     Route::post('/downloadpdf', 'Student\LibraryController@downloadRequest')->name('downloadpdf');
 
     Route::post('/applypromocode', 'Student\PaymentController@applyPromocode')->name('applypromocode');

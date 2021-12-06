@@ -26,35 +26,12 @@
     <div class="coursesback">
         <div class="container">
 
-            <!-- <div class="row">
-                    @foreach ($courses as $course)
 
-
-                        <div class="col-sm-4">
-                            <div class="coursesbox">
-                                <div class="coursesboximg">
-                                    <img src="{{ $course->avatar }}" class="img-responsive">
-                                </div>
-                                <div class="coursesboxdata">
-                                   <h3>HRS {{ $course->title }}</h3>
-                                    <div class="max-lines">{!! $course->overview !!}
-                                    </div>
-                                </div> 
-                                <div class="coursesboxclick">
-                                    <a href="{{ asset('user/coursedetail?course_id=' . $course->id) }}">
-                                    <button type="button" class="btn btn-primary readarea">READ MORE</button></a>
-                                </div>
-                            </div>
-                        </div>
-
-                    @endforeach
-
-                </div> -->
             <div class="row">
                 @foreach ($courses as $course)
 
                 <div class="col-sm-4 col-xs-12">
-                    <div class="container">
+
                         <div class="mCARD mobolecard">
                             <img src="{{ $course->avatar }}" class="cardimg">
                             <h3>HRS {{ $course->title }}</h3>
@@ -67,7 +44,7 @@
                                 </a>
                                 <!-- <button type="button" class=""></button> -->
                             </div>
-                        </div>
+
                     </div>
                 </div>
                 @endforeach

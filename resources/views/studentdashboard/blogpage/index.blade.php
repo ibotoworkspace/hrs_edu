@@ -22,14 +22,14 @@
         </title>
         <div class="serchsite">
             <div class="container-fluid">
-                <div class="row serchbox">
+                {{-- <div class="row serchbox">
                     <div class="col-sm-12">
                         <div class="serchsitedata">
                             <input type="text" class="form-control shdata" id="exampleFormControlInput1"
                                 placeholder="Serch here...">
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <div class="row blogrow">
                     <div class="col-sm-12">

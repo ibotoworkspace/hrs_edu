@@ -15,12 +15,25 @@
             <div class="serchsite">
                 <div class="container-fluid">
                     <div class="row serchbox">
-                        <div class="col-sm-12">
+                        <form method="post" action="{{ url('student/search_course_library') }}">
+                            {{ csrf_field() }}
+
+                        <div class="col-sm-8">
                             <div class="serchsitedata">
                                 <input type="text" class="form-control shdata" id="exampleFormControlInput1"
-                                    placeholder="Serch here...">
+                                    placeholder="Serch here..." name="search_text" value="{{$search_text ?? ''}}">
+
+
                             </div>
                         </div>
+                        <div class="col-sm-4">
+
+
+                        <button type="submit" class="btn btn-primary applynowoo">Search Here</button>
+
+
+                        </div>
+                        </form>
                     </div>
 
 
