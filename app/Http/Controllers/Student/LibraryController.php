@@ -23,6 +23,16 @@ class LibraryController extends Controller
 
         return view('studentdashboard.ebooks.index', compact('course_pdf'));
     }
+    public function search_course_library(Request $request)
+    {
+        // dd($request->all());
+       $search_text = $request->search_text;
+
+        $course_pdf = Ebooks::where('name','like','%'.$search_text.'%')->paginate(10);
+
+        return view('studentdashboard.ebooks.index', compact('course_pdf','search_text'));
+    }
+
 
     // route downloadpdf
     public function downloadRequest(Request $request)
