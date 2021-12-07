@@ -58,7 +58,7 @@
     </div>
 </div>
 <?php
-$avatar = '';
+$avatar = asset('images/learning.jpg');
 if(isset($blog)){
 if($blog->avatar){
 
@@ -114,7 +114,7 @@ if($blog->avatar){
             </div>
             <div class="col-sm-6">
 
-                {!! Form::file('avatar', ['class' => 'choose-image', 'id' => 'avatar']) !!}
+                {!! Form::file('avatar', ['class' => 'choose-image', 'id' => 'avatar', 'required' ]) !!}
                 <p class="help-block" id="error">Limit 2MB</p>
             </div>
             </div>
