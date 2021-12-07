@@ -40,11 +40,27 @@
                 <div class="blogbackages">
 
                     @foreach ($blogpage as $key=> $b)
+<?php
+$avatar = asset('images/learning.jpg');
+if(isset($b)){
+if($b->avatar){
+
+    $avatar = $b->avatar;
+
+}
+
+
+}
+
+
+
+
+?>
                     @if($key%2 == 0)
                     <div class="row pararowUU">
                         <div class="col-sm-6">
                             <div class="blogdataimgop">
-                                <img src="{{$b->avatar}}" class="img-responsive">
+                                <img src="{{$avatar}}" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -64,7 +80,7 @@
                     <div class="row pararowUUwhite">
                         <div class="col-sm-6">
                             <div class="blogdataimgop">
-                                <img src="{{$b->avatar}}" class="img-responsive">
+                                <img src="{{$avatar}}" class="img-responsive">
                             </div>
                         </div>
                         <div class="col-sm-6">
