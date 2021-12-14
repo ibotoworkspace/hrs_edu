@@ -93,7 +93,7 @@
                                         placeholder="Enter email" name="email" required>
                                 </div>
                                 <div class="form-group paddown">
-                                    <input type="number" class="form-control myformdata" id="GnTPhone"
+                                    <input type="text" class="form-control myformdata" id="GnTPhone"
                                         placeholder="Enter Phone" name="phone_no">
                                 </div>
                                 <div class="form-group paddown">

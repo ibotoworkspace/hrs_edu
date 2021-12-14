@@ -9,10 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class TicketController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $search_text = $request->search_text;
         $student_id = Auth::id();
-        $user_ticket = Ticket::where('user_id',$student_id)->paginate(10);
+        $user_ticket = Ticket::where('user_id',$student_id)->where('subject','like','%'.$search_text.'%')->paginate(10);
         return view('studentdashboard.ticket.index',compact('user_ticket'));
     }
 

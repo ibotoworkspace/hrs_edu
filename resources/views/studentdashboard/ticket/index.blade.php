@@ -24,12 +24,26 @@
             <div class="serchsite">
                 <div class="container-fluid">
                     <div class="row serchbox">
-                        <div class="col-sm-12">
+
+                        <form method="post" action="{{ url('student/ticket_search') }}">
+                            {{ csrf_field() }}
+
+                        <div class="col-sm-8">
                             <div class="serchsitedata">
                                 <input type="text" class="form-control shdata" id="exampleFormControlInput1"
-                                    placeholder="Serch here...">
+                                    placeholder="Serch here..." name="search_text" value="{{$user_ticket ?? ''}}">
+
+
                             </div>
                         </div>
+                        <div class="col-sm-4">
+
+
+                        <button type="submit" class="btn btn-primary applynowoo">Search Here</button>
+
+
+                        </div>
+                        </form>
                     </div>
 
                     <div class="row subrow">
