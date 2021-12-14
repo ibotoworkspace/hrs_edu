@@ -122,7 +122,7 @@
                                         View</span></a> --}}
                                 {{-- @include('studentdashboard.ebooks.partial.pdf_modal',['video'=>$c_pdf]) --}}
 
-                                <a href="{!!$c_pdf->book_url!!}"  target="_blank">
+                                <a href="{!!$c_pdf->book_url!!}#toolbar=0"  target="_blank">
                                     <span  class="btn btn-primary for">
                                         View</span></a>
                             </div>
