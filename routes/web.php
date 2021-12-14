@@ -347,6 +347,7 @@ Route::group(['middleware' => 'student_auth', 'prefix' => 'student'], function (
     Route::get('/viewticket', 'Student\ViewTicketController@index')->name('student.viewticket');
     Route::get('/dashboard', 'Student\StudentController@dashboard')->name('student.dashboard');
     Route::get('/ticket', 'Student\TicketController@index')->name('student.ticket');
+    Route::post('/ticket_search', 'Student\TicketController@index')->name('student.ticket');
 
     Route::match(['get', 'post'], 'ticket/add', 'Student\TicketController@add_ticket')->name('add.ticket');
 

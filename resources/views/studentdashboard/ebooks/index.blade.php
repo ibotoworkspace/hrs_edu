@@ -117,11 +117,23 @@
                             </div>
                             <div class="col-sm-3">
                                 {{-- <button type="submit" class="btn btn-primary for">View</button> --}}
-                                <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!!  $c_pdf->id !!}">
+                                {{-- <a href="" data-toggle="modal" name="activate_delete" data-target=".detail_{!!  $c_pdf->id !!}">
+                                    <span  class="btn btn-primary for">
+                                        View</span></a> --}}
+                                {{-- @include('studentdashboard.ebooks.partial.pdf_modal',['video'=>$c_pdf]) --}}
+
+                                <a href="{!!$c_pdf->book_url!!}"  target="_blank">
                                     <span  class="btn btn-primary for">
                                         View</span></a>
-                                @include('studentdashboard.ebooks.partial.pdf_modal',['video'=>$c_pdf])
                             </div>
+
+                            {{-- <li>
+                                <a style="flex: 1;"
+                              href="https://www.comptia.org/"
+                              style="margin-left: 100px" target="_blank">CompTIA
+
+                          </a>
+                          </li> --}}
 
                             {{-- <div class="col-sm-4">
                                 @if (isset($c_pdf->requestCourse->can_download) && $c_pdf->requestCourse->can_download == 0)

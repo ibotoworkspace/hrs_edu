@@ -9,14 +9,14 @@ class ViewTicketController extends Controller
 {
     function index()
     {
-      
- 
-        // $blogpage = BlogPage::paginate(10);
-       
-        return view('studentdashboard.viewticket.index');
-    
 
-        
+
+        // $blogpage = BlogPage::paginate(10);
+
+        return view('studentdashboard.viewticket.index');
+
+
+
 }
 
 
