@@ -71,16 +71,7 @@ class LecturerController extends Controller
 
 
     public function add_or_update($request, $lecturer, $user)
-
-
     {
-// dd($request->all());
-        // $validate = $this->validate($request, [
-        //     'email' => 'required|email|unique:users',
-
-        // ]);
-
-
 
 
     $validator =  $this->validate($request, [

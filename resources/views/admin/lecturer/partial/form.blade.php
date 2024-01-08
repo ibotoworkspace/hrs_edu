@@ -61,7 +61,7 @@
 <div class="form-group">
     <div class="col-sm-4">
         <div class="maincourse">
-    {!! Form::label('userpassword','Pharmacy Password') !!}
+    {!! Form::label('userpassword','Password') !!}
         </div>
     </div>
         </div>
