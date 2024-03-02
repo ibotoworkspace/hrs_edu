@@ -86,6 +86,7 @@
               charities. The primary areas that HRS focuses on are community, unemployed, Children, Education and Ex. Services.
               The program also focuses on providing opportunities to underserved communities by giving free resources through
               our library partnership program.</p>
+              <p>This is just a brief of <b>who we are</b></p>
           </div>
         </div>
       </div>
