@@ -415,4 +415,9 @@ Route::group(['middleware' => 'skilladvisor_auth', 'prefix' => 'skilladvisor'], 
     Route::get('/logout', 'SkillAdvisor\DashboardController@logout');
 });
 Route::get('/', 'User\UserController@home')->name('user.home');
+
+// ROUTE FOR CONFERENCE
+Route::get('/cybersecurity_conference', 'ConferenceRegistrationController@index')->name('cybersecurity_conference');
+Route::post('/register_conference', 'ConferenceRegistrationController@store')->name('register_conference');
+
 //                              *********************** SKILL ADVISOR ROUTE END *****************
