@@ -8,7 +8,7 @@ class ConferenceRegistrationController extends Controller
 {
     public function index()
     {
-        return view('conference.cybersecurity');
+        return view('user.conference.cybersecurity');
     }
 
     public function store(Request $request)
