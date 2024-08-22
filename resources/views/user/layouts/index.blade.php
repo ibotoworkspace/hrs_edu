@@ -11,9 +11,6 @@
     <link href="{{ asset('css/index.css') }}" rel="stylesheet">
     <link href="{{ asset('css/home.css') }}" rel="stylesheet">
 
-
-
-
     <style>
         .newsarea {
             background-image: url(images/newsletter.jpg);
