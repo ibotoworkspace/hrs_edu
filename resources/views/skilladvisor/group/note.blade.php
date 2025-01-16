@@ -23,7 +23,7 @@
             </title>
             <div class="serchsite">
                 <div class="container-fluid">
-                   
+
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success alert-block">
                             <button type="button" class="close" data-dismiss="alert">×</button>
@@ -31,7 +31,7 @@
                         </div>
                     @endif
                     <div class="row subrow">
-                        <div class="col-sm-12"> 
+                        <div class="col-sm-12">
                             <h3>{{$group->name}} Notes</h3>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
 
     </div>
 
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
 
 
 @endsection

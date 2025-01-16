@@ -103,7 +103,7 @@
 </div>
 
 @section('app_jquery')
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
     <!-- jQuery library -->
     {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> --}}
 

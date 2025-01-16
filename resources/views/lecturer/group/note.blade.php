@@ -60,7 +60,7 @@
                                 <button type="submit" class="btn btn-primary">Save</button>
                             </div>
                         </div>
-                        
+
                     </form>
                 </div>
             </div>
@@ -68,7 +68,7 @@
 
     </div>
 
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
     <script type="text/javascript">
         CKEDITOR.replace('notes', {
             width: '100%',

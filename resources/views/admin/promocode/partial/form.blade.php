@@ -27,16 +27,16 @@
     </div> --}}
   <div class="form-group">
 
-    
+
 
   <div class="col-sm-6">
- 
+
         <div class="maininput">
             {!! Form::text('title', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Title', 'required', 'maxlength' => '100']) !!}
-    </div> 
+    </div>
         </div>
-    </div> 
-   
+    </div>
+
 
 
 </div>
@@ -49,15 +49,15 @@
             Promo Code Percentage
         </div>
     </div>
-    
+
 
       <div class="col-sm-6">
- 
+
         <div class="maininput">
             {!! Form::number('percentage', null, ['class' => 'form-control',  'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'percentage', 'required', 'maxlength' => '100']) !!}
-    </div> 
+    </div>
         </div>
-   
+
 
 
 
@@ -83,10 +83,10 @@
         </div>
     </div> --}}
          <div class="col-sm-6">
- 
+
         <div class="maininput">
             {!! Form::text('code', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'code', 'required', 'maxlength' => '100']) !!}
-    </div> 
+    </div>
         </div>
 
 
@@ -108,12 +108,12 @@
         </div>
     </div> --}}
 
-    
+
 </div>
 <?php
-     
-//dd($new_date); 
-  
+
+//dd($new_date);
+
     ?>
 
 
@@ -134,15 +134,15 @@
         </div>
     </div> --}}
     {{-- {!!dd($newdate)!!}  $new_date ?? --}}
-    
+
           <div class="col-sm-6">
 
 
- 
+
         <div class="maininput">
          {{-- <div class="maininput"> --}}
             {!! Form::date('validity', $new_date ??'', ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change',  'required', 'maxlength' => '100']) !!}
-    </div> 
+    </div>
         </div>
 
 
@@ -165,10 +165,10 @@
     </div> --}}
 
            <div class="col-sm-6">
- 
+
         <div class="maininput">
             {!! Form::number('used_times', null, ['class' => 'form-control', 'data-parsley-required' => 'true', 'data-parsley-trigger' => 'change', 'placeholder' => 'Enter Use Times', 'required', 'maxlength' => '100']) !!}
-    </div> 
+    </div>
         </div>
 
 
@@ -197,10 +197,10 @@
     </div>
       <div class="col-sm-6">
     <div class="form-check">
-    
+
        <input type="checkbox" name="is_active" {!!$is_active!!} value="1" class="form-check-input">
-       
-       
+
+
     </div>
     </div>
 
@@ -229,6 +229,6 @@
 
     </script>
 
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
 
 @endsection

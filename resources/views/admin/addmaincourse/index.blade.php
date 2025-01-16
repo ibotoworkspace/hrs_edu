@@ -10,9 +10,9 @@ Add Main Course
 
 
 
-             
 
-     
+
+
 <div class="row">
 
    <div class="col-sm-4">
@@ -30,7 +30,7 @@ Add Main Course
 
 
     </div>
-      
+
 
     <div class="row">
 
@@ -51,8 +51,8 @@ Course Duration
     </div>
 
 
- 
-  
+
+
 <div class="row">
 
    <div class="col-sm-4">
@@ -91,7 +91,7 @@ Mobile Upload Image
  </div>
 
 
- 
+
  <div class="row">
 
 <div class="col-sm-4">
@@ -108,7 +108,7 @@ Executable Course Name
 </div>
 
 
- </div> 
+ </div>
 
  <div class="row">
 
@@ -126,7 +126,7 @@ Is Compiler
 </div>
 
 
- </div>  
+ </div>
 
  <div class="row">
 
@@ -139,20 +139,20 @@ Course Description
 
 <div class="col-sm-6">
 <div class="maininput">
-<textarea class="ckeditor form-control"  id="summary-ckeditor" name="summary-ckeditor"></textarea> 
+<textarea class="ckeditor form-control"  id="summary-ckeditor" name="summary-ckeditor"></textarea>
 </div>
 <div class="commonbtn"><button type="button" class="btn btn-primary " id="mycomonbtn">submit</button></div>
 </div>
 
 
- </div>  
+ </div>
 
- 
+
 
 
 @section('app_jquery')
-        
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+
+    <script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
 
         @endsection
 

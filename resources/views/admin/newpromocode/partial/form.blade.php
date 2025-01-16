@@ -10,9 +10,9 @@ Add a New Promo Code
 
 
 
-             
 
-     
+
+
 <div class="row">
 
    <div class="col-sm-4">
@@ -30,7 +30,7 @@ Promo Code Title
 
 
     </div>
-      
+
 
     <div class="row">
 
@@ -51,8 +51,8 @@ Promo Code Percentage
     </div>
 
 
- 
-  
+
+
 <div class="row">
 
    <div class="col-sm-4">
@@ -83,13 +83,13 @@ Description
 
 <div class="col-sm-6">
 <div class="maininput">
-<textarea class="ckeditor form-control"  id="summary-ckeditor" name="summary-ckeditor"></textarea> 
+<textarea class="ckeditor form-control"  id="summary-ckeditor" name="summary-ckeditor"></textarea>
 </div>
 </div>
 </div>
 
 
- 
+
  <div class="row">
 
 <div class="col-sm-4">
@@ -106,7 +106,7 @@ Promo Code Validit
 </div>
 
 
- </div> 
+ </div>
 
  <div class="row">
 
@@ -124,7 +124,7 @@ Promo Code Use Time
 </div>
 
 
- </div>  
+ </div>
 
  <div class="row">
 
@@ -143,14 +143,14 @@ Is Active
 </div>
 
 
- </div>  
+ </div>
 
- 
+
 
 
 @section('app_jquery')
-        
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+
+    <script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
 
         @endsection
 

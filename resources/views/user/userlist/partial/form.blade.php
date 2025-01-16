@@ -1,5 +1,5 @@
 <div class="form-group">
-  
+
     {!! Form::label('title','Title') !!}
     <div>
         {!! Form::text('title', null, ['class' => 'form-control',
@@ -12,7 +12,7 @@
 
 
     <div class="form-group">
-  
+
         {!! Form::label('hours','Hours') !!}
         <div>
             {!! Form::number('hours', null, ['class' => 'form-control',
@@ -26,7 +26,7 @@
 
 
     <div class="form-group">
-  
+
         {!! Form::label('lectures','Lectures') !!}
         <div>
             {!! Form::number('lectures', null, ['class' => 'form-control',
@@ -53,16 +53,16 @@
 
         </div>
         </div> --}}
-    
+
 
           <div class="form-group">
         {!! Form::label('detail','Detail') !!}
         <div>
-            <textarea class="ckeditor form-control"  id="summary-ckeditor" name="detail" ></textarea> 
+            <textarea class="ckeditor form-control"  id="summary-ckeditor" name="detail" ></textarea>
             </div>
           </div>
-        
-            
+
+
 
 
 
@@ -99,21 +99,21 @@ if(isset($courses)){
 
         <div class="form-group col-md-12">
         </div>
-  
+
 
         <div class="form-group">
             {!! Form::label('requirments','Requirments') !!}
             <div>
-                <textarea class="ckeditor form-control"  id="summary-ckeditor" name="requirments" ></textarea> 
+                <textarea class="ckeditor form-control"  id="summary-ckeditor" name="requirments" ></textarea>
                 </div>
               </div>
-{{--      
+{{--
               <div class="form-group">
                 {!! Form::label('downloadurl','Downloadurl') !!}
                 <div>
-  
+
            <input type="file" class="form-control-file" id="exampleFormControlFile1" name="downloadurl">
-         </div> 
+         </div>
               </div> --}}
 
 <?php
@@ -127,19 +127,19 @@ if(isset($courses)){
     }
 }
 ?>
-            
+
                     <div class="form-group">
-            
+
                         <div class="form-group pull-right">
                             <img width="100px" src="{!! $images !!}"class="show-product-img imgshow">
                         </div>
-            
+
                         <div class="form-group">
                             {!! Form::label('images','Image') !!}
                             {!! Form::file('images', ['class' => 'choose-image', 'id'=>'images'] ) !!}
                             <p class="help-block" id="error">Limit 2MB</p>
                         </div>
-            
+
                     </div>
         <!-- <div class="form-group">
     <label for="exampleFormControlFile1">Example file input</label>
@@ -177,10 +177,10 @@ if(isset($courses)){
         return true;
     }
 
-    
+
 
         </script>
 
-<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script src="//cdn.ckeditor.com/4.25.0-lts/standard/ckeditor.js"></script>
 
         @endsection
